@@ -1,0 +1,57 @@
+{
+ "kind": "living-seed.organ-8.verdict",
+ "v": 1,
+ "prereg": "15cd58843c734168",
+ "record": "dff3bd45ecdc1f4b",
+ "verdicts": [
+  {
+   "id": "N1",
+   "kind": "property",
+   "claim": "every real message is admitted by the gate; not one attack is; and once warned, every other node refuses the replayed bytes on sight",
+   "pass": true,
+   "saw": "1259/1259 real messages admitted (608 could not be delivered); 0 of 12 attacks admitted; 5/5 replays at other nodes refused on sight after the warning"
+  },
+  {
+   "id": "N2",
+   "kind": "prediction",
+   "claim": "the mesh answers at least 95% of the tasks; the same nodes alone would answer at most 70%",
+   "pass": true,
+   "saw": "the mesh answered 96.5% of 288 tasks; each node alone would have answered 54.2%"
+  },
+  {
+   "id": "N3",
+   "kind": "prediction",
+   "claim": "routing does not cost quality: the mesh is right on at least as large a share of what it answers as nodes alone are on theirs, less 0.03",
+   "pass": true,
+   "saw": "right on 81.7% of what the mesh answered, against 83.3% of what nodes answered alone"
+  },
+  {
+   "id": "N4",
+   "kind": "prediction",
+   "claim": "gap-sensing grows exactly two specialists — the clinic’s triage organ and the farm’s shop organ — and the noisy node’s request for a shop lesson is refused on its own data; each grown specialist clears the 0.6 gate on its own device’s unseen cases and answers every later task of its domain at home",
+   "pass": true,
+   "saw": "grew clinic:triage, farm:shopper; refused noisy:shopper; farm’s shopper specialist: AUC 0.814989 on its own unseen cases, 10/10 later tasks answered at home, 80% right (routed before: 50% of 4); clinic’s triage specialist: AUC 0.950658 on its own unseen cases, 3/3 later tasks answered at home, 100% right (routed before: 100% of 4)"
+  },
+  {
+   "id": "N5",
+   "kind": "property",
+   "claim": "with two of the six nodes lost, the mesh still answers at least 90% of the tasks",
+   "pass": true,
+   "saw": "with two of six nodes lost from round 12, the mesh still answered 93.6% (before the loss: 100%)"
+  },
+  {
+   "id": "N6",
+   "kind": "property",
+   "claim": "after the partition heals, every live node holds the identical capability map",
+   "pass": true,
+   "saw": "after the partition healed, the capability maps of north, clinic, farm, noisy are identical"
+  },
+  {
+   "id": "N7",
+   "kind": "prediction",
+   "claim": "the links concentrate: in the last 8 rounds, for every domain, at least 70% of routed tasks go to one node — the web has drawn itself from use",
+   "pass": true,
+   "saw": "shopper: 100% of 6 routed tasks to north; triage: 100% of 10 routed tasks to north; water: 100% of 7 routed tasks to north; crop: 100% of 10 routed tasks to north (the last 8 rounds)"
+  }
+ ]
+}

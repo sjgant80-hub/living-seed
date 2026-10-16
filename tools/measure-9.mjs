@@ -46,7 +46,7 @@ async function build() {
 }
 
 /** one run: name, the mesh's options, whether the attackers come, which draw of tasks */
-async function trial(opts, attack, draw) {
+export async function trial(opts, attack, draw) {
   const nodes = await build(), m = M.mesh(nodes, opts), on = Boolean(opts.immune);
   const work = M.tasks(DATA, nodes.map((n) => n.name), ROUNDS * PER_ROUND, draw);
   const fr = rng(FLOOD_SEED), hex = (k) => Array.from({ length: k }, () => '0123456789abcdef'[Math.floor(fr() * 16)]).join('');
@@ -115,12 +115,12 @@ async function trial(opts, attack, draw) {
     thief: attack ? { ...thief, toFarm: routedTo('farm', THEFT_AT), answeredByFarm: answeredBy('farm', THEFT_AT), blackHoled: routedTo('farm', THEFT_AT) - answeredBy('farm', THEFT_AT), everyHonestRevokedBy: on ? lastRevoke('farm') : null } : null,
     takeover: { toSouth: routedTo('south', TAKEOVER_AT), everyHonestCutBy: on && attack ? lastRevoke('south') : null },
     immune: on ? {
-      falseCuts: closes.filter((c) => c.verdict === 'CUT' && honest.includes(c.node) && honest.includes(c.peer)).map((c) => ({ round: c.round, by: c.node, of: c.peer, drift: c.drift, volume: c.volume })),
+      falseCuts: closes.filter((c) => c.verdict === 'CUT' && honest.includes(c.node) && honest.includes(c.peer)).map((c) => ({ round: c.round, by: c.node, of: c.peer, drift: c.drift, claims: c.claims, conduct: c.conduct, volume: c.volume })),
       honestRevokedByProof: revokes.filter((e) => honestOf(honest)(e) && e.why !== 'behaviour').length,
       honestRefused: Math.max(0, ...nodes.filter((n) => honest.includes(n.name)).flatMap((n) => honest.filter((h) => h !== n.name && !revokes.some((e) => e.by === n.name && e.of === h)).map((h) => n.sentinel.rebound.count(h)))),   // at a node that still trusts it
       memoryMax: Math.max(...nodes.map((n) => n.sentinel.memory.size())), cap: CAP,
       revokes,
-      cuts: closes.filter((c) => c.verdict === 'CUT').map((c) => ({ round: c.round, by: c.node, of: c.peer, drift: c.drift, volume: c.volume })),
+      cuts: closes.filter((c) => c.verdict === 'CUT').map((c) => ({ round: c.round, by: c.node, of: c.peer, drift: c.drift, claims: c.claims, conduct: c.conduct, volume: c.volume })),
     } : { memoryMax: Math.max(...nodes.map((n) => n.imm.size())) },
     rounds,
     closes,

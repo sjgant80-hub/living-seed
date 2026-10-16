@@ -301,6 +301,77 @@ test('limits from honest rounds alone: the largest drift and volume they reached
   assert.deepEqual(I.limitsFrom([]), { drift: 0, volume: 1, rounds: 0 });
 });
 
+/* ─── behaviour, by channel (9b) ─── */
+
+const adv = (d, s) => ({ kind: 'advert', body: d + ' ' + s + ' 10' }), job = (d) => ({ kind: 'task', body: 'i ' + d + ' 1' });
+const feed = (w, peer, msgs, r) => { for (const m of msgs) w.observe(peer, m); return w.close(r); };
+
+test('channels: claims and conduct each against their own baseline — jumpy tasks cannot drown a change in claims', () => {
+  assert.deepEqual(I.CHANNELS, ['claims', 'conduct']);
+  assert.equal(I.channelOf({ kind: 'advert' }), 'claims');
+  for (const kind of ['task', 'reply', 'lesson', 'proof']) assert.equal(I.channelOf({ kind }), 'conduct');
+  const busy = [adv('crop', 0.8), adv('water', 0.7), job('crop'), job('crop'), job('crop'), job('crop')];
+  const jumped = [adv('crop', 0.99), adv('water', 0.99), job('crop'), job('crop'), job('crop'), job('crop')];
+  const w = I.channels({ claims: 0.4, conduct: 1, volume: 9 }), one = I.behaviour({ drift: 0.4, volume: 9 });
+  for (let r = 1; r <= 3; r++) {
+    assert.deepEqual(feed(w, 'p', busy, r), [{ round: r, peer: 'p', verdict: 'CALIBRATING', claims: null, conduct: null, volume: null }]);
+    feed(one, 'p', busy, r);
+  }
+  assert.deepEqual(w.state('p'), { rounds: 3, volume: 6, cut: false, claims: { rounds: 3, base: { 'advert crop 0.80': 0.5, 'advert water 0.70': 0.5 } }, conduct: { rounds: 3, base: { 'task crop': 1 } } });
+  assert.deepEqual(feed(one, 'p', jumped, 4).map((c) => [c.verdict, c.drift]), [['ALLOW', 0.333334]], 'one mix: the claims are a third of it (shares kept to six places), under the limit');
+  assert.deepEqual(feed(w, 'p', jumped, 4), [{ round: 4, peer: 'p', verdict: 'CUT', claims: 1, conduct: 0, volume: 1 }], 'by channel: the claims changed completely');
+  assert.equal(w.cut('p'), true);
+  assert.deepEqual(w.state('p').claims.base, { 'advert crop 0.80': 0.5, 'advert water 0.70': 0.5 }, 'a cut round does not teach the baseline');
+  assert.deepEqual(feed(w, 'p', busy, 5), [], 'a cut peer is not judged again');
+  assert.equal(w.cut('q'), false);
+  assert.equal(w.state('q'), null);
+});
+
+test('channels: a channel is judged only once it has its own baseline, and only in a round that carries it', () => {
+  const w = I.channels({ claims: 0.4, conduct: 1, volume: 9 });
+  for (let r = 1; r <= 3; r++) feed(w, 'p', [adv('crop', 0.8), adv('water', 0.7)], r);
+  assert.deepEqual(feed(w, 'p', [adv('crop', 0.8), adv('water', 0.7), job('crop')], 4), [{ round: 4, peer: 'p', verdict: 'ALLOW', claims: 0, conduct: null, volume: 1.333333 }], 'conduct is new: not judged yet');
+  assert.equal(w.state('p').conduct.rounds, 1);
+  assert.equal(w.state('p').volume, 2.25);
+  assert.deepEqual(feed(w, 'p', [job('crop')], 5), [{ round: 5, peer: 'p', verdict: 'ALLOW', claims: null, conduct: null, volume: 0.615385 }], 'no claims this round; volume is judged');
+  assert.deepEqual(w.close(6), [], 'a silent round judges nothing');
+  for (let r = 7; r <= 8; r++) feed(w, 'p', [adv('crop', 0.8), adv('water', 0.7), job('crop')], r);
+  assert.equal(w.state('p').conduct.rounds, 4);
+  assert.deepEqual(feed(w, 'p', [adv('crop', 0.8), adv('water', 0.7)], 9).map((c) => [c.claims, c.conduct]), [[0, null]], 'conduct calibrated, but absent this round');
+  assert.deepEqual(feed(w, 'p', [adv('crop', 0.8), adv('water', 0.7), job('water'), job('water')], 10).map((c) => [c.verdict, c.conduct]), [['ALLOW', 1]], 'conduct changed completely, and its limit is 1: allowed');
+  // claims exactly on the limit are allowed; over it, cut
+  const e = I.channels({ claims: 0.5, conduct: 1, volume: 9 });
+  for (let r = 1; r <= 3; r++) feed(e, 'q', [adv('crop', 0.8)], r);
+  assert.deepEqual(feed(e, 'q', [adv('crop', 0.8), adv('water', 0.7)], 4).map((c) => [c.verdict, c.claims]), [['ALLOW', 0.5]]);
+  assert.deepEqual(feed(e, 'q', [adv('soil', 0.7), adv('sand', 0.7), adv('crop', 0.8)], 5).map((c) => [c.verdict, c.claims]), [['CUT', 0.666667]]);
+  // conduct over its own limit cuts too
+  const c = I.channels({ claims: 1, conduct: 0.5, volume: 9 });
+  for (let r = 1; r <= 3; r++) feed(c, 'q', [adv('crop', 0.8), job('crop')], r);
+  assert.deepEqual(feed(c, 'q', [adv('crop', 0.8), job('water')], 4).map((x) => [x.verdict, x.conduct]), [['CUT', 1]]);
+  // volume: exactly on the limit allowed, over it cut
+  const v = I.channels({ claims: 1, conduct: 1, volume: 2 });
+  for (let r = 1; r <= 3; r++) feed(v, 'q', [adv('crop', 0.8)], r);
+  assert.deepEqual(feed(v, 'q', [adv('crop', 0.8), adv('crop', 0.8), adv('crop', 0.8)], 4).map((x) => [x.verdict, x.volume]), [['ALLOW', 2]]);
+  assert.deepEqual(feed(v, 'q', Array(5).fill(adv('crop', 0.8)), 5).map((x) => [x.verdict, x.volume]), [['CUT', 2.4]]);
+  // peers in a fixed order
+  const two = I.channels({ claims: 1, conduct: 1, volume: 9 });
+  two.observe('zed', adv('crop', 0.8)); two.observe('amy', adv('crop', 0.8));
+  assert.deepEqual(two.close(1).map((x) => x.peer), ['amy', 'zed']);
+});
+
+test('channel limits from honest rounds alone: per channel, the largest judged drift, with margin', () => {
+  const closes = [
+    { verdict: 'CALIBRATING', claims: null, conduct: null, volume: null },
+    { verdict: 'ALLOW', claims: 0.2, conduct: null, volume: 1.5 },
+    { verdict: 'ALLOW', claims: 0.4, conduct: 0.9, volume: 1.2 },
+    { verdict: 'ALLOW', claims: undefined, conduct: '0.95', volume: null },
+  ];
+  assert.deepEqual(I.channelLimitsFrom(closes), { claims: 0.5, conduct: 1, volume: 1.875, rounds: 3 });
+  assert.deepEqual(I.channelLimitsFrom(closes, 2), { claims: 0.8, conduct: 1, volume: 3, rounds: 3 });
+  assert.deepEqual(I.channelLimitsFrom([{ verdict: 'ALLOW', claims: 0.1, conduct: 0.6, volume: 0.5 }]), { claims: 0.125, conduct: 0.75, volume: 1, rounds: 1 });
+  assert.deepEqual(I.channelLimitsFrom([]), { claims: 0, conduct: 0, volume: 1, rounds: 0 });
+});
+
 /* ─── in the mesh ─── */
 
 test('in the mesh: with organ 9 on, honest traffic goes exactly as it does without it', async () => {
@@ -466,4 +537,15 @@ test('in the mesh: a peer whose behaviour departs from its own baseline is cut o
   await m.gossip(6);
   assert.ok(!B.map.has('a|alpha'), 'and not heard again');
   assert.ok(A.map.has('b|alpha'), 'A still hears B: the cut is B’s, not A’s');
+});
+
+test('in the mesh: with channels on, a peer whose claims change is cut, by claims, by the nodes that saw it', async () => {
+  const [A, B, C] = await three(), m = M.mesh([A, B, C], { immune: { ...OPEN, channels: true, limits: { claims: 0.4, conduct: 1, volume: 3 } } });
+  for (let r = 1; r <= 4; r++) { await m.gossip(r); assert.deepEqual(m.watch(r).filter((c) => c.verdict === 'CUT'), []); }
+  A.claims = { alpha: 0.99, beta: 0.99 };
+  await m.gossip(5);
+  const w = m.watch(5);
+  assert.deepEqual(w.filter((c) => c.verdict === 'CUT').map((c) => [c.node, c.peer, c.claims, c.conduct]), [['b', 'a', 1, null], ['c', 'a', 1, null]]);
+  assert.deepEqual(C.sentinel.revoked.get(A.pub), { why: 'behaviour', round: 5 });
+  assert.ok(B.sentinel.watch.state(A.pub).claims, 'the channel watch, not the single mix');
 });

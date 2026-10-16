@@ -62,7 +62,7 @@ export const adverts = (n) => n.org.organs.filter((o) => o.state === 'live').map
 /**
  * A mesh of nodes that trust each other's keys. opts.cut(a, b) → true when a and b cannot reach each other (a partition);
  * opts.learn: 'hebb' (default) | 'ema' | 'evidence'; opts.explore: the chance (0 by default) of routing to another capable node
- * instead of the best, drawn from opts.seed. opts.immune: { cap, law, limits } turns organ 9 on (see immune.mjs).
+ * instead of the best, drawn from opts.seed. opts.immune: { cap, law, limits, channels } turns organ 9 on (see immune.mjs); channels: true watches behaviour by channel (9b).
  * → { nodes, send, gossip, task, log, stats }
  */
 export function mesh(nodes, opts = {}) {
@@ -71,7 +71,7 @@ export function mesh(nodes, opts = {}) {
   const log = [], stats = { sent: 0, admitted: 0, refused: 0, onSight: 0, lost: 0 };
   if (imm) {
     Object.assign(stats, { owed: 0, proofs: 0, badProofs: 0, unshared: 0, revoked: 0 });
-    for (const n of nodes) n.sentinel = { memory: I.memory(imm.cap), rebound: I.rebound(imm.law), ledger: I.ledger(), watch: I.behaviour(imm.limits), trusted: { ...senders }, revoked: new Map() };
+    for (const n of nodes) n.sentinel = { memory: I.memory(imm.cap), rebound: I.rebound(imm.law), ledger: I.ledger(), watch: imm.channels ? I.channels(imm.limits) : I.behaviour(imm.limits), trusted: { ...senders }, revoked: new Map() };
   }
   const reach = (a, b) => a.alive && b.alive && !(opts.cut && opts.cut(a.name, b.name));
   const explore = opts.explore || 0, er = rng(opts.seed || 1);

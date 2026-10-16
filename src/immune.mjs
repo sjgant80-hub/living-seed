@@ -192,6 +192,15 @@ export function drift(window, base) {
 /** CALIBRATE rounds build a peer's baseline before it is judged; RATE is how fast an allowed round folds into it. */
 export const CALIBRATE = 3, RATE = 0.25;
 
+/** Fold a round's token counts into a baseline of shares: the first round is the baseline; later ones move it RATE of
+ *  the way. Tokens the round lacks fade; they are not dropped. */
+function foldMix(base, window, total, rounds) {
+  const next = new Map();
+  for (const k of new Set([...base.keys(), ...window.keys()])) next.set(k, round6(rounds ? (1 - RATE) * (base.get(k) || 0) + RATE * ((window.get(k) || 0) / total) : (window.get(k) || 0) / total));
+  return next;
+}
+const foldVolume = (volume, total, rounds) => round6(rounds ? (1 - RATE) * volume + RATE * total : total);
+
 /**
  * One node's watch over its peers. limits: { drift, volume } — a round whose token mix drifts from the peer's baseline
  * by more than limits.drift, or that carries more than limits.volume times the peer's usual number of messages, cuts
@@ -211,14 +220,7 @@ export function behaviour(limits) {
         const d = drift(s.window, s.base), v = round6(s.rounds ? (s.n + 1) / (s.volume + 1) : 1);
         const verdict = s.rounds < CALIBRATE ? 'CALIBRATING' : d > limits.drift || v > limits.volume ? 'CUT' : 'ALLOW';
         if (verdict === 'CUT') s.cut = true;
-        else {   // fold the round in: the first round is the baseline; later ones move it a quarter of the way
-          const total = s.n, keys = new Set([...s.base.keys(), ...s.window.keys()]);
-          const next = new Map();
-          for (const k of keys) next.set(k, round6(s.rounds ? (1 - RATE) * (s.base.get(k) || 0) + RATE * ((s.window.get(k) || 0) / total) : (s.window.get(k) || 0) / total));
-          s.base = next;
-          s.volume = round6(s.rounds ? (1 - RATE) * s.volume + RATE * total : total);
-          s.rounds++;
-        }
+        else { s.base = foldMix(s.base, s.window, s.n, s.rounds); s.volume = foldVolume(s.volume, s.n, s.rounds); s.rounds++; }
         out.push({ round, peer, verdict, drift: d, volume: v });
         s.window = new Map(); s.n = 0;
       }
@@ -235,4 +237,64 @@ export function limitsFrom(closes, margin = 1.25) {
   const judged = closes.filter((c) => c.verdict !== 'CALIBRATING');
   const top = (k) => judged.reduce((a, c) => Math.max(a, c[k]), 0);
   return { drift: round6(Math.min(1, top('drift') * margin)), volume: round6(Math.max(1, top('volume') * margin)), rounds: judged.length };
+}
+
+/* ─── behaviour, by channel (organ 9b) ─────────────────────────────────────────────────────────────────────── */
+
+/** Gary W. Floyd's signatures are kept per domain of behaviour, each against its own baseline. Here: what a peer CLAIMS
+ *  (its adverts: which organs, how good) and how it otherwise CONDUCTS itself (tasks, replies, lessons, proofs) — so a
+ *  handful of jumpy task counts cannot drown a change in what it says it can do — plus how much it sends. */
+export const CHANNELS = Object.freeze(['claims', 'conduct']);
+export const channelOf = (msg) => (msg.kind === 'advert' ? 'claims' : 'conduct');
+
+/**
+ * One node's watch over its peers, by channel. limits: { claims, conduct, volume }. A channel is judged once it has
+ * CALIBRATE rounds of its own and the round carries some of it; volume once the peer has CALIBRATE rounds. A round
+ * over any limit cuts the peer; only allowed rounds fold in. A channel not judged this round reports null.
+ * → { observe(peer, msg), close(round) → [{ round, peer, verdict, claims, conduct, volume }], cut(peer), state(peer) }
+ */
+export function channels(limits) {
+  const peers = new Map(), fresh = () => ({ base: new Map(), rounds: 0, window: new Map(), n: 0 });
+  const at = (peer) => peers.get(peer) || peers.set(peer, { claims: fresh(), conduct: fresh(), volume: 0, rounds: 0, n: 0, cut: false }).get(peer);
+  return {
+    observe(peer, msg) { const s = at(peer), c = s[channelOf(msg)], t = tokenOf(msg); c.window.set(t, (c.window.get(t) || 0) + 1); c.n++; s.n++; },
+    close(round) {
+      const out = [];
+      for (const peer of [...peers.keys()].sort()) {
+        const s = peers.get(peer);
+        if (s.n && !s.cut) {
+          const row = { round, peer, verdict: 'CALIBRATING' };
+          let over = false;
+          for (const k of CHANNELS) {
+            const c = s[k], judged = c.n > 0 && c.rounds >= CALIBRATE;
+            row[k] = judged ? drift(c.window, c.base) : null;
+            if (judged) row.verdict = 'ALLOW';
+            if (judged && row[k] > limits[k]) over = true;
+          }
+          row.volume = s.rounds >= CALIBRATE ? round6((s.n + 1) / (s.volume + 1)) : null;
+          if (row.volume !== null) row.verdict = 'ALLOW';
+          if (row.volume !== null && row.volume > limits.volume) over = true;
+          if (over) { row.verdict = 'CUT'; s.cut = true; }
+          else {
+            for (const k of CHANNELS) { const c = s[k]; if (c.n) { c.base = foldMix(c.base, c.window, c.n, c.rounds); c.rounds++; } }
+            s.volume = foldVolume(s.volume, s.n, s.rounds); s.rounds++;
+          }
+          out.push(row);
+        }
+        for (const k of CHANNELS) { s[k].window = new Map(); s[k].n = 0; }
+        s.n = 0;
+      }
+      return out;
+    },
+    cut: (peer) => Boolean(peers.get(peer) && peers.get(peer).cut),
+    state: (peer) => { const s = peers.get(peer); return s ? { rounds: s.rounds, volume: s.volume, cut: s.cut, ...Object.fromEntries(CHANNELS.map((k) => [k, { rounds: s[k].rounds, base: Object.fromEntries([...s[k].base].sort()) }])) } : null; },
+  };
+}
+
+/** Channel limits from honest rounds alone: per channel, the largest drift an honest round reached where it was judged,
+ *  with margin (no more than 1 — a channel whose honest rounds reach 1 cannot tell anything apart); volume likewise, no
+ *  less than 1. → { claims, conduct, volume, rounds } */
+export function channelLimitsFrom(closes, margin = 1.25) {
+  const top = (k) => closes.reduce((a, c) => (typeof c[k] === 'number' ? Math.max(a, c[k]) : a), 0);   // null: not judged that round
+  return { claims: round6(Math.min(1, top('claims') * margin)), conduct: round6(Math.min(1, top('conduct') * margin)), volume: round6(Math.max(1, top('volume') * margin)), rounds: closes.filter((c) => c.verdict !== 'CALIBRATING').length };
 }

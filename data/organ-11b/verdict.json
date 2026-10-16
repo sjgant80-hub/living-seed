@@ -1,0 +1,43 @@
+{
+ "kind": "living-seed.organ-11b.verdict",
+ "v": 1,
+ "prereg": "9b24c5f7ebaa55fb",
+ "record": "3df40c54e6d8ed3a",
+ "verdicts": [
+  {
+   "id": "L1",
+   "kind": "property",
+   "claim": "on unchanged data, the memory wakes",
+   "pass": true,
+   "saw": "the memory of 712 lived cases, on unchanged data: woke"
+  },
+  {
+   "id": "L2",
+   "kind": "prediction",
+   "claim": "a label flipped in any of the 12 training rows stops it waking",
+   "pass": true,
+   "saw": "one label changed in the rows its organs grew from (12 rows tried): refused 12, woke 0"
+  },
+  {
+   "id": "L3",
+   "kind": "prediction",
+   "claim": "a label flipped in any of the 12 rows it measured its claim on stops it waking (its claim changes)",
+   "pass": true,
+   "saw": "one label changed in the rows it measured its claim on (12 tried): refused 12, woke 0"
+  },
+  {
+   "id": "L4",
+   "kind": "prediction",
+   "claim": "a large change to any of the 12 lived cases’ page value stops it waking (its answer’s receipt changes)",
+   "pass": true,
+   "saw": "one lived case’s page value changed (12 tried): refused 12, woke 0"
+  },
+  {
+   "id": "L5",
+   "kind": "property",
+   "claim": "flipping the dataset’s label for any of the 12 lived cases does not stop it waking — the memory carries what the device was told, and the life reads that",
+   "pass": true,
+   "saw": "the dataset’s label for a lived case changed (12 tried): woke 12 — the memory carries what it was told"
+  }
+ ]
+}

@@ -52,3 +52,5 @@ jobs:
         run: node tools/measure-10b.mjs --check && node tools/judge-10b.mjs --check && node tools/order.mjs --organ 10b
       - name: organ 11 — the full season re-run; its verdict is RED on K2 as sealed (an over-broad property, said on the page) — CI checks that exact verdict reproduces, and fails on any drift
         run: node tools/measure-11.mjs --check && out=$(node tools/judge-11.mjs --check || true) && echo "$out" && ! echo "$out" | grep -q 'VERDICT DRIFT' && echo "$out" | grep -q '^RED · K2, K5, K7 failed as sealed' && node tools/order.mjs --organ 11
+      - name: organ 11b — the memory’s guarantee stated exactly, re-run and re-judged, seal first
+        run: node tools/measure-11b.mjs --check && node tools/judge-11b.mjs --check && node tools/order.mjs --organ 11b

@@ -48,6 +48,8 @@ const no = (why) => ({ ok: false, why });
 function bodyOf({ kind, from, to, n, body }) {
   return [MAGIC + ' ' + kind, 'from ' + from, 'to ' + to, 'n ' + n, 'body ' + body].join('\n');
 }
+/** The exact text a message's signature covers (organ 9 re-builds a message from a proof with it). */
+export const signedText = bodyOf;
 
 /** Write and sign one envelope. fields: { kind, to, n, body }; keys: { pub, priv }; grammar: GRAMMAR unless given.
  *  → { ok, text } | a refusal */

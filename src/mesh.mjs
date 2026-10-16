@@ -18,10 +18,15 @@
 //               attack is refused on sight everywhere.
 //   survive   — a node that dies stops answering; links to it fade and drop; tasks route elsewhere. A partition heals:
 //               adverts flow again and every map converges.
+//   immune    — with opts.immune, organ 9 (immune.mjs) stands in front of every node's gate: bounded memory, the
+//               rebound on sources the gate keeps refusing, proofs that a key is in two hands (checked by every node
+//               itself, then spread), and a watch on each peer's behaviour. Without it the mesh is organ 8's, exactly.
 //
 // Powered by the Konomi architecture, created by Thomas Frumkin. Deterministic (seeded, Ed25519 signatures are
 // deterministic), so a run is a receipt anyone can re-derive.
-import { envelope, admit, weigh, immune, fingerprintOf, GRAMMAR } from './gate.mjs';
+import { envelope, admit, weigh, immune, fingerprintOf, GRAMMAR, MAX_MSG } from './gate.mjs';
+import * as I from './immune.mjs';
+import { utf8 } from '../vendor/keys/canon.mjs';
 import { germinate, caseOf } from './germinate.mjs';
 import { embody, ask } from './body.mjs';
 import { seal, open } from './genome.mjs';
@@ -57,12 +62,17 @@ export const adverts = (n) => n.org.organs.filter((o) => o.state === 'live').map
 /**
  * A mesh of nodes that trust each other's keys. opts.cut(a, b) → true when a and b cannot reach each other (a partition);
  * opts.learn: 'hebb' (default) | 'ema' | 'evidence'; opts.explore: the chance (0 by default) of routing to another capable node
- * instead of the best, drawn from opts.seed.
+ * instead of the best, drawn from opts.seed. opts.immune: { cap, law, limits } turns organ 9 on (see immune.mjs).
  * → { nodes, send, gossip, task, log, stats }
  */
 export function mesh(nodes, opts = {}) {
-  const byName = new Map(nodes.map((n) => [n.name, n])), senders = Object.fromEntries(nodes.map((n) => [n.pub, MESH.kinds]));
+  const imm = opts.immune || null, G = imm ? { kinds: [...MESH.kinds, 'proof'], body: { ...MESH.body, proof: I.PROOF } } : MESH;
+  const byName = new Map(nodes.map((n) => [n.name, n])), byPub = new Map(nodes.map((n) => [n.pub, n])), senders = Object.fromEntries(nodes.map((n) => [n.pub, G.kinds]));
   const log = [], stats = { sent: 0, admitted: 0, refused: 0, onSight: 0, lost: 0 };
+  if (imm) {
+    Object.assign(stats, { owed: 0, proofs: 0, badProofs: 0, unshared: 0, revoked: 0 });
+    for (const n of nodes) n.sentinel = { memory: I.memory(imm.cap), rebound: I.rebound(imm.law), ledger: I.ledger(), watch: I.behaviour(imm.limits), trusted: { ...senders }, revoked: new Map() };
+  }
   const reach = (a, b) => a.alive && b.alive && !(opts.cut && opts.cut(a.name, b.name));
   const explore = opts.explore || 0, er = rng(opts.seed || 1);
   /** a link learns from one outcome. 'hebb' (the default): +ETA when right, −ETA/2 when wrong or unanswered, held in 0…1 —
@@ -80,11 +90,31 @@ export function mesh(nodes, opts = {}) {
     a.links.set(b, opts.learn === 'ema' ? round6(w + ALPHA * ((right ? 1 : 0) - w)) : right ? Math.min(1, w + ETA) : Math.max(0, w - ETA / 2));
   };
 
-  /** deliver raw bytes to a node: refused on sight if its immune memory knows them; else through the gate */
-  async function receive(to, text) {
-    if (to.imm.seen(text)) { stats.onSight++; return { admit: false, stage: 'immune', why: 'refused on sight' }; }
-    const a = await admit(text, { me: to.org.id, senders, last: (p) => to.inLast.get(p) || 0, grammar: MESH });
-    if (a.admit) { to.inLast.set(a.msg.from, a.msg.n); stats.admitted++; } else { stats.refused++; to.imm.add(text, a.stage); }
+  /** deliver raw bytes to a node: refused on sight if its immune memory knows them; else through the gate. With organ 9
+   *  on, source names the link the bytes came in on and nonce is the work they carry, if the source owes any. */
+  async function receive(to, text, source, nonce, round) {
+    if (!imm) {
+      if (to.imm.seen(text)) { stats.onSight++; return { admit: false, stage: 'immune', why: 'refused on sight' }; }
+      const a = await admit(text, { me: to.org.id, senders, last: (p) => to.inLast.get(p) || 0, grammar: MESH });
+      if (a.admit) { to.inLast.set(a.msg.from, a.msg.n); stats.admitted++; } else { stats.refused++; to.imm.add(text, a.stage); }
+      return a;
+    }
+    const s = to.sentinel;
+    if (typeof text !== 'string' || utf8(text).length > MAX_MSG) { stats.refused++; s.rebound.refused(source); return { admit: false, stage: 'size', why: 'not a message of at most ' + MAX_MSG + ' bytes' }; }   // before anything is hashed
+    const bits = s.rebound.owes(source);
+    if (!I.paid(source, text, nonce, bits)) { stats.owed++; s.rebound.refused(source); return { admit: false, stage: 'rebound', why: 'this source owes ' + bits + ' bits of work first', bits }; }
+    if (s.memory.seen(text)) { stats.onSight++; s.rebound.refused(source); return { admit: false, stage: 'immune', why: 'refused on sight' }; }
+    const a = await admit(text, { me: to.org.id, senders: s.trusted, last: (p) => to.inLast.get(p) || 0, grammar: G });
+    if (!a.admit) {
+      stats.refused++; s.rebound.refused(source); s.memory.add(text, a.stage);
+      const c = a.stage === 'counter' ? I.caught(text, s.ledger) : null;   // a replay the signature verified: did the key sign another message on that counter?
+      if (c) await expose(to, c.a, c.b, round);
+      return a;
+    }
+    to.inLast.set(a.msg.from, a.msg.n); stats.admitted++;
+    s.ledger.keep(a.msg.from, a.msg.n, text);
+    s.watch.observe(a.msg.from, a.msg);
+    if (a.msg.kind === 'proof') await heed(to, a.msg, round);
     return a;
   }
   /** sign and send one message from a to b. → { ok, msg, text } | { ok: false, why } */
@@ -92,18 +122,70 @@ export function mesh(nodes, opts = {}) {
     if (!reach(a, b)) { stats.lost++; log.push({ round, type: 'lost', from: a.name, to: b.name, kind }); return { ok: false, why: 'unreachable' }; }
     const n = (a.outN.get(b.pub) || 0) + 1;
     a.outN.set(b.pub, n);
-    const e = await envelope({ kind, to: b.org.id, n, body }, a.keys, MESH);
+    const e = await envelope({ kind, to: b.org.id, n, body }, a.keys, G);
     if (!e.ok) return { ok: false, why: e.why };
     stats.sent++;
-    const r = await receive(b, e.text);
+    const r = await receive(b, e.text, a.name, undefined, round);
     log.push({ round, type: kind, from: a.name, to: b.name, ok: r.admit });
     return r.admit ? { ok: true, msg: r.msg, text: e.text } : { ok: false, why: r.why };
+  }
+  /** what an admitted advert tells the node that admitted it: a line in its capability map */
+  function heard(b, msg) {
+    if (msg.kind !== 'advert') return;
+    const src = byPub.get(msg.from), [domain, auc, held] = msg.body.split(' ');   // admitted, so from a node of this mesh
+    b.map.set(src.name + '|' + domain, { node: src.name, domain, auc: round6(Number(auc)), held: Number(held), v: msg.n });
+  }
+  /** bytes from outside the mesh's own sends — off a link, with the work they carry — and what they tell the node */
+  async function deliver(to, text, source, nonce, round) {
+    const r = await receive(to, text, source, nonce, round);
+    if (r.admit) heard(to, r.msg);
+    return r;
+  }
+  /** organ 9: a node stops trusting a key — its messages are refused at the sender check from now on, before any
+   *  signature is checked, and what it advertised is forgotten. A key already revoked here is left as it is. */
+  function revoke(at, pub, why, round) {
+    const s = at.sentinel;
+    if (!Object.prototype.hasOwnProperty.call(s.trusted, pub)) return;
+    const t = { ...s.trusted };
+    delete t[pub];
+    s.trusted = t; s.revoked.set(pub, { why, round });
+    const who = byPub.get(pub);
+    for (const k of [...at.map.keys()]) if (at.map.get(k).node === who.name) at.map.delete(k);
+    stats.revoked++; log.push({ round, type: 'revoke', from: at.name, to: who.name, why });
+  }
+  /** a key signed two messages on one counter: revoke it here, and send the proof to every other node. (It is still
+   *  trusted here: a refusal on the counter comes after the sender check.) */
+  async function expose(at, a, b, round) {
+    const from = I.fieldsOf(b).from;
+    revoke(at, from, 'proof', round);
+    const body = I.proofOf(a, b);
+    if (!body) { stats.unshared++; return; }
+    for (const q of nodes) if (q !== at && q.pub !== from) await send(at, q, 'proof', body, round);
+  }
+  /** a proof from a peer is never taken on its word: this node re-builds both messages and checks both signatures */
+  async function heed(to, msg, round) {
+    const c = await I.checkProof(msg.body, G);
+    if (!c.ok) { stats.badProofs++; log.push({ round, type: 'bad-proof', from: byPub.get(msg.from).name, to: to.name, why: c.why }); return; }
+    stats.proofs++;
+    if (c.from !== to.pub && byPub.has(c.from)) revoke(to, c.from, 'proof from ' + byPub.get(msg.from).name, round);
+  }
+  /** organ 9, at the end of a round: every node judges every peer's round against that peer's own baseline; a peer
+   *  that departs from it by more than honest behaviour does is cut off here (never spread: no other node can re-run it).
+   *  → [{ node, peer, verdict, drift, volume }] */
+  function watch(round) {
+    if (!imm) return [];
+    const out = [];
+    for (const n of nodes) for (const c of n.sentinel.watch.close(round)) {
+      out.push({ node: n.name, ...c, peer: byPub.get(c.peer).name });
+      if (c.verdict === 'CUT') revoke(n, c.peer, 'behaviour', round);
+    }
+    return out;
   }
   /** every live node tells every node it can reach what it has live */
   async function gossip(round) {
     for (const a of nodes) for (const b of nodes) if (a !== b) for (const ad of adverts(a)) {
       const r = await send(a, b, 'advert', ad.domain + ' ' + num(ad.auc) + ' ' + ad.held, round);
-      if (r.ok) b.map.set(a.name + '|' + ad.domain, { node: a.name, domain: ad.domain, auc: round6(ad.auc), held: ad.held, v: r.msg.n });
+      if (r.ok) heard(b, r.msg);
     }
     for (const a of nodes) for (const [k, ad] of a.map) { const src = byName.get(ad.node); if (src && reach(a, src) && !adverts(src).some((x) => x.domain === ad.domain)) a.map.delete(k); }
   }
@@ -184,7 +266,7 @@ export function mesh(nodes, opts = {}) {
     for (const b of nodes) if (b !== a) { const r = await send(a, b, 'antibody', fp + ' ' + family, round); if (r.ok) { const [f, fam] = r.msg.body.split(' '); b.imm.adopt(f, fam); told++; } }   // b holds only the fingerprint
     return told;
   }
-  return { nodes, byName, send, receive, gossip, task, fade, grow, warn, bestFor, candidates, log, stats, reach };
+  return { nodes, byName, send, receive, deliver, gossip, task, fade, grow, warn, watch, bestFor, candidates, log, stats, reach, grammar: G };
 }
 
 /** The capability map a node holds, as plain sorted data (for comparing maps across nodes). */

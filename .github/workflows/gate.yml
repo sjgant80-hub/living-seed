@@ -20,3 +20,7 @@ jobs:
         run: node tools/order.mjs
       - name: the page's security policy pins exactly its scripts
         run: node tools/csp.mjs --check
+      - name: organ 3 — the gate's red-team battery re-runs and must reproduce its record byte for byte
+        run: node tools/measure-3.mjs --check
+      - name: organ 3 — re-judged by its sealed rules, and its seal came first
+        run: node tools/judge-3.mjs --check && node tools/order.mjs --organ 3

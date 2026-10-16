@@ -1,0 +1,36 @@
+{
+ "kind": "living-seed.organ-3.verdict",
+ "v": 1,
+ "prereg": "df701bbc143445ad",
+ "record": "2ae6a8559b3b326b",
+ "verdicts": [
+  {
+   "id": "G1",
+   "kind": "property",
+   "claim": "three trusted peers each send 20 messages: all 60 admitted in order; across at least ten attack families (replay, skipping ahead, redirection to another organism, a forbidden kind, an untrusted key, a swapped key, every one-character change, 4,000 random damages, validly signed non-canonical text, oversize) not one attack is admitted; junk of every type is refused without a throw; and the next legitimate message still gets in",
+   "pass": true,
+   "saw": "60/60 legitimate messages admitted in order; 0 of 4354 attacks admitted across 10 families; 0 throws; the next legitimate message still admitted"
+  },
+  {
+   "id": "G2",
+   "kind": "prediction",
+   "claim": "of 30 lessons (five recipes — the four origin seeds and konomi-slm’s council-grown shop seed — weighed for two organisms on three devices), exactly four are adopted: the two shop recipes, into the organism that lacks a shop organ, on the two devices whose shop data carries signal. Nothing is adopted into the origin organism: no lesson beats an organ it already grows",
+   "pass": true,
+   "saw": "4 of 30 lessons adopted: no-water · lacking-shop · shopper 21, no-water · lacking-shop · shopper 7, reference · lacking-shop · shopper 21, reference · lacking-shop · shopper 7"
+  },
+  {
+   "id": "G3",
+   "kind": "property",
+   "claim": "three generations replicate from the origin — each child opens, names its parent, raises the bar (0.61, 0.62, 0.63), keeps all four organs live and carries its parent’s recipes unchanged; all eight forbidden children (a cut organ, a dormant organ, a lower bar, a missing organ, a one-byte-changed parent, an organism from another genome, an untrusted parent maker, a maker not allowed) are refused; and a noisy device can still pass on the organs it did prove",
+   "pass": true,
+   "saw": "3 generations, each naming its parent, 4 live at bar 0.61 → 4 live at bar 0.62 → 4 live at bar 0.63; 8/8 forbidden children refused; proven organs from a noisy device passed on"
+  },
+  {
+   "id": "G4",
+   "kind": "property",
+   "claim": "every refused input the battery remembers is known again on sight by its fingerprint",
+   "pass": true,
+   "saw": "4273/4273 refused inputs known again on sight, from 3319 distinct fingerprints"
+  }
+ ]
+}

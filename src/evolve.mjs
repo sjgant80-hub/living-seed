@@ -50,14 +50,14 @@ export function kfolds(dataset, rows, K, seed) {
 
 /**
  * Evolve one organ recipe on a blind dataset. opts: { generations = 30, children = 8, seed = 1, k = 2, margin = MARGIN,
- * folds = 1 }. With one fold, fitness is the AUC on a validation third carved from training. With K ≥ 2 folds it is the
+ * folds = 1, assess }. With one fold, fitness is the AUC on a validation third carved from training. With K ≥ 2 folds it is the
  * mean over K cross-validation folds, and a child is kept only if it beats the champion on EVERY fold (unanimous) and
  * on the mean by more than the margin — a gain one lucky slice cannot fake.
  * → { ok, champion (recipe), accepted: [{ gen, recipe, val, folds? }], trajectory: [{ gen, val, best, accepted, k }], evals }
  */
 export function evolve(recipe, dataset, opts = {}) {
   try {
-    const { generations = 30, children = 8, seed = 1, k: k0 = 2, margin = MARGIN, folds = 1 } = opts || {};
+    const { generations = 30, children = 8, seed = 1, k: k0 = 2, margin = MARGIN, folds = 1, assess: score = assess } = opts || {};   // opts.assess: a recycled assess (recycle.mjs), the same numbers
     if (!dataset || !Array.isArray(dataset.trainRows) || !Array.isArray(dataset.heldRows)) return no('evolve needs a dataset');
     if (dataset.heldRows.length) return no('the evolver is never shown the held-out cases — pass blind(dataset)');
     const d = decodeSeed(recipe);
@@ -68,7 +68,7 @@ export function evolve(recipe, dataset, opts = {}) {
     if (!parts.every((p) => p.held.length && p.rest.length)) return no('too few training cases to carve a validation slice');
     const r = rng(seed * 104729 + 7);
     const write = (g) => encodeSeed({ domain: d.seed.domain, seed: d.seed.seed, genome: g });
-    const fit = (g) => { const per = parts.map((p) => round6(assess(dataset, p, g))); return { g, per, val: round6(per.reduce((a, x) => a + x, 0) / per.length) }; };
+    const fit = (g) => { const per = parts.map((p) => round6(score(dataset, p, g))); return { g, per, val: round6(per.reduce((a, x) => a + x, 0) / per.length) }; };
     const keep = (x) => (folds === 1 ? {} : { folds: x.per });
     let champ = fit(d.seed.genome), k = Math.min(K_MAX, Math.max(K_MIN, k0)), evals = 1;
     const accepted = [{ gen: 0, recipe: write(champ.g), val: champ.val, ...keep(champ) }], trajectory = [{ gen: 0, val: champ.val, best: champ.val, accepted: true, k }], recent = [];

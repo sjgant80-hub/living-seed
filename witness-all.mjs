@@ -35,12 +35,14 @@ export function hiddenSpans(src) {
 }
 export const PAIRS = [
   ['src/genome.mjs', ['test/genome.test.mjs']],
-  ['src/germinate.mjs', ['test/germinate.test.mjs']],
+  ['src/germinate.mjs', ['test/germinate.test.mjs', 'test/recycle.test.mjs']],
   ['src/body.mjs', ['test/body.test.mjs']],
   ['src/gate.mjs', ['test/gate.test.mjs']],
-  ['src/evolve.mjs', ['test/evolve.test.mjs']],
+  ['src/evolve.mjs', ['test/evolve.test.mjs', 'test/recycle.test.mjs']],
   ['src/card.mjs', ['test/card.test.mjs']],
   ['src/breed.mjs', ['test/breed.test.mjs']],
+  ['src/recycle.mjs', ['test/recycle.test.mjs']],
+  ['src/psi.mjs', ['test/psi.test.mjs']],
 ];
 // imported (by the tests) it only lends hiddenSpans and PAIRS; run directly, it is the gate
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) main();

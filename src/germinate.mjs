@@ -43,10 +43,10 @@ export function operatingPoint(card, dataset, trainRows) {
 }
 
 /** One organ from its recipe on one dataset (or none). → { domain, recipe, state, why, …scores, body } */
-function grow(recipe, dataset, gateAuc) {
+function grow(recipe, dataset, gateAuc, grower = express) {
   const domain = decodeSeed(recipe).seed.domain;
   if (!dataset) return { domain, recipe, state: 'dormant', why: 'this device holds no ' + domain + ' data' };
-  const g = express(dataset, recipe);
+  const g = grower(dataset, recipe);
   if (!g.ok) return { domain, recipe, state: 'cut', why: 'it could not grow here: ' + g.error };
   const scores = { train: g.train, held: g.held, heldAuc: g.heldAuc, heldAcc: g.heldAcc, base: g.base };
   if (!(g.heldAuc >= gateAuc)) return { domain, recipe, state: 'cut', why: 'AUC ' + g.heldAuc + ' on cases it never grew on is under the gate (' + gateAuc + ')', ...scores };
@@ -56,7 +56,8 @@ function grow(recipe, dataset, gateAuc) {
 
 /**
  * Γ. genomeText — a sealed genome; substrate — { name, data: { domain: dataset } } (seed-library's dataset shape: the
- * device's own rows, its train and held-out split); opts.trust — maker keys this device accepts.
+ * device's own rows, its train and held-out split); opts.trust — maker keys this device accepts; opts.pool — a recycling
+ * pool (recycle.mjs) that hands back an organ already grown from the same recipe on equal data.
  * → { ok, organism } | a refusal. Never reads the network.
  */
 export async function germinate(genomeText, substrate, opts = {}) {
@@ -66,7 +67,7 @@ export async function germinate(genomeText, substrate, opts = {}) {
     if (!substrate || typeof substrate !== 'object' || typeof substrate.name !== 'string' || !substrate.name) return no('no substrate to grow on');
     const data = substrate.data && typeof substrate.data === 'object' ? substrate.data : {};
     const has = (d) => Object.prototype.hasOwnProperty.call(data, d) && data[d] && data[d].ok !== false;
-    const organs = g.fields.organs.map((recipe) => { const d = decodeSeed(recipe).seed.domain; return grow(recipe, has(d) ? data[d] : null, g.fields.gate.auc); });
+    const organs = g.fields.organs.map((recipe) => { const d = decodeSeed(recipe).seed.domain; return grow(recipe, has(d) ? data[d] : null, g.fields.gate.auc, opts && opts.pool ? opts.pool.germinate : express); });
     const record = { kind: KIND, v: 1, genome: g.id, name: g.fields.name, parents: g.fields.parents, by: g.fields.by, gate: g.fields.gate, substrate: substrate.name, organs };
     return { ok: true, organism: { ...record, id: sha256Hex(stable(record)).slice(0, 16) } };
   } catch { return no('it could not germinate'); }

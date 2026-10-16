@@ -39,7 +39,7 @@ export const MESH = Object.freeze({
     antibody: GRAMMAR.body.antibody,
   },
 });
-export const ETA = 0.2, DECAY = 0.95, PRUNE = 0.05, GAP = 4;
+export const ETA = 0.2, ALPHA = 0.2, DECAY = 0.95, PRUNE = 0.05, GAP = 4;
 const num = (v) => String(round6(v));
 
 /** A node: an organism grown on its own data, with its keys, its links, its map of the others and its immune memory. */
@@ -54,13 +54,23 @@ export async function node(name, genomeText, substrate, keys) {
 export const adverts = (n) => n.org.organs.filter((o) => o.state === 'live').map((o) => ({ domain: o.domain, auc: o.heldAuc, held: o.held }));
 
 /**
- * A mesh of nodes that trust each other's keys. opts.cut(a, b) → true when a and b cannot reach each other (a partition).
+ * A mesh of nodes that trust each other's keys. opts.cut(a, b) → true when a and b cannot reach each other (a partition);
+ * opts.learn: 'hebb' (default) | 'ema'; opts.explore: the chance (0 by default) of routing to another capable node
+ * instead of the best, drawn from opts.seed.
  * → { nodes, send, gossip, task, log, stats }
  */
 export function mesh(nodes, opts = {}) {
   const byName = new Map(nodes.map((n) => [n.name, n])), senders = Object.fromEntries(nodes.map((n) => [n.pub, MESH.kinds]));
   const log = [], stats = { sent: 0, admitted: 0, refused: 0, onSight: 0, lost: 0 };
   const reach = (a, b) => a.alive && b.alive && !(opts.cut && opts.cut(a.name, b.name));
+  const explore = opts.explore || 0, er = rng(opts.seed || 1);
+  /** a link learns from one outcome. 'hebb' (the default): +ETA when right, −ETA/2 when wrong or unanswered, held in 0…1 —
+   *  it saturates, so two mostly-right links look alike. 'ema': the link becomes a running average of being right (rate
+   *  ALPHA), so it tracks how reliable the route actually is. */
+  const learn = (a, b, right) => {
+    const w = a.links.get(b) || 0;
+    a.links.set(b, opts.learn === 'ema' ? round6(w + ALPHA * ((right ? 1 : 0) - w)) : right ? Math.min(1, w + ETA) : Math.max(0, w - ETA / 2));
+  };
 
   /** deliver raw bytes to a node: refused on sight if its immune memory knows them; else through the gate */
   async function receive(to, text) {
@@ -89,9 +99,10 @@ export function mesh(nodes, opts = {}) {
     }
     for (const a of nodes) for (const [k, ad] of a.map) { const src = byName.get(ad.node); if (src && reach(a, src) && !adverts(src).some((x) => x.domain === ad.domain)) a.map.delete(k); }
   }
-  /** the best node to route a domain's task to, by advert and link strength */
-  const bestFor = (a, domain) => [...a.map.values()].filter((ad) => ad.domain === domain && ad.node !== a.name && byName.has(ad.node))   // only nodes this mesh knows
-    .map((ad) => ({ ad, score: round6(ad.auc + (a.links.get(ad.node) || 0)) })).sort((x, y) => y.score - x.score)[0];   // ties: the first advertised (the sort is stable)
+  /** the nodes a domain's task could go to, best first, by advert and link strength */
+  const candidates = (a, domain) => [...a.map.values()].filter((ad) => ad.domain === domain && ad.node !== a.name && byName.has(ad.node))   // only nodes this mesh knows
+    .map((ad) => ({ ad, score: round6(ad.auc + (a.links.get(ad.node) || 0)) })).sort((x, y) => y.score - x.score);   // ties: the first advertised (the sort is stable)
+  const bestFor = (a, domain) => candidates(a, domain)[0];
 
   /**
    * A task arrives at a node: answer it, or route it, and learn from the truth. → { by, verdict, label, right, routed }
@@ -100,13 +111,15 @@ export function mesh(nodes, opts = {}) {
     const local = ask(a.body, x, { domain });
     if (local.verdict === 'VERIFIED') { log.push({ round, type: 'answer', from: a.name, domain, ok: local.label === truth }); return { by: a.name, verdict: 'VERIFIED', label: local.label, right: local.label === truth, routed: false }; }
     a.abstains.set(domain, (a.abstains.get(domain) || 0) + 1);
-    const best = bestFor(a, domain);
-    if (!best) return { by: null, verdict: 'ABSTAIN', right: false, routed: false };
+    const cands = candidates(a, domain);
+    if (!cands.length) return { by: null, verdict: 'ABSTAIN', right: false, routed: false };
+    // explore: now and then (seeded) try another capable node instead of the best, so a better one can be found
+    const best = explore && cands.length > 1 && er() < explore ? cands[1 + Math.floor(er() * (cands.length - 1))] : cands[0];
     const b = byName.get(best.ad.node), features = Object.keys(x);   // the domain's own schema, in its own order
     const sent = await send(a, b, 'task', id + ' ' + domain + ' ' + features.map((f) => num(x[f])).join(','), round);
     if (!sent.ok) {   // gone for now: forget what it advertised (it advertises again if it comes back) and weaken the link
       for (const k of [...a.map.keys()]) if (a.map.get(k).node === b.name) a.map.delete(k);
-      a.links.set(b.name, Math.max(0, (a.links.get(b.name) || 0) - ETA / 2));
+      learn(a, b.name, false);
       return { by: null, verdict: 'ABSTAIN', right: false, routed: true };
     }
     // what b does with the task it admitted: read it in its own copy of the domain's schema, and answer from its own body
@@ -114,9 +127,9 @@ export function mesh(nodes, opts = {}) {
     const there = ask(b.body, Object.fromEntries(mine.map((f, i) => [f, vals[i]])), { domain });
     const back = await send(b, a, 'reply', id + ' ' + (there.verdict === 'VERIFIED' ? 'VERIFIED ' + there.label + ' ' + num(there.score) : 'ABSTAIN'), round);
     const said = back.ok ? back.msg.body.split(' ') : [];   // a reads the reply it admitted — nothing else
-    if (said[1] !== 'VERIFIED') { a.links.set(b.name, Math.max(0, (a.links.get(b.name) || 0) - ETA / 2)); return { by: null, verdict: 'ABSTAIN', right: false, routed: true }; }
+    if (said[1] !== 'VERIFIED') { learn(a, b.name, false); return { by: null, verdict: 'ABSTAIN', right: false, routed: true }; }
     const label = Number(said[2]), right = label === truth;
-    a.links.set(b.name, right ? Math.min(1, (a.links.get(b.name) || 0) + ETA) : Math.max(0, (a.links.get(b.name) || 0) - ETA / 2));
+    learn(a, b.name, right);
     log.push({ round, type: 'answer', from: b.name, to: a.name, domain, ok: right });
     return { by: b.name, verdict: 'VERIFIED', label, right, routed: true };
   }
@@ -159,7 +172,7 @@ export function mesh(nodes, opts = {}) {
     for (const b of nodes) if (b !== a) { const r = await send(a, b, 'antibody', fp + ' ' + family, round); if (r.ok) { const [f, fam] = r.msg.body.split(' '); b.imm.adopt(f, fam); told++; } }   // b holds only the fingerprint
     return told;
   }
-  return { nodes, byName, send, receive, gossip, task, fade, grow, warn, bestFor, log, stats, reach };
+  return { nodes, byName, send, receive, gossip, task, fade, grow, warn, bestFor, candidates, log, stats, reach };
 }
 
 /** The capability map a node holds, as plain sorted data (for comparing maps across nodes). */

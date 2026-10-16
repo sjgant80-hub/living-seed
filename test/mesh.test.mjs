@@ -128,6 +128,55 @@ test('routing picks by advert plus learned link; the link arithmetic is exact; a
   assert.equal(loc2.right, false);
 });
 
+test('the reliability rule: a link becomes a running average of being right, so it tells routes apart', async () => {
+  const { A, B, C } = await three(), m = M.mesh([A, B, C], { learn: 'ema' });
+  await m.gossip(1);
+  const i = BETA.heldRows[3], x = Object.fromEntries(BETA.features.map((f) => [f, BETA.cols[f][i]]));
+  const said = (await m.task(A, 'beta', x, 0, 1, '1'.repeat(16))).label;
+  B.links.set('a', 0.5);
+  await m.task(B, 'beta', x, said, 1, '2'.repeat(16));
+  assert.equal(B.links.get('a'), Math.round((0.5 + M.ALPHA * (1 - 0.5)) * 1e6) / 1e6, 'right: a fifth of the way to 1');
+  await m.task(B, 'beta', x, 1 - said, 1, '3'.repeat(16));
+  assert.equal(B.links.get('a'), Math.round((0.6 + M.ALPHA * (0 - 0.6)) * 1e6) / 1e6, 'wrong: a fifth of the way to 0');
+  // right four times in five, over and over: it settles near 0.8 — it does not saturate at 1
+  B.links.set('a', 0);
+  for (let k = 0; k < 200; k++) await m.task(B, 'beta', x, k % 5 ? said : 1 - said, 2, (k + 16).toString(16).padStart(16, '0'));
+  assert.ok(Math.abs(B.links.get('a') - 0.8) < 0.15, String(B.links.get('a')));
+  A.alive = false; B.links.set('a', 0.5);
+  await m.task(B, 'beta', x, said, 3, 'f'.repeat(16));
+  assert.equal(B.links.get('a'), 0.4, 'unreachable counts as not right');
+});
+
+test('exploring: now and then a task goes to another capable node instead of the best — seeded, so it repeats', async () => {
+  const { A, B, C } = await three(), plain = M.mesh([A, B, C]);
+  await plain.gossip(1);
+  assert.deepEqual(plain.candidates(B, 'alpha').map((c) => c.ad.node), ['a', 'c']);
+  const run = async (explore, seed) => {
+    const t = await three(), m = M.mesh([t.A, t.B, t.C], { explore, seed });
+    await m.gossip(1);
+    const by = [];
+    for (let k = 0; k < 60; k++) { const i = ALPHA.heldRows[k], x = Object.fromEntries(ALPHA.features.map((f) => [f, ALPHA.cols[f][i]])); t.B.body.patterns.alpha = undefined; by.push((await m.task(t.B, 'alpha', x, ALPHA.y[i], 2, (k + 1).toString(16).padStart(16, '0'))).by); }
+    return by;
+  };
+  const none = await run(0, 1), some = await run(0.3, 7);
+  assert.ok(none.every((b) => b === 'a'), 'never exploring: always the best');
+  const tried = some.filter((b) => b === 'c').length;
+  assert.ok(tried > 5 && tried < 35, 'about three tasks in ten tried elsewhere: ' + tried);
+  assert.deepEqual(await run(0.3, 7), some, 'the same seed, the same tries');
+  assert.notDeepEqual(await run(0.3, 8), some);
+  // a draw exactly equal to the chance does not explore (the chance is "less than")
+  const first = rng(9)(), t9 = await three(), m9 = M.mesh([t9.A, t9.B, t9.C], { explore: first, seed: 9 });
+  await m9.gossip(1);
+  t9.B.body.patterns.alpha = undefined;
+  const i0 = ALPHA.heldRows[0], x0 = Object.fromEntries(ALPHA.features.map((f) => [f, ALPHA.cols[f][i0]]));
+  assert.equal((await m9.task(t9.B, 'alpha', x0, ALPHA.y[i0], 2, '9'.repeat(16))).by, 'a');
+  // with one candidate there is nowhere else to try
+  const t = await three(), m1 = M.mesh([t.A, t.B, t.C], { explore: 1, seed: 1 });
+  await m1.gossip(1);
+  const i = BETA.heldRows[0], x = Object.fromEntries(BETA.features.map((f) => [f, BETA.cols[f][i]]));
+  assert.equal((await m1.task(t.B, 'beta', x, 0, 2, '1'.repeat(16))).by, 'a');
+});
+
 test('fading: exactly on the floor a link stays; below it, it is dropped', async () => {
   const { A, B, C } = await three(), m = M.mesh([A, B, C]);
   B.links.set('a', M.PRUNE / M.DECAY);

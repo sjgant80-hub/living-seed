@@ -66,7 +66,7 @@
    "seenBeforeSeal": "yes — in a unit test"
   }
  ],
- "disclosure": "This organ was built and unit-tested before this seal, so most rules were seen first and are properties the build claims, not predictions. Only R6 (half the history is enough, within 0.03) and R8 (no signal reads as a coin, and cutting one organ leaves the rest whole) are unseen in the part that matters. A failed prediction is kept in the verdict, not re-run until it passes.",
+ "disclosure": "This organ was built and unit-tested before this seal, so most rules were seen first and are properties the build claims, not predictions. Only R6 (half the history is enough, within 0.03) and R8 (no signal reads as a coin, and cutting one organ leaves the rest whole) are unseen in the part that matters. A failed prediction is kept in the verdict, not re-run until it passes. The first seal (commit 102ae7a) pinned the shopper CSV as Windows held it (CRLF line ends) rather than as git stores it (LF), and the order check could not read a file that large; both were fixed and the seal re-made before any measurement ran — no number had been produced.",
  "judgedBy": "tools/judge.mjs (pinned below): a rule it does not know is a FAIL",
  "files": {
   "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
@@ -76,11 +76,11 @@
   "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
   "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
   "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
-  "data/online_shoppers_intention.csv": "b3055ee355f59134d851d32641183cb4a8b45def7124d2f50442a042f358e0d9",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
   "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
   "tools/measure.mjs": "1d58469faea0dd929b51470753b2ebb9096d1f3261f15322a7937661b11d061b",
-  "tools/judge.mjs": "c0ce8d6caf540a3758213955d2928f51f56837d859052a33a0c382ebdf6e688a",
-  "tools/seal.mjs": "263499084f5a8b8de53f2c6ce9bdc3c71fe26c7d14b924039ee4640e37875d33",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "tools/seal.mjs": "ea3085a3ed88908ac030662ad10b3a2778576e6e098d74ab1ef21966a9beb8bb",
   "test/genome.test.mjs": "2dc0d94a567e9721ed3ca9de10a761b918764bae9bb5cb797379747e7b23ca51",
   "test/germinate.test.mjs": "afe567cbfef5ffbbd07782980a9cf916e0551cc3f8e18ec0843be83ae68c7026",
   "test/gates.test.mjs": "f8db5c78df8a874b65ba1f350d28bfc2c708f62c87661db79e7e75113ff5d9e6",

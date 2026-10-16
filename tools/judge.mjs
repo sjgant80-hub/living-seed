@@ -64,18 +64,20 @@ export function judge(prereg, record) {
   });
 }
 
-/** From git: the seal's first commit is a strict ancestor of the record's first commit, and every file the seal pins is
- *  byte-identical in the record's commit. → { ok, why, seal, record } */
+/** From git: the last commit to touch the seal is a strict ancestor of the commit that first added the record (so the seal
+ *  as it stands came first and has not moved since), and every file it pins is byte-identical in the record's commit.
+ *  → { ok, why, seal, record } */
 export function history(prereg) {
-  const git = (...a) => execFileSync('git', a, { cwd: new URL('.', ROOT), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
-  const first = (p) => git('log', '--diff-filter=A', '--format=%H', '--', p).trim().split('\n').filter(Boolean).pop();
-  const seal = first('data/prereg.json'), record = first('data/record.json');
+  const run = { cwd: new URL('.', ROOT), stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 };
+  const git = (...a) => execFileSync('git', a, { ...run, encoding: 'utf8' });
+  const commits = (...a) => git('log', ...a, '--format=%H').trim().split('\n').filter(Boolean);
+  const seal = commits('-1', '--', 'data/prereg.json')[0], record = commits('--diff-filter=A', '--', 'data/record.json').pop();
   if (!seal || !record) return { ok: false, why: 'the seal or the record is not committed' };
   if (seal === record) return { ok: false, why: 'the seal and the record came in the same commit', seal, record };
   try { git('merge-base', '--is-ancestor', seal, record); } catch { return { ok: false, why: 'the seal was not committed before the record', seal, record }; }
   for (const [path, hash] of Object.entries(prereg.files)) {
     let bytes;
-    try { bytes = execFileSync('git', ['show', record + ':' + path], { cwd: new URL('.', ROOT) }); } catch { return { ok: false, why: path + ' is missing from the record commit', seal, record }; }
+    try { bytes = execFileSync('git', ['show', record + ':' + path], run); } catch { return { ok: false, why: path + ' is missing from the record commit', seal, record }; }
     if (fileHash(bytes) !== hash) return { ok: false, why: path + ' changed between the seal and the measurement', seal, record };
   }
   return { ok: true, why: 'sealed in ' + seal.slice(0, 7) + ', measured in ' + record.slice(0, 7) + ' on the very code it pinned', seal, record };

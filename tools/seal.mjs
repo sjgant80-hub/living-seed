@@ -39,9 +39,14 @@ const prereg = {
     { id: 'R8', kind: 'prediction', claim: 'with the shopper labels shuffled the shopper organ scores a coin (held-out AUC from 0.45 to 0.55), is cut, and abstains on every shopper case, while the other three organs answer every case', seenBeforeSeal: 'partly — a unit test saw it cut with AUC under 0.6; the AUC itself and the other organs’ calls have not been looked at' },
     { id: 'R9', kind: 'property', claim: 'with no water data the water organ is dormant and abstains on every water case; the other three are live and answer every case', seenBeforeSeal: 'yes — in a unit test' },
   ],
-  disclosure: 'This organ was built and unit-tested before this seal, so most rules were seen first and are properties the build claims, not predictions. Only R6 (half the history is enough, within 0.03) and R8 (no signal reads as a coin, and cutting one organ leaves the rest whole) are unseen in the part that matters. A failed prediction is kept in the verdict, not re-run until it passes.',
+  disclosure: 'This organ was built and unit-tested before this seal, so most rules were seen first and are properties the build claims, not predictions. Only R6 (half the history is enough, within 0.03) and R8 (no signal reads as a coin, and cutting one organ leaves the rest whole) are unseen in the part that matters. A failed prediction is kept in the verdict, not re-run until it passes. The first seal (commit 102ae7a) pinned the shopper CSV as Windows held it (CRLF line ends) rather than as git stores it (LF), and the order check could not read a file that large; both were fixed and the seal re-made before any measurement ran — no number had been produced.',
   judgedBy: 'tools/judge.mjs (pinned below): a rule it does not know is a FAIL',
-  files: Object.fromEntries(FILES.map((p) => [p, fileHash(readFileSync(new URL(p, ROOT)))])),
+  files: Object.fromEntries(FILES.map((p) => {
+    const bytes = readFileSync(new URL(p, ROOT));
+    // .gitattributes stores every file with LF line ends: a CR here means the pin would not be the committed bytes
+    if (bytes.includes(13)) { console.log('REFUSED · ' + p + ' holds a carriage return; check it out again (git stores it LF) and re-seal'); process.exit(1); }
+    return [p, fileHash(bytes)];
+  })),
 };
 
 writeFileSync(new URL('data/prereg.json', ROOT), JSON.stringify(prereg, null, 1) + '\n');

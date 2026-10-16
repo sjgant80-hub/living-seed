@@ -1,0 +1,21 @@
+{
+ "kind": "living-seed.organ-6.timing",
+ "v": 1,
+ "what": "organ 4’s second-design evolution, all five runs, plain and through a fresh recycling pool; three alternating repeats, median kept",
+ "plainMs": 23147,
+ "pooledMs": 3540,
+ "speedup": 6.54,
+ "repeats": {
+  "plain": [
+   27890,
+   23147,
+   22442
+  ],
+  "pooled": [
+   3904,
+   3540,
+   3477
+  ]
+ },
+ "machine": "12th Gen Intel(R) Core(TM) i7-1255U · 12 threads · 16 GB RAM · load average 0.0/0.0/0.0 · a local language model was answering in the background"
+}

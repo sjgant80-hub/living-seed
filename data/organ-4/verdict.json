@@ -1,0 +1,50 @@
+{
+ "kind": "living-seed.organ-4.verdict",
+ "v": 1,
+ "prereg": "a908928ee90bf6b8",
+ "record": "c42d72ac13b25564",
+ "verdicts": [
+  {
+   "id": "E1",
+   "kind": "property",
+   "claim": "every evolution run is shown 0 held-out cases and tries exactly 1 + 30 × 8 variants",
+   "pass": true,
+   "saw": "shopper: 0 held-out cases shown, 241 variants tried; triage: 0 held-out cases shown, 241 variants tried; water: 0 held-out cases shown, 241 variants tried; crop: 0 held-out cases shown, 241 variants tried; shopper, labels shuffled: 0 held-out cases shown, 241 variants tried"
+  },
+  {
+   "id": "E2",
+   "kind": "prediction",
+   "claim": "on validation each kept step beats the last, and the champion ends higher than it started on at least 3 of the 4 domains",
+   "pass": true,
+   "saw": "shopper 0.860197 → 0.915349 on validation (7 steps kept); triage 0.831495 → 0.901287 on validation (4 steps kept); water 0.704706 → 0.737731 on validation (6 steps kept); crop 0.827622 → 0.832981 on validation (1 steps kept)"
+  },
+  {
+   "id": "E3",
+   "kind": "prediction",
+   "claim": "on the unseen cases the separate judge reads, the final champion beats the origin organ by at least 0.005 AUC on at least 2 of the 4 domains, and loses more than 0.01 on none",
+   "pass": false,
+   "saw": "shopper -0.042424 on unseen cases; triage -0.072734 on unseen cases; water -0.026732 on unseen cases; crop +0.006247 on unseen cases"
+  },
+  {
+   "id": "E4",
+   "kind": "prediction",
+   "claim": "from one kept champion to the next, the unseen-case AUC never drops by more than 0.01, on at least 3 of the 4 domains",
+   "pass": false,
+   "saw": "shopper worst step -0.04451; triage worst step -0.065499; water worst step -0.047741; crop worst step 0"
+  },
+  {
+   "id": "E5",
+   "kind": "prediction",
+   "claim": "with the shop labels shuffled, validation still rises — selection finds noise to fit — but no kept champion reaches the 0.6 gate on unseen cases: evolution cannot manufacture signal the gate would pass",
+   "pass": true,
+   "saw": "validation 0.483526 → 0.53917 (5 steps kept); best on unseen cases 0.513084 — none clears the 0.6 gate"
+  },
+  {
+   "id": "E6",
+   "kind": "prediction",
+   "claim": "the step size moves in every run (at least two different values of k): the variation is regulated, not locked",
+   "pass": true,
+   "saw": "shopper steps 1,2,3,4,5,6,7,8; triage steps 1,2,3,4,5,6,7; water steps 1,2,3,4,5,6; crop steps 1,2; shopper, labels shuffled steps 1,2,3,4,5,6,7,8"
+  }
+ ]
+}

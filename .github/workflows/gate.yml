@@ -24,3 +24,7 @@ jobs:
         run: node tools/measure-3.mjs --check
       - name: organ 3 — re-judged by its sealed rules, and its seal came first
         run: node tools/judge-3.mjs --check && node tools/order.mjs --organ 3
+      - name: organ 4 — blind evolution re-runs and must reproduce its record byte for byte
+        run: node tools/measure-4.mjs --check
+      - name: organ 4 — re-judged by its sealed rules (its two failed predictions included), and its seal came first
+        run: node tools/judge-4.mjs --check && node tools/order.mjs --organ 4

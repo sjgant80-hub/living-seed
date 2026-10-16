@@ -1,0 +1,86 @@
+{
+ "kind": "living-seed.organ-11.prereg",
+ "v": 1,
+ "organ": "organ 11, the full organism — one season, every step through its gate, on two devices that never share a row",
+ "what": "src/organism.mjs composes the organs into a life: boot from a card under trust (organs 5, 1); live, licensed, chained and self-audited (organs 2, 10); remember — a signed memory that wakes only by living itself again to the same head; improve — evolution on the device’s own labelled history, blind to the slice it is judged on, adopted only if it beats the organ it would replace by the margin (organs 4, 3), the device sealing a child that names its parent; reproduce as a card (organ 5); spread to another device that boots it under its own trust.",
+ "scenario": "The REAL shop sessions split into two devices that never share a row: A the even sessions, B the odd. Organ 1’s origin genome arrives at A as a card; A grows it on February–May, claims on June–July, lives August–September (audited at organ 10b’s three scales), remembers, stops, wakes and lives October; improves on February–May + August–September judged on October (30 generations × 8 children, 3 folds, as organ 4b); its child lives A’s November–December, beside the parent. The child goes to B as a card; B grows it on its own February–May + August–September (claim on October) and lives its own November–December, beside the origin genome on the same data. The memory is tampered with five ways; B is handed the card without trusting A.",
+ "rules": [
+  {
+   "id": "K1",
+   "kind": "property",
+   "claim": "the season completes, every step through its gate: the card boots under trust, every life’s ledger holds, A seals a child that opens and names its parent, the child becomes a card, B boots it trusting A and grows it on its own data",
+   "seenBeforeSeal": "in kind — unit tests on a toy world"
+  },
+  {
+   "id": "K2",
+   "kind": "property",
+   "claim": "A wakes from its signed memory at the same head; carrying on from it equals never having stopped; and a memory with a truth changed, a case dropped (signed by another device or by A itself), its head changed, or different data under it, will not wake",
+   "seenBeforeSeal": "in kind — unit tests"
+  },
+  {
+   "id": "K3",
+   "kind": "property",
+   "claim": "B refuses the card when A’s key is not on its trust list",
+   "seenBeforeSeal": "in kind — unit tests"
+  },
+  {
+   "id": "K4",
+   "kind": "prediction",
+   "claim": "improving on A’s own history, the gate adopts at least one evolved organ",
+   "seenBeforeSeal": "no — organ 4b adopted 2 of 4 on other data; the toy adopted 1 of 1"
+  },
+  {
+   "id": "K5",
+   "kind": "prediction",
+   "claim": "on A’s November–December, the child scores its answers at least as well (AUC) as the parent would have",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "K6",
+   "kind": "prediction",
+   "claim": "every organ the child carries is live on B, by B’s own gate on B’s own October",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "K7",
+   "kind": "prediction",
+   "claim": "on B’s November–December — customers A never saw — the child scores at least as well (AUC) as the origin genome grown on the same data: the improvement travels",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "K8",
+   "kind": "prediction",
+   "claim": "on both devices the shop organ ends November–December still live, its claim at most 3 points above what it delivered",
+   "seenBeforeSeal": "in kind — organ 10b on all the sessions (claim lowered to 0.775; November delivered 0.765, December 0.858)"
+  }
+ ],
+ "disclosure": [
+  "A memory holds the cases and the truths the device was told; living it again checks that the acts follow from them and from the data, not that the world told the truth — a truth that changed no act leaves the same life, so the device’s signature is what vouches for it (unit-tested and said on the page).",
+  "Coupling — the mesh and its immune system — is measured in organ 9’s run, which composes organs 1, 2, 3, 8 and 9; the self-model in organ 7. They are not re-run here.",
+  "The devices are two halves of one real dataset in one process, not two machines. N real devices is the second of the three receipts.",
+  "A failed prediction is kept."
+ ],
+ "judgedBy": "tools/judge-11.mjs (pinned below)",
+ "files": {
+  "src/organism.mjs": "76d89dc6cd7bab0a5b632f8f7d150511080b53b58ab5d5aaf054117229207438",
+  "src/align.mjs": "43c4b1962a5d20f67e9c95ec9e5c012c6e92105b74f109f7d469f1cdeb5c7c4d",
+  "src/card.mjs": "60e2380c6544feb03bf4e3dedc3e0ffebc2e4915c026ac6b5d1827592398efdd",
+  "src/evolve.mjs": "0eb098f9f59b7c89d526f61b87921bc603226684a9f6959302d6c8a94e427eb4",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/record.json": "73b63601bef7d045e19609ecdbd8b82a91d15633a6fc1df84552e16234232b1e",
+  "tools/measure-11.mjs": "03ec61375b41bfe5ec154f050fc17e90b0107ce33980361cea46f1f27a61e3c0",
+  "tools/measure-10.mjs": "80a332edb7fe3d023ced3fbbd76b89bd0138bd057dd98be9d6456f68c9381ae7",
+  "tools/judge-11.mjs": "f99135952f9f60df8aae0c63fd4ee0e7538995b450b0797cac2924facf74d4d6",
+  "tools/seal-11.mjs": "2f31926d1835a2b49d1d2c138ea8fa2d0a628302d413555c9008f9d72c27518e",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/organism.test.mjs": "2b867a11cb41d00ed30e0a8a5af8cb22408f856b58b53f434cb47cc74bfe2d83"
+ }
+}

@@ -1,0 +1,25 @@
+THE LIVING SEED — credits and provenance
+
+The genome format, its seal and verify-before-parse opening (src/genome.mjs), germination and the gate (src/germinate.mjs),
+the pre-registration, measurement, judge and order tools, and the live page are original to this build and MIT licensed.
+
+Powered by the Konomi architecture, created by THOMAS FRUMKIN. The konomi-family tag and the idea of a compressed genome
+grown on a device's own data are his.
+
+Vendored, byte-identical to their sources, and credited:
+  - vendor/seed-library/seedlib.mjs, sha256.mjs, domains.mjs — the seed-library ribosome, seed format and domains
+    (sjgant80-hub/seed-library @ b7a93f864bd3cbd075d935e44b2aefbaba733aac); its grow -> fit -> grade-on-held-out protocol,
+    seeded RNG, split and AUC are the pattern of fall-spore and pattern-organs (sjgant80-hub).
+  - vendor/keys/keys.mjs, canon.mjs — Ed25519 through WebCrypto (sjgant80-hub/sovereign-enterprise @ 21f838b, src/).
+  - .witness/witness.mjs — the witness mutation gate, as vendored in sovereign-enterprise @ 21f838b (sjgant80-hub/witness).
+  - tools/csp.mjs is adapted from sovereign-enterprise's tools/csp.mjs, with connect-src closed to 'self'.
+
+Data:
+  - data/online_shoppers_intention.csv — Online Shoppers Purchasing Intention Dataset, C. Sakar and Y. Kastro, UCI Machine
+    Learning Repository (2018), DOI 10.24432/C5F88Q, CC BY 4.0. The same content as seed-library's copy, stored with LF line
+    ends (seed-library stores it CRLF).
+  - data/seed-library-run.json — seed-library's sealed run record (the four seeds and their held-out scores).
+  - triage, water and crop are seed-library's realistic-synthetic domains, generated from a stated rule plus seeded noise:
+    not real patients, samples or fields.
+
+Supplier: AI Native Solutions (https://www.ai-nativesolutions.com). Support is agreed per deployment.

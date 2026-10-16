@@ -1,0 +1,13 @@
+{
+  "name": "The Living Seed — a genome that grows a verified AI on your own device",
+  "short_name": "Living Seed",
+  "description": "A 496-byte signed genome grows a working, verified AI from the device's own data, offline. Organs that do not prove themselves abstain; a changed byte grows nothing.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0e13",
+  "theme_color": "#0b0e13",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

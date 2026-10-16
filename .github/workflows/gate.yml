@@ -1,0 +1,22 @@
+name: gate
+on: [push, pull_request]
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: unit, page and policy tests (the kernels, the page's wiring, its CSP)
+        run: node --test test/*.test.mjs
+      - name: mutation gate over the kernels (no unreviewed survivors)
+        run: node witness-all.mjs
+      - name: organ 1's measurement re-runs and must reproduce the committed record byte for byte
+        run: node tools/measure.mjs --check
+      - name: the record is re-judged by the sealed rules and must reproduce the committed verdict
+        run: node tools/judge.mjs --check
+      - name: the seal came first, and the record was made on exactly the code it pinned
+        run: node tools/order.mjs
+      - name: the page's security policy pins exactly its scripts
+        run: node tools/csp.mjs --check

@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-QsZwxDBZAGwKTnyXXGIAjuHSa5P9oCIdg1QuVzK2jH0='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Living Seed</title>
+<meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Organ 1 of 12, pre-registered and measured: 9 of 9 sealed rules held." />
+<link rel="canonical" href="https://sjgant80-hub.github.io/living-seed/" />
+<meta property="og:title" content="The Living Seed — a genome that grows a verified AI on your own device" />
+<meta property="og:description" content="496 signed bytes → a working organism grown from the device's own data, offline. It answers only where it has earned it. Organ 1 of 12, measured against rules sealed before the run." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sjgant80-hub.github.io/living-seed/" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<meta name="theme-color" content="#0b0e13" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"SoftwareApplication","name":"The Living Seed","applicationCategory":"DeveloperApplication","operatingSystem":"Any modern browser; Node 20+","url":"https://sjgant80-hub.github.io/living-seed/","codeRepository":"https://github.com/sjgant80-hub/living-seed","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"description":"A signed genome of a few hundred bytes that grows a working, verified AI organism on each device from that device's own data, offline. Organs that do not clear a held-out gate are cut and abstain; a genome with one byte changed is refused before anything in it is read.","publisher":{"@type":"Organization","name":"AI Native Solutions","url":"https://www.ai-nativesolutions.com"}},
+ {"@type":"TechArticle","headline":"The Living Seed — organ 1: the genome and germination","about":"pre-registered measurement of a signed genome germinating verified rule-based organs offline","url":"https://sjgant80-hub.github.io/living-seed/#paper"},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is the Living Seed?","acceptedAnswer":{"@type":"Answer","text":"A small signed text file (a genome) that a device grows into a working AI from its own data, offline. Each part of the AI must score well on past cases it never trained on, or it is switched off and answers 'I don't know'."}},
+  {"@type":"Question","name":"Does any data leave the device?","acceptedAnswer":{"@type":"Answer","text":"No. Germination makes no network call (measured: 0 calls over 5 germinations), and the page's own security policy forbids connecting anywhere but its own site."}},
+  {"@type":"Question","name":"What happens if the genome is tampered with?","acceptedAnswer":{"@type":"Answer","text":"It is refused before any of it is read. In the sealed measurement every one of the 486 possible one-character changes was refused."}},
+  {"@type":"Question","name":"What does it cost?","acceptedAnswer":{"@type":"Answer","text":"The code is MIT licensed — no licence fee. Support is agreed per deployment with AI Native Solutions."}}
+ ]}
+]}
+</script>
+<style>
+:root{--bg:#0b0e13;--panel:#121821;--panel2:#0e141b;--ink:#e8eef4;--dim:#93a6b8;--faint:#7d8fa1;--line:#1f2b38;
+  --accent:#45d0a8;--accent2:#6ab0ff;--gold:#ffcf5c;--bad:#ff6b6b;--warn:#ffa94d;--violet:#b58cff;--on-accent:#04241b;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f6f8fa;--panel:#ffffff;--panel2:#f0f3f6;--ink:#0f1720;--dim:#4d5b69;--faint:#5f6b77;--line:#dde3ea;--accent:#087a5b;--accent2:#1a63c0;--gold:#8a6508;--bad:#bf3434;--warn:#9a530b;--violet:#7a4fd0;--on-accent:#ffffff}}
+:root[data-theme="dark"]{--bg:#0b0e13;--panel:#121821;--panel2:#0e141b;--ink:#e8eef4;--dim:#93a6b8;--faint:#7d8fa1;--line:#1f2b38;--accent:#45d0a8;--accent2:#6ab0ff;--gold:#ffcf5c;--bad:#ff6b6b;--warn:#ffa94d;--violet:#b58cff;--on-accent:#04241b}
+*{box-sizing:border-box}html,body{margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px 48px}
+a{color:var(--accent2)}
+code,.mono{font-family:var(--mono);font-size:.92em;overflow-wrap:anywhere}
+header{padding:26px 0 6px}
+h1{font-size:clamp(28px,6vw,46px);margin:0;font-weight:800;letter-spacing:.01em}h1 .x{color:var(--accent)}
+.lede{font-size:clamp(16px,2.4vw,19px);max-width:72ch;margin:10px 0 0}
+.tag{color:var(--dim);max-width:80ch;margin:8px 0 0;font-size:15px}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px}
+.pill{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--dim);border:1px solid var(--line);border-radius:20px;padding:2px 10px}
+.pill.ok{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.pill.warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 45%,var(--line))}
+nav.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin:14px -16px 0;padding:0 16px}
+nav.top ul{list-style:none;display:flex;gap:2px;margin:0;padding:0;overflow-x:auto;scrollbar-width:thin}
+nav.top a{display:block;padding:10px 11px;color:var(--dim);text-decoration:none;white-space:nowrap;font-size:14px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus-visible{color:var(--ink);border-bottom-color:var(--accent)}
+section{padding:30px 0 6px;scroll-margin-top:52px}
+h2{font-size:clamp(21px,3.6vw,28px);margin:0 0 6px}
+h2 .n{font-family:var(--mono);color:var(--accent);font-size:.7em;margin-right:6px;vertical-align:middle}
+h3{font-size:17px;margin:20px 0 6px}
+p{margin:8px 0;max-width:78ch}
+.sub{color:var(--dim);margin-top:0}
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:920px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:640px) and (max-width:919px){.grid.three{grid-template-columns:1fr 1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.panel h3{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--dim)}
+.panel h4{margin:0 0 6px;font-size:15px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}
+button{font:inherit;font-size:14px;background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 13px;cursor:pointer;min-height:38px}
+button:hover{border-color:var(--accent)}button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
+button.on{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+input,select,textarea{font:inherit;font-size:14px;background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 9px;min-width:0}
+textarea{width:100%;resize:vertical;font-family:var(--mono);font-size:12.5px;line-height:1.5;white-space:pre;overflow-x:auto}
+label{font-size:14px}
+.devs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.dev{text-align:left;padding:9px 11px;border-radius:10px}
+.dev b{display:block;font-size:14px}.dev span{display:block;color:var(--dim);font-size:12px;line-height:1.35;margin-top:2px}
+.status{font-size:14px;margin:8px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);overflow-wrap:anywhere}
+.status.ok{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.status.bad{border-color:color-mix(in srgb,var(--bad) 60%,var(--line))}
+.ok-t{color:var(--accent)}.bad-t{color:var(--bad)}.warn-t{color:var(--warn)}.dim{color:var(--dim)}
+.chip{display:inline-block;font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:12px;padding:0 8px;white-space:nowrap}
+.chip.live{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+.chip.cut{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 50%,var(--line))}
+.chip.dormant{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 50%,var(--line))}
+.chip.pass{color:var(--accent)}.chip.fail{color:var(--bad)}.chip.pred{color:var(--violet)}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+td.num{font-family:var(--mono);white-space:nowrap}
+.steps{counter-reset:s;list-style:none;padding:0;margin:10px 0}
+.steps>li{counter-increment:s;position:relative;padding:4px 0 10px 40px;max-width:80ch}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:3px;width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);font-family:var(--mono);font-size:13px;display:grid;place-items:center}
+.diagram{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.diagram svg{display:block;min-width:780px;width:100%;height:auto}
+.dg-box{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
+.dg-live{stroke:var(--accent)}.dg-cut{stroke:var(--bad)}.dg-dorm{stroke:var(--warn)}.dg-ref{stroke:var(--bad);stroke-dasharray:5 4}
+.dg-t{fill:var(--ink);font:600 14px var(--sans)}.dg-s{fill:var(--dim);font:12px var(--sans)}.dg-m{fill:var(--accent);font:12px var(--mono)}
+.dg-a{stroke:var(--faint);stroke-width:1.6;fill:none;marker-end:url(#arr)}.dg-ah{fill:var(--faint)}
+.fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin:8px 0}
+.fields label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--dim)}
+.fields label.read{color:var(--ink)}.fields label.read input{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.answer{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel2);margin-top:8px}
+.answer .v{font-family:var(--mono);font-weight:800;font-size:18px}
+.rules{font-family:var(--mono);font-size:12.5px;margin:6px 0 0;padding-left:18px}
+.kpis{display:grid;gap:10px;grid-template-columns:repeat(2,1fr);margin:12px 0}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi .v{font-size:clamp(20px,4vw,28px);font-weight:800;font-family:var(--mono);line-height:1.15}
+.kpi .l{font-size:13px;color:var(--dim)}
+.role h4{color:var(--accent)}
+.note{border-left:3px solid var(--warn);padding:6px 12px;background:var(--panel);border-radius:0 8px 8px 0;margin:10px 0;max-width:80ch}
+.note.honest{border-left-color:var(--violet)}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--panel);margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+pre{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+article.paper{max-width:80ch}
+article.paper h3{margin-top:22px}
+footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:var(--dim);font-size:14px}
+.banner{display:none;margin:12px 0}.banner.show{display:block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header id="top">
+  <h1>The <span class="x">Living</span> Seed</h1>
+  <p class="lede"><b>A 496-byte genome that grows a working, verified AI on whatever device it lands on</b> — from that device’s own records, offline. Each part of the AI must prove itself on past cases it never trained on, or it is switched off and says “I don’t know”. Change a single byte of the genome and nothing grows.</p>
+  <p class="tag">This page runs the real thing: the same code that its tests, its mutation gate and its pre-registered measurement prove, in your browser, on nothing but this page’s own files. It is organ 1 of the twelve the Living Seed is built from — the genome and germination.</p>
+  <div class="pills">
+    <span class="pill ok">organ 1 · genome + germination</span>
+    <span class="pill ok">9 / 9 sealed rules held</span>
+    <span class="pill ok">both predictions held</span>
+    <span class="pill ok">mutation gate CLEAN 69 / 69</span>
+    <span class="pill">0 network calls to grow</span>
+    <span class="pill">MIT — no licence fee</span>
+  </div>
+  <div id="nocrypto" class="banner note" role="alert"><b>This browser cannot check Ed25519 signatures,</b> so it cannot open a genome — every genome would be refused. Use a current Chrome, Edge, Firefox or Safari.</div>
+  <nav class="top" aria-label="Sections">
+    <ul>
+      <li><a href="#what">What it is</a></li>
+      <li><a href="#start">Start here</a></li>
+      <li><a href="#try">Try it</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#receipt">The receipt</a></li>
+      <li><a href="#blueprint">Blueprint</a></li>
+      <li><a href="#business">For your business</a></li>
+      <li><a href="#paper">White paper</a></li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section id="what" aria-labelledby="what-h">
+  <h2 id="what-h"><span class="n">00</span>What it is, in plain words</h2>
+  <p>Most AI is shipped as a big trained file, or as a service your data has to be sent to. The Living Seed ships something else: a <b>recipe</b>. The recipe says which measurements matter for a question and which way they push the answer — nine short lines of text, signed by whoever wrote it.</p>
+  <p>A device that receives the recipe <b>grows its own AI from its own records</b>: it sets every threshold from the data it holds, then marks the result against past cases it kept back and never trained on. A part that does well enough goes <span class="chip live">live</span> and answers. A part that does not is <span class="chip cut">cut</span>. A part for which the device has no data stays <span class="chip dormant">dormant</span>. Cut and dormant parts answer every question with <b>ABSTAIN</b> — they never guess.</p>
+  <p>The same recipe on the same data always grows the same AI, byte for byte, on any device. Its id is a fingerprint of everything in it, so anyone can check it. Before a single line of the recipe is read, its signature is checked against the exact bytes. One byte different and the device refuses it and grows nothing.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">496 B</div><div class="l">the whole signed genome — four organs</div></div>
+    <div class="kpi"><div class="v">0.815</div><div class="l">AUC on 4,725 real shop sessions it never grew on</div></div>
+    <div class="kpi"><div class="v">486/486</div><div class="l">one-character changes refused</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">network calls while it grows</div></div>
+  </div>
+</section>
+
+<section id="start" aria-labelledby="start-h">
+  <h2 id="start-h"><span class="n">01</span>Start here</h2>
+  <p class="sub">Four steps, about two minutes. Everything happens in this tab; nothing you type leaves it.</p>
+  <ol class="steps">
+    <li><b>Read the genome.</b> In <a href="#try">Try it</a>, box 1 holds the origin genome: its name, its parents, the bar each organ must clear, four organ recipes, the maker’s public key and the signature. The line under the box says whether it opens.</li>
+    <li><b>Grow it on a device.</b> In box 2, pick a device — the full reference data, a device holding only half the history, a shop whose records carry no signal, or a device with no water data — and press <b>Germinate</b>. You get the organism: which organs went live, which were cut, and why, with the score each earned on cases it never saw.</li>
+    <li><b>Ask it something.</b> In box 3, pick a domain and a case it never grew on, change any measurement you like, and press <b>Ask</b>. A live organ answers VERIFIED and shows the rules that fired; a cut or dormant one abstains.</li>
+    <li><b>Break it.</b> Press <b>Change one character</b> under the genome (or type into it), then germinate again: refused, nothing grows. Then press <b>Re-run the measurement</b> in box 4 — your browser regrows all five organisms and checks each against the record CI committed.</li>
+  </ol>
+</section>
+
+<section id="try" aria-labelledby="try-h">
+  <h2 id="try-h"><span class="n">02</span>Try it</h2>
+  <p class="sub" id="boot" role="status" aria-live="polite">Loading this page’s own files: the genome record, and the four domains’ data (the shop data is 1 MB)…</p>
+  <div class="grid two">
+    <div class="panel">
+      <h3>1 · The genome</h3>
+      <label for="genome" class="sr">The genome text</label>
+      <textarea id="genome" rows="10" spellcheck="false" autocomplete="off" aria-describedby="gstatus"></textarea>
+      <div id="gstatus" class="status" role="status" aria-live="polite">—</div>
+      <div class="row">
+        <button id="flip" type="button">Change one character</button>
+        <button id="reset" type="button">Put the origin genome back</button>
+        <label for="trust">This device trusts</label>
+        <select id="trust">
+          <option value="any">any maker (and records who)</option>
+          <option value="origin">only the origin maker</option>
+          <option value="other">only some other maker</option>
+        </select>
+      </div>
+      <details>
+        <summary>Make your own genome</summary>
+        <p class="dim">Choose organs and a bar. Your browser makes a fresh Ed25519 key that never leaves this tab, and seals the genome with it.</p>
+        <div class="row"><label for="mk-name">Name</label><input id="mk-name" value="my-first" maxlength="32" size="14" /><label for="mk-gate">Gate (AUC)</label><input id="mk-gate" type="number" min="0.5" max="1" step="0.01" value="0.6" /></div>
+        <div class="row" id="mk-organs"></div>
+        <div class="row"><label><input id="mk-child" type="checkbox" checked /> a child of the origin genome (its id goes in the parents line)</label></div>
+        <div class="row"><button id="mk-seal" type="button" class="primary">Seal it with a new key</button></div>
+        <div id="mk-status" class="dim" role="status" aria-live="polite"></div>
+      </details>
+    </div>
+    <div class="panel">
+      <h3>2 · Germinate on a device</h3>
+      <div class="devs" id="devices" role="group" aria-label="Devices"></div>
+      <div class="row"><button id="grow" type="button" class="primary" disabled>Germinate</button><span id="growhint" class="dim"></span></div>
+      <div id="organism" role="status" aria-live="polite"><p class="dim">Pick a device and press Germinate.</p></div>
+    </div>
+  </div>
+  <div class="grid two" style="margin-top:14px">
+    <div class="panel">
+      <h3>3 · Ask the organism</h3>
+      <div class="row">
+        <label for="ask-domain">Domain</label><select id="ask-domain"></select>
+        <label for="ask-case">Unseen case</label><input id="ask-case" type="number" min="1" value="1" style="width:6.5em" />
+        <span id="ask-of" class="dim"></span>
+        <button id="ask-next" type="button">Another case</button>
+      </div>
+      <p id="ask-about" class="dim"></p>
+      <div class="fields" id="ask-fields"></div>
+      <div class="row"><button id="ask-go" type="button" class="primary" disabled>Ask</button><span class="dim">Measurements its rules read are outlined.</span></div>
+      <div id="ask-out" role="status" aria-live="polite"></div>
+    </div>
+    <div class="panel">
+      <h3>4 · Re-run the measurement here</h3>
+      <p class="dim">Your browser seals the origin genome again, grows it on all five devices with the network trapped, and tries every one-character change — then compares each result with the record CI committed. An organism’s id is a fingerprint of everything in it: every organ’s state, score and rule, so a matching id is a matching organism.</p>
+      <div class="row"><button id="rerun" type="button" class="primary" disabled>Re-run the measurement</button></div>
+      <div id="rerun-out" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" aria-labelledby="how-h">
+  <h2 id="how-h"><span class="n">03</span>How it works</h2>
+  <p class="sub">One genome, five stops. The numbers below the picture are from the committed run, not illustrations.</p>
+  <div class="diagram" role="img" aria-label="Diagram: the genome is opened (seal checked first; a changed byte is refused), each organ recipe is grown on the device's own data, graded on cases it never grew on against the gate, and becomes live (answers), cut (abstains) or dormant (no data, abstains).">
+    <svg viewBox="0 0 1000 330" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="dg-ah"/></marker></defs>
+      <rect x="10" y="40" width="155" height="96" rx="10" class="dg-box"/>
+      <text x="24" y="66" class="dg-t">Genome</text><text x="24" y="86" class="dg-s">9 lines · 496 bytes</text><text x="24" y="104" class="dg-s">4 organ recipes</text><text x="24" y="122" class="dg-s">signed by its maker</text>
+      <rect x="200" y="40" width="175" height="96" rx="10" class="dg-box"/>
+      <text x="214" y="66" class="dg-t">Open</text><text x="214" y="86" class="dg-s">seal checked first,</text><text x="214" y="104" class="dg-s">over the exact bytes</text><text x="214" y="122" class="dg-s">then parsed, strictly</text>
+      <rect x="410" y="40" width="200" height="96" rx="10" class="dg-box"/>
+      <text x="424" y="66" class="dg-t">Ribosome</text><text x="424" y="86" class="dg-s">each recipe’s thresholds</text><text x="424" y="104" class="dg-s">set from this device’s</text><text x="424" y="122" class="dg-s">own train cases</text>
+      <rect x="645" y="40" width="170" height="96" rx="10" class="dg-box"/>
+      <text x="659" y="66" class="dg-t">Gate</text><text x="659" y="86" class="dg-s">graded on cases it</text><text x="659" y="104" class="dg-s">never grew on:</text><text x="659" y="122" class="dg-m">AUC ≥ 0.6 ?</text>
+      <rect x="850" y="14" width="140" height="70" rx="10" class="dg-box dg-live"/>
+      <text x="862" y="38" class="dg-t">live</text><text x="862" y="57" class="dg-s">answers VERIFIED</text><text x="862" y="74" class="dg-s">+ the rules that fired</text>
+      <rect x="850" y="100" width="140" height="62" rx="10" class="dg-box dg-cut"/>
+      <text x="862" y="124" class="dg-t">cut</text><text x="862" y="144" class="dg-s">ABSTAIN, always</text>
+      <rect x="645" y="214" width="345" height="62" rx="10" class="dg-box dg-dorm"/>
+      <text x="659" y="238" class="dg-t">dormant</text><text x="659" y="258" class="dg-s">this device holds no data for the domain → ABSTAIN</text>
+      <rect x="200" y="214" width="300" height="62" rx="10" class="dg-box dg-ref"/>
+      <text x="214" y="238" class="dg-t">refused</text><text x="214" y="258" class="dg-s">one byte changed, wrong maker → grows nothing</text>
+      <path d="M165 88H198" class="dg-a"/><path d="M375 88H408" class="dg-a"/><path d="M610 88H643" class="dg-a"/>
+      <path d="M815 70L848 52" class="dg-a"/><path d="M815 104L848 126" class="dg-a"/>
+      <path d="M288 136V212" class="dg-a"/><path d="M510 136V245H643" class="dg-a"/>
+      <text x="298" y="180" class="dg-s">seal fails</text><text x="520" y="180" class="dg-s">no data here</text>
+      <text x="826" y="62" class="dg-m">yes</text><text x="826" y="128" class="dg-m">no</text>
+    </svg>
+  </div>
+  <h3>Traced from the committed run</h3>
+  <ol class="steps" id="trace"><li class="dim">The trace is drawn from <code>data/record.json</code> once it loads.</li></ol>
+  <div class="note honest"><b>Why the gate is AUC, not accuracy.</b> On the shop whose labels were shuffled, the cut organ would still have been “right” 70.5% of the time — because most sessions end without a purchase, so always saying “no” scores well. Its AUC was 0.513: a coin. AUC asks whether it ranks a buyer above a non-buyer, which a coin cannot fake.</div>
+</section>
+
+<section id="receipt" aria-labelledby="receipt-h">
+  <h2 id="receipt-h"><span class="n">04</span>The receipt</h2>
+  <p class="sub">The rules were written down, with the hash of every file that would do the measuring, and committed <b>before</b> the measurement ran. Then the record. Then the verdict. Git proves the order.</p>
+  <div class="tw"><table id="rules"><caption class="sr">Sealed rules and their verdicts</caption><thead><tr><th>Rule</th><th>Kind</th><th>What was claimed</th><th>Seen before the seal?</th><th>Verdict</th><th>What the record holds</th></tr></thead><tbody><tr><td colspan="6" class="dim">Loading the seal and the verdict…</td></tr></tbody></table></div>
+  <h3>The order, from git</h3>
+  <ol class="steps">
+    <li><a href="https://github.com/sjgant80-hub/living-seed/commit/102ae7a330e14c7a2dc611de9702b6f766dff517"><code>102ae7a</code></a> — kernels, tests and the first seal.</li>
+    <li><a href="https://github.com/sjgant80-hub/living-seed/commit/7cdb8c46c7e071993dda8e98222092644c691dd6"><code>7cdb8c4</code></a> — <b>re-sealed before any number existed.</b> The first seal had pinned the shop CSV as Windows held it (CRLF line ends), not as git stores it (LF). The seal tool now refuses a pinned file holding a carriage return. Disclosed in the seal itself.</li>
+    <li><a href="https://github.com/sjgant80-hub/living-seed/commit/46a2a143044a02bda8393f4466d4c2c3a7fe40ac"><code>46a2a14</code></a> — the measurement: <code>data/record.json</code>, made by exactly the 17 files the seal pinned.</li>
+    <li><a href="https://github.com/sjgant80-hub/living-seed/commit/c501b281188ec56d4142aa2072ea2e88fd1d03e1"><code>c501b28</code></a> — the verdict. The sealed judge’s own order check turned out to be broken: it passed git’s <code>--format</code> after the <code>--</code> that ends the options, so git read it as a file name. The judge was left byte-identical to the seal, since its rules are what the verdict stands on. The order proof was rewritten as <code>tools/order.mjs</code>, and five attacks on it were refused.</li>
+  </ol>
+  <h3>Check it yourself</h3>
+<pre>git clone https://github.com/sjgant80-hub/living-seed && cd living-seed
+npm test                         # the unit, page and policy tests
+node witness-all.mjs             # mutation gate: every mutant of the kernels must be caught
+node tools/measure.mjs --check   # re-derives data/record.json byte for byte
+node tools/judge.mjs --check     # re-judges it by the sealed rules
+node tools/order.mjs             # proves the seal came first, on the code it pinned</pre>
+  <p>CI runs all five on every push: <a href="https://github.com/sjgant80-hub/living-seed/actions">github.com/sjgant80-hub/living-seed/actions</a>.</p>
+</section>
+
+<section id="blueprint" aria-labelledby="bp-h">
+  <h2 id="bp-h"><span class="n">05</span>Blueprint</h2>
+  <h3>The genome, line by line</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td><code>◊ life.v1 &lt;name&gt;</code></td><td><code>◊ life.v1 origin</code></td><td>What it is, and its name (lower-case letters, digits, hyphens; at most 32).</td></tr>
+      <tr><td><code>parents</code></td><td><code>parents -</code></td><td>Its lineage: none (a first organism), one, or two genome ids — a child names its parents.</td></tr>
+      <tr><td><code>gate auc=</code></td><td><code>gate auc=0.6</code></td><td>The bar every organ must clear on cases it never grew on: an AUC from 0.5 (a coin) to 1.</td></tr>
+      <tr><td><code>organ</code> × 1–8</td><td><code>organ ◊ seed.v1 shopper 21 f:7fdf… e161…</code></td><td>One organ recipe each: a seed-library seed naming its domain, a seed number, a packed recipe of up to six rules (which measurement, which side, what weight — 10 bytes) and a check code.</td></tr>
+      <tr><td><code>by</code></td><td><code>by 7ec32a85…d2a0</code></td><td>The maker’s Ed25519 public key.</td></tr>
+      <tr><td><code>sig</code></td><td><code>sig 2ca5f084…010d</code></td><td>The maker’s signature over every line above it.</td></tr>
+    </tbody>
+  </table></div>
+  <p>The recipe carries the <b>shape</b> of each organ; the device supplies the <b>numbers</b>. Each rule’s threshold is a fixed quantile of that measurement in the device’s own train cases. That is why device A and device B grow different rules from the same genome — and why both still clear the gate.</p>
+  <h3>Opening a genome — verify before parse</h3>
+  <ol class="steps">
+    <li>It starts <code>◊ life.v1 </code> and is at most 2,048 bytes, or it is “not a genome” / “too large”.</li>
+    <li>The last line is found by position and must be a 128-hex signature; the line before it, a 64-hex maker key. Nothing else has been read yet.</li>
+    <li>If this device keeps a trust list, the maker must be on it.</li>
+    <li>The signature is checked over the exact bytes of every line above it.</li>
+    <li>Only now is the genome parsed — strictly — and written back out. It must come back byte-identical, so every genome has exactly one form and one id.</li>
+  </ol>
+  <h3>The files</h3>
+  <div class="tw"><table>
+    <thead><tr><th>File</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td><code>src/genome.mjs</code></td><td>The genome: format, seal, open (verify before parse). Mutation-gated, 41/41 mutants caught.</td></tr>
+      <tr><td><code>src/germinate.mjs</code></td><td>Germination Γ: grows each organ on the device’s data, applies the gate, answers or abstains. 28/28 mutants caught.</td></tr>
+      <tr><td><code>vendor/seed-library/</code></td><td>The universal ribosome and the four domains, vendored unchanged from <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a> @ <code>b7a93f8</code>.</td></tr>
+      <tr><td><code>vendor/keys/</code></td><td>Ed25519 through WebCrypto — the same code in Node and the browser — from <code>sovereign-enterprise</code> @ <code>21f838b</code>.</td></tr>
+      <tr><td><code>tools/seal.mjs · measure.mjs · judge.mjs · order.mjs</code></td><td>The pre-registration, the deterministic measurement, the judge with its rules written as code, and the order proof from git.</td></tr>
+      <tr><td><code>data/prereg.json · record.json · verdict.json</code></td><td>The seal, the measurement, the verdict.</td></tr>
+      <tr><td><code>index.html</code></td><td>This page. It imports the kernels above, so what you run here is the code the gate proves.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>The whole organism — twelve organs, built in order</h3>
+  <p>The Living Seed is specified as twelve organs. Each is built on the one before, gated, measured against rules sealed before it runs, and allowed to fail. Each one lands on this page with its own receipt.</p>
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>Organ</th><th>What it must prove</th><th>State</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Genome + germination</b></td><td>A sealed seed grows a working organism on a device, offline.</td><td><span class="chip live">proven · 9/9 sealed</span></td></tr>
+      <tr><td>2</td><td>Body</td><td>Knowledge in verified patterns beats a bigger model on a domain — the claim checked against its primary source before it is reused.</td><td><span class="chip">being built</span></td></tr>
+      <tr><td>3</td><td>The gate</td><td>Nothing unproven enters, acts or replicates — red-teamed.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>4</td><td>Mutation + fitness</td><td>Improvement on held-out cases, judged blind, able to fail.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>5</td><td>Breeding + the card</td><td>Two cards breed a verified child; cards carry, germinate and trade.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>6</td><td>Self-powering</td><td>Germination and improvement run cheap — the reuse hit-rate measured.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>7</td><td>Self-model</td><td>Its prediction of itself converges to a stable fixed point instead of plateauing — measured, never declared.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>8</td><td>Mesh</td><td>N organisms couple, sync and exchange lessons; survive node and relay loss.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>9</td><td>Immune system</td><td>Attacks are captured as antibodies and shared; it holds under outside red-team.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>10</td><td>Alignment</td><td>It cannot act on what is unproven; it audits itself by structure.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>11</td><td>The full organism</td><td>All organs composed, the life cycle running end to end on real devices.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>12</td><td>The three receipts</td><td>It improved this week on its own hardware; the mesh stayed consistent on N real devices; an outside adversary could not break it.</td><td><span class="chip">in order</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="business" aria-labelledby="biz-h">
+  <h2 id="biz-h"><span class="n">06</span>For your business</h2>
+  <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
+  <h3>What it does for each role</h3>
+  <div class="grid three">
+    <div class="panel role"><h4>Chief executive</h4><p>One signed recipe rolls out to every site, and each site’s AI is fitted to that site — not an average of all of them. You can show a regulator, an auditor or a customer exactly what it does: every rule is printed, and every answer comes with the rules that fired.</p></div>
+    <div class="panel role"><h4>Finance</h4><p>No licence fee: the code is MIT. This tier runs on machines you already own, with no model hosting and no per-call charges. What you ship to each site is a few hundred bytes. We don’t print a saving we can’t source. Put your own figures in the calculator below.</p></div>
+    <div class="panel role"><h4>Operations</h4><p>A site’s board shows every organ <span class="chip live">live</span>, <span class="chip cut">cut</span> or <span class="chip dormant">dormant</span>, and why. An organ that has not earned its place says “I don’t know” instead of mis-routing work. Rolling out means copying one small file.</p></div>
+    <div class="panel role"><h4>Technology &amp; security</h4><p>Ed25519 checked before parse; trust lists of approved makers; 486 of 486 one-character changes refused in the sealed run. No data egress: 0 network calls while growing, and this page’s own security policy forbids connecting anywhere but its own site. Deterministic, so any audit can re-run it to the same fingerprint.</p></div>
+    <div class="panel role"><h4>Data &amp; analytics</h4><p>Each organ is a sum of up to six single-measurement thresholds: readable, editable, testable. Every organ is graded on held-out cases against a bar written into the signed genome. The pre-registration tooling here — seal, measure, judge, order — is yours to reuse for your own models.</p></div>
+    <div class="panel role"><h4>The people using it</h4><p>An answer tells you what it decided, the score, the line it was judged against and the rules behind it. When it hasn’t earned the right to answer, it says so, so you know when to use your own judgement.</p></div>
+  </div>
+
+  <h3>Your numbers</h3>
+  <p class="dim">The defaults are placeholders, not a claim about your business. Replace them with your own.</p>
+  <div class="panel">
+    <div class="fields">
+      <label>Sites or devices<input id="c-sites" type="number" min="1" value="40" /></label>
+      <label>Size of the model you ship to each today (MB)<input id="c-mb" type="number" min="0" step="any" value="50" /></label>
+      <label>Updates a year<input id="c-upd" type="number" min="0" value="12" /></label>
+      <label>Records each site sends off-site a month, to get answers<input id="c-rec" type="number" min="0" value="10000" /></label>
+    </div>
+    <div id="c-out" role="status" aria-live="polite"></div>
+  </div>
+
+  <h3>Against what you have now</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Question to ask</th><th>A hosted AI service</th><th>A model file you ship</th><th>The Living Seed (organ 1)</th></tr></thead>
+    <tbody>
+      <tr><td>Where do the records go to get an answer?</td><td>To the provider</td><td>Nowhere</td><td>Nowhere — measured: 0 calls</td></tr>
+      <tr><td>What travels to each site?</td><td>Every request</td><td>The whole model, every update</td><td>496 signed bytes</td></tr>
+      <tr><td>Is it fitted to this site’s own data?</td><td>Rarely</td><td>Only if you retrain per site</td><td>Always — it grows there</td></tr>
+      <tr><td>What does it do when it has not earned the answer?</td><td>Answers anyway</td><td>Answers anyway</td><td>ABSTAIN</td></tr>
+      <tr><td>Can you read why it answered?</td><td>Usually not</td><td>Depends on the model</td><td>Every rule that fired</td></tr>
+      <tr><td>Can a tampered copy run?</td><td>—</td><td>Unless you sign and check it</td><td>No — refused before it is read</td></tr>
+      <tr><td>Licence</td><td>Per seat or per call</td><td>Varies</td><td>MIT — no licence fee</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Security, compliance and data protection</h3>
+  <ul>
+    <li><b>Data stays put.</b> Growing and answering run on the device; the records never leave it. That is data minimisation by construction. It is not a certification, so your own data-protection assessment still applies.</li>
+    <li><b>Signed, and checked first.</b> A genome is refused before any of it is read unless its Ed25519 signature checks out over the exact bytes; a device can keep a list of the only makers it accepts.</li>
+    <li><b>One form, one fingerprint.</b> Every genome has exactly one byte form, and the same genome on the same data grows the same organism id anywhere. An auditor re-runs it and compares fingerprints.</li>
+    <li><b>Gated, not trusted.</b> No organ answers unless it cleared the signed bar on cases it never grew on; the bar is part of what the maker signs.</li>
+    <li><b>Proven code.</b> The two kernels are mutation-gated: every one of 69 deliberate faults was caught by the tests. CI re-derives the measurement byte for byte on every push.</li>
+    <li><b>This page.</b> Its Content-Security-Policy pins its own scripts by hash and allows connections only to its own site — it cannot send what you type anywhere.</li>
+  </ul>
+
+  <h3>Deployment and roll-out</h3>
+  <ol class="steps">
+    <li><b>Pick one question at one site</b> where you hold labelled history (a sale, a fault, a referral).</li>
+    <li><b>Make your maker key</b> and keep it offline. Never use this page’s demo key, which is derived from a public phrase so anyone can reproduce the seal.</li>
+    <li><b>Write and seal the genome</b> — the organs and the bar you will accept.</li>
+    <li><b>Put it on the site’s machine</b> with the site’s records, and germinate. Read the board: live, cut, dormant, and why.</li>
+    <li><b>Run it beside your current process</b> and compare its calls, and its abstentions, with what happened.</li>
+    <li><b>Widen</b> to more sites: the same file, each site fitted to itself.</li>
+  </ol>
+
+  <h3>Support and ownership</h3>
+  <p>Supplied by <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Support is agreed per deployment. You own everything that matters: the code is MIT, and the data, the keys and the genomes are yours and stay on your machines.</p>
+
+  <h3>Risks, answered straight</h3>
+  <details><summary>Is it accurate enough?</summary><p>On the one real dataset — 12,330 online shop sessions — it ranks buyers above non-buyers with AUC 0.815 and is right 79.9% of the time on November–December sessions it never grew on. The three other domains here (field triage, drinking water, crop planting) are synthetic test domains, not real patients, samples or fields: 0.952, 0.748 and 0.754. Each organ is a small sum of rules, not a deep model; for some problems that is the ceiling.</p></details>
+  <details><summary>Isn’t a gate of 0.6 a low bar?</summary><p>It is a default. The bar is a field in the genome, signed by its maker. Set it as high as your question demands. The gate is a floor that has been tested at its edges: an organ exactly on the bar lives, and one a hair under it is cut.</p></details>
+  <details><summary>What if a maker key is stolen?</summary><p>Whoever holds it can sign genomes that devices trusting that maker will accept. Keep maker keys offline and use trust lists. Organ 1 has no revocation list yet, and we say so rather than imply one.</p></details>
+  <details><summary>Does it learn and improve by itself?</summary><p>Organ 1 grows fresh from whatever data the device holds each time it germinates; it does not improve itself. Self-improvement — variation kept only when it beats held-out cases, judged blind — is organ 4, and it will be measured when it lands.</p></details>
+  <details><summary>Has anyone outside tried to break it?</summary><p>Not yet. Inside: every one-character change, swapped keys and wrong makers were refused; the mutation gate caught 69 of 69 faults. An outside adversary is the last of the three receipts, and it is not claimed until it happens.</p></details>
+
+  <h3>The case for the board</h3>
+  <p>AI that has to send your records away to answer, or that answers when it hasn’t earned the right, is a liability you carry. This is the opposite shape: a signed recipe that grows at each site, from that site’s own records, and answers only where it has proven itself on that site’s own past. It is small enough to email and auditable down to the rule. You can re-run it to the same fingerprint. There is no licence fee. The first step is a one-site pilot on a question where you already hold the history.</p>
+</section>
+
+<section id="paper" aria-labelledby="paper-h">
+  <h2 id="paper-h"><span class="n">07</span>White paper</h2>
+  <article class="paper">
+    <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
+    <h3>Abstract</h3>
+    <p>We describe a genome format of at most 2,048 bytes that carries recipes for up to eight predictive organs, a held-out bar, a lineage and an Ed25519 seal, and an operator Γ that grows the genome into an organism on a device’s own data without the network. A genome is verified before it is parsed and has a single canonical byte form. Each organ’s structure is carried in the genome; its thresholds are fitted to the device’s training cases. It is then graded on held-out cases against the signed bar: an organ that clears it answers, and every other organ abstains. Nine rules were sealed with the hash of every measuring file before measurement, two of them predictions. All nine held. A 496-byte, four-organ genome reproduced its source library’s held-out AUCs exactly (0.815, 0.952, 0.748, 0.754) and grew offline with 0 network calls. All 486 single-character tamperings were refused. Halving a device’s history moved no organ’s AUC by more than 0.0054. With the shop labels shuffled, that organ scored 0.513 and was cut while the other three answered every case.</p>
+    <h3>1 · The problem</h3>
+    <p>AI today ships as large trained artefacts or as services that the data must travel to. Both are opaque, and neither is fitted to the place it runs. Neither declines to answer outside what it has shown it can do. For a business with many sites, that means shipping either gigabytes or records, and trusting answers it cannot inspect.</p>
+    <h3>2 · The genome</h3>
+    <p>A genome is nine or more lines of text: a tag and name, a parents line, a gate line, one line per organ, the maker’s key and a signature over everything above it. Each organ line is a seed-library seed: the organ’s domain, a seed number, a packed recipe of up to six single-measurement rules (feature, quantile, side, weight) in 10 bytes, and a library check code. The check code catches corruption but not forgery, since every ribosome holds its key. The genome’s signature is what stops forgery. Opening is <i>verify before parse</i>: the signature and key are located by position and checked over the exact bytes before any field is read. The fields are then parsed strictly and re-rendered, and the result must be byte-identical, so a genome has exactly one form and one id (the first 16 hex characters of the SHA-256 of its signed body).</p>
+    <h3>3 · Germination</h3>
+    <p>For each organ, Γ looks for the domain’s data on the device. With none, the organ is dormant. Otherwise the ribosome sets each rule’s threshold at its quantile of that feature in the device’s training cases. It grades the resulting scorecard on held-out cases it never grew on, and fixes an operating point from the training cases alone. The organism is a plain record of the genome id, the maker, the substrate and each organ’s state, scores and rules. Its id is the SHA-256 of its canonical JSON, so the same genome on the same data grows the same organism on any engine.</p>
+    <h3>4 · The gate and abstention</h3>
+    <p>An organ goes live only when its held-out AUC is at least the genome’s bar. Asked about a case, a live organ returns VERIFIED with its label, score, threshold and the rules that fired. A cut or dormant organ returns ABSTAIN with the reason, and so does an organ asked about a case that lacks a measurement its rules read. We gate on AUC rather than accuracy because accuracy rewards a majority-class guess. The organ cut on shuffled labels would still have been 70.5% accurate.</p>
+    <h3>5 · Method</h3>
+    <p>Before measuring, <code>tools/seal.mjs</code> wrote <code>data/prereg.json</code>: the nine rules, which were properties and which predictions, what had already been seen during development, and the SHA-256 of the 17 files that would measure. It was committed first. <code>tools/measure.mjs</code> then produced a deterministic record using seeded maker keys and no clock. <code>tools/judge.mjs</code>, one of the pinned files, judged it, and <code>tools/order.mjs</code> proves from git that the seal’s last commit is a strict ancestor of the record’s first, on byte-identical pinned files. Most rules were seen during development and are claimed as properties of the build. Only R6 (half the history suffices, within 0.03 AUC) and R8 (no signal reads as a coin, and the rest stays whole) were unseen in the part that mattered.</p>
+    <h3>6 · Results</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Device</th><th>Shop</th><th>Triage</th><th>Water</th><th>Crop</th></tr></thead>
+      <tbody>
+        <tr><td>Reference</td><td class="num">0.815265</td><td class="num">0.952127</td><td class="num">0.747656</td><td class="num">0.753796</td></tr>
+        <tr><td>Device A (even half)</td><td class="num">0.815543</td><td class="num">0.952997</td><td class="num">0.746534</td><td class="num">0.749908</td></tr>
+        <tr><td>Device B (odd half)</td><td class="num">0.814959</td><td class="num">0.952399</td><td class="num">0.742234</td><td class="num">0.753188</td></tr>
+        <tr><td>Shop labels shuffled</td><td class="num">0.513084 · cut</td><td class="num">0.952127</td><td class="num">0.747656</td><td class="num">0.753796</td></tr>
+        <tr><td>No water data</td><td class="num">0.815265</td><td class="num">0.952127</td><td class="num">dormant</td><td class="num">0.753796</td></tr>
+      </tbody>
+    </table></div>
+    <p>Held-out AUC per organ. The shop data is real (UCI, 12,330 sessions; held-out = November and December, 4,725 sessions). Triage, water and crop are seed-library’s synthetic test domains (2,400 rows each, 720 held out). The cut shop organ abstained on 4,725 of 4,725 cases. The dormant water organ abstained on 720 of 720. Every live organ answered every held case. The rules grown on each device are 1,193–1,199 bytes, about 2.4× the genome that travelled.</p>
+    <h3>7 · Limitations</h3>
+    <ul>
+      <li>Three of the four domains are synthetic. The one real dataset is a single public shop.</li>
+      <li>Organs are small rule sums; the bar defaults to 0.6.</li>
+      <li>There is no maker-key revocation in organ 1.</li>
+      <li>Most sealed rules were seen during development, as disclosed.</li>
+      <li>There has been no outside adversary yet.</li>
+      <li>The genome is readable text, not further compressed.</li>
+    </ul>
+    <h3>8 · What comes next</h3>
+    <p>The body (organ 2) puts the organs’ knowledge in a verified pattern library and checks the claim that a tiny rule beats a far larger model against its primary source before reusing it. The gate, variation with fitness, breeding through a sealed card, self-powering, a self-model, the mesh, the immune system and structural alignment follow, each sealed before it runs. Then the whole organism, and the three receipts.</p>
+    <h3>What we do not claim</h3>
+    <p>The Living Seed’s specification includes a self-model organ whose self-prediction is to converge to a fixed point. We will build and measure that mechanism. We do not claim that it is, or will produce, consciousness, and we do not claim that its self-improvement is open-ended. Both are kept as questions the instruments exist to investigate, not results.</p>
+  </article>
+</section>
+
+<section id="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h"><span class="n">08</span>Questions</h2>
+  <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
+  <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
+  <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
+  <details><summary>Why is the demo maker key public?</summary><p>So that anyone can reproduce the seal byte for byte. Ed25519 signatures are deterministic. A real maker keeps a real key secret and offline. “Make your own genome” shows that: your browser makes a fresh key that never leaves the tab.</p></details>
+  <details><summary>Does it work offline?</summary><p>Yes. After the first visit a service worker keeps this page’s files, and germination itself never uses the network.</p></details>
+</section>
+</main>
+
+<footer>
+  <p><b>Credits.</b> Powered by the Konomi architecture, created by Thomas Frumkin. The seed format and the ribosome are <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a>’s, vendored unchanged. The Ed25519 keys module is from sovereign-enterprise. Every kernel is gated by <a href="https://github.com/sjgant80-hub/witness">witness</a>. Real data: Online Shoppers Purchasing Intention Dataset — C. Sakar and Y. Kastro, UCI Machine Learning Repository (2018), <a href="https://doi.org/10.24432/C5F88Q">DOI 10.24432/C5F88Q</a>, CC BY 4.0.</p>
+  <p>Supplied by <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a> · MIT licence — no licence fee · <a href="https://github.com/sjgant80-hub/living-seed">source</a> · <a href="llms.txt">llms.txt</a></p>
+</footer>
+</div>
+
+<script type="module">
+import { open, seal } from './src/genome.mjs';
+import { germinate, answer, caseOf, sizes } from './src/germinate.mjs';
+import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
+import { rng } from './vendor/seed-library/seedlib.mjs';
+import { fromSeed, generate } from './vendor/keys/keys.mjs';
+import { sha256Bytes, utf8 } from './vendor/seed-library/sha256.mjs';
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const n = (x) => Number(x).toLocaleString('en-GB');
+const short = (h) => esc(String(h).slice(0, 8) + '…' + String(h).slice(-4));
+const get = (p, text) => fetch(p, { cache: 'no-cache' }).then((r) => { if (!r.ok) throw new Error(p + ' → ' + r.status); return text ? r.text() : r.json(); });
+const LABEL = { shopper: 'purchase', triage: 'critical', water: 'potable', crop: 'plant now' };
+const DEVICES = [
+  { name: 'reference', label: 'Reference', note: 'all four domains, every train case' },
+  { name: 'device-a', label: 'Device A', note: 'the even-numbered half of each history' },
+  { name: 'device-b', label: 'Device B', note: 'the odd-numbered half' },
+  { name: 'shuffled-shopper', label: 'Noisy shop', note: 'shop labels shuffled — nothing to learn' },
+  { name: 'no-water', label: 'No water data', note: 'has never held a water sample' },
+];
+const S = { rec: null, pre: null, ver: null, data: null, subs: null, maker: null, other: null, mine: null, origin: '', originId: '', device: 'reference', organism: null };
+
+// the five devices, built exactly as tools/measure.mjs builds them
+function substrates(data) {
+  const shard = (ds, keep) => ({ ...ds, trainRows: ds.trainRows.filter(keep) });
+  const r = rng(9), y = Uint8Array.from(data.shopper.y);
+  for (let i = y.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [y[i], y[j]] = [y[j], y[i]]; }
+  const { water, ...noWater } = data;
+  return {
+    reference: data,
+    'device-a': Object.fromEntries(DOMAIN_IDS.map((d) => [d, shard(data[d], (i) => i % 2 === 0)])),
+    'device-b': Object.fromEntries(DOMAIN_IDS.map((d) => [d, shard(data[d], (i) => i % 2 === 1)])),
+    'shuffled-shopper': { ...data, shopper: { ...data.shopper, y } },
+    'no-water': noWater,
+  };
+}
+
+// run fn with the page's network globals trapped; → { value, touched }
+async function offline(fn) {
+  const g = globalThis, saved = { fetch: g.fetch, XMLHttpRequest: g.XMLHttpRequest, WebSocket: g.WebSocket };
+  let touched = 0;
+  const trap = () => { touched++; throw new Error('network'); };
+  g.fetch = trap; g.XMLHttpRequest = function () { trap(); }; g.WebSocket = function () { trap(); };
+  try { const value = await fn(); return { value, touched }; } finally { Object.assign(g, saved); }
+}
+
+function trustOpts() {
+  const t = $('trust').value;
+  if (t === 'origin') return { trust: [S.maker.pub] };
+  if (t === 'other') return { trust: [S.other.pub] };
+  if (t === 'mine' && S.mine) return { trust: [S.mine.pub] };
+  return {};
+}
+function makerName(pub) {
+  if (S.maker && pub === S.maker.pub) return 'the origin maker (demo key)';
+  if (S.mine && pub === S.mine.pub) return 'you (the key this tab just made)';
+  return 'an unknown maker';
+}
+
+let gTimer = 0;
+async function checkGenome() {
+  const text = $('genome').value, o = await open(text, trustOpts()), el = $('gstatus');
+  const bytes = utf8(text).length;
+  if (o.ok) {
+    el.className = 'status ok';
+    el.innerHTML = '<b class="ok-t">Opens.</b> Genome <code>' + esc(o.id) + '</code> · ' + n(bytes) + ' bytes · ' + o.fields.organs.length + ' organ' + (o.fields.organs.length === 1 ? '' : 's') + ' · gate ' + esc(o.fields.gate.auc) + ' · parents ' + (o.fields.parents.length ? o.fields.parents.map((p) => '<code>' + esc(p) + '</code>').join(', ') : 'none') + ' · signed by ' + esc(makerName(o.fields.by)) + (text === S.origin ? ' · <span class="ok-t">byte-identical to the genome CI sealed</span>' : '');
+  } else {
+    el.className = 'status bad';
+    el.innerHTML = '<b class="bad-t">Refused: ' + esc(o.why) + '.</b> Nothing in it was read past its seal; it would grow nothing. (' + n(bytes) + ' bytes)';
+  }
+}
+const queueCheck = () => { clearTimeout(gTimer); gTimer = setTimeout(checkGenome, 120); };
+
+function flipOne() {
+  const t = $('genome').value;
+  if (!t.length) return;
+  const i = Math.floor(Math.random() * t.length), c = t[i];
+  const swap = c === 'a' ? 'b' : c === '\n' ? ' ' : c === '0' ? '1' : 'a';
+  $('genome').value = t.slice(0, i) + swap + t.slice(i + 1);
+  const line = t.slice(0, i).split('\n').length;
+  $('growhint').textContent = 'changed character ' + (i + 1) + ' (line ' + line + '): ' + JSON.stringify(c) + ' → ' + JSON.stringify(swap);
+  checkGenome();
+}
+
+function renderDevices() {
+  $('devices').innerHTML = DEVICES.map((d) => '<button type="button" class="dev' + (d.name === S.device ? ' on' : '') + '" data-dev="' + esc(d.name) + '" aria-pressed="' + (d.name === S.device) + '"><b>' + esc(d.label) + '</b><span>' + esc(d.note) + '</span></button>').join('');
+}
+
+function rulesOf(o) {
+  return '<ul class="rules">' + o.body.rules.map((r) => '<li>' + esc(r.feat) + ' ' + esc(r.op) + ' ' + esc(r.v) + ' → ' + (r.w > 0 ? '+' : '') + esc(r.w) + '</li>').join('') + '</ul><div class="dim" style="font-size:12px">answers yes when the rules that fire sum above ' + esc(o.body.threshold) + '</div>';
+}
+
+async function grow() {
+  const dev = DEVICES.find((d) => d.name === S.device), text = $('genome').value;
+  $('grow').disabled = true;
+  const t0 = performance.now();
+  const { value: r, touched } = await offline(() => germinate(text, { name: dev.name, data: S.subs[dev.name] }, trustOpts()));
+  const ms = Math.round(performance.now() - t0);
+  $('grow').disabled = false;
+  const el = $('organism');
+  if (!r.ok) {
+    S.organism = null;
+    el.innerHTML = '<div class="status bad"><b class="bad-t">Nothing grew.</b> ' + esc(r.why) + '. Network calls: ' + touched + '.</div>';
+    renderAsk(); return;
+  }
+  const o = r.organism; S.organism = o;
+  const ci = S.rec.organisms[dev.name], sameGenome = text === S.origin;
+  const match = sameGenome && ci ? (ci.id === o.id ? '<span class="ok-t">✓ the same organism CI grew (id ' + esc(ci.id) + ')</span>' : '<span class="bad-t">✗ differs from CI’s ' + esc(ci.id) + '</span>') : '<span class="dim">your own genome — no CI record to compare</span>';
+  const sz = sizes(text, o);
+  el.innerHTML = '<div class="status ok">Organism <code>' + esc(o.id) + '</code> grown on <b>' + esc(dev.label) + '</b> in ' + ms + ' ms · network calls while growing: <b>' + touched + '</b> · ' + match + '</div>' +
+    '<div class="tw"><table><thead><tr><th>Organ</th><th>State</th><th>AUC on unseen cases</th><th>Grew on / graded on</th><th>Why</th></tr></thead><tbody>' +
+    o.organs.map((x) => '<tr><td>' + esc(x.domain) + '</td><td><span class="chip ' + esc(x.state) + '">' + esc(x.state) + '</span></td><td class="num">' + (x.heldAuc === undefined ? '—' : esc(x.heldAuc)) + '</td><td class="num">' + (x.train === undefined ? '—' : n(x.train) + ' / ' + n(x.held)) + '</td><td>' + esc(x.why) + '</td></tr>').join('') +
+    '</tbody></table></div><p class="dim">It carried ' + n(sz.genomeBytes) + ' bytes and grew ' + n(sz.grownBytes) + ' bytes of rules here (×' + esc(sz.ratio) + ').</p>' +
+    o.organs.filter((x) => x.state === 'live').map((x) => '<details><summary>The rules the ' + esc(x.domain) + ' organ grew on this device</summary>' + rulesOf(x) + '</details>').join('');
+  renderAsk();
+}
+
+function askCase() {
+  const d = $('ask-domain').value, ds = S.data[d];
+  const k = Math.min(ds.heldRows.length, Math.max(1, Math.round(Number($('ask-case').value) || 1)));
+  return { d, ds, i: ds.heldRows[k - 1], k };
+}
+function renderAsk() {
+  if (!S.data) return;
+  const { d, ds, i, k } = askCase();
+  $('ask-case').max = ds.heldRows.length; $('ask-case').value = k;
+  $('ask-of').textContent = 'of ' + n(ds.heldRows.length);
+  $('ask-about').textContent = ds.title + ' — ' + ds.note;
+  const organ = S.organism && S.organism.organs.find((x) => x.domain === d);
+  const reads = new Set(organ && organ.state === 'live' ? organ.body.rules.map((r) => r.feat) : []);
+  const x = caseOf(ds, i);
+  $('ask-fields').innerHTML = ds.features.map((f) => '<label class="' + (reads.has(f) ? 'read' : '') + '">' + esc(f) + '<input type="number" step="any" data-feat="' + esc(f) + '" value="' + esc(x[f]) + '" /></label>').join('');
+  $('ask-go').disabled = !S.organism;
+  if (S.organism) ask(); else $('ask-out').innerHTML = '<p class="dim">Germinate an organism first (box 2).</p>';
+}
+function ask() {
+  const { d, ds, i } = askCase(), x = caseOf(ds, i);
+  let edited = false;
+  for (const inp of $('ask-fields').querySelectorAll('input')) { const v = inp.value === '' ? NaN : Number(inp.value); if (v !== x[inp.dataset.feat]) edited = true; x[inp.dataset.feat] = v; }
+  const a = answer(S.organism, d, x), truth = ds.y[i];
+  const said = (l) => (l ? 'yes — ' : 'no — not ') + LABEL[d];
+  if (a.verdict === 'VERIFIED') {
+    $('ask-out').innerHTML = '<div class="answer"><div class="v ok-t">VERIFIED · ' + esc(said(a.label)) + '</div><div>score <code>' + esc(a.score) + '</code> against the line <code>' + esc(a.threshold) + '</code> · from its ' + esc(a.organ) + ' organ</div>' +
+      (a.fired.length ? '<div class="dim" style="margin-top:6px">rules that fired:</div><ul class="rules">' + a.fired.map((r) => '<li>' + esc(r.feat) + ' ' + esc(r.op) + ' ' + esc(r.v) + ' → ' + (r.w > 0 ? '+' : '') + esc(r.w) + '</li>').join('') + '</ul>' : '<div class="dim">no rule fired</div>') +
+      '<div style="margin-top:6px">' + (edited ? '<span class="dim">you changed the measurements, so there is no recorded outcome to compare</span>' : 'what actually happened: <b>' + esc(said(truth)) + '</b> · ' + (a.label === truth ? '<span class="ok-t">right</span>' : '<span class="bad-t">wrong</span>')) + '</div></div>';
+  } else {
+    $('ask-out').innerHTML = '<div class="answer"><div class="v warn-t">ABSTAIN</div><div>' + esc(a.why) + '.</div><div class="dim" style="margin-top:6px">It will not guess where it has not earned the answer.</div></div>';
+  }
+}
+
+async function rerun() {
+  $('rerun').disabled = true;
+  $('rerun-out').innerHTML = '<p class="dim">Running…</p>';
+  const t0 = performance.now(), rows = [];
+  const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
+  rows.push(['the origin genome, sealed again here', g.text === S.rec.genome.text, n(utf8(g.text).length) + ' bytes' + (g.text === S.rec.genome.text ? ' = CI' : ' ≠ CI')]);
+  let touchedAll = 0;
+  for (const d of DEVICES) {
+    const { value: r, touched } = await offline(() => germinate(g.text, { name: d.name, data: S.subs[d.name] }));
+    touchedAll += touched;
+    rows.push([d.label + ' — ' + d.note, r.ok && r.organism.id === S.rec.organisms[d.name].id, r.ok ? 'organism ' + r.organism.id + (r.organism.id === S.rec.organisms[d.name].id ? ' = CI' : ' ≠ CI ' + S.rec.organisms[d.name].id) : r.why]);
+  }
+  rows.push(['network calls across all five germinations', touchedAll === 0, String(touchedAll)]);
+  let refused = 0;
+  for (let i = 0; i < g.text.length; i++) {
+    const c = g.text[i];
+    const t = g.text.slice(0, i) + (c === 'a' ? 'b' : c === '\n' ? ' ' : c === '0' ? '1' : 'a') + g.text.slice(i + 1);
+    if (!(await open(t)).ok) refused++;
+  }
+  rows.push(['every one-character change refused', refused === g.text.length && refused === S.rec.tamper.refused, refused + ' / ' + g.text.length + ' (CI: ' + S.rec.tamper.refused + ' / ' + S.rec.tamper.positions + ')']);
+  const ms = Math.round(performance.now() - t0), all = rows.every((r) => r[1]);
+  $('rerun-out').innerHTML = '<div class="status ' + (all ? 'ok' : 'bad') + '">' + (all ? '<b class="ok-t">Reproduced.</b> Your browser re-derived every result CI committed' : '<b class="bad-t">Not reproduced.</b> See the row marked ✗') + ' — in ' + n(ms) + ' ms.</div><div class="tw"><table><tbody>' +
+    rows.map((r) => '<tr><td>' + (r[1] ? '<span class="ok-t">✓</span>' : '<span class="bad-t">✗</span>') + '</td><td>' + esc(r[0]) + '</td><td class="num">' + esc(r[2]) + '</td></tr>').join('') + '</tbody></table></div>';
+  $('rerun').disabled = false;
+}
+
+function renderReceipt() {
+  const v = Object.fromEntries(S.ver.verdicts.map((x) => [x.id, x]));
+  $('rules').querySelector('tbody').innerHTML = S.pre.rules.map((r) => {
+    const x = v[r.id] || { pass: false, saw: 'no verdict' };
+    return '<tr><td><b>' + esc(r.id) + '</b></td><td>' + (r.kind === 'prediction' ? '<span class="chip pred">prediction</span>' : '<span class="chip">property</span>') + '</td><td>' + esc(r.claim) + '</td><td class="dim">' + esc(r.seenBeforeSeal) + '</td><td>' + (x.pass ? '<span class="chip pass">PASS</span>' : '<span class="chip fail">FAIL</span>') + '</td><td class="dim">' + esc(x.saw) + '</td></tr>';
+  }).join('');
+}
+
+function renderTrace() {
+  const R = S.rec, ref = R.organisms.reference, org = (s, d) => R.organisms[s].organs.find((x) => x.domain === d);
+  const shop = org('reference', 'shopper'), sh = org('shuffled-shopper', 'shopper'), c = R.organisms['shuffled-shopper'].calls.shopper, w = R.organisms['no-water'].calls.water;
+  const a = ['device-a', 'device-b'].flatMap((s) => DOMAIN_IDS.map((d) => Math.abs(org(s, d).heldAuc - org('reference', d).heldAuc)));
+  $('trace').innerHTML = [
+    'The genome arrives: <b>' + n(R.genome.bytes) + ' bytes</b>, ' + R.genome.organs + ' organ recipes, signed by <code>' + short(R.genome.maker) + '</code>. Before any field is read, its signature is checked over the ' + n(utf8(R.genome.text.slice(0, R.genome.text.lastIndexOf('\nsig '))).length) + ' bytes above it — the ' + n(R.genome.bodyBytes) + ' bytes of name, lineage, gate and recipes, plus the maker’s key. It is genome <code>' + esc(R.genome.id) + '</code>.',
+    'The shop recipe meets <b>' + n(shop.train) + '</b> real sessions from February to October. Each rule’s threshold is set from them, and the organ is graded on <b>' + n(shop.held) + '</b> November–December sessions it never saw: AUC <b>' + esc(shop.heldAuc) + '</b> ≥ 0.6 → <span class="chip live">live</span>. It is right on ' + n(ref.calls.shopper.right) + ' of ' + n(ref.calls.shopper.held) + ' of them.',
+    'All four organs go live on the reference data, and the grown organism is <code>' + esc(ref.id) + '</code>: ' + n(ref.sizes.grownBytes) + ' bytes of rules from ' + n(ref.sizes.genomeBytes) + ' carried. Three more germinations gave the same id.',
+    'On a device holding only half the history, every organ still clears the gate. The largest move in any AUC across both halves is <b>' + Math.max(...a).toFixed(4) + '</b>, against a sealed bound of 0.03. The two organisms differ (<code>' + esc(R.organisms['device-a'].id) + '</code>, <code>' + esc(R.organisms['device-b'].id) + '</code>) because each fitted its own data.',
+    'On the shop whose labels were shuffled, the same recipe scores AUC <b>' + esc(sh.heldAuc) + '</b> → <span class="chip cut">cut</span>. It abstains on <b>' + n(c.abstained) + ' of ' + n(c.held) + '</b> shop cases, while the other three organs answer every case.',
+    'On the device with no water data, the water organ is <span class="chip dormant">dormant</span> and abstains on ' + n(w.abstained) + ' of ' + n(w.held) + ' water cases.',
+    'Every one of the <b>' + n(R.tamper.positions) + '</b> possible one-character changes is refused: ' + Object.entries(R.tamper.reasons).map(([k, v]) => n(v) + ' “' + esc(k) + '”').join(', ') + '. With the maker’s key swapped → “' + esc(R.tamper.makerSwapped) + '”; on a device trusting another maker → “' + esc(R.tamper.untrustedMaker) + '”.',
+  ].map((t) => '<li>' + t + '</li>').join('');
+}
+
+function renderCalc() {
+  const v = (id) => Math.max(0, Number($(id).value) || 0);
+  const sites = v('c-sites'), mb = v('c-mb'), upd = v('c-upd'), rec = v('c-rec'), gb = S.rec ? S.rec.genome.bytes : 496;
+  const now = sites * mb * upd, seed = sites * gb * upd;
+  const kb = seed / 1024;
+  $('c-out').innerHTML = '<div class="tw"><table><thead><tr><th></th><th>Today</th><th>With a genome</th></tr></thead><tbody>' +
+    '<tr><td>Shipped to sites a year</td><td class="num">' + n(Math.round(now)) + ' MB</td><td class="num">' + (kb < 1024 ? n(Math.round(kb * 10) / 10) + ' KB' : n(Math.round(kb / 1024 * 10) / 10) + ' MB') + '</td></tr>' +
+    '<tr><td>Records leaving sites a year</td><td class="num">' + n(Math.round(sites * rec * 12)) + '</td><td class="num">0</td></tr>' +
+    '</tbody></table></div><p class="dim">Computed from your inputs: ' + n(sites) + ' sites × the genome’s ' + n(gb) + ' bytes × ' + n(upd) + ' updates. We don’t turn this into money without your own costs per MB and per record.</p>';
+}
+
+async function boot() {
+  for (const id of ['c-sites', 'c-mb', 'c-upd', 'c-rec']) $(id).addEventListener('input', renderCalc);
+  renderCalc();
+  renderDevices();
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  let csv, run;
+  try {
+    [S.rec, S.pre, S.ver, run, csv] = await Promise.all([get('data/record.json'), get('data/prereg.json'), get('data/verdict.json'), get('data/seed-library-run.json'), get('data/online_shoppers_intention.csv', true)]);
+  } catch (e) { $('boot').textContent = 'Could not load this page’s own files (' + e.message + '). Reload to try again.'; return; }
+  renderReceipt(); renderTrace(); renderCalc();
+  S.data = Object.fromEntries(DOMAIN_IDS.map((d) => [d, loadDomain(d, { shopperCsv: csv })]));
+  S.subs = substrates(S.data);
+  S.seeds = run.library.seeds.map((s) => s.seed);
+  $('ask-domain').innerHTML = DOMAIN_IDS.map((d) => '<option value="' + esc(d) + '">' + esc(S.data[d].title) + (S.data[d].real ? ' (real data)' : ' (synthetic)') + '</option>').join('');
+  $('mk-organs').innerHTML = DOMAIN_IDS.map((d) => '<label><input type="checkbox" data-organ="' + esc(d) + '" checked /> ' + esc(d) + '</label>').join(' ');
+  try {
+    S.maker = await fromSeed(sha256Bytes(utf8('living-seed/maker/origin')));
+    S.other = await fromSeed(sha256Bytes(utf8('living-seed/maker/other')));
+  } catch { $('nocrypto').classList.add('show'); $('boot').textContent = 'This browser cannot do Ed25519, so it cannot open a genome.'; return; }
+  const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
+  S.origin = g.text; S.originId = g.id;
+  $('genome').value = g.text;
+  $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
+  for (const id of ['grow', 'rerun']) $(id).disabled = false;
+  await checkGenome();
+  renderAsk();
+}
+
+$('genome').addEventListener('input', queueCheck);
+$('trust').addEventListener('change', checkGenome);
+$('flip').addEventListener('click', flipOne);
+$('reset').addEventListener('click', () => { $('genome').value = S.origin; $('growhint').textContent = ''; checkGenome(); });
+$('devices').addEventListener('click', (e) => { const b = e.target.closest('[data-dev]'); if (!b) return; S.device = b.dataset.dev; renderDevices(); });
+$('grow').addEventListener('click', grow);
+$('ask-domain').addEventListener('change', () => { $('ask-case').value = 1; renderAsk(); });
+$('ask-case').addEventListener('change', renderAsk);
+$('ask-next').addEventListener('click', () => { const ds = S.data && S.data[$('ask-domain').value]; if (!ds) return; $('ask-case').value = 1 + Math.floor(Math.random() * ds.heldRows.length); renderAsk(); });
+$('ask-go').addEventListener('click', ask);
+$('rerun').addEventListener('click', rerun);
+$('mk-seal').addEventListener('click', async () => {
+  const st = $('mk-status');
+  try {
+    if (!S.mine) S.mine = await generate();
+    const organs = [...$('mk-organs').querySelectorAll('input:checked')].map((i) => S.seeds[DOMAIN_IDS.indexOf(i.dataset.organ)]);
+    const r = await seal({ name: $('mk-name').value.trim(), parents: $('mk-child').checked ? [S.originId] : [], gate: { auc: Number($('mk-gate').value) }, organs }, S.mine);
+    if (!r.ok) { st.innerHTML = '<span class="bad-t">Not sealed: ' + esc(r.why) + '.</span>'; return; }
+    if (![...$('trust').options].some((o) => o.value === 'mine')) $('trust').insertAdjacentHTML('beforeend', '<option value="mine">only my new key</option>');
+    $('genome').value = r.text; $('growhint').textContent = '';
+    st.innerHTML = '<span class="ok-t">Sealed.</span> Genome <code>' + esc(r.id) + '</code> by your key <code>' + short(S.mine.pub) + '</code> — now in box 1. Germinate it.';
+    checkGenome();
+  } catch { st.innerHTML = '<span class="bad-t">This browser could not make an Ed25519 key.</span>'; }
+});
+boot();
+</script>
+</body>
+</html>

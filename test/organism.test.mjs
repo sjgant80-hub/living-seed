@@ -118,3 +118,18 @@ test('improve: evolved on the device’s own data, blind to what it is judged on
   assert.deepEqual(await O.improve(g, SUB, dev, { trust: [(await key('other')).pub] }), { ok: false, why: 'the genome was refused: untrusted maker' });
   assert.equal((await O.improve(g, SUB, { pub: 7 })).ok, false, 'no device keys, no child');
 });
+
+test('the noise in an AUC (Hanley & McNeil): and a gate that adopts only a gain larger than it', async () => {
+  // AUC 0.5 on 50 + 50 cases: q1 = q2 = 1/3, so SE = √((0.25 + 2·49·(1/3 − 0.25)) / 2500) = 0.058023
+  assert.equal(Math.round(O.aucError(0.5, 50, 50) * 1e6) / 1e6, 0.058023);
+  assert.equal(O.aucError(1, 10, 10), 0, 'a perfect ranking has no spread');
+  assert.equal(O.aucError(0, 10, 10), 0, 'nor does a perfectly reversed one');
+  assert.ok(O.aucError(0.8, 200, 200) < O.aucError(0.8, 20, 20), 'more cases, less noise');
+  for (const [a, p, q] of [[0.8, 0, 10], [0.8, 10, 0], [-0.1, 10, 10], [1.1, 10, 10], [NaN, 10, 10]]) assert.equal(O.aucError(a, p, q), 1);
+  const g = await genome(), dev = await key('device'), E = { generations: 6, children: 4, folds: 3, seed: 1 };
+  const base = (await O.improve(g, SUB, dev, { evolve: E })).organs[0], pos = DS.heldRows.filter((i) => DS.y[i] === 1).length;
+  const se = O.aucError(base.from, pos, DS.heldRows.length - pos), zEdge = (base.to - base.from) / se;
+  assert.equal((await O.improve(g, SUB, dev, { evolve: E, z: zEdge * 0.99 })).organs[0].adopted, true, 'a gain just over z standard errors');
+  assert.equal((await O.improve(g, SUB, dev, { evolve: E, z: zEdge * 1.01 })).organs[0].adopted, false, 'a gain just under: noise, not a gain');
+  assert.equal((await O.improve(g, SUB, dev, { evolve: E, z: 0.001, margin: base.to - base.from })).organs[0].adopted, false, 'the margin still holds when it is the larger bar');
+});

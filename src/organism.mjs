@@ -29,6 +29,13 @@ import { sign, verify } from '../vendor/keys/keys.mjs';
 import { utf8 } from '../vendor/keys/canon.mjs';
 
 export const MEMORY = 'living-seed.memory';
+
+/** The standard error of an AUC measured on nPos positive and nNeg negative cases (Hanley & McNeil, 1982). */
+export function aucError(a, nPos, nNeg) {
+  if (!(nPos > 0 && nNeg > 0 && a >= 0 && a <= 1)) return 1;
+  const q1 = a / (2 - a), q2 = (2 * a * a) / (1 + a);
+  return Math.sqrt(Math.max(0, (a * (1 - a) + (nPos - 1) * (q1 - a * a) + (nNeg - 1) * (q2 - a * a)) / (nPos * nNeg)));
+}
 const no = (why) => ({ ok: false, why });
 
 /** Boot from a card: read the genome out of its pixels and open it under the device's trust. → { ok, genome, id, fields } */
@@ -73,10 +80,12 @@ export async function wake(text, substrate, opts = {}) {
  * Improve, through the gate: each organ live on this device is evolved on blind(its data) (the evolver never sees the
  * held rows), and a champion is adopted only if, grown on this device's data, it beats the organ it would replace on
  * the held rows by more than MARGIN. The device seals the child, naming the parent.
- * opts: { trust, evolve: options for evolve(), margin: the gate's margin (MARGIN) }. → { ok, child, id, organs: [{ domain, adopted, … }] }
+ * opts: { trust, evolve: options for evolve(), margin: the gate's margin (MARGIN), z: when set, a candidate must also beat the
+ * organ by z standard errors of the organ's own held-out AUC — a gain larger than the noise in the evidence }.
+ * → { ok, child, id, organs: [{ domain, adopted, … }] }
  */
 export async function improve(genomeText, substrate, keys, opts = {}) {
-  const { margin = MARGIN } = opts;
+  const { margin = MARGIN, z = 0 } = opts;
   const p = await open(genomeText, { trust: opts.trust });
   if (!p.ok) return no('the genome was refused: ' + p.why);
   const g = await germinate(genomeText, substrate);
@@ -87,7 +96,8 @@ export async function improve(genomeText, substrate, keys, opts = {}) {
     if (mine.state !== 'live') { recipes.push(recipe); organs.push({ domain, adopted: false, why: 'it is ' + mine.state + ' here' }); continue; }
     const e = evolve(recipe, blind(ds), opts.evolve);
     const c = e.ok ? express(ds, e.champion) : null;
-    if (c && c.ok && c.heldAuc - mine.heldAuc > margin) { recipes.push(e.champion); organs.push({ domain, adopted: true, from: mine.heldAuc, to: c.heldAuc }); }
+    const pos = ds.heldRows.filter((i) => ds.y[i] === 1).length, bar = Math.max(margin, z * aucError(mine.heldAuc, pos, ds.heldRows.length - pos));
+    if (c && c.ok && c.heldAuc - mine.heldAuc > bar) { recipes.push(e.champion); organs.push({ domain, adopted: true, from: mine.heldAuc, to: c.heldAuc }); }
     else { recipes.push(recipe); organs.push({ domain, adopted: false, from: mine.heldAuc, candidate: c && c.ok ? c.heldAuc : null, why: 'no candidate beat it on cases the evolver never saw' }); }
   }
   const child = await seal({ name: p.fields.name, parents: [p.id], gate: p.fields.gate, organs: recipes }, keys);

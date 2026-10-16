@@ -1,0 +1,668 @@
+{
+ "kind": "living-seed.organ-8b.record",
+ "v": 1,
+ "rounds": 30,
+ "perRound": 9,
+ "late": 10,
+ "premise": {
+  "adverts": {
+   "west": 0.814989,
+   "east": 0.816352
+  },
+  "rightDirect": {
+   "west": 0.748148,
+   "east": 0.751852
+  },
+  "eastAbstains": 0
+ },
+ "policies": [
+  {
+   "name": "organ 8’s rule",
+   "opts": {},
+   "gate": {
+    "sent": 1140,
+    "admitted": 1140
+   },
+   "early": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 67,
+    "tasks": 90
+   },
+   "late": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 67,
+    "tasks": 90
+   },
+   "links": {
+    "a1": {
+     "east": 0.855
+    },
+    "a2": {
+     "east": 0.95
+    },
+    "a3": {
+     "east": 0.81225
+    }
+   },
+   "rounds": [
+    {
+     "round": 1,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 2,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 3,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 4,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 5,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 6,
+     "routed": 9,
+     "toWest": 0,
+     "right": 9
+    },
+    {
+     "round": 7,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 8,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 9,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 10,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 11,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 12,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 13,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 14,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 15,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 16,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 17,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 18,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 19,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 20,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 21,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 22,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 23,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 24,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 25,
+     "routed": 9,
+     "toWest": 0,
+     "right": 9
+    },
+    {
+     "round": 26,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 27,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 28,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 29,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 30,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    }
+   ]
+  },
+  {
+   "name": "reliability",
+   "opts": {
+    "learn": "ema"
+   },
+   "gate": {
+    "sent": 1140,
+    "admitted": 1140
+   },
+   "early": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 67,
+    "tasks": 90
+   },
+   "late": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 67,
+    "tasks": 90
+   },
+   "links": {
+    "a1": {
+     "east": 0.485231
+    },
+    "a2": {
+     "east": 0.671353
+    },
+    "a3": {
+     "east": 0.521375
+    }
+   },
+   "rounds": [
+    {
+     "round": 1,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 2,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 3,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 4,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 5,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 6,
+     "routed": 9,
+     "toWest": 0,
+     "right": 9
+    },
+    {
+     "round": 7,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 8,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 9,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 10,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 11,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 12,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 13,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 14,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 15,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 16,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 17,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 18,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 19,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 20,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 21,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 22,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 23,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 24,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 25,
+     "routed": 9,
+     "toWest": 0,
+     "right": 9
+    },
+    {
+     "round": 26,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 27,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 28,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 29,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 30,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    }
+   ]
+  },
+  {
+   "name": "reliability + exploring",
+   "opts": {
+    "learn": "ema",
+    "explore": 0.2,
+    "seed": 5
+   },
+   "gate": {
+    "sent": 1140,
+    "admitted": 1140
+   },
+   "early": {
+    "routed": 90,
+    "toWest": 17,
+    "right": 67,
+    "tasks": 90
+   },
+   "late": {
+    "routed": 90,
+    "toWest": 31,
+    "right": 67,
+    "tasks": 90
+   },
+   "links": {
+    "a1": {
+     "east": 0.489887,
+     "west": 0.489098
+    },
+    "a2": {
+     "east": 0.477231,
+     "west": 0.673517
+    },
+    "a3": {
+     "east": 0.482855,
+     "west": 0.5884
+    }
+   },
+   "rounds": [
+    {
+     "round": 1,
+     "routed": 9,
+     "toWest": 1,
+     "right": 7
+    },
+    {
+     "round": 2,
+     "routed": 9,
+     "toWest": 1,
+     "right": 7
+    },
+    {
+     "round": 3,
+     "routed": 9,
+     "toWest": 3,
+     "right": 6
+    },
+    {
+     "round": 4,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 5,
+     "routed": 9,
+     "toWest": 2,
+     "right": 7
+    },
+    {
+     "round": 6,
+     "routed": 9,
+     "toWest": 2,
+     "right": 9
+    },
+    {
+     "round": 7,
+     "routed": 9,
+     "toWest": 2,
+     "right": 7
+    },
+    {
+     "round": 8,
+     "routed": 9,
+     "toWest": 1,
+     "right": 6
+    },
+    {
+     "round": 9,
+     "routed": 9,
+     "toWest": 4,
+     "right": 4
+    },
+    {
+     "round": 10,
+     "routed": 9,
+     "toWest": 1,
+     "right": 7
+    },
+    {
+     "round": 11,
+     "routed": 9,
+     "toWest": 3,
+     "right": 7
+    },
+    {
+     "round": 12,
+     "routed": 9,
+     "toWest": 3,
+     "right": 6
+    },
+    {
+     "round": 13,
+     "routed": 9,
+     "toWest": 2,
+     "right": 6
+    },
+    {
+     "round": 14,
+     "routed": 9,
+     "toWest": 3,
+     "right": 8
+    },
+    {
+     "round": 15,
+     "routed": 9,
+     "toWest": 2,
+     "right": 8
+    },
+    {
+     "round": 16,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 17,
+     "routed": 9,
+     "toWest": 3,
+     "right": 7
+    },
+    {
+     "round": 18,
+     "routed": 9,
+     "toWest": 3,
+     "right": 8
+    },
+    {
+     "round": 19,
+     "routed": 9,
+     "toWest": 2,
+     "right": 6
+    },
+    {
+     "round": 20,
+     "routed": 9,
+     "toWest": 4,
+     "right": 7
+    },
+    {
+     "round": 21,
+     "routed": 9,
+     "toWest": 2,
+     "right": 7
+    },
+    {
+     "round": 22,
+     "routed": 9,
+     "toWest": 2,
+     "right": 7
+    },
+    {
+     "round": 23,
+     "routed": 9,
+     "toWest": 1,
+     "right": 5
+    },
+    {
+     "round": 24,
+     "routed": 9,
+     "toWest": 5,
+     "right": 7
+    },
+    {
+     "round": 25,
+     "routed": 9,
+     "toWest": 1,
+     "right": 9
+    },
+    {
+     "round": 26,
+     "routed": 9,
+     "toWest": 4,
+     "right": 6
+    },
+    {
+     "round": 27,
+     "routed": 9,
+     "toWest": 2,
+     "right": 8
+    },
+    {
+     "round": 28,
+     "routed": 9,
+     "toWest": 5,
+     "right": 8
+    },
+    {
+     "round": 29,
+     "routed": 9,
+     "toWest": 4,
+     "right": 5
+    },
+    {
+     "round": 30,
+     "routed": 9,
+     "toWest": 5,
+     "right": 5
+    }
+   ]
+  }
+ ]
+}

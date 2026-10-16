@@ -1,0 +1,37 @@
+{
+ "kind": "living-seed.organ-6.verdict",
+ "v": 1,
+ "prereg": "c75775224a803278",
+ "record": "e93d9d57761f6f65",
+ "timing": "f44778d735681fd2",
+ "verdicts": [
+  {
+   "id": "S1",
+   "kind": "property",
+   "claim": "recycling never changes an answer: evolution through the pool takes exactly the same steps as without it, and every one of the 35 organisms grown through the pool is byte-for-byte the organism grown fresh",
+   "pass": true,
+   "saw": "evolution through the pool took exactly the same steps; 35/35 organisms grown through the pool identical to fresh"
+  },
+  {
+   "id": "S2",
+   "kind": "prediction",
+   "claim": "evolution performs at most 2% of the column sorts it asks for — the rest are read from the pool",
+   "pass": true,
+   "saw": "114 sorts done of 15,978 asked for (0.71%)"
+  },
+  {
+   "id": "S3",
+   "kind": "prediction",
+   "claim": "across the organism’s life, at least half of all organ growths come from the pool — the same recipe on equal data, grown once",
+   "pass": true,
+   "saw": "102 of 133 organ growths came from the pool (76.69%), across 7 genomes on 5 devices"
+  },
+  {
+   "id": "S4",
+   "kind": "prediction",
+   "claim": "on this machine the pooled evolution runs at least three times faster in wall time than plain (median of three alternating repeats)",
+   "pass": true,
+   "saw": "evolution plain 23147 ms, pooled 3540 ms (×6.54) on 12th Gen Intel(R) Core(TM) i7-1255U · 12 threads · 16 GB RAM · load average 0.0/0.0/0.0 · a local language model was answering in the background"
+  }
+ ]
+}

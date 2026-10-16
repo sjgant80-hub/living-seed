@@ -32,3 +32,5 @@ jobs:
         run: node tools/measure-4b.mjs --check && node tools/judge-4b.mjs --check && node tools/order.mjs --organ 4b
       - name: organ 5 — breeding and the card re-run, re-judged, and the seal came first
         run: node tools/measure-5.mjs --check && node tools/judge-5.mjs --check && node tools/order.mjs --organ 5
+      - name: organ 6 — recycled work re-counted (byte for byte), re-judged against its committed timing, seal first
+        run: node tools/measure-6.mjs --check && node tools/judge-6.mjs --check && node tools/order.mjs --organ 6

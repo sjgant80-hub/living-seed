@@ -1,0 +1,36 @@
+{
+ "kind": "living-seed.organ-7.verdict",
+ "v": 1,
+ "prereg": "37511527ebdb5168",
+ "record": "7162d3f5209593af",
+ "verdicts": [
+  {
+   "id": "P1",
+   "kind": "prediction",
+   "claim": "on all four organs, Ψ⁷’s Brier score on unseen cases is lower than Ψ⁰’s — the organism knows its own correctness better than its base rate",
+   "pass": true,
+   "saw": "shopper 0.164887 → 0.123676; triage 0.016628 → 0.015114; water 0.178107 → 0.158163; crop 0.221149 → 0.201745 (Brier on unseen cases, base rate → Ψ⁷)"
+  },
+  {
+   "id": "P2",
+   "kind": "prediction",
+   "claim": "it settles: on all four organs the last step moves Ψ by less than 0.01 on average, and by less than the second step did",
+   "pass": true,
+   "saw": "shopper steps 0.114128 → 0.141417 → 0.020259 → 0.007728 → 0.005833 → 0.000587 → 0.005061; triage steps 0.028993 → 0.017503 → 0.022448 → 0.01744 → 0.011261 → 0.007058 → 0.007245; water steps 0.009949 → 0.107773 → 0.001742 → 0.003354 → 0.009375 → 0.000566 → 0.000557; crop steps 0.089127 → 0.041765 → 0.042066 → 0.009031 → 0.009132 → 0.011811 → 0.002653"
+  },
+  {
+   "id": "P3",
+   "kind": "prediction",
+   "claim": "a spiral, not a one-step jump: on at least three organs, the unseen-case Brier score improves at two or more of the seven refinements",
+   "pass": true,
+   "saw": "shopper improved on unseen cases at 5 of 7 refinements; triage improved on unseen cases at 5 of 7 refinements; water improved on unseen cases at 4 of 7 refinements; crop improved on unseen cases at 6 of 7 refinements"
+  },
+  {
+   "id": "P4",
+   "kind": "prediction",
+   "claim": "it is useful: on at least three organs, keeping only the answers Ψ⁷ rates at least 0.8 likely right gives higher accuracy on unseen cases than answering everything",
+   "pass": true,
+   "saw": "shopper 0.798942 on all → 0.930471 on the 66.1% it rates ≥ 0.8; triage 0.983333 on all → 0.991254 on the 95.3% it rates ≥ 0.8; water 0.769444 on all → 0.931408 on the 38.5% it rates ≥ 0.8; crop 0.673611 on all → 0.857143 on the 10.7% it rates ≥ 0.8"
+  }
+ ]
+}

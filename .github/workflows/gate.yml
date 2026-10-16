@@ -34,3 +34,5 @@ jobs:
         run: node tools/measure-5.mjs --check && node tools/judge-5.mjs --check && node tools/order.mjs --organ 5
       - name: organ 6 — recycled work re-counted (byte for byte), re-judged against its committed timing, seal first
         run: node tools/measure-6.mjs --check && node tools/judge-6.mjs --check && node tools/order.mjs --organ 6
+      - name: organ 7 — the self-model re-run, re-judged, seal first
+        run: node tools/measure-7.mjs --check && node tools/judge-7.mjs --check && node tools/order.mjs --organ 7

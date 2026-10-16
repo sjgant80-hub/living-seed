@@ -177,6 +177,50 @@ test('exploring: now and then a task goes to another capable node instead of the
   assert.equal((await m1.task(t.B, 'beta', x, 0, 2, '1'.repeat(16))).by, 'a');
 });
 
+test('the evidence rule: an advert counts as a few cases; what a route actually did decides — an over-claimer is found out', async () => {
+  const { A, B, C } = await three(), kd = await key('d');
+  const both = await seal({ name: 'both', gate: { auc: 0.6 }, organs: [rec('alpha'), rec('beta')] }, kd);
+  const D = (await M.node('d', both.text, { name: 'd', data: { alpha: ALPHA, beta: BETA } }, kd)).node;
+  D.claims = { beta: 0.99 };
+  assert.equal(M.adverts(D).find((x) => x.domain === 'beta').auc, 0.99, 'it advertises what it claims');
+  assert.equal(M.adverts(D).find((x) => x.domain === 'alpha').auc, M.adverts(A).find((x) => x.domain === 'alpha').auc, 'and the truth where it claims nothing');
+  const m = M.mesh([A, B, C, D], { learn: 'evidence' });
+  await m.gossip(1);
+  const honest = M.adverts(A).find((x) => x.domain === 'beta').auc;
+  assert.equal(m.bestFor(B, 'beta').ad.node, 'd', 'the claim wins while there is no evidence');
+  assert.equal(m.bestFor(B, 'beta').score, 0.99);
+  const row = (k) => { const i = BETA.heldRows[k]; return Object.fromEntries(BETA.features.map((f) => [f, BETA.cols[f][i]])); };
+  // d is wrong every time it is asked (the truth is set against its answer): its score falls with each case
+  let k = 0;
+  while (m.bestFor(B, 'beta').ad.node === 'd' && k < 30) {
+    const x = row(k), said = (await m.task(D, 'beta', x, 0, 2, (k + 1).toString(16).padStart(16, '0'))).label;
+    const r = await m.task(B, 'beta', x, 1 - said, 2, (k + 100).toString(16).padStart(16, '0'));
+    assert.equal(r.by, 'd'); assert.equal(r.right, false);
+    k++;
+    assert.equal(m.candidates(B, 'beta').find((c) => c.ad.node === 'd').score, Math.round((0.99 * M.PRIOR) / (M.PRIOR + k) * 1e6) / 1e6, 'the claim, as PRIOR cases, diluted by ' + k + ' wrong ones');
+  }
+  assert.equal(m.bestFor(B, 'beta').ad.node, 'a', 'found out after ' + k + ' wrong answers: the honest node, untried, keeps its advert');
+  assert.equal(m.bestFor(B, 'beta').score, honest);
+  assert.equal(B.links.get('d'), 0, 'the link shows what it did: right on none');
+  assert.deepEqual(B.evidence.get('d'), { n: k, r: 0 });
+  // a right answer counts for the node too
+  const x = row(50), said = (await m.task(A, 'beta', x, 0, 3, 'a'.repeat(16))).label;
+  await m.task(B, 'beta', x, said, 3, 'b'.repeat(16));
+  assert.deepEqual(B.evidence.get('a'), { n: 1, r: 1 });
+  assert.equal(m.candidates(B, 'beta').find((c) => c.ad.node === 'a').score, Math.round((honest * M.PRIOR + 1) / (M.PRIOR + 1) * 1e6) / 1e6);
+  // evidence fades, and evidence too faint is dropped
+  m.fade(4);
+  assert.deepEqual(B.evidence.get('a'), { n: M.DECAY, r: M.DECAY });
+  B.evidence.set('a', { n: M.PRUNE / M.DECAY - 1e-6, r: 0 });
+  m.fade(5);
+  assert.equal(B.evidence.has('a'), false);
+  assert.equal(B.links.has('a'), false);
+  assert.ok(m.log.some((e) => e.type === 'prune' && e.round === 5));
+  B.evidence.set('a', { n: M.PRUNE / M.DECAY, r: 0 });
+  m.fade(6);
+  assert.equal(B.evidence.get('a').n, M.PRUNE, 'exactly on the floor: kept');
+});
+
 test('fading: exactly on the floor a link stays; below it, it is dropped', async () => {
   const { A, B, C } = await three(), m = M.mesh([A, B, C]);
   B.links.set('a', M.PRUNE / M.DECAY);

@@ -39,7 +39,7 @@ export const MESH = Object.freeze({
     antibody: GRAMMAR.body.antibody,
   },
 });
-export const ETA = 0.2, ALPHA = 0.2, DECAY = 0.95, PRUNE = 0.05, GAP = 4;
+export const ETA = 0.2, ALPHA = 0.2, DECAY = 0.95, PRUNE = 0.05, GAP = 4, PRIOR = 4;
 const num = (v) => String(round6(v));
 
 /** A node: an organism grown on its own data, with its keys, its links, its map of the others and its immune memory. */
@@ -47,15 +47,16 @@ export async function node(name, genomeText, substrate, keys) {
   const g = await germinate(genomeText, substrate);
   if (!g.ok) return { ok: false, why: g.why };
   return { ok: true, node: { name, keys, pub: keys.pub, genome: genomeText, substrate, org: g.organism, body: embody(g.organism, substrate).body,
-    links: new Map(), inLast: new Map(), outN: new Map(), map: new Map(), abstains: new Map(), imm: immune(), alive: true, grown: [] } };
+    links: new Map(), evidence: new Map(), inLast: new Map(), outN: new Map(), map: new Map(), abstains: new Map(), imm: immune(), alive: true, grown: [], claims: null } };
 }
 
-/** The live organs a node advertises: domain, unseen-case AUC, cases graded. */
-export const adverts = (n) => n.org.organs.filter((o) => o.state === 'live').map((o) => ({ domain: o.domain, auc: o.heldAuc, held: o.held }));
+/** The live organs a node advertises: domain, unseen-case AUC, cases graded. A node with claims set advertises those
+ *  scores instead — a node that over-claims, as a broken or dishonest one would; the mesh has to find it out. */
+export const adverts = (n) => n.org.organs.filter((o) => o.state === 'live').map((o) => ({ domain: o.domain, auc: n.claims && n.claims[o.domain] !== undefined ? n.claims[o.domain] : o.heldAuc, held: o.held }));
 
 /**
  * A mesh of nodes that trust each other's keys. opts.cut(a, b) → true when a and b cannot reach each other (a partition);
- * opts.learn: 'hebb' (default) | 'ema'; opts.explore: the chance (0 by default) of routing to another capable node
+ * opts.learn: 'hebb' (default) | 'ema' | 'evidence'; opts.explore: the chance (0 by default) of routing to another capable node
  * instead of the best, drawn from opts.seed.
  * → { nodes, send, gossip, task, log, stats }
  */
@@ -66,8 +67,15 @@ export function mesh(nodes, opts = {}) {
   const explore = opts.explore || 0, er = rng(opts.seed || 1);
   /** a link learns from one outcome. 'hebb' (the default): +ETA when right, −ETA/2 when wrong or unanswered, held in 0…1 —
    *  it saturates, so two mostly-right links look alike. 'ema': the link becomes a running average of being right (rate
-   *  ALPHA), so it tracks how reliable the route actually is. */
+   *  ALPHA), so it tracks how reliable the route actually is. 'evidence': a route is scored by its advert counted as
+   *  PRIOR cases, plus every case it was actually right or wrong on — once there is evidence, the claim stops deciding. */
   const learn = (a, b, right) => {
+    if (opts.learn === 'evidence') {   // what it actually did: cases routed, cases right
+      const e = a.evidence.get(b) || { n: 0, r: 0 };
+      const f = { n: e.n + 1, r: e.r + (right ? 1 : 0) };
+      a.evidence.set(b, f); a.links.set(b, round6(f.r / f.n));
+      return;
+    }
     const w = a.links.get(b) || 0;
     a.links.set(b, opts.learn === 'ema' ? round6(w + ALPHA * ((right ? 1 : 0) - w)) : right ? Math.min(1, w + ETA) : Math.max(0, w - ETA / 2));
   };
@@ -101,7 +109,7 @@ export function mesh(nodes, opts = {}) {
   }
   /** the nodes a domain's task could go to, best first, by advert and link strength */
   const candidates = (a, domain) => [...a.map.values()].filter((ad) => ad.domain === domain && ad.node !== a.name && byName.has(ad.node))   // only nodes this mesh knows
-    .map((ad) => ({ ad, score: round6(ad.auc + (a.links.get(ad.node) || 0)) })).sort((x, y) => y.score - x.score);   // ties: the first advertised (the sort is stable)
+    .map((ad) => { const e = a.evidence.get(ad.node) || { n: 0, r: 0 }; return { ad, score: opts.learn === 'evidence' ? round6((ad.auc * PRIOR + e.r) / (PRIOR + e.n)) : round6(ad.auc + (a.links.get(ad.node) || 0)) }; }).sort((x, y) => y.score - x.score);   // ties: the first advertised (the sort is stable)
   const bestFor = (a, domain) => candidates(a, domain)[0];
 
   /**
@@ -135,7 +143,11 @@ export function mesh(nodes, opts = {}) {
   }
   /** every link fades a little; one that fades below the floor is dropped */
   function fade(round) {
-    for (const a of nodes) for (const [b, w] of a.links) { const v = round6(w * DECAY); if (v < PRUNE) { a.links.delete(b); log.push({ round, type: 'prune', from: a.name, to: b }); } else a.links.set(b, v); }
+    if (opts.learn === 'evidence') for (const a of nodes) for (const [b, e] of a.evidence) {   // old evidence counts for less
+      const f = { n: round6(e.n * DECAY), r: round6(e.r * DECAY) };
+      if (f.n < PRUNE) { a.evidence.delete(b); a.links.delete(b); log.push({ round, type: 'prune', from: a.name, to: b }); } else a.evidence.set(b, f);
+    }
+    if (opts.learn !== 'evidence') for (const a of nodes) for (const [b, w] of a.links) { const v = round6(w * DECAY); if (v < PRUNE) { a.links.delete(b); log.push({ round, type: 'prune', from: a.name, to: b }); } else a.links.set(b, v); }
   }
   /**
    * Gap-sensing: a node that has abstained GAP times on a domain it holds data for, with no live organ for it, asks the

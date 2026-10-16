@@ -20,8 +20,8 @@ import { sha256Hex } from '../vendor/seed-library/sha256.mjs';
 const ROOT = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, ROOT), 'utf8');
 const CSV = read('data/online_shoppers_intention.csv');
-const DATA = Object.fromEntries(DOMAIN_IDS.map((d) => [d, loadDomain(d, { shopperCsv: CSV })]));
-const GENOME = JSON.parse(read('data/record.json')).genome.text;   // organ 1's origin genome, as committed
+export const DATA = Object.fromEntries(DOMAIN_IDS.map((d) => [d, loadDomain(d, { shopperCsv: CSV })]));
+export const GENOME = JSON.parse(read('data/record.json')).genome.text;   // organ 1's origin genome, as committed
 export const NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 export const GROW = ['Feb', 'Mar', 'May'], CLAIM = ['June', 'Jul'], LIVE = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 export const FLIP = 'water', TAMPERS = 24;   // each re-verifies the whole 6,000-act ledger four ways: ~3 s apiece
@@ -31,15 +31,15 @@ function months() {
   const lines = CSV.split(/\r?\n/).filter(Boolean), at = lines[0].split(',').indexOf('Month');
   return lines.slice(1).map((l) => l.split(',')[at]);
 }
-const MONTH = months();
+export const MONTH = months();
 
-function substrate() {
+export function substrate() {
   const shop = DATA.shopper, rowsIn = (ms) => [...Array(shop.n).keys()].filter((i) => ms.includes(MONTH[i]));
   const data = { shopper: { ...shop, trainRows: rowsIn(GROW), heldRows: rowsIn(CLAIM) } };
   for (const d of DOMAIN_IDS.filter((x) => x !== 'shopper')) { const ds = DATA[d], half = Math.floor(ds.heldRows.length / 2); data[d] = { ...ds, heldRows: ds.heldRows.slice(0, half) }; }
   return { name: 'origin', data };
 }
-function streams() {
+export function streams() {
   const shop = LIVE.flatMap((m) => [...Array(DATA.shopper.n).keys()].filter((i) => MONTH[i] === m).map((row) => ({ domain: 'shopper', row })));
   const rest = DOMAIN_IDS.filter((x) => x !== 'shopper').map((d) => { const h = DATA[d].heldRows; return h.slice(Math.floor(h.length / 2)).map((row) => ({ domain: d, row })); });
   const calm = [];

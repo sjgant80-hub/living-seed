@@ -28,6 +28,14 @@ export const ACTS = Object.freeze(['answer', 'abstain', 'claim', 'stand-down', '
 /** The audit: the last WINDOW answers per organ, checked every EVERY answers, at confidence 1 − DELTA; a regrowth needs
  *  REGROW labelled cases since the stand-down, the newest third of them held out for its gate. */
 export const AUDIT = Object.freeze({ window: 200, every: 50, delta: 0.0005, regrow: 300 });
+/** Organ 10b's audit, at three scales sharing that δ: a short window that catches a collapse fast and stands the organ
+ *  down, and two long ones fine enough to catch an organ quietly delivering less than it claims — which lower its claim
+ *  to what it delivered. Claims follow what actually happens. */
+export const CHECKS = Object.freeze([
+  Object.freeze({ window: 50, every: 10, act: 'stand-down' }),
+  Object.freeze({ window: 400, every: 50, act: 'claim' }),
+  Object.freeze({ window: 1600, every: 100, act: 'claim' }),
+]);
 
 /** How far below its claim an organ's accuracy over n answers may fall by chance, at confidence 1 − δ (Hoeffding). */
 export const slack = (n, delta) => (n > 0 && delta > 0 && delta < 1 ? round6(Math.sqrt(Math.log(1 / delta) / (2 * n))) : 1);
@@ -85,6 +93,7 @@ export function licensed(act, state) {
     if (act.kind === 'claim') {
       if (state.down.has(d) || !live) return { ok: false, why: 'it may not claim a ' + d + ' organ it does not have live' };
       if (!(act.accuracy <= live.claim)) return { ok: false, why: 'the claim is more than the organ measured (' + live.claim + ')' };
+      if (act.audit && !(act.audit.right / act.audit.n < live.claim - slack(act.audit.n, act.audit.delta))) return { ok: false, why: 'the audit it cites does not show it falling short' };
       return { ok: true };
     }
     if (act.kind === 'stand-down') {
@@ -110,6 +119,7 @@ export function tracker(window) {
     push(right) { xs.push(right ? 1 : 0); if (xs.length > window) xs.shift(); },
     n: () => xs.length,
     right: () => xs.reduce((a, b) => a + b, 0),
+    last: (w) => xs.slice(-w).reduce((a, b) => a + b, 0),
     clear() { xs.length = 0; },
   };
 }
@@ -132,11 +142,12 @@ export function measuredClaim(body, dataset, domain) {
 /**
  * Live through a stream of cases, each answered and then told its truth. genomeText + substrate: the organism, as
  * germinated; stream: [{ domain, row, truth? }] — the case is the substrate's row; truth defaults to the row's label;
- * opts: { audit: false to never audit (organ 1's organism), regrow: false to stand down without regrowing, ...AUDIT }.
+ * opts: { audit: false to never audit (organ 1's organism), regrow: false to stand down without regrowing, checks: CHECKS
+ * for organ 10b's audit at several scales (otherwise organ 10's single window), ...AUDIT }.
  * → { ledger, acts: { kind → count }, answered, right, wrong, events: [{ at, kind, domain, … }], final }
  */
 export async function life(genomeText, substrate, stream, opts = {}) {
-  const A = { ...AUDIT, ...opts }, audit = opts.audit !== false, regrowOn = opts.regrow !== false;
+  const A = { ...AUDIT, ...opts }, audit = opts.audit !== false, regrowOn = opts.regrow !== false, checks = opts.checks || null;
   const g = await germinate(genomeText, substrate);
   if (!g.ok) return { ok: false, why: g.why };
   const ledger = chain(), state = { live: {}, down: new Set() }, bodies = {}, tracks = {}, since = {}, events = [];
@@ -146,7 +157,7 @@ export async function life(genomeText, substrate, stream, opts = {}) {
   for (const d of Object.keys(body0.patterns)) {
     bodies[d] = body0;
     state.live[d] = { organism: g.organism.id, claim: measuredClaim(body0, substrate.data[d], d) };
-    tracks[d] = tracker(A.window); sinceCheck[d] = 0;
+    tracks[d] = tracker(checks ? Math.max(...checks.map((c) => c.window)) : A.window); sinceCheck[d] = 0;
     write({ kind: 'claim', domain: d, accuracy: state.live[d].claim, organism: g.organism.id });
   }
   for (let k = 0; k < stream.length; k++) {
@@ -160,7 +171,17 @@ export async function life(genomeText, substrate, stream, opts = {}) {
       const ok = a.label === truth;
       if (ok) right++; else wrong++;
       tracks[d].push(ok); sinceCheck[d]++;
-      if (audit && sinceCheck[d] >= A.every && tracks[d].n() >= A.window) {
+      if (audit && checks) for (const c of checks) {   // 10b: each scale on its own schedule, sharing δ
+        if (sinceCheck[d] % c.every !== 0 || tracks[d].n() < c.window) continue;
+        const n = c.window, r = tracks[d].last(n), delta = A.delta / checks.length, audited = { n, right: r, delta };
+        if (c.act === 'stand-down') {
+          if (write({ kind: 'stand-down', domain: d, at: k, audit: audited, claim: state.live[d].claim }).ok) { state.down.add(d); since[d] = []; events.push({ at: k, kind: 'stand-down', domain: d, accuracy: round6(r / n), claim: state.live[d].claim, window: n }); break; }
+        } else {   // delivering less than it claims, by more than chance (the licence decides): say so — claim what it delivered
+          const was = state.live[d].claim, now = round6(r / n);
+          if (write({ kind: 'claim', domain: d, at: k, accuracy: now, organism: state.live[d].organism, audit: audited }).ok) { state.live[d].claim = now; events.push({ at: k, kind: 'reclaim', domain: d, from: was, to: now, window: n }); }
+        }
+      }
+      if (audit && !checks && sinceCheck[d] >= A.every && tracks[d].n() >= A.window) {
         sinceCheck[d] = 0;
         const n = tracks[d].n(), r = tracks[d].right();   // the licence decides: a stand-down is written only if the audit shows it short
         if (write({ kind: 'stand-down', domain: d, at: k, audit: { n, right: r, delta: A.delta }, claim: state.live[d].claim }).ok) {

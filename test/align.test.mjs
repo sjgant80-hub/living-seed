@@ -176,3 +176,51 @@ test('a world that moves later: the audit catches it at one of its checks — ev
   assert.equal((down.at - 199) % A.AUDIT.every, 0, 'on a check');
   assert.equal(r.events.filter((e) => e.kind === 'return').length, 0, 'too few cases left to regrow from');
 });
+
+/* ─── 10b: the audit at three scales; claims follow what actually happens ─── */
+
+test('10b: the checks — a short window that stands a collapse down, two long ones that lower an over-claim', () => {
+  assert.deepEqual(A.CHECKS, [{ window: 50, every: 10, act: 'stand-down' }, { window: 400, every: 50, act: 'claim' }, { window: 1600, every: 100, act: 'claim' }]);
+  const t = A.tracker(5);
+  for (const x of [1, 1, 0, 0, 1, 0]) t.push(x);
+  assert.deepEqual([t.n(), t.right(), t.last(2), t.last(3), t.last(9)], [5, 2, 1, 1, 2]);
+});
+
+test('10b: a claim that cites an audit is licensed only if the audit shows the organ falling short', () => {
+  const st = { live: { alpha: { organism: 'o', claim: 0.8 } }, down: new Set() };
+  assert.deepEqual(A.licensed({ kind: 'claim', domain: 'alpha', accuracy: 0.6, audit: { n: 400, right: 240, delta: 0.0005 } }, st), { ok: true });
+  assert.deepEqual(A.licensed({ kind: 'claim', domain: 'alpha', accuracy: 0.75, audit: { n: 400, right: 300, delta: 0.0005 } }, st), { ok: false, why: 'the audit it cites does not show it falling short' });
+  const dq = Math.exp(-0.25);   // slack(2, dq) is exactly 0.25: 1 of 2 against 0.75 is exactly on the bound — within chance
+  assert.deepEqual(A.licensed({ kind: 'claim', domain: 'alpha', accuracy: 0.5, audit: { n: 2, right: 1, delta: dq } }, { live: { alpha: { organism: 'o', claim: 0.75 } }, down: new Set() }), { ok: false, why: 'the audit it cites does not show it falling short' });
+  assert.deepEqual(A.licensed({ kind: 'claim', domain: 'alpha', accuracy: 0.9, audit: { n: 400, right: 0, delta: 0.0005 } }, st), { ok: false, why: 'the claim is more than the organ measured (0.8)' }, 'and never higher than before');
+});
+
+test('10b: no drift — nothing stands down, no claim moves', async () => {
+  const r = await live(world(1), STREAM, { checks: A.CHECKS });
+  assert.deepEqual(r.events, []);
+  assert.equal(r.acts.claim, 1);
+});
+
+test('10b: a collapse is caught by the short window, on one of its checks, within a few dozen answers', async () => {
+  const ds = world(1), flip = STREAM.map((c, k) => (k >= 100 ? { ...c, truth: 1 - ds.y[c.row] } : c));
+  const r = await live(ds, flip, { checks: A.CHECKS }), old = await live(ds, flip);
+  const down = r.events.find((e) => e.kind === 'stand-down');
+  assert.ok(down && down.window === 50 && down.at > 100 && down.at - 100 <= 60, 'caught within 60 cases: ' + (down && down.at));
+  assert.equal((down.at + 1) % 10, 0, 'on a check of the short window');
+  assert.ok(r.wrong < old.wrong, 'sooner than organ 10’s single window, so fewer wrong');
+});
+
+test('10b: an organ quietly delivering less than it claims lowers its claim to what it delivered — and keeps answering', async () => {
+  const ds = world(1, { later: 70, from: 600 }), r = await live(ds, STREAM, { checks: A.CHECKS });
+  assert.equal(r.events.filter((e) => e.kind === 'stand-down').length, 0, 'not a collapse');
+  const re = r.events.find((e) => e.kind === 'reclaim');
+  assert.ok(re && re.window === 400 && re.at === 399, 'the long window, the moment it fills');
+  const answers = r.ledger.filter((e) => e.act.kind === 'answer' && e.act.at <= 399);
+  assert.equal(re.to, Math.round((answers.filter((e) => e.act.label === ds.y[STREAM[e.act.at].row]).length / 400) * 1e6) / 1e6, 'the claim is now exactly what it delivered');
+  assert.ok(re.to < re.from);
+  const claims = r.ledger.filter((e) => e.act.kind === 'claim');
+  assert.equal(claims[claims.length - 1].act.accuracy, r.final.live.alpha, 'the claim in force is the last one written');
+  assert.ok(claims[claims.length - 1].act.audit, 'and it cites the audit that lowered it');
+  assert.equal(r.answered, STREAM.length, 'it never stopped answering');
+  assert.deepEqual(A.verifyChain(r.ledger), { ok: true, n: r.ledger.length });
+});

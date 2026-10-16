@@ -1,0 +1,64 @@
+{
+ "kind": "living-seed.organ-5.verdict",
+ "v": 1,
+ "prereg": "8508c204af8dc1ef",
+ "record": "eccd5eb422848331",
+ "verdicts": [
+  {
+   "id": "C1",
+   "kind": "property",
+   "claim": "all four genomes (origin, evolved, child, grandchild) become cards of at most 200,000 bytes that read back to the exact genome, and the same genome makes the same card twice",
+   "pass": true,
+   "saw": "origin 196947 B round-trips, same bytes twice; evolved 196947 B round-trips, same bytes twice; child 196947 B round-trips, same bytes twice; grandchild 196947 B round-trips, same bytes twice"
+  },
+  {
+   "id": "C2",
+   "kind": "property",
+   "claim": "every one of 300 random damages to the child’s card is refused; every one-byte change to the genome in its pixels, re-wrapped with fresh checksums, is refused by the seal; every truncation is refused; and the card re-compressed by another tool still opens",
+   "pass": true,
+   "saw": "300/300 damaged cards refused; 527/527 re-wrapped forgeries refused by the seal; 5/5 truncations refused; re-compressed by another tool still opens"
+  },
+  {
+   "id": "C3",
+   "kind": "prediction",
+   "claim": "on the reference device the child keeps all four organs live — nothing dropped",
+   "pass": true,
+   "saw": "the child carries 4 live organs, dropped none; crossed shopper, triage, water, crop"
+  },
+  {
+   "id": "C4",
+   "kind": "prediction",
+   "claim": "on every domain the child’s organ scores on unseen cases at least the worse parent’s (less 0.005), and on at least one domain at least the better parent’s",
+   "pass": true,
+   "saw": "shopper child 0.827767 (parents 0.802782–0.815265); triage child 0.952127 (parents 0.952127–0.952127); water child 0.747656 (parents 0.747656–0.759995); crop child 0.753796 (parents 0.753796–0.762582) on unseen cases"
+  },
+  {
+   "id": "C5",
+   "kind": "property",
+   "claim": "bred on the noisy-shop device the child drops exactly its shop organ (cut) and carries three; bred on the no-water device it drops exactly its water organ (dormant) and carries three",
+   "pass": true,
+   "saw": "noisy shop: dropped shopper (cut), carries 3; no water: dropped water (dormant), carries 3"
+  },
+  {
+   "id": "C6",
+   "kind": "property",
+   "claim": "the child’s card opens on device A and device B that trust its breeder — the same genome, two different organisms, each grown on its own half of the history — and is refused under a stranger’s trust list",
+   "pass": true,
+   "saw": "the same genome opened on both devices: true; organisms b4ff8d8772d2631e and a74eeef6830a86c9; under a stranger’s trust list: the genome in the card was refused: untrusted maker"
+  },
+  {
+   "id": "C7",
+   "kind": "prediction",
+   "claim": "on both half-history devices every organ the child carries goes live",
+   "pass": true,
+   "saw": "live on device A: 4, on device B: 4, of 4"
+  },
+  {
+   "id": "C8",
+   "kind": "property",
+   "claim": "the lineage holds: evolved names the origin; the child names origin and evolved, at the higher bar (0.6); the grandchild names the child and the origin, all its organs live",
+   "pass": true,
+   "saw": "evolved ← origin; child ← origin + evolved at bar 0.6; grandchild ← child + origin, 4/4 live"
+  }
+ ]
+}

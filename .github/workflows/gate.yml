@@ -30,3 +30,5 @@ jobs:
         run: node tools/judge-4.mjs --check && node tools/order.mjs --organ 4
       - name: organ 4, second design — re-runs, re-judged (its failed predictions included), seal first
         run: node tools/measure-4b.mjs --check && node tools/judge-4b.mjs --check && node tools/order.mjs --organ 4b
+      - name: organ 5 — breeding and the card re-run, re-judged, and the seal came first
+        run: node tools/measure-5.mjs --check && node tools/judge-5.mjs --check && node tools/order.mjs --organ 5

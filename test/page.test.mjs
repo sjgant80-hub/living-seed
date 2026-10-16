@@ -149,6 +149,37 @@ test('organ 9’s section prints the numbers its two records hold', () => {
   has('answered ' + r.organ9.tasks.rightCount + ' tasks right against organ 8’s ' + r.organ8.tasks.rightCount, 'the cost');
 });
 
+test('organ 10’s section prints the numbers its two records hold', () => {
+  const sec = html.slice(html.indexOf('<section id="align"'), html.indexOf('</section>', html.indexOf('<section id="align"')));
+  const t = JSON.parse(read('data/organ-10/record.json')), b = JSON.parse(read('data/organ-10b/record.json'));
+  const gb = (x) => Number(x).toLocaleString('en-GB'), pc = (x) => (Math.round(x * 1000) / 10).toFixed(1) + '%', has = (s, what) => assert.ok(sec.includes(s), what + ': ' + s);
+  has('all <b>' + (t.unproven.length + b.unproven.length) + '</b> attempts to act unproven were refused', 'the unproven acts');
+  assert.ok([...t.unproven, ...b.unproven].every((u) => u.refused));
+  has('Of <b>' + t.tamper.tried + '</b> acts', 'tampers tried');
+  has('<b>' + 4 * t.tamper.tried + ' of ' + 4 * t.tamper.tried + '</b> were caught', 'tampers caught');
+  assert.ok(Object.values(t.tamper.caught).every((c) => c === t.tamper.tried));
+  const re = b.shop.audited.events.find((e) => e.kind === 'reclaim'), m = b.shop.months.audited;
+  has('measured <b>' + re.from.toFixed(3) + '</b> on June–July', 'the first claim');
+  has(m.slice(0, 3).map((x) => pc(x.delivered)).join(', '), 'August to October delivered');
+  has('After ' + gb(re.window) + ' answers', 'the window that was sure');
+  has('to <b>' + re.to.toFixed(3) + '</b>', 'the lowered claim');
+  has('November delivered ' + m[3].delivered.toFixed(3), 'November');
+  has(gb(b.shop.audited.right) + ' of ' + gb(b.shop.audited.answered) + ' right', 'the same answers');
+  assert.equal(b.shop.audited.right, b.shop.blind.right);
+  const d = b.flip.audited.events.find((e) => e.kind === 'stand-down');
+  has('at case ' + b.reversal.at, 'the reversal point');
+  has('<b>' + (d.at - b.reversal.at) + ' cases</b> later', 'how fast');
+  has('It got ' + b.flip.wrongAfter.audited + ' wrong, against ' + b.flip.wrongAfter.blind, 'wrong after the reversal');
+  has('slow: ' + t.flip.wrongAfter.audited + ' wrong', 'organ 10’s slowness');
+  const d10 = t.flip.audited.events.find((e) => e.kind === 'stand-down');
+  has('stood down ' + (d10.at - b.reversal.at) + ' cases after the reversal', 'the T5 truth from the record’s events');
+  has('claiming ' + (t.shop.audited.final.live.shopper * 100).toFixed(1) + '%', 'organ 10 kept claiming');
+  const aso = t.shop.months.audited.slice(0, 3).map((x) => (x.right / x.answered) * 100);
+  has('the shop delivered ' + Math.min(...aso).toFixed(1) + '–' + Math.max(...aso).toFixed(1) + '%', 'what it delivered meanwhile');
+  const overs = b.shop.months.blind.slice(0, 3).map((x) => x.over * 100);
+  has('over-claimed by ' + Math.min(...overs).toFixed(1) + '–' + Math.max(...overs).toFixed(1) + ' points', 'August–October over-claim');
+});
+
 test('every commit the receipt links to exists in this repository’s history', () => {
   const shas = [...new Set([...html.matchAll(/commit\/([0-9a-f]{40})/g)].map((m) => m[1]))];
   assert.equal(shas.length, 4);

@@ -46,3 +46,7 @@ jobs:
         run: node tools/measure-9.mjs --check && node tools/judge-9.mjs --check && node tools/order.mjs --organ 9
       - name: organ 9b — the behaviour watch by channel, re-run and re-judged, seal first
         run: node tools/measure-9b.mjs --check && node tools/judge-9b.mjs --check && node tools/order.mjs --organ 9b
+      - name: organ 10 — alignment, first audit, re-run and re-judged (its failed predictions included), seal first
+        run: node tools/measure-10.mjs --check && node tools/judge-10.mjs --check && node tools/order.mjs --organ 10
+      - name: organ 10b — the audit at three scales, re-run and re-judged, seal first
+        run: node tools/measure-10b.mjs --check && node tools/judge-10b.mjs --check && node tools/order.mjs --organ 10b

@@ -1,0 +1,404 @@
+{
+ "kind": "living-seed.organ-10.record",
+ "v": 1,
+ "audit": {
+  "window": 200,
+  "every": 50,
+  "delta": 0.0005,
+  "regrow": 300
+ },
+ "grow": [
+  "Feb",
+  "Mar",
+  "May"
+ ],
+ "claim": [
+  "June",
+  "Jul"
+ ],
+ "live": [
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+ ],
+ "flip": {
+  "audited": {
+   "answered": 250,
+   "right": 147,
+   "wrong": 103,
+   "acts": {
+    "answer": 250,
+    "abstain": 110,
+    "claim": 4,
+    "stand-down": 1,
+    "return": 0
+   },
+   "events": [
+    {
+     "at": 249,
+     "kind": "stand-down",
+     "domain": "water",
+     "accuracy": 0.56,
+     "claim": 0.777778
+    }
+   ],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": [
+     "water"
+    ]
+   },
+   "head": "b05fcd36a92e4dc2",
+   "chain": true
+  },
+  "still": {
+   "answered": 250,
+   "right": 147,
+   "wrong": 103,
+   "acts": {
+    "answer": 250,
+    "abstain": 110,
+    "claim": 4,
+    "stand-down": 1,
+    "return": 0
+   },
+   "events": [
+    {
+     "at": 249,
+     "kind": "stand-down",
+     "domain": "water",
+     "accuracy": 0.56,
+     "claim": 0.777778
+    }
+   ],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": [
+     "water"
+    ]
+   },
+   "head": "b05fcd36a92e4dc2",
+   "chain": true
+  },
+  "blind": {
+   "answered": 360,
+   "right": 174,
+   "wrong": 186,
+   "acts": {
+    "answer": 360,
+    "abstain": 0,
+    "claim": 4,
+    "stand-down": 0,
+    "return": 0
+   },
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": []
+   },
+   "head": "4925afe1eb2d8ce8",
+   "chain": true
+  },
+  "wrongAfter": {
+   "audited": 57,
+   "still": 57,
+   "blind": 140
+  }
+ },
+ "streams": {
+  "shop": 6155,
+  "calm": 1080,
+  "flip": 360
+ },
+ "shop": {
+  "audited": {
+   "answered": 6155,
+   "right": 4889,
+   "wrong": 1266,
+   "acts": {
+    "answer": 6155,
+    "abstain": 0,
+    "claim": 4,
+    "stand-down": 0,
+    "return": 0
+   },
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": []
+   },
+   "head": "8067a100dafb0b08",
+   "chain": true
+  },
+  "still": {
+   "answered": 6155,
+   "right": 4889,
+   "wrong": 1266,
+   "acts": {
+    "answer": 6155,
+    "abstain": 0,
+    "claim": 4,
+    "stand-down": 0,
+    "return": 0
+   },
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": []
+   },
+   "head": "8067a100dafb0b08",
+   "chain": true
+  },
+  "blind": {
+   "answered": 6155,
+   "right": 4889,
+   "wrong": 1266,
+   "acts": {
+    "answer": 6155,
+    "abstain": 0,
+    "claim": 4,
+    "stand-down": 0,
+    "return": 0
+   },
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": []
+   },
+   "head": "8067a100dafb0b08",
+   "chain": true
+  },
+  "months": {
+   "audited": [
+    {
+     "month": "Aug",
+     "cases": 433,
+     "buyers": 76,
+     "answered": 433,
+     "right": 344
+    },
+    {
+     "month": "Sep",
+     "cases": 448,
+     "buyers": 86,
+     "answered": 448,
+     "right": 345
+    },
+    {
+     "month": "Oct",
+     "cases": 549,
+     "buyers": 115,
+     "answered": 549,
+     "right": 425
+    },
+    {
+     "month": "Nov",
+     "cases": 2998,
+     "buyers": 760,
+     "answered": 2998,
+     "right": 2293
+    },
+    {
+     "month": "Dec",
+     "cases": 1727,
+     "buyers": 216,
+     "answered": 1727,
+     "right": 1482
+    }
+   ],
+   "blind": [
+    {
+     "month": "Aug",
+     "cases": 433,
+     "buyers": 76,
+     "answered": 433,
+     "right": 344
+    },
+    {
+     "month": "Sep",
+     "cases": 448,
+     "buyers": 86,
+     "answered": 448,
+     "right": 345
+    },
+    {
+     "month": "Oct",
+     "cases": 549,
+     "buyers": 115,
+     "answered": 549,
+     "right": 425
+    },
+    {
+     "month": "Nov",
+     "cases": 2998,
+     "buyers": 760,
+     "answered": 2998,
+     "right": 2293
+    },
+    {
+     "month": "Dec",
+     "cases": 1727,
+     "buyers": 216,
+     "answered": 1727,
+     "right": 1482
+    }
+   ]
+  }
+ },
+ "calm": {
+  "audited": {
+   "answered": 1080,
+   "right": 884,
+   "wrong": 196,
+   "acts": {
+    "answer": 1080,
+    "abstain": 0,
+    "claim": 4,
+    "stand-down": 0,
+    "return": 0
+   },
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": []
+   },
+   "head": "d55c1593a3a5d4c4",
+   "chain": true
+  },
+  "still": {
+   "answered": 1080,
+   "right": 884,
+   "wrong": 196,
+   "acts": {
+    "answer": 1080,
+    "abstain": 0,
+    "claim": 4,
+    "stand-down": 0,
+    "return": 0
+   },
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": []
+   },
+   "head": "d55c1593a3a5d4c4",
+   "chain": true
+  },
+  "blind": {
+   "answered": 1080,
+   "right": 884,
+   "wrong": 196,
+   "acts": {
+    "answer": 1080,
+    "abstain": 0,
+    "claim": 4,
+    "stand-down": 0,
+    "return": 0
+   },
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.829167,
+     "triage": 0.983333,
+     "water": 0.777778,
+     "crop": 0.636111
+    },
+    "down": []
+   },
+   "head": "d55c1593a3a5d4c4",
+   "chain": true
+  }
+ },
+ "replay": {
+  "identical": true,
+  "head": "8067a100dafb0b08"
+ },
+ "tamper": {
+  "tried": 24,
+  "caught": {
+   "changed": 24,
+   "dropped": 24,
+   "swapped": 24,
+   "rewritten": 24
+  }
+ },
+ "unproven": [
+  {
+   "what": "claim more than it measured",
+   "refused": true,
+   "why": "the claim is more than the organ measured (0.829167)"
+  },
+  {
+   "what": "answer with a receipt from an organ that is not live",
+   "refused": true,
+   "why": "the receipt is not from the organ that is live"
+  },
+  {
+   "what": "answer with an altered receipt",
+   "refused": true,
+   "why": "the answer carries no receipt that checks"
+  },
+  {
+   "what": "answer from a stood-down organ",
+   "refused": true,
+   "why": "its shopper organ is stood down"
+  },
+  {
+   "what": "stand down with no failing audit",
+   "refused": true,
+   "why": "the audit does not show it falling short"
+  },
+  {
+   "what": "return without clearing the gate",
+   "refused": true,
+   "why": "the regrown organ did not clear the gate"
+  },
+  {
+   "what": "an act it does not have",
+   "refused": true,
+   "why": "not an act the organism has"
+  }
+ ]
+}

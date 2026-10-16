@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-atZfs11b6e4kjuTgH9m4e0eksDELZx+N7G1tqB//A8w='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-rdIvVHue/Vq8gwlsMo6S+CoxJap5N91hM3r5rbxmQpE='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Organ 1 of 12, pre-registered and measured: 9 of 9 sealed rules held." />
@@ -145,6 +145,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#body">Organ 2 · the body</a></li>
       <li><a href="#gate">Organ 3 · the gate</a></li>
       <li><a href="#evolve">Organ 4 · evolution</a></li>
+      <li><a href="#cards">Organ 5 · cards</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -378,8 +379,35 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   </div>
 </section>
 
+<section id="cards" aria-labelledby="cards-h">
+  <h2 id="cards-h"><span class="n">08</span>Organ 5 · Breeding and the card</h2>
+  <p class="lede">An organism travels as a picture. Two organisms can have a child, and the child carries only what it can prove.</p>
+  <div class="grid two">
+    <div class="panel"><h4>The card</h4><p>A card is an ordinary 256 × 256 PNG you can post, send or print. The genome’s signed bytes are written into the colours of its top four rows. The rest is a face drawn from the genome itself, so the same genome always looks the same and two genomes look different. Opening a card checks every part of the file, reads the genome out of the pixels, and checks its seal before anything grows. A card whose face doesn’t match the seed it carries is refused, so a card can’t look like one organism and deliver another.</p></div>
+    <div class="panel"><h4>Breeding</h4><p>Two genomes breed into a child that names both parents and takes the higher of their bars. Where both parents carry an organ, the child’s recipe crosses theirs rule by rule. The child is then grown on the breeder’s own device, and every organ that doesn’t go live there is dropped, with its reason. A child is never a promise: it is what grew.</p></div>
+  </div>
+  <div class="grid two" style="margin-top:14px">
+    <div class="panel">
+      <h3>10 · A card</h3>
+      <div class="row" style="align-items:flex-start"><img id="card-img" alt="The origin genome’s card" width="128" height="128" style="image-rendering:pixelated;border:1px solid var(--line);border-radius:8px;background:var(--panel2)" />
+        <div style="flex:1;min-width:200px"><p id="card-info" class="dim">Made in your browser from the genome in box 1 when the page loads.</p>
+          <div class="row"><button id="card-make" type="button" disabled>Make a card from box 1</button><a id="card-save" class="dim" download="living-seed-card.png">Save this card</a></div>
+          <div class="row"><label for="card-file">Open a card</label><input id="card-file" type="file" accept="image/png" /></div>
+          <div class="row"><button id="card-damage" type="button" disabled>Damage one byte and open it</button></div></div></div>
+      <div id="card-out" role="status" aria-live="polite"></div>
+    </div>
+    <div class="panel">
+      <h3>11 · Breed, and trade the child</h3>
+      <p class="dim">Parent 1 is the origin. Parent 2 is the evolved line: organ 4’s best recipes, sealed as the origin’s descendant. They breed on the reference device, and the child’s card is then opened on Device A and Device B.</p>
+      <div class="row"><button id="breed-go" type="button" class="primary" disabled>Breed them</button><button id="breed-trade" type="button" disabled>Trade the child’s card</button></div>
+      <div id="breed-out" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+  <div id="c5-rec" role="status" aria-live="polite"></div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">08</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">09</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -423,8 +451,8 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>1</td><td><b>Genome + germination</b></td><td>A sealed seed grows a working organism on a device, offline.</td><td><span class="chip live">proven · 9/9 sealed</span></td></tr>
       <tr><td>2</td><td><b>Body</b></td><td>Patterns that route and abstain far from their data, an exact-fact cube, a memory that cannot be quietly rewritten, a model slot that only proposes — and a 58-byte organ against language models up to 14B on the same unseen cases (<a href="#body">organ 2</a>).</td><td><span class="chip" id="organ2-state">built · being measured</span></td></tr>
       <tr><td>3</td><td><b>The gate</b></td><td>Nothing unproven enters, is learned from outside, or is passed on — the three doors red-teamed (<a href="#gate">organ 3</a>).</td><td><span class="chip" id="organ3-state">built · being measured</span></td></tr>
-      <tr><td>4</td><td><b>Variation + selection</b></td><td>Improvement on held-out cases, judged blind, able to fail — measured twice; it did fail, and the gate is what keeps a loss out (<a href="#evolve">organ 4</a>).</td><td><span class="chip" id="organ4-state">measured</span></td></tr>
-      <tr><td>5</td><td>Breeding + the card</td><td>Two cards breed a verified child; cards carry, germinate and trade.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>4</td><td><b>Variation + selection</b></td><td>Improvement on held-out cases, judged blind, able to fail — measured twice; it did fail, and the gate is what keeps a loss out (<a href="#evolve">organ 4</a>).</td><td><span class="chip" id="organ4-state">measured · two predictions failed, kept</span></td></tr>
+      <tr><td>5</td><td><b>Breeding + the card</b></td><td>Two genomes breed a verified child; the organism travels, germinates and trades as a picture (<a href="#cards">organ 5</a>).</td><td><span class="chip live">proven · 8/8 sealed</span></td></tr>
       <tr><td>6</td><td>Self-powering</td><td>Germination and improvement run cheap — the reuse hit-rate measured.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>7</td><td>Self-model</td><td>Its prediction of itself converges to a stable fixed point instead of plateauing — measured, never declared.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>8</td><td>Mesh</td><td>N organisms couple, sync and exchange lessons; survive node and relay loss.</td><td><span class="chip">in order</span></td></tr>
@@ -437,7 +465,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">09</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">10</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -542,7 +570,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">10</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">11</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
     <h3>Abstract</h3>
@@ -586,7 +614,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">11</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">12</span>Questions</h2>
   <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
   <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
@@ -607,6 +635,8 @@ import { germinate, answer, caseOf, sizes, stable } from './src/germinate.mjs';
 import * as B from './src/body.mjs';
 import * as G from './src/gate.mjs';
 import * as E from './src/evolve.mjs';
+import * as C from './src/card.mjs';
+import { breed } from './src/breed.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
 import { rng } from './vendor/seed-library/seedlib.mjs';
 import { fromSeed, generate } from './vendor/keys/keys.mjs';
@@ -1027,6 +1057,67 @@ function evolveHere() {
   }, 30);
 }
 
+// ── organ 5: breeding and the card ────────────────────────────────────────────────────────────────────────
+function dataUrl(bytes) {
+  let s = '';
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return 'data:image/png;base64,' + btoa(s);
+}
+async function makeCard() {
+  const c = await C.cardOf($('genome').value);
+  if (!c.ok) { $('card-out').innerHTML = '<div class="status bad">' + esc(c.why) + '.</div>'; return; }
+  S.cardBytes = c.png;
+  const url = dataUrl(c.png), g = await open($('genome').value);
+  $('card-img').src = url; $('card-save').href = url; $('card-save').className = ''; $('card-damage').disabled = false;
+  $('card-info').innerHTML = 'Genome <code>' + esc(g.id) + '</code> (' + esc(g.fields.name) + ') as a ' + n(c.png.length) + '-byte picture. The same genome always makes this exact card.';
+  note('a card', 'made the card of genome ' + g.id, 'you made it');
+}
+async function openCardBytes(bytes, label) {
+  const r = await C.readCard(bytes);
+  if (r.ok) { $('genome').value = r.genome; checkGenome(); }
+  $('card-out').innerHTML = '<div class="status ' + (r.ok ? 'ok' : 'bad') + '">' + (r.ok ? '<b class="ok-t">Opened.</b> ' + esc(label) + ' carries genome <code>' + esc(r.id) + '</code> (' + esc(r.fields.name) + ', ' + r.fields.organs.length + ' organs). It is now in box 1 — germinate it.' : '<b class="bad-t">Refused:</b> ' + esc(r.why) + '. Nothing in it was grown.') + '</div>';
+  note('a card', label + ': ' + (r.ok ? 'opened, genome ' + r.id : 'refused, ' + r.why), 'you opened it');
+}
+async function damageCard() {
+  const c = S.cardBytes.slice(), at = 8 + Math.floor(Math.random() * (c.length - 8));
+  c[at] ^= 1 + Math.floor(Math.random() * 255);
+  await openCardBytes(c, 'the card with byte ' + n(at) + ' changed');
+}
+async function evolvedGenome() {
+  if (!S.evolved) S.evolved = await seal({ name: 'evolved', parents: [S.originId], gate: { auc: 0.6 }, organs: DOMAIN_IDS.map((d) => S.rec4b.runs.find((r) => r.name === d).champion) }, S.peer);
+  return S.evolved;
+}
+async function breedGo() {
+  $('breed-go').disabled = true;
+  $('breed-out').innerHTML = '<p class="dim">Breeding, then growing the child on the reference device…</p>';
+  const ev = await evolvedGenome(), ref = { name: 'reference', data: S.subs.reference };
+  const child = await breed(S.origin, ev.text, ref, S.peer2, { name: 'child', seed: 1 });
+  $('breed-go').disabled = false;
+  if (!child.ok) { $('breed-out').innerHTML = '<div class="status bad">' + esc(child.why) + '</div>'; return; }
+  S.child = child;
+  const eo = (await germinate(ev.text, ref)).organism, au = (o, d) => { const x = o.organs.find((y) => y.domain === d); return x && x.state === 'live' ? x.heldAuc : x ? x.state : '—'; };
+  $('breed-out').innerHTML = '<div class="status ok">Child <code>' + esc(child.id) + '</code>, naming <code>' + esc(S.originId) + '</code> and <code>' + esc(ev.id) + '</code>; crossed ' + esc(child.crossed.join(', ')) + '; dropped ' + esc(child.dropped.map((x) => x.domain).join(', ') || 'nothing') + (S.rec5 ? (S.rec5.child.id === child.id ? ' · <span class="ok-t">✓ the same child CI bred</span>' : ' · <span class="bad-t">✗ differs from CI’s child</span>') : '') + '</div>' +
+    '<div class="tw"><table><thead><tr><th>Organ</th><th>Origin</th><th>Evolved</th><th>Child</th></tr></thead><tbody>' + DOMAIN_IDS.map((d) => { const c = au(child.organism, d), lo = Math.min(au(S.refOrg, d), au(eo, d)), hi = Math.max(au(S.refOrg, d), au(eo, d)); return '<tr><td>' + esc(d) + '</td><td class="num">' + esc(au(S.refOrg, d)) + '</td><td class="num">' + esc(au(eo, d)) + '</td><td class="num"><b class="' + (c > hi ? 'ok-t' : c < lo ? 'bad-t' : '') + '">' + esc(c) + '</b></td></tr>'; }).join('') + '</tbody></table></div><p class="dim">AUC on the cases each organ never grew on. Green: the child beats both parents.</p>';
+  $('breed-trade').disabled = false;
+  note('breeding', 'bred child ' + child.id + ' of the origin and the evolved line', 'you bred it');
+}
+async function breedTrade() {
+  const card = (await C.cardOf(S.child.text)).png, trust = { trust: [S.peer2.pub] };
+  const rows = [];
+  for (const dev of ['device-a', 'device-b']) {
+    const r = await C.readCard(card, trust), o = r.ok ? (await germinate(r.genome, { name: dev, data: S.subs[dev] }, trust)).organism : null;
+    rows.push('<tr><td>' + esc(DEVICES.find((x) => x.name === dev).label) + '</td><td>' + (r.ok ? 'opened genome <code>' + esc(r.id) + '</code>' : esc(r.why)) + '</td><td class="num">' + (o ? esc(o.id) : '—') + '</td><td class="num">' + (o ? o.organs.filter((x) => x.state === 'live').length + '/' + o.organs.length : '—') + '</td></tr>');
+  }
+  const stranger = await C.readCard(card, { trust: [S.stranger.pub] });
+  $('breed-out').insertAdjacentHTML('beforeend', '<h4 style="margin-top:12px">The child’s card, traded</h4><div class="tw"><table><thead><tr><th>Device</th><th>Card</th><th>Organism grown there</th><th>Live</th></tr></thead><tbody>' + rows.join('') + '<tr><td>a device trusting only a stranger</td><td>' + esc(stranger.why) + '</td><td>—</td><td>—</td></tr></tbody></table></div><p class="dim">One genome, two devices, two organisms — each fitted to the half of the history it holds.</p>');
+  note('a trade', 'traded the child’s card to Device A and Device B', 'you traded it');
+}
+function renderCards() {
+  if (!S.rec5) { $('c5-rec').innerHTML = ''; return; }
+  const a = S.rec5.attacks;
+  $('c5-rec').innerHTML = '<h3>The sealed measurement</h3><div class="kpis"><div class="kpi"><div class="v">' + a.flipsRefused + '/' + a.flips + '</div><div class="l">damaged cards refused</div></div><div class="kpi"><div class="v">' + a.forgedRefused + '/' + a.forged + '</div><div class="l">re-wrapped forgeries refused by the seal</div></div><div class="kpi"><div class="v">' + S.rec5.child.live + '/4</div><div class="l">of the child’s organs live</div></div><div class="kpi"><div class="v">' + esc(S.rec5.child.heldAuc.shopper) + '</div><div class="l">the child’s shop organ, on unseen cases — above both parents</div></div></div>' + rulesTable(S.pre5, S.ver5);
+}
+
 async function bootBody() {
   const ref = (await germinate(S.origin, { name: 'reference', data: S.subs.reference })).organism;
   S.refOrg = ref;
@@ -1037,6 +1128,9 @@ async function bootBody() {
   S.gLast = {};
   for (const id of GATE_BUTTONS) $(id).disabled = false;
   $('evo-go').disabled = false;
+  S.peer2 = await fromSeed(sha256Bytes(utf8('living-seed/maker/peer-2')));
+  $('card-make').disabled = false; $('breed-go').disabled = !S.rec4b;
+  await makeCard();
   gSay('<p class="dim">A trusted peer (another demo key from a public phrase) may send this organism lessons and antibodies. Send it something, then try to get something past the gate.</p>');
   S.mem = B.memory();
   let c = B.cube();
@@ -1056,7 +1150,8 @@ async function boot() {
   const recordOf = (k) => states.then((s) => (s[k] === 'measured' ? Promise.all(['record', 'prereg', 'verdict'].map((f) => get('data/organ-' + k + '/' + f + '.json'))) : null)).catch(() => null);
   const organ2 = recordOf(2).then((x) => { if (x) [S.rec2, S.pre2, S.ver2] = x; });
   const organ3 = recordOf(3).then((x) => { if (x) [S.rec3, S.pre3, S.ver3] = x; });
-  const organ4 = Promise.all([recordOf('4'), recordOf('4b')]).then(([a, b]) => { if (a) [S.rec4, S.pre4, S.ver4] = a; if (b) [S.rec4b, S.pre4b, S.ver4b] = b; });
+  const organ4 = Promise.all([recordOf('4'), recordOf('4b'), recordOf(5)]).then(([a, b, c]) => { if (a) [S.rec4, S.pre4, S.ver4] = a; if (b) [S.rec4b, S.pre4b, S.ver4b] = b; if (c) [S.rec5, S.pre5, S.ver5] = c; });
+  for (const id of ['card-make', 'card-damage', 'breed-go', 'breed-trade']) $(id).disabled = true;
   $('evo-go').disabled = true;
   for (const id of GATE_BUTTONS) $(id).disabled = true;
   renderCalc();
@@ -1080,7 +1175,7 @@ async function boot() {
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
   await organ2; await organ3; await organ4;
-  renderContest(); renderGateRecord(); renderEvolve();
+  renderContest(); renderGateRecord(); renderEvolve(); renderCards();
   const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
   for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
@@ -1113,6 +1208,11 @@ $('m-q').addEventListener('keydown', (e) => { if (e.key === 'Enter') recallNow()
 $('m-tamper').addEventListener('click', tamperMemory);
 for (const id of GATE_BUTTONS) $(id).addEventListener('click', () => gAct(id.slice(2)));
 $('evo-go').addEventListener('click', evolveHere);
+$('card-make').addEventListener('click', makeCard);
+$('card-damage').addEventListener('click', damageCard);
+$('card-file').addEventListener('change', async (e) => { const f = e.target.files && e.target.files[0]; if (f) await openCardBytes(new Uint8Array(await f.arrayBuffer()), 'the card ' + f.name); });
+$('breed-go').addEventListener('click', breedGo);
+$('breed-trade').addEventListener('click', breedTrade);
 $('mk-seal').addEventListener('click', async () => {
   const st = $('mk-status');
   try {

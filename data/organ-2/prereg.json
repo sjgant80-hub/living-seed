@@ -1,0 +1,78 @@
+{
+ "kind": "living-seed.organ-2.prereg",
+ "v": 1,
+ "organ": "organ 2 — the body: patterns that route and abstain, an exact-fact cube, an auditable memory, a model slot that only proposes",
+ "question": "Does the body answer only where it resembles what it grew on, keep facts exactly, keep a memory that cannot be quietly rewritten — and does a 58-byte organ grown on the device’s own history beat local language models up to 14 billion parameters asked the same unseen shop sessions directly?",
+ "contest": {
+  "cases": "300 held-out shop sessions (November–December, never grown on): 100 that ended in a purchase and 200 that did not, drawn with seeds 2026/2027/2028 (tools/sample.mjs)",
+  "models": "qwen2.5:14b, qwen2.5:7b, llama3.2:1b through local Ollama — temperature 0, seed 7, context 4096, at most 8 tokens; each model’s digest is recorded",
+  "conditions": "zero-shot (what the data is, then the session) and 24-shot (the same plus 24 training sessions with their outcomes, 12 of each)",
+  "reading": "the first number in the reply, if it lies in 0–100, as a probability; an unreadable reply is scored as a coin (0.5) and counted",
+  "scoring": "AUC on the same 300 cases for every contestant (ties count half); the organ is scored by its rule sum; the organ’s lead over a model is judged with a paired bootstrap (2,000 resamples, seed 99)"
+ },
+ "rules": [
+  {
+   "id": "B1",
+   "kind": "property",
+   "claim": "on every unseen case of every domain, each answer the body gives equals what its organ gives and carries a receipt that re-hashes; at least 90% of each domain’s unseen cases resemble their organ enough to be answered, and at least 90% find their own organ unasked",
+   "seenBeforeSeal": "yes — in the plumbing rehearsal, which ran it on the real data: 100% answered and routed home in every domain"
+  },
+  {
+   "id": "B2",
+   "kind": "property",
+   "claim": "every one of 2,000 cases drawn outside what the organs grew on abstains, asked and unasked; every unseen case asked of the wrong organ abstains",
+   "seenBeforeSeal": "yes — in the plumbing rehearsal: 2,000/2,000 and 1,200/1,200"
+  },
+  {
+   "id": "B3",
+   "kind": "property",
+   "claim": "after 2,000 seeded writes, every fact reads back exactly, by source and latest; no near-miss key (case, a space, an underscore) answers; every one of 200 single-fact edits is found where it was made",
+   "seenBeforeSeal": "yes — in the plumbing rehearsal: all exact, 0 near-miss answers, 200/200 edits found"
+  },
+  {
+   "id": "B4",
+   "kind": "property",
+   "claim": "over 150 episodes the memory chain holds, every edit a forger re-hashes is found at the entry after it, and at least 95% of episodes are recalled first by their own words",
+   "seenBeforeSeal": "yes — written as a prediction, then seen in the plumbing rehearsal (150/150 recalled first, 149/149 forgeries found), so it is claimed as a property, not a prediction"
+  },
+  {
+   "id": "B5",
+   "kind": "prediction",
+   "claim": "on the 300 unseen shop sessions the organ’s AUC is higher than every model’s in both conditions — six comparisons, all six won",
+   "seenBeforeSeal": "no — no model has been asked a held-out case; a plumbing dry run on TRAINING rows (with made-up model answers) showed the organ near 0.84 AUC on a training sample"
+  },
+  {
+   "id": "B6",
+   "kind": "prediction",
+   "claim": "against qwen2.5:14b in its better condition, the organ leads by at least 0.05 AUC, and the paired-bootstrap 95% lower bound of its lead is above 0",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "B7",
+   "kind": "prediction",
+   "claim": "on this machine the organ answers at least 10,000 times faster than qwen2.5:14b at its fastest median, from at least 10 million times fewer bytes (its seed against the model’s weights)",
+   "seenBeforeSeal": "no"
+  }
+ ],
+ "disclosure": "The body was built and unit-tested before this seal; B1–B4 are properties it claims. The whole pipeline — seal, answers, measurement, judge, order — was rehearsed in a throwaway clone with the head-to-head sample moved onto TRAINING rows and made-up model answers, to prove every step runs before anything is pinned. B1–B4 do not use that sample, so the rehearsal ran them on the real data and their results were seen (all held); B4 was a prediction until then and is now claimed as a property. For the head-to-head, the rehearsal showed the organ near 0.84 AUC on a training sample, and nothing about any held-out case or any real model answer: B5–B7 are unseen. Before this seal the estate held no receipt for the claim “a 79-byte rule beats a 14B model”: the 79 bytes are konomi-slm’s demo brain (held-out AUC 0.870 on 4,931 rows); no record pitted an organ against a 14B answering directly. This is that measurement, made fresh. A failed prediction is kept.",
+ "judgedBy": "tools/judge-2.mjs (pinned below): a rule it does not know is a FAIL",
+ "files": {
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "e3542f160df94333f9e7cfd985a6299525afc7b58854b09891abcfcca15ad4a4",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "tools/sample.mjs": "79487a28654c4ce51bb3260c79ee3ea2b3126eac0a0b05f5dd7374417e52b98a",
+  "tools/ask-llm.mjs": "1140f8299654b40f03dbb24864014e753e217198b197d4a689c51ae27561a557",
+  "tools/measure-2.mjs": "722ba62c4f502be22b2ae8170f428d48418a56206425e31aee488452105f73b4",
+  "tools/judge-2.mjs": "102c6dbec30a5c698924853576fdbe99256350b8fb87fea125c54109a543e6bf",
+  "tools/seal-2.mjs": "a6f50ffe0b8cf4aee6b2dce2994b26e4d54dcd51f72e6ceb422eeb4aede8bfca",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/body.test.mjs": "c70e107a55a8f11959026c3276b734dcc7c8a79fa7653a9ae15fa2cf512c6b20"
+ }
+}

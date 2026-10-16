@@ -108,6 +108,18 @@ test('every number the page’s words print is the number the committed record h
   assert.ok(text.includes('the ' + Object.keys(gate.files).length + ' files'));
 });
 
+test('the header’s tally is the sum of every committed verdict, failures included', () => {
+  const organs = JSON.parse(read('data/organs.json'));
+  const vs = Object.entries(organs).filter(([, s]) => s === 'measured')
+    .flatMap(([k]) => JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts);
+  const tests = Object.values(organs).filter((s) => s === 'measured').length;
+  const tally = Object.fromEntries([...html.matchAll(/data-tally="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  assert.equal(tally.held, vs.filter((v) => v.pass).length + ' of ' + vs.length);
+  assert.equal(tally.tests, String(tests));
+  assert.equal(tally.failed, String(vs.filter((v) => !v.pass && v.kind === 'prediction').length));
+  assert.equal(tally.red, String(vs.filter((v) => !v.pass && v.kind !== 'prediction').length));
+});
+
 test('every commit the receipt links to exists in this repository’s history', () => {
   const shas = [...new Set([...html.matchAll(/commit\/([0-9a-f]{40})/g)].map((m) => m[1]))];
   assert.equal(shas.length, 4);

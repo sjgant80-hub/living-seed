@@ -77,6 +77,49 @@ test('a tie between children goes to the earliest — pinned on a small set wher
   assert.deepEqual({ champion: e.champion, gens: e.accepted.map((a) => a.gen) }, { champion: '◊ seed.v1 toy 1 f:31d8c6ed9e8e11ddd62d d39b059e15d9', gens: [0, 1, 2, 5] });
 });
 
+test('k folds: disjoint, covering, stratified, seeded', () => {
+  const ds = toy(), rows = ds.trainRows;
+  for (const K of [2, 3, 5]) {
+    const f = E.kfolds(ds, rows, K, 7);
+    assert.equal(f.length, K);
+    const all = f.flatMap((p) => p.held).sort((a, b) => a - b);
+    assert.deepEqual(all, [...rows].sort((a, b) => a - b), 'every row held out exactly once');
+    for (const p of f) {
+      assert.equal(p.held.length + p.rest.length, rows.length);
+      assert.ok(p.held.every((i) => !p.rest.includes(i)));
+      assert.deepEqual(p.held, [...p.held].sort((a, b) => a - b));
+    }
+    const pos = rows.filter((i) => ds.y[i]).length;
+    for (const p of f) assert.ok(Math.abs(p.held.filter((i) => ds.y[i]).length - pos / K) <= 1, 'each fold has its share of yes cases');
+    assert.deepEqual(E.kfolds(ds, rows, K, 7), f);
+    assert.notDeepEqual(E.kfolds(ds, rows, K, 8)[0].held, f[0].held);
+  }
+  assert.deepEqual(E.kfolds(ds, [0, 1, 2], 1, 1), [{ held: [0, 1, 2], rest: [] }]);
+  // the exact deal, pinned: yes cases (every third row) shuffled and dealt first, then the no cases
+  const y = Uint8Array.from({ length: 20 }, (_, i) => ((i * 7) % 3 === 0 ? 1 : 0));
+  assert.deepEqual(E.kfolds({ y }, [...Array(20).keys()], 3, 7).map((p) => p.held), [[0, 2, 5, 7, 9, 12, 17, 19], [1, 3, 6, 13, 14, 16], [4, 8, 10, 11, 15, 18]]);
+});
+
+test('with folds, a step is kept only if it wins on every fold and on the mean', () => {
+  const b = E.blind(toy()), e = E.evolve(STEM, b, { generations: 25, children: 6, seed: 4, folds: 3 });
+  assert.equal(e.ok, true, e.why);
+  assert.ok(e.accepted.length >= 2, 'it still climbs on the toy');
+  for (const a of e.accepted) { assert.equal(a.folds.length, 3); assert.equal(a.val, Math.round((a.folds.reduce((s, x) => s + x, 0) / 3) * 1e6) / 1e6); }
+  for (let i = 1; i < e.accepted.length; i++) {
+    assert.ok(e.accepted[i].folds.every((v, j) => v > e.accepted[i - 1].folds[j]), 'better on every fold');
+    assert.ok(e.accepted[i].val - e.accepted[i - 1].val > E.MARGIN);
+  }
+  assert.equal(e.evals, 1 + 25 * 6);
+  // one fold leaves no folds on the record (the first design's shape)
+  assert.equal('folds' in E.evolve(STEM, b, { generations: 2, seed: 4 }).accepted[0], false);
+  for (const folds of [0, 11, 2.5, '3']) assert.deepEqual(E.evolve(STEM, b, { folds }), { ok: false, why: 'folds is a whole number from 1 to 10' }, String(folds));
+  assert.equal(E.evolve(STEM, b, { generations: 2, folds: 10 }).ok, true, 'ten folds is allowed');
+  assert.deepEqual(E.evolve(STEM, { ...b, trainRows: [0, 1, 2] }, { folds: 5 }), { ok: false, why: 'too few training cases to carve a validation slice' });
+  // unanimity is required: with a margin of 0, a gain on the mean that loses one fold is still refused
+  const loose = E.evolve(STEM, b, { generations: 40, children: 8, seed: 6, folds: 3, margin: 0 });
+  for (let i = 1; i < loose.accepted.length; i++) assert.ok(loose.accepted[i].folds.every((v, j) => v > loose.accepted[i - 1].folds[j]));
+});
+
 test('the margin is exclusive: a gain exactly equal to it is not kept', () => {
   const b = E.blind(toy()), opts = { generations: 25, children: 6, seed: 4 };
   const free = E.evolve(STEM, b, { ...opts, margin: 0 });

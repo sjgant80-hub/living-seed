@@ -35,34 +35,55 @@ export function nextStep(k, recent) {
 }
 
 /**
- * Evolve one organ recipe on a blind dataset. opts: { generations = 30, children = 8, seed = 1, k = 2, margin = MARGIN }.
- * → { ok, champion (recipe), accepted: [{ gen, recipe, val }], trajectory: [{ gen, val, best, accepted, k }], evals }
+ * K stratified folds of the given rows (seeded): each class shuffled and dealt round-robin into K parts. → [{ held, rest }]
+ * — fold j holds part j out and fits on the rest.
+ */
+export function kfolds(dataset, rows, K, seed) {
+  const r = rng(seed * 31 + 3), parts = Array.from({ length: K }, () => []);
+  for (const cls of [1, 0]) {
+    const group = rows.filter((i) => dataset.y[i] === cls);
+    for (let i = group.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [group[i], group[j]] = [group[j], group[i]]; }
+    group.forEach((row, at) => parts[at % K].push(row));
+  }
+  return parts.map((p) => { const s = new Set(p); return { held: [...s].sort((a, b) => a - b), rest: rows.filter((i) => !s.has(i)) }; });
+}
+
+/**
+ * Evolve one organ recipe on a blind dataset. opts: { generations = 30, children = 8, seed = 1, k = 2, margin = MARGIN,
+ * folds = 1 }. With one fold, fitness is the AUC on a validation third carved from training. With K ≥ 2 folds it is the
+ * mean over K cross-validation folds, and a child is kept only if it beats the champion on EVERY fold (unanimous) and
+ * on the mean by more than the margin — a gain one lucky slice cannot fake.
+ * → { ok, champion (recipe), accepted: [{ gen, recipe, val, folds? }], trajectory: [{ gen, val, best, accepted, k }], evals }
  */
 export function evolve(recipe, dataset, opts = {}) {
   try {
-    const { generations = 30, children = 8, seed = 1, k: k0 = 2, margin = MARGIN } = opts || {};
+    const { generations = 30, children = 8, seed = 1, k: k0 = 2, margin = MARGIN, folds = 1 } = opts || {};
     if (!dataset || !Array.isArray(dataset.trainRows) || !Array.isArray(dataset.heldRows)) return no('evolve needs a dataset');
     if (dataset.heldRows.length) return no('the evolver is never shown the held-out cases — pass blind(dataset)');
     const d = decodeSeed(recipe);
     if (!d.ok || !d.seed.genome) return no('the recipe is not a fixed seed the ribosome reads');
     if (!Number.isSafeInteger(generations) || generations < 1 || !Number.isSafeInteger(children) || children < 1) return no('generations and children are whole numbers from 1');
-    const inner = splitRows(dataset, dataset.trainRows, 1 / 3, seed);
-    if (!inner.held.length || !inner.rest.length) return no('too few training cases to carve a validation slice');
+    if (!Number.isSafeInteger(folds) || folds < 1 || folds > 10) return no('folds is a whole number from 1 to 10');
+    const parts = folds === 1 ? [splitRows(dataset, dataset.trainRows, 1 / 3, seed)] : kfolds(dataset, dataset.trainRows, folds, seed);
+    if (!parts.every((p) => p.held.length && p.rest.length)) return no('too few training cases to carve a validation slice');
     const r = rng(seed * 104729 + 7);
     const write = (g) => encodeSeed({ domain: d.seed.domain, seed: d.seed.seed, genome: g });
-    let champ = { g: d.seed.genome, val: round6(assess(dataset, inner, d.seed.genome)) }, k = Math.min(K_MAX, Math.max(K_MIN, k0)), evals = 1;
-    const accepted = [{ gen: 0, recipe: write(champ.g), val: champ.val }], trajectory = [{ gen: 0, val: champ.val, best: champ.val, accepted: true, k }], recent = [];
+    const fit = (g) => { const per = parts.map((p) => round6(assess(dataset, p, g))); return { g, per, val: round6(per.reduce((a, x) => a + x, 0) / per.length) }; };
+    const keep = (x) => (folds === 1 ? {} : { folds: x.per });
+    let champ = fit(d.seed.genome), k = Math.min(K_MAX, Math.max(K_MIN, k0)), evals = 1;
+    const accepted = [{ gen: 0, recipe: write(champ.g), val: champ.val, ...keep(champ) }], trajectory = [{ gen: 0, val: champ.val, best: champ.val, accepted: true, k }], recent = [];
     for (let gen = 1; gen <= generations; gen++) {
       let best = null;
       for (let c = 0; c < children; c++) {
         let g = champ.g;
         for (let m = 0; m < k; m++) g = mutateGenome(g, r);
-        const val = round6(assess(dataset, inner, g));
+        const x = fit(g);
         evals++;
-        if (!best || val > best.val) best = { g, val };
+        if (!best || x.val > best.val) best = x;
       }
-      const won = best.val - champ.val > margin;   // the gain itself against the margin
-      if (won) { champ = best; accepted.push({ gen, recipe: write(champ.g), val: champ.val }); }
+      // the gain itself against the margin — and, across folds, on every one of them
+      const won = best.val - champ.val > margin && best.per.every((v, j) => v > champ.per[j]);
+      if (won) { champ = best; accepted.push({ gen, recipe: write(champ.g), val: champ.val, ...keep(champ) }); }
       recent.push(won);
       if (recent.length > WINDOW) recent.shift();
       trajectory.push({ gen, val: champ.val, best: best.val, accepted: won, k });

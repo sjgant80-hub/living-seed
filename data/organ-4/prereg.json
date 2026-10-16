@@ -1,0 +1,60 @@
+{
+ "kind": "living-seed.organ-4.prereg",
+ "v": 1,
+ "organ": "organ 4 — variation and selection (μ + f): an organ’s recipe varied and the fitter variant kept, blind to the cases it is judged on",
+ "question": "When each origin organ is evolved for 30 generations on its training cases alone, does what it gains on its own validation slice carry over to the unseen cases a separate judge reads — and on data with no signal, does selection manufacture anything the gate would let through?",
+ "design": "30 generations × 8 children per organ, seed 1; a child is the champion with k single changes; kept only if it beats the champion on validation (carved from training, a third) by more than 0.002; k follows Rechenberg’s one-fifth rule over the last five generations (1 ≤ k ≤ 8). The evolver is handed the data with every held-out case removed; judge() then grows every kept recipe on the full data and reads the held-out score.",
+ "rules": [
+  {
+   "id": "E1",
+   "kind": "property",
+   "claim": "every evolution run is shown 0 held-out cases and tries exactly 1 + 30 × 8 variants",
+   "seenBeforeSeal": "in kind — unit tests on a synthetic set; no real domain has been evolved"
+  },
+  {
+   "id": "E2",
+   "kind": "prediction",
+   "claim": "on validation each kept step beats the last, and the champion ends higher than it started on at least 3 of the 4 domains",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "E3",
+   "kind": "prediction",
+   "claim": "on the unseen cases the separate judge reads, the final champion beats the origin organ by at least 0.005 AUC on at least 2 of the 4 domains, and loses more than 0.01 on none",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "E4",
+   "kind": "prediction",
+   "claim": "from one kept champion to the next, the unseen-case AUC never drops by more than 0.01, on at least 3 of the 4 domains",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "E5",
+   "kind": "prediction",
+   "claim": "with the shop labels shuffled, validation still rises — selection finds noise to fit — but no kept champion reaches the 0.6 gate on unseen cases: evolution cannot manufacture signal the gate would pass",
+   "seenBeforeSeal": "in kind — a unit test on synthetic noise saw a held-out AUC between 0.35 and 0.65; the shop has not been looked at"
+  },
+  {
+   "id": "E6",
+   "kind": "prediction",
+   "claim": "the step size moves in every run (at least two different values of k): the variation is regulated, not locked",
+   "seenBeforeSeal": "in kind — on the synthetic set it moved"
+  }
+ ],
+ "disclosure": "The kernel and its unit tests use only a synthetic dataset made in the test, so that no real domain was evolved before this seal. The origin seeds were themselves evolved by seed-library on the same training cases, so further gains may be small — E3 is the prediction most able to fail. A failed prediction is kept.",
+ "judgedBy": "tools/judge-4.mjs (pinned below): a rule it does not know is a FAIL",
+ "files": {
+  "src/evolve.mjs": "efa495aef524f3b631e3c00352033655aad38535f2d0a46f49ae7e42deb2cb55",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "tools/measure-4.mjs": "8c33b23786bb010e24181c557f890e504ed8b99c57707ca73eb767b14b8670f9",
+  "tools/judge-4.mjs": "dbcde1d0eaf360aea9b6eec63a545891eb4f5ca02045be765ee050f4e0f265d8",
+  "tools/seal-4.mjs": "4070cdecad7191a43994aaa81822e0fc46f23c04a6c8dfe4e242da418dd0296e",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/evolve.test.mjs": "d42d744d82ebbf0aec9a548df6fd6267e00c5fbf6d1fcd0b118e2b72deef0a5e"
+ }
+}

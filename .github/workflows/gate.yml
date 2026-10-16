@@ -56,3 +56,5 @@ jobs:
         run: node tools/measure-11b.mjs --check && node tools/judge-11b.mjs --check && node tools/order.mjs --organ 11b
       - name: receipt (a), night 1 — re-run and re-judged (its failed prediction included), seal first
         run: node tools/night.mjs run 1 --check && (node tools/night.mjs judge 1 --check || true) | tee night1.txt && grep -q "^JUDGED · night 1" night1.txt && ! grep -q "VERDICT DRIFT" night1.txt && node tools/order.mjs --organ night-1
+      - name: receipt (b), the checker — on the instrument check two browser tabs made (one machine, not two devices)
+        run: node tools/receipt-b.mjs data/receipts/instrument-check-two-tabs-one-machine.json

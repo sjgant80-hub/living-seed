@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-zkgYAFRQXignuJ8/QQRLW7ErqtfoS1SIIxS8jwSBwXo='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-RIkWOU0oeXHe/s6FiPsMCflzJ8wce6pRuXzoH1VTNc4='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
-<meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: organs 1 to 11 so far, 87 of 109 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
+<meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: all twelve organs, 89 of 112 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
 <link rel="canonical" href="https://sjgant80-hub.github.io/living-seed/" />
 <meta property="og:title" content="The Living Seed — a genome that grows a verified AI on your own device" />
-<meta property="og:description" content="496 signed bytes → a working organism grown from the device's own data, offline. It answers only where it has earned it. Organs 1 to 11 of 12, each measured against rules sealed before the run, failures kept." />
+<meta property="og:description" content="496 signed bytes → a working organism grown from the device's own data, offline. It answers only where it has earned it. All 12 organs, each measured against rules sealed before the run, failures kept." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sjgant80-hub.github.io/living-seed/" />
 <link rel="manifest" href="manifest.webmanifest" />
@@ -125,11 +125,11 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
 <header id="top">
   <h1>The <span class="x">Living</span> Seed</h1>
   <p class="lede"><b>A 496-byte genome that grows a working, verified AI on whatever device it lands on</b> — from that device’s own records, offline. Each part of the AI must prove itself on past cases it never trained on, or it is switched off and says “I don’t know”. Change a single byte of the genome and nothing grows.</p>
-  <p class="tag">This page runs the real thing: the same code that its tests, its mutation gate and its pre-registered measurement prove, in your browser, on nothing but this page’s own files. The Living Seed is built from twelve organs, each one measured against rules sealed before it ran and allowed to fail. Organs 1 to 11 are on this page: genome, body, gate, evolution, cards, self-powering, self-model, mesh, the immune system, alignment and the full organism.</p>
+  <p class="tag">This page runs the real thing: the same code that its tests, its mutation gate and its pre-registered measurement prove, in your browser, on nothing but this page’s own files. The Living Seed is built from twelve organs, each one measured against rules sealed before it ran and allowed to fail. All twelve organs are on this page: genome, body, gate, evolution, cards, self-powering, self-model, mesh, the immune system, alignment, the full organism, and the three receipts. One receipt is measured; the other two can only be supplied by other devices and other people.</p>
   <div class="pills" id="tally">
-    <span class="pill ok">organs 1–11 of 12 · each sealed, then measured</span>
-    <span class="pill ok"><span data-tally="held">87 of 109</span> sealed rules held across <span data-tally="tests">16</span> sealed tests</span>
-    <span class="pill warn"><span data-tally="failed">21</span> predictions failed · every one kept</span>
+    <span class="pill ok">12 of 12 organs · each sealed, then measured · receipts (b), (c) need others</span>
+    <span class="pill ok"><span data-tally="held">89 of 112</span> sealed rules held across <span data-tally="tests">17</span> sealed tests</span>
+    <span class="pill warn"><span data-tally="failed">22</span> predictions failed · every one kept</span>
     <span class="pill warn"><span data-tally="red">1</span> property red · organ 11’s K2, said below</span>
     <span class="pill ok">organ 1 · 9 / 9 sealed rules held</span>
     <span class="pill ok">mutation gate CLEAN on every kernel, every push</span>
@@ -153,6 +153,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#immune">Organ 9 · immune</a></li>
       <li><a href="#align">Organ 10 · alignment</a></li>
       <li><a href="#season">Organ 11 · the organism</a></li>
+      <li><a href="#receipts">Organ 12 · receipts</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -524,8 +525,28 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <div id="r11" role="status" aria-live="polite"></div>
 </section>
 
+<section id="receipts" aria-labelledby="rc-h">
+  <h2 id="rc-h"><span class="n">14</span>Organ 12 · The three receipts</h2>
+  <p class="lede">Three things would make the Living Seed undeniable. It gets better on its own hardware. It stays consistent across real devices. And someone outside cannot break it. Here is where each one stands: what has been measured, what instrument is ready, and what only other people can supply.</p>
+  <div class="grid three">
+    <div class="panel"><h4>(a) Better on its own hardware — the first night</h4><p>Each night the organism starts from the champion the night before left. It evolves on device A’s own history, and adopts a candidate only if it beats on October by more than the noise in October’s evidence. Then it is scored on November–December, which it never sees when choosing. On <b>night 1</b> the gate adopted a shop organ that rose <b><span id="n1-oct">0.805 → 0.889</span></b> on October, far beyond the noise. On November–December the champion fell <b><span id="n1-final">0.819 → 0.777</span></b>. The holiday months are a different world, and a gate that looks back cannot see the season ahead. So the honest receipt for night 1 is “it got worse”, and the self-audit (organ 10b) is what catches that in use. The nightly run is ready (<code>tools/night.mjs</code>). Running it every night means pushing a sealed receipt to this public repository each night, and switching that on is the owner’s decision.</p></div>
+    <div class="panel"><h4>(b) Consistent across real devices — the instrument</h4><p>Box 19 links two of your own devices directly, phone to laptop or laptop to laptop, with nothing in between. Each device grows the organism on its own half of the real sessions. They exchange signed adverts, twelve real cases each way and the answers, every one through the gate. Both sign the receipt only if the two sides’ records agree, message for message. <code>tools/receipt-b.mjs</code> checks a receipt independently: both signatures, the agreement, and that each device grew exactly the organism its data gives. The instrument was checked here between two browser tabs on one machine. They exchanged 28 signed messages each way, nothing was refused, and both signed; the checker says ✓ (<a href="https://github.com/sjgant80-hub/living-seed/blob/main/data/receipts/instrument-check-two-tabs-one-machine.json">the check</a>). That proves the instrument works. It is not receipt (b): no receipt from two real devices exists yet, and that needs two real devices.</p></div>
+    <div class="panel"><h4>(c) Unbroken by an outsider — the invitation</h4><p>A break is any of these. A message admitted that no trusted key signed. An answer, claim or stand-down in a ledger whose licence does not hold. A memory that wakes after a change that alters an act. A card that germinates under a maker the device does not trust. An organism claiming more than it measured. The boxes on this page are the attack surface, and so is the whole repository, its tests and its mutation gate. Report a break as a GitHub issue on <a href="https://github.com/sjgant80-hub/living-seed">the repository</a>; a confirmed break goes on this page. <b>No outside attempt has been recorded yet</b>, and this page will not claim one.</p></div>
+  </div>
+  <div class="panel" style="margin-top:14px">
+    <h3>19 · Two of your own devices</h3>
+    <p class="dim">Open this page on two devices. On the first press <b>Start</b>, copy what appears, and paste it into the second. On the second press <b>Join</b>, copy what appears back to the first, and press <b>Connect</b>. On the same network nothing else is needed. Across networks, tick the box to use a public address-finding (STUN) server.</p>
+    <div class="row"><button id="rb-start" type="button" disabled>Start</button><button id="rb-join" type="button" disabled>Join</button><button id="rb-connect" type="button" disabled>Connect</button><label><input type="checkbox" id="rb-stun" /> across networks (public STUN)</label></div>
+    <div class="grid two"><div><label for="rb-mine">Copy this to the other device</label><textarea id="rb-mine" rows="4" readonly style="width:100%"></textarea></div><div><label for="rb-theirs">Paste what the other device shows</label><textarea id="rb-theirs" rows="4" style="width:100%"></textarea></div></div>
+    <div id="rb-out" role="status" aria-live="polite"></div>
+    <div class="row"><a id="rb-save" class="mono" download="living-seed-receipt-b.json" hidden>save the receipt</a></div>
+    <div id="rb-json-box" hidden><label for="rb-json">The receipt, to copy and hand in</label><textarea id="rb-json" rows="4" readonly style="width:100%"></textarea></div>
+  </div>
+  <div id="r12" role="status" aria-live="polite"></div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">14</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">15</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -588,13 +609,13 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>9</td><td><b>Immune system</b></td><td>Attacks make it stronger and it never turns on itself: the rebound, proofs a key is in two hands, a watch on behaviour, a memory with a cap (<a href="#immune">organ 9</a>). The outside red-team is the third receipt.</td><td><span class="chip live">measured · two runs, failures kept</span></td></tr>
       <tr><td>10</td><td><b>Alignment</b></td><td>It cannot act unlicensed, claim more than it measured, or hide an act; its claims follow what actually happens (<a href="#align">organ 10</a>).</td><td><span class="chip live">measured · two runs, failures kept</span></td></tr>
       <tr><td>11</td><td><b>The full organism</b></td><td>One season end to end on the real shop data, across two devices that never share a row: card, life, signed memory, gated improvement, child card, spread (<a href="#season">organ 11</a>).</td><td><span class="chip live">measured · one property red, kept</span></td></tr>
-      <tr><td>12</td><td>The three receipts</td><td>It improved this week on its own hardware; the mesh stayed consistent on N real devices; an outside adversary could not break it.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>12</td><td><b>The three receipts</b></td><td>(a) better on its own hardware — night 1 measured, and it got worse; (b) consistent on real devices — the instrument is on this page, the receipt needs two real devices; (c) unbroken by an outsider — the invitation is open, no attempt recorded (<a href="#receipts">organ 12</a>).</td><td><span class="chip">instruments ready · receipts (b), (c) need others</span></td></tr>
     </tbody>
   </table></div>
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">15</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">16</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -699,7 +720,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">16</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">17</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
     <h3>Abstract</h3>
@@ -743,7 +764,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">17</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">18</span>Questions</h2>
   <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
   <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
@@ -776,7 +797,7 @@ import { operatingPoint } from './src/germinate.mjs';
 import { decodeSeed, fit as ribosomeFit, auc as ribosomeAuc } from './vendor/seed-library/seedlib.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
 import { rng } from './vendor/seed-library/seedlib.mjs';
-import { fromSeed, generate } from './vendor/keys/keys.mjs';
+import { fromSeed, generate, sign, verify } from './vendor/keys/keys.mjs';
 import { sha256Bytes, sha256Hex, utf8 } from './vendor/seed-library/sha256.mjs';
 
 const $ = (id) => document.getElementById(id);
@@ -1569,6 +1590,99 @@ async function organismGo() {
   note('the full organism', 'lived the sealed season here: ' + (allOk ? 'every step the same as CI' : 'a step differed'), 'you ran it');
   $('o-go').disabled = false;
 }
+// ── receipt (b): two of your own devices, linked directly; the receipt both sign — checked by tools/receipt-b.mjs ──
+const RB = { pc: null, ch: null, me: null, peer: null, side: 0, node: null, n: 0, last: 0, sent: [], got: [], refused: 0, replies: 0, answered: 0, asked: 0, mine: null, theirs: null, sigs: {} };
+const pack = (o) => btoa(String.fromCharCode(...utf8(JSON.stringify(o)))), unpack = (s) => JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(String(s).trim()), (c) => c.charCodeAt(0))));
+const num6 = (v) => String(Math.round(v * 1e6) / 1e6);
+const rbSay = (html) => { $('rb-out').insertAdjacentHTML('beforeend', '<div class="status">' + html + '</div>'); };
+async function rbGrow(side) {
+  const { months, device } = season11(), sub = device(side, { train: months('Feb', 'Mar', 'May', 'Aug', 'Sep'), held: months('Oct') });
+  const g = await germinate(S.rec.genome.text, sub);
+  return { sub, organism: g.organism, body: B.embody(g.organism, sub).body };
+}
+function rbPeerConn() { return new RTCPeerConnection({ iceServers: $('rb-stun').checked ? [{ urls: 'stun:stun.l.google.com:19302' }] : [] }); }
+const rbGathered = (pc) => new Promise((ok) => { if (pc.iceGatheringState === 'complete') return ok(); pc.addEventListener('icegatheringstatechange', () => { if (pc.iceGatheringState === 'complete') ok(); }); setTimeout(ok, 5000); });
+function rbWire(ch) { RB.ch = ch; ch.onopen = rbOpen; if (ch.readyState === 'open') setTimeout(rbOpen, 0); ch.onmessage = (e) => rbOn(JSON.parse(e.data)).catch(() => rbSay('<span class="bad-t">A frame could not be read.</span>')); }
+async function rbBegin(side) {
+  RB.side = side; RB.me = await generate(); RB.node = await rbGrow(side);
+  rbSay('This device holds the ' + (side ? 'odd' : 'even') + ' sessions and grew organism <span class="mono">' + esc(RB.node.organism.id) + '</span>, with a fresh key made here (<span class="mono">' + esc(RB.me.pub.slice(0, 12)) + '…</span>).');
+}
+async function rbStart() {
+  $('rb-start').disabled = $('rb-join').disabled = true;
+  await rbBegin(0); RB.pc = rbPeerConn(); rbWire(RB.pc.createDataChannel('living-seed'));
+  await RB.pc.setLocalDescription(await RB.pc.createOffer()); await rbGathered(RB.pc);
+  $('rb-mine').value = pack({ type: 'offer', sdp: RB.pc.localDescription.sdp, pub: RB.me.pub, organism: RB.node.organism.id, side: 0 });
+  $('rb-connect').disabled = false; rbSay('Copy the box on the left to the other device; paste its answer on the right, then press Connect.');
+}
+async function rbJoin() {
+  $('rb-start').disabled = $('rb-join').disabled = true;
+  let o; try { o = unpack($('rb-theirs').value); } catch { rbSay('<span class="bad-t">That is not what Start shows.</span>'); $('rb-join').disabled = $('rb-start').disabled = false; return; }
+  await rbBegin(1); RB.peer = o; RB.pc = rbPeerConn(); RB.pc.ondatachannel = (e) => rbWire(e.channel);
+  await RB.pc.setRemoteDescription({ type: 'offer', sdp: o.sdp }); await RB.pc.setLocalDescription(await RB.pc.createAnswer()); await rbGathered(RB.pc);
+  $('rb-mine').value = pack({ type: 'answer', sdp: RB.pc.localDescription.sdp, pub: RB.me.pub, organism: RB.node.organism.id, side: 1 });
+  rbSay('Copy the box on the left back to the first device, and press Connect there.');
+}
+async function rbConnect() {
+  let o; try { o = unpack($('rb-theirs').value); } catch { rbSay('<span class="bad-t">That is not what Join shows.</span>'); return; }
+  RB.peer = o; $('rb-connect').disabled = true; await RB.pc.setRemoteDescription({ type: 'answer', sdp: o.sdp });
+}
+async function rbSend(kind, body) {
+  RB.n++;
+  const e = await G.envelope({ kind, to: RB.peer.organism, n: RB.n, body }, RB.me, M.MESH);
+  RB.sent.push(e.text); RB.ch.send(JSON.stringify({ t: 'msg', text: e.text }));
+}
+async function rbOpen() {
+  if (RB.opened) return;   // the channel can report open twice (the event, and already open on arrival): run once
+  RB.opened = true;
+  rbSay('<span class="ok-t">Linked directly.</span> Sending adverts and twelve real cases, every message signed…');
+  for (const o of RB.node.organism.organs.filter((x) => x.state === 'live')) await rbSend('advert', o.domain + ' ' + num6(o.heldAuc) + ' ' + o.held);
+  const { stream } = season11(), ds = S.data.shopper;
+  RB.tasks = stream(RB.side, 'Nov', 'Dec').slice(0, 12);
+  for (const [k, t] of RB.tasks.entries()) await rbSend('task', (RB.side * 100 + k + 1).toString(16).padStart(16, '0') + ' shopper ' + ds.features.map((f) => num6(ds.cols[f][t.row])).join(','));
+  RB.asked = RB.tasks.length; rbCheckDone();
+}
+async function rbOn(f) {
+  if (f.t === 'msg') {
+    const a = await G.admit(f.text, { me: RB.node.organism.id, senders: { [RB.peer.pub]: M.MESH.kinds }, last: () => RB.last, grammar: M.MESH });
+    if (!a.admit) { RB.refused++; rbSay('<span class="bad-t">Refused at ' + esc(a.stage) + '</span>: ' + esc(a.why)); return; }
+    RB.last = a.msg.n; RB.got.push(f.text);
+    if (a.msg.kind === 'task') {
+      const [id, domain, vals] = a.msg.body.split(' '), feats = RB.node.body.patterns[domain] ? RB.node.body.patterns[domain].features : [], v = vals.split(',').map(Number);
+      const ans = B.ask(RB.node.body, Object.fromEntries(feats.map((x, i) => [x, v[i]])), { domain });
+      await rbSend('reply', id + ' ' + (ans.verdict === 'VERIFIED' ? 'VERIFIED ' + ans.label + ' ' + num6(ans.score) : 'ABSTAIN'));
+    }
+    if (a.msg.kind === 'reply') { RB.replies++; if (a.msg.body.includes('VERIFIED')) RB.answered++; }
+    rbCheckDone();
+  } else if (f.t === 'summary') { RB.theirs = f.summary; rbCheckDone(); }
+  else if (f.t === 'sig') { RB.sigs[RB.peer.pub] = f.sig; rbFinish(); }
+}
+function rbSummary() { return { side: RB.side, pub: RB.me.pub, organism: RB.node.organism.id, sent: RB.sent.length, got: RB.got.length, refused: RB.refused, answered: RB.answered, sentHash: sha256Hex(RB.sent.join('\n')), gotHash: sha256Hex(RB.got.join('\n')) }; }
+async function rbCheckDone() {
+  if (!RB.mine && RB.asked && RB.replies === RB.asked && RB.got.filter((t) => t.startsWith('◊ msg.v1 task')).length === 12) { RB.mine = rbSummary(); RB.ch.send(JSON.stringify({ t: 'summary', summary: RB.mine })); }
+  if (RB.mine && RB.theirs && !RB.sigs[RB.me.pub]) {
+    RB.core = rbCore(); RB.sigs[RB.me.pub] = await sign(RB.me, utf8(stable(RB.core)));
+    RB.ch.send(JSON.stringify({ t: 'sig', sig: RB.sigs[RB.me.pub] })); rbFinish();
+  }
+}
+function rbCore() {
+  const devices = [RB.mine, RB.theirs].sort((a, b) => a.side - b.side);
+  return { kind: 'living-seed.receipt-b', v: 1, genome: S.originId, devices, consistent: devices[0].sentHash === devices[1].gotHash && devices[1].sentHash === devices[0].gotHash && devices.every((d) => d.refused === 0) };
+}
+async function rbFinish() {
+  if (!RB.core || Object.keys(RB.sigs).length < 2 || RB.done) return;
+  RB.done = true;
+  const theirsOk = await verify(RB.peer.pub, RB.sigs[RB.peer.pub], utf8(stable(RB.core)));
+  if (!theirsOk) { rbSay('<span class="bad-t">The other device’s signature does not verify over this receipt — not saved.</span>'); return; }
+  const receipt = { ...RB.core, sigs: RB.sigs }, d = RB.core.devices;
+  rbSay((RB.core.consistent ? '<span class="ok-t">✓ The two devices agree, message for message</span>' : '<span class="bad-t">✗ The two devices’ records differ</span>') + ': ' + d.map((x) => 'device ' + (x.side + 1) + ' sent ' + x.sent + ', received ' + x.got + ', refused ' + x.refused + ', had ' + x.answered + ' of 12 cases answered').join('; ') + '. Both signed it. Save it, and hand it in to be checked by <code>tools/receipt-b.mjs</code>.');
+  $('rb-save').href = URL.createObjectURL(new Blob([JSON.stringify(receipt, null, 1)], { type: 'application/json' })); $('rb-save').hidden = false;
+  $('rb-json').value = JSON.stringify(receipt); $('rb-json-box').hidden = false;
+  note('receipt (b)', 'two devices linked directly: ' + (RB.core.consistent ? 'consistent' : 'NOT consistent') + ', both signed', 'you ran it');
+}
+function render12() {
+  if (!S.night1) return;
+  $('r12').innerHTML = '<details><summary>Receipt (a), night 1 — sealed rules and verdict</summary>' + rulesTable(S.night1[1], S.night1[2]) + '</details>';
+}
 function render11() {
   if (!S.rec11) return;
   $('r11').innerHTML = '<details><summary>Organ 11 — the full season: sealed rules and verdict (red on K2, kept)</summary>' + rulesTable(S.pre11, S.ver11) + '</details>' +
@@ -1610,6 +1724,7 @@ async function bootBody() {
   for (const id of ['smear-go', 'smear-real']) $(id).disabled = false;
   $('al-go').disabled = !S.rec10b;
   $('o-go').disabled = !S.rec11;
+  if (typeof RTCPeerConnection === 'function') for (const id of ['rb-start', 'rb-join']) $(id).disabled = false; else rbSay('This browser cannot link devices directly (no WebRTC).');
   setTimeout(renderPsi, 50);
   DOMAIN_IDS.forEach((d, i) => setTimeout(() => { selfModelOf(d); if (S.organism && $('ask-domain').value === d) ask(); }, 400 + i * 300));
   gSay('<p class="dim">A trusted peer (another demo key from a public phrase) may send this organism lessons and antibodies. Send it something, then try to get something past the gate.</p>');
@@ -1640,6 +1755,8 @@ async function boot() {
   for (const id of ['imm-go', 'smear-go', 'smear-real']) $(id).disabled = true;
   const organ10 = Promise.all([recordOf(10), recordOf('10b')]).then(([a, b]) => { if (a) [S.rec10, S.pre10, S.ver10] = a; if (b) [S.rec10b, S.pre10b, S.ver10b] = b; });
   for (const id of ['al-go', 'al-tamper', 'al-forge']) $(id).disabled = true;
+  for (const id of ['rb-start', 'rb-join', 'rb-connect']) $(id).disabled = true;
+  const night1 = Promise.all(['record', 'prereg', 'verdict'].map((f) => get('data/nights/1/' + f + '.json'))).then((x) => { S.night1 = x; }).catch(() => {});
   const organ11 = Promise.all([recordOf(11), recordOf('11b')]).then(([a, b]) => { if (a) [S.rec11, S.pre11, S.ver11] = a; if (b) [S.rec11b, S.pre11b, S.ver11b] = b; });
   $('o-go').disabled = true;
   for (const id of ['card-make', 'card-damage', 'breed-go', 'breed-trade']) $(id).disabled = true;
@@ -1665,8 +1782,8 @@ async function boot() {
   const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
-  await organ2; await organ3; await organ4; await organ8; await organ9; await organ10; await organ11;
-  renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8(); render9(); render10(); render11();
+  await organ2; await organ3; await organ4; await organ8; await organ9; await organ10; await organ11; await night1;
+  renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8(); render9(); render10(); render11(); render12();
   const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
   for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
@@ -1713,6 +1830,9 @@ $('smear-go').addEventListener('click', () => smearGo(false));
 $('smear-real').addEventListener('click', () => smearGo(true));
 $('al-go').addEventListener('click', alignGo);
 $('o-go').addEventListener('click', organismGo);
+$('rb-start').addEventListener('click', rbStart);
+$('rb-join').addEventListener('click', rbJoin);
+$('rb-connect').addEventListener('click', rbConnect);
 $('al-tamper').addEventListener('click', () => alignTamper(false));
 $('al-forge').addEventListener('click', () => alignTamper(true));
 $('mesh-play').addEventListener('click', () => { MV.playing = !MV.playing; $('mesh-play').textContent = MV.playing ? 'Pause' : 'Play'; MV.last = performance.now(); });

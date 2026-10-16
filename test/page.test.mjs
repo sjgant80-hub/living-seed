@@ -4,7 +4,7 @@
 // and every number its words print is the number the committed record holds.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, rmSync, readdirSync } from 'node:fs';
 import { spawnSync, execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -110,9 +110,9 @@ test('every number the page’s words print is the number the committed record h
 
 test('the header’s tally is the sum of every committed verdict, failures included', () => {
   const organs = JSON.parse(read('data/organs.json'));
-  const vs = Object.entries(organs).filter(([, s]) => s === 'measured')
-    .flatMap(([k]) => JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts);
-  const tests = Object.values(organs).filter((s) => s === 'measured').length;
+  const nights = readdirSync(new URL('../data/nights/', import.meta.url)).filter((d) => /^[0-9]+$/.test(d)).map((d) => 'data/nights/' + d + '/verdict.json');   // receipt (a), night by night
+  const vs = [...Object.entries(organs).filter(([, s]) => s === 'measured').map(([k]) => (k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')), ...nights].flatMap((f) => JSON.parse(read(f)).verdicts);
+  const tests = Object.values(organs).filter((s) => s === 'measured').length + nights.length;
   const tally = Object.fromEntries([...html.matchAll(/data-tally="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   assert.equal(tally.held, vs.filter((v) => v.pass).length + ' of ' + vs.length);
   assert.equal(tally.tests, String(tests));
@@ -197,6 +197,14 @@ test('organ 11’s section prints the numbers its two records hold', () => {
   has('AUC <b>' + f3(r.liveOn.child.auc) + '</b> against its parent’s <b>' + f3(r.liveOn.parent.auc) + '</b>', 'A’s November–December');
   has(f3(r.spread.child.auc) + ' against ' + f3(r.spread.origin.auc) + ' at B', 'B’s November–December');
   assert.ok(r.spread.organs.every((o) => o.state === 'live'), 'every organ live on B');
+});
+
+test('organ 12’s section prints night 1 as its record holds it', () => {
+  const sec = html.slice(html.indexOf('<section id="receipts"'), html.indexOf('</section>', html.indexOf('<section id="receipts"')));
+  const r = JSON.parse(read('data/nights/1/record.json')), shop = r.organs.find((o) => o.domain === 'shopper');
+  assert.ok(sec.includes('<span id="n1-oct">' + shop.from.toFixed(3) + ' → ' + shop.to.toFixed(3) + '</span>'), 'night 1 on October');
+  assert.ok(sec.includes('<span id="n1-final">' + r.before.finalAuc.toFixed(3) + ' → ' + r.after.finalAuc.toFixed(3) + '</span>'), 'night 1 on November–December');
+  assert.ok(r.after.finalAuc < r.before.finalAuc, 'it got worse — and the page says so');
 });
 
 test('every commit the receipt links to exists in this repository’s history', () => {

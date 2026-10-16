@@ -1,0 +1,71 @@
+{
+ "kind": "living-seed.organ-10.verdict",
+ "v": 1,
+ "prereg": "427bfc566b98014a",
+ "record": "eb08539a8f560e84",
+ "verdicts": [
+  {
+   "id": "T1",
+   "kind": "property",
+   "claim": "every ledger’s links hold, and the shop life replayed from nothing — the genome, the data and the cases alone — is the same life, byte for byte",
+   "pass": true,
+   "saw": "ledgers whose links all hold: 9 of 9; the shop life replayed from nothing: the same head, 8067a100dafb0b08"
+  },
+  {
+   "id": "T2",
+   "kind": "property",
+   "claim": "every tampered act is caught: a change, a drop and a swap by the links; a tail rewritten with every later link re-made, by the replay",
+   "pass": true,
+   "saw": "of 24 acts tampered with: changed caught 24, dropped 24, swapped 24, rewritten with every later link re-made 24 (by the replay)"
+  },
+  {
+   "id": "T3",
+   "kind": "property",
+   "claim": "every attempt to act unproven is refused (over-claim, a receipt from an organ not live, an altered receipt, answering while stood down, standing down without a failing audit, returning without clearing the gate, an act it does not have)",
+   "pass": true,
+   "saw": "claim more than it measured: refused — the claim is more than the organ measured (0.829167); answer with a receipt from an organ that is not live: refused — the receipt is not from the organ that is live; answer with an altered receipt: refused — the answer carries no receipt that checks; answer from a stood-down organ: refused — its shopper organ is stood down; stand down with no failing audit: refused — the audit does not show it falling short; return without clearing the gate: refused — the regrown organ did not clear the gate; an act it does not have: refused — not an act the organism has"
+  },
+  {
+   "id": "T4",
+   "kind": "prediction",
+   "claim": "on the streams with no drift, the audit never stands an organ down",
+   "pass": true,
+   "saw": "stand-downs on the streams with no drift: 0 (1080 answers; 81.9% right)"
+  },
+  {
+   "id": "T5",
+   "kind": "prediction",
+   "claim": "after the reversal, the water organ stands down within 250 cases, and no regrown organ returns (the recipe cannot express the reversed world)",
+   "pass": false,
+   "saw": "it never stood down after the reversal"
+  },
+  {
+   "id": "T6",
+   "kind": "prediction",
+   "claim": "after the reversal, the audited organism answers at most 30% as many cases wrong as the organism that is not audited",
+   "pass": false,
+   "saw": "answered wrong after the reversal: audited 57, without regrowing 57, not audited 140 (40.7%)"
+  },
+  {
+   "id": "T7",
+   "kind": "prediction",
+   "claim": "on the real shop months, the shop organ falls short of its claim by more than chance and stands down at least once",
+   "pass": false,
+   "saw": "it never stood down on the real shop months"
+  },
+  {
+   "id": "T8",
+   "kind": "prediction",
+   "claim": "having stood down on the shop months, a regrown shop organ clears the gate and returns before the stream ends",
+   "pass": false,
+   "saw": "it never stood down, so nothing to return from"
+  },
+  {
+   "id": "T9",
+   "kind": "prediction",
+   "claim": "on the real shop months, the audited, regrowing organism is right more often per answer than the one not audited, and keeps at least 80% of its right answers",
+   "pass": false,
+   "saw": "the real shop months — audited: 4889 right of 6155 answered (79.4%); not audited: 4889 of 6155 (79.4%); right answers kept 100%"
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "living-seed",
+  "version": "0.1.0",
+  "description": "The Living Seed — a self-replicating, evolving, verified digital organism, built one organ at a time, each gated and measured.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "witness": "node witness-all.mjs",
+    "seal": "node tools/seal.mjs",
+    "measure": "node tools/measure.mjs",
+    "check": "node tools/measure.mjs --check"
+  }
+}

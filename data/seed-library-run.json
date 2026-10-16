@@ -1,0 +1,168 @@
+{
+ "kind": "seed-library-run",
+ "v": 1,
+ "sealedIn": "47cd0015b1ea2c6dba8f036ee2c5b07b05c7fe58",
+ "config": {
+  "population": 16,
+  "elites": 2,
+  "generations": 14
+ },
+ "seeds": [
+  21,
+  22,
+  23,
+  24,
+  25
+ ],
+ "sessions": 12330,
+ "library": {
+  "seeds": [
+   {
+    "domain": "shopper",
+    "real": true,
+    "survival": "commerce (the real-data anchor)",
+    "seed": "◊ seed.v1 shopper 21 f:7fdfe22dde6663ead42d e16124d225ba",
+    "seedBytes": 58,
+    "grownBytes": 362,
+    "ratio": 6.241379,
+    "heldAuc": 0.815265,
+    "heldAcc": 0.798942,
+    "base": 0.206561,
+    "train": 7605,
+    "held": 4725,
+    "rules": 6,
+    "offline": true,
+    "guardValid": true,
+    "guardTamperedRejected": true
+   },
+   {
+    "domain": "triage",
+    "real": false,
+    "survival": "medical",
+    "seed": "◊ seed.v1 triage 21 f:76f9e00a9c8875945326 2255c18623fd",
+    "seedBytes": 57,
+    "grownBytes": 264,
+    "ratio": 4.631579,
+    "heldAuc": 0.952127,
+    "heldAcc": 0.983333,
+    "base": 0.018056,
+    "train": 1680,
+    "held": 720,
+    "rules": 4,
+    "offline": true,
+    "guardValid": true,
+    "guardTamperedRejected": true
+   },
+   {
+    "domain": "water",
+    "real": false,
+    "survival": "water",
+    "seed": "◊ seed.v1 water 21 f:56d8bc142b8ab1895026 f0099472fc6c",
+    "seedBytes": 56,
+    "grownBytes": 190,
+    "ratio": 3.392857,
+    "heldAuc": 0.747656,
+    "heldAcc": 0.769444,
+    "base": 0.263889,
+    "train": 1680,
+    "held": 720,
+    "rules": 3,
+    "offline": true,
+    "guardValid": true,
+    "guardTamperedRejected": true
+   },
+   {
+    "domain": "crop",
+    "real": false,
+    "survival": "agriculture",
+    "seed": "◊ seed.v1 crop 21 f:3be3cf42188ed3c65026 0e9421b7a3cb",
+    "seedBytes": 55,
+    "grownBytes": 313,
+    "ratio": 5.690909,
+    "heldAuc": 0.753796,
+    "heldAcc": 0.673611,
+    "base": 0.451389,
+    "train": 1680,
+    "held": 720,
+    "rules": 5,
+    "offline": true,
+    "guardValid": true,
+    "guardTamperedRejected": true
+   }
+  ],
+  "totalSeedBytes": 226,
+  "totalGrownBytes": 1129,
+  "domains": 4
+ },
+ "growOnDemand": {
+  "domain": "triage",
+  "seed": "◊ seed.v1 triage 21 g:16.2.14 21cc90f99e89",
+  "ms": 357,
+  "evals": 198,
+  "heldAuc": 0.952127,
+  "offline": true,
+  "touchedOnly": "triage"
+ },
+ "stability": [
+  {
+   "domain": "shopper",
+   "seeds": [
+    0.815265,
+    0.737212,
+    0.788708,
+    0.801019,
+    0.802115
+   ],
+   "median": 0.801019
+  },
+  {
+   "domain": "triage",
+   "seeds": [
+    0.952127,
+    0.911707,
+    0.848874,
+    0.903601,
+    0.777935
+   ],
+   "median": 0.903601
+  },
+  {
+   "domain": "water",
+   "seeds": [
+    0.747656,
+    0.698575,
+    0.737175,
+    0.678818,
+    0.75924
+   ],
+   "median": 0.737175
+  },
+  {
+   "domain": "crop",
+   "seeds": [
+    0.753796,
+    0.786411,
+    0.761052,
+    0.778173,
+    0.783981
+   ],
+   "median": 0.778173
+  }
+ ],
+ "bonus": {
+  "fallSpore": {
+   "spore": "◊ spore.v1 funnel 21 g:12.2.10",
+   "sporeBytes": 32,
+   "grownBytes": 4739,
+   "ratio": 148.09375,
+   "heldAuc": 0.819391,
+   "offline": true
+  }
+ },
+ "notionalWeights": {
+  "note": "Illustration only, not measured. A dense model storing knowledge in weights, at 2 bytes/parameter.",
+  "tiny_1M_params_bytes": 2000000,
+  "small_1B_params_bytes": 2000000000,
+  "large_70B_params_bytes": 140000000000
+ }
+}

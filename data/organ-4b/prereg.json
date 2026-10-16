@@ -1,0 +1,60 @@
+{
+ "kind": "living-seed.organ-4b.prereg",
+ "v": 1,
+ "organ": "organ 4, second design — variation and selection that has to win on every fold",
+ "why": "The first design (data/organ-4/verdict.json, kept as it is) climbed on its one validation slice on all four domains and fell on unseen cases on three: the winner’s curse of choosing among 241 variants by one small slice. This design changes only the selection: fitness is the mean AUC over 3 stratified cross-validation folds of the training cases, and a child is kept only if it beats the champion on EVERY fold, and on the mean by more than 0.002. Everything else — 30 generations × 8 children, seed 1, the one-fifth rule, blindness, the separate judge — is unchanged.",
+ "rules": [
+  {
+   "id": "F1",
+   "kind": "property",
+   "claim": "every run is shown 0 held-out cases, tries exactly 1 + 30 × 8 variants, and scores each on 3 folds",
+   "seenBeforeSeal": "in kind — unit tests on a synthetic set"
+  },
+  {
+   "id": "F2",
+   "kind": "prediction",
+   "claim": "do no harm: on the unseen cases, the final champion is no more than 0.005 AUC below the origin organ on all 4 domains",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "F3",
+   "kind": "prediction",
+   "claim": "some good: on at least 1 of the 4 domains the final champion beats the origin organ by at least 0.005 AUC on the unseen cases",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "F4",
+   "kind": "prediction",
+   "claim": "from one kept champion to the next, the unseen-case AUC never drops by more than 0.01, on all 4 domains",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "F5",
+   "kind": "prediction",
+   "claim": "with the shop labels shuffled, at most one step is kept (a unanimous win across folds is hard to fake on noise), and nothing reaches the 0.6 gate on unseen cases",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "F6",
+   "kind": "prediction",
+   "claim": "on at least 3 of the 4 domains this design’s final champion scores at least as well on unseen cases as the first design’s",
+   "seenBeforeSeal": "no — the first design’s numbers are known (its verdict is committed); this design’s are not"
+  }
+ ],
+ "disclosure": "Written after the first design failed E3 and E4, and aimed at the cause. The predictions are deliberately modest — do no harm first, some good second — because the origin seeds were already evolved by seed-library on these training cases. The shop’s unseen cases are later months (November–December) than its training, a shift no fold of the training data can show; that is not fixed here and is said so. A failed prediction is kept.",
+ "judgedBy": "tools/judge-4b.mjs (pinned below)",
+ "files": {
+  "src/evolve.mjs": "05983811aa45920f5db90a470f1fcc6d2eaa792ea08cfeca9990afe7207e7c05",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "data/organ-4/record.json": "c42d72ac13b255645629193952e654723e5b05905b0fa0594e47417ba68cd041",
+  "tools/measure-4b.mjs": "ef9af0ae11d09d5428883e68b668aa047470192d51fee60f624077fe44cacc28",
+  "tools/judge-4b.mjs": "a80628616a79014567b960163c5ca977feebac5313d9a79fe6fc598052a33a43",
+  "tools/seal-4b.mjs": "1c13affa6364975078dc555368dcfd16417b2a3910903ce942cec2640f6d1aeb",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/evolve.test.mjs": "5dc44695468bc0909c718cd936854612e5da11712281b7794b225154e1fcdc5e"
+ }
+}

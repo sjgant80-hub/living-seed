@@ -30,19 +30,19 @@ import { DATA, MONTH, GENOME } from './measure-10.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, ROOT), 'utf8');
-const key = (s) => fromSeed(sha256Bytes(utf8('living-seed/maker/' + s)));
+export const key = (s) => fromSeed(sha256Bytes(utf8('living-seed/maker/' + s)));
 export const EVOLVE = { generations: 30, children: 8, folds: 3, seed: 1 };
-const months = (...ms) => (i) => ms.includes(MONTH[i]);
+export const months = (...ms) => (i) => ms.includes(MONTH[i]);
 
 /** a device's data: its own sessions (side 0 even, 1 odd), the shop split by the months it has lived */
-function device(side, shop) {
+export function device(side, shop) {
   const mine = (rows) => rows.filter((i) => i % 2 === side);
   const all = [...Array(DATA.shopper.n).keys()];
   const data = { shopper: { ...DATA.shopper, trainRows: mine(all.filter(shop.train)), heldRows: mine(all.filter(shop.held)) } };
   for (const d of DOMAIN_IDS.filter((x) => x !== 'shopper')) data[d] = { ...DATA[d], trainRows: mine(DATA[d].trainRows), heldRows: mine(DATA[d].heldRows) };
   return { name: side ? 'device-b' : 'device-a', data };
 }
-const stream = (side, ...ms) => ms.flatMap((m) => [...Array(DATA.shopper.n).keys()].filter((i) => i % 2 === side && MONTH[i] === m).map((row) => ({ domain: 'shopper', row, truth: DATA.shopper.y[row] })));
+export const stream = (side, ...ms) => ms.flatMap((m) => [...Array(DATA.shopper.n).keys()].filter((i) => i % 2 === side && MONTH[i] === m).map((row) => ({ domain: 'shopper', row, truth: DATA.shopper.y[row] })));
 /** how a life went: right, answered, and the AUC of the scores it answered with */
 function graded(l, cases) {
   const ans = l.ledger.filter((e) => e.act.kind === 'answer');

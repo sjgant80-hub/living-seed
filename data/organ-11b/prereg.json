@@ -1,0 +1,63 @@
+{
+ "kind": "living-seed.organ-11b.prereg",
+ "v": 1,
+ "organ": "organ 11, the memory’s guarantee stated exactly — what changes to the data under a memory stop it waking?",
+ "why": "Organ 11’s K2 claimed a memory would not wake on “different data under it”. It woke when the dataset’s label for a lived case was changed: the memory carries the truth the device was told, and the life reads that. The guarantee the design gives is this: waking re-derives every act from the genome, the data and the remembered cases, so any change that alters an act — an organ, a claim, an answer — stops it waking; a change that alters no act is, by construction, not a change to what it lived. Whether a real change alters an act is not certain — the ribosome sets thresholds from the measurements, not the labels — so those rules are predictions.",
+ "scenario": "Device A of organ 11 (the even real shop sessions): the origin genome grown on February–May, its claim on June–July, living August–October audited at organ 10b’s scales, remembered and signed. Then, one at a time, on 12 evenly spaced rows of each kind: a label flipped in the rows its organs grew from; a label flipped in the rows it measured its claim on; a lived case’s page value changed (×10 + 100); the dataset’s label flipped for a lived case.",
+ "rules": [
+  {
+   "id": "L1",
+   "kind": "property",
+   "claim": "on unchanged data, the memory wakes",
+   "seenBeforeSeal": "yes — organ 11"
+  },
+  {
+   "id": "L2",
+   "kind": "prediction",
+   "claim": "a label flipped in any of the 12 training rows stops it waking",
+   "seenBeforeSeal": "in kind — the unit test flipped one training row of a toy world and it was refused"
+  },
+  {
+   "id": "L3",
+   "kind": "prediction",
+   "claim": "a label flipped in any of the 12 rows it measured its claim on stops it waking (its claim changes)",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "L4",
+   "kind": "prediction",
+   "claim": "a large change to any of the 12 lived cases’ page value stops it waking (its answer’s receipt changes)",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "L5",
+   "kind": "property",
+   "claim": "flipping the dataset’s label for any of the 12 lived cases does not stop it waking — the memory carries what the device was told, and the life reads that",
+   "seenBeforeSeal": "yes — organ 11’s K2 did this once, and it woke"
+  }
+ ],
+ "disclosure": "Designed after organ 11’s verdict, which stays as sealed (RED on K2). A failed prediction is kept.",
+ "judgedBy": "tools/judge-11b.mjs (pinned below)",
+ "files": {
+  "src/organism.mjs": "76d89dc6cd7bab0a5b632f8f7d150511080b53b58ab5d5aaf054117229207438",
+  "src/align.mjs": "43c4b1962a5d20f67e9c95ec9e5c012c6e92105b74f109f7d469f1cdeb5c7c4d",
+  "src/card.mjs": "60e2380c6544feb03bf4e3dedc3e0ffebc2e4915c026ac6b5d1827592398efdd",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/record.json": "73b63601bef7d045e19609ecdbd8b82a91d15633a6fc1df84552e16234232b1e",
+  "tools/measure-11b.mjs": "3b7efc57fb8ffa57fd3e1adb975364573bead1dbc6ef62faac36637512f01b4b",
+  "tools/measure-11.mjs": "4903b6fb989293f7c7f254935ad1f8f1f57ea47b0757ddfdad37f9737d22012e",
+  "tools/measure-10.mjs": "80a332edb7fe3d023ced3fbbd76b89bd0138bd057dd98be9d6456f68c9381ae7",
+  "tools/judge-11b.mjs": "b0d430c82727bc2a2d937725186ef7c6efe9d0c950ab11dcdd91c6efa92f2a42",
+  "tools/seal-11b.mjs": "1f282cb78699027c609263e6d5571c6272f48b11f1c47ebc8bb91ed0bb9cb25b",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/organism.test.mjs": "2b867a11cb41d00ed30e0a8a5af8cb22408f856b58b53f434cb47cc74bfe2d83"
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "kind": "living-seed.organ-5.prereg",
+ "v": 1,
+ "organ": "organ 5 — breeding (two genomes make a child that carries both lineages) and the card (the organism travels as a picture)",
+ "design": "Parent 1 is the origin genome. Parent 2 is the evolved line: organ 4’s second-design champions for all four domains, sealed by peer-1 as a child of the origin. They breed on the reference device (seed 1, sealed by peer-2): where both carry a domain, their rules are crossed rule by rule; the child is then grown there and keeps only organs that go live. The child breeds again with the origin (a grandchild). Each genome becomes a 256 × 256 PNG card; the child’s card is attacked, and traded to two devices that each hold half the history.",
+ "rules": [
+  {
+   "id": "C1",
+   "kind": "property",
+   "claim": "all four genomes (origin, evolved, child, grandchild) become cards of at most 200,000 bytes that read back to the exact genome, and the same genome makes the same card twice",
+   "seenBeforeSeal": "for the origin — unit tests"
+  },
+  {
+   "id": "C2",
+   "kind": "property",
+   "claim": "every one of 300 random damages to the child’s card is refused; every one-byte change to the genome in its pixels, re-wrapped with fresh checksums, is refused by the seal; every truncation is refused; and the card re-compressed by another tool still opens",
+   "seenBeforeSeal": "in kind — unit tests on the origin’s card"
+  },
+  {
+   "id": "C3",
+   "kind": "prediction",
+   "claim": "on the reference device the child keeps all four organs live — nothing dropped",
+   "seenBeforeSeal": "no — no real child has been bred"
+  },
+  {
+   "id": "C4",
+   "kind": "prediction",
+   "claim": "on every domain the child’s organ scores on unseen cases at least the worse parent’s (less 0.005), and on at least one domain at least the better parent’s",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "C5",
+   "kind": "property",
+   "claim": "bred on the noisy-shop device the child drops exactly its shop organ (cut) and carries three; bred on the no-water device it drops exactly its water organ (dormant) and carries three",
+   "seenBeforeSeal": "in kind — unit tests on a toy domain"
+  },
+  {
+   "id": "C6",
+   "kind": "property",
+   "claim": "the child’s card opens on device A and device B that trust its breeder — the same genome, two different organisms, each grown on its own half of the history — and is refused under a stranger’s trust list",
+   "seenBeforeSeal": "in kind — unit tests"
+  },
+  {
+   "id": "C7",
+   "kind": "prediction",
+   "claim": "on both half-history devices every organ the child carries goes live",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "C8",
+   "kind": "property",
+   "claim": "the lineage holds: evolved names the origin; the child names origin and evolved, at the higher bar (0.6); the grandchild names the child and the origin, all its organs live",
+   "seenBeforeSeal": "in kind — unit tests on a toy domain"
+  }
+ ],
+ "disclosure": "The card and breeding kernels were built and unit-tested before this seal, the card on the origin genome and breeding only on a toy domain, so no real child has been grown. The second parent’s recipes are organ 4b’s committed champions, whose unseen-case scores are known (the shop’s is worse than the origin’s, water’s and crop’s better). C4 is therefore a prediction about crossover, not about the parents. A failed prediction is kept.",
+ "judgedBy": "tools/judge-5.mjs (pinned below)",
+ "files": {
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "e3542f160df94333f9e7cfd985a6299525afc7b58854b09891abcfcca15ad4a4",
+  "src/card.mjs": "60e2380c6544feb03bf4e3dedc3e0ffebc2e4915c026ac6b5d1827592398efdd",
+  "src/breed.mjs": "5f53746eacc0ad74e5679d19eb961522a29c5a44cc18bc10c02815c000179316",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "data/organ-4b/record.json": "523690408e16cbd1af23d5d520badd44bcbe3bd21245ef52630de6d763e3bb6a",
+  "tools/measure-5.mjs": "2c16a10b8cc33658f724758c124f1a1a0286ce26e738a2d41d747fb088a3a347",
+  "tools/judge-5.mjs": "9ef362845ec609368d24f03b1fc4ec1ac1cc03060816025e95b1f914dc0e2f09",
+  "tools/seal-5.mjs": "e310b80c6c8078ea0d87d1dc99da73fb7884ce613bedf5b59234ad2995f24939",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/card.test.mjs": "fe9475a923343d74d9a990ac2f4b1a4950931e42a447fbf245e393ce9e0a671b",
+  "test/breed.test.mjs": "7da58a0448c11dc7489cee1ea67e9ca0432cfa8c00d01d5035e126fdc6d4c3e7"
+ }
+}

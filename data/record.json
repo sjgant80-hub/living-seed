@@ -1,0 +1,408 @@
+{
+ "kind": "living-seed.organ-1.record",
+ "v": 1,
+ "genome": {
+  "text": "◊ life.v1 origin\nparents -\ngate auc=0.6\norgan ◊ seed.v1 shopper 21 f:7fdfe22dde6663ead42d e16124d225ba\norgan ◊ seed.v1 triage 21 f:76f9e00a9c8875945326 2255c18623fd\norgan ◊ seed.v1 water 21 f:56d8bc142b8ab1895026 f0099472fc6c\norgan ◊ seed.v1 crop 21 f:3be3cf42188ed3c65026 0e9421b7a3cb\nby 7ec32a85b19585621e2f3a2db1b2d27c9cc6102b0fa8b3641ee2f5e18f56d2a0\nsig 2ca5f08424432f94ae0a52e21dcfcfb78d56a5b0e7e4355adeb94fbcce51e91e4c77904ae99946c8ca034d862a6da3ab70af20c342a608ca5d3a7c1b755d010d",
+  "id": "89880089fc1fef3a",
+  "bytes": 496,
+  "bodyBytes": 295,
+  "organs": 4,
+  "maker": "7ec32a85b19585621e2f3a2db1b2d27c9cc6102b0fa8b3641ee2f5e18f56d2a0"
+ },
+ "reproduce": {
+  "sealedIn": "seed-library 47cd0015b1ea2c6dba8f036ee2c5b07b05c7fe58",
+  "sealed": {
+   "shopper": 0.815265,
+   "triage": 0.952127,
+   "water": 0.747656,
+   "crop": 0.753796
+  },
+  "grown": {
+   "shopper": 0.815265,
+   "triage": 0.952127,
+   "water": 0.747656,
+   "crop": 0.753796
+  }
+ },
+ "offline": {
+  "substrates": 5,
+  "networkTouched": 0
+ },
+ "tamper": {
+  "positions": 486,
+  "refused": 486,
+  "reasons": {
+   "not a genome": 10,
+   "signature": 467,
+   "not signed": 9
+  },
+  "makerSwapped": "signature",
+  "untrustedMaker": "untrusted maker"
+ },
+ "deterministic": {
+  "ids": [
+   "c11de7054e9bb8ea",
+   "c11de7054e9bb8ea",
+   "c11de7054e9bb8ea"
+  ],
+  "same": true
+ },
+ "organisms": {
+  "reference": {
+   "id": "c11de7054e9bb8ea",
+   "organs": [
+    {
+     "domain": "shopper",
+     "state": "live",
+     "why": "AUC 0.815265 on 4725 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.815265,
+     "heldAcc": 0.798942,
+     "train": 7605,
+     "held": 4725
+    },
+    {
+     "domain": "triage",
+     "state": "live",
+     "why": "AUC 0.952127 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.952127,
+     "heldAcc": 0.983333,
+     "train": 1680,
+     "held": 720
+    },
+    {
+     "domain": "water",
+     "state": "live",
+     "why": "AUC 0.747656 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.747656,
+     "heldAcc": 0.769444,
+     "train": 1680,
+     "held": 720
+    },
+    {
+     "domain": "crop",
+     "state": "live",
+     "why": "AUC 0.753796 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.753796,
+     "heldAcc": 0.673611,
+     "train": 1680,
+     "held": 720
+    }
+   ],
+   "calls": {
+    "shopper": {
+     "held": 4725,
+     "verified": 4725,
+     "abstained": 0,
+     "right": 3775
+    },
+    "triage": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 708
+    },
+    "water": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 554
+    },
+    "crop": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 485
+    }
+   },
+   "sizes": {
+    "genomeBytes": 496,
+    "grownBytes": 1196,
+    "ratio": 2.41129
+   }
+  },
+  "device-a": {
+   "id": "a79d3036f6fb6b25",
+   "organs": [
+    {
+     "domain": "shopper",
+     "state": "live",
+     "why": "AUC 0.815543 on 4725 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.815543,
+     "heldAcc": 0.798942,
+     "train": 3807,
+     "held": 4725
+    },
+    {
+     "domain": "triage",
+     "state": "live",
+     "why": "AUC 0.952997 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.952997,
+     "heldAcc": 0.983333,
+     "train": 720,
+     "held": 720
+    },
+    {
+     "domain": "water",
+     "state": "live",
+     "why": "AUC 0.746534 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.746534,
+     "heldAcc": 0.7625,
+     "train": 720,
+     "held": 720
+    },
+    {
+     "domain": "crop",
+     "state": "live",
+     "why": "AUC 0.749908 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.749908,
+     "heldAcc": 0.669444,
+     "train": 720,
+     "held": 720
+    }
+   ],
+   "calls": {
+    "shopper": {
+     "held": 4725,
+     "verified": 4725,
+     "abstained": 0,
+     "right": 3775
+    },
+    "triage": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 708
+    },
+    "water": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 549
+    },
+    "crop": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 482
+    }
+   },
+   "sizes": {
+    "genomeBytes": 496,
+    "grownBytes": 1199,
+    "ratio": 2.417339
+   }
+  },
+  "device-b": {
+   "id": "d5263abcc24489ee",
+   "organs": [
+    {
+     "domain": "shopper",
+     "state": "live",
+     "why": "AUC 0.814959 on 4725 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.814959,
+     "heldAcc": 0.798942,
+     "train": 3798,
+     "held": 4725
+    },
+    {
+     "domain": "triage",
+     "state": "live",
+     "why": "AUC 0.952399 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.952399,
+     "heldAcc": 0.981944,
+     "train": 960,
+     "held": 720
+    },
+    {
+     "domain": "water",
+     "state": "live",
+     "why": "AUC 0.742234 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.742234,
+     "heldAcc": 0.769444,
+     "train": 960,
+     "held": 720
+    },
+    {
+     "domain": "crop",
+     "state": "live",
+     "why": "AUC 0.753188 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.753188,
+     "heldAcc": 0.673611,
+     "train": 960,
+     "held": 720
+    }
+   ],
+   "calls": {
+    "shopper": {
+     "held": 4725,
+     "verified": 4725,
+     "abstained": 0,
+     "right": 3775
+    },
+    "triage": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 707
+    },
+    "water": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 554
+    },
+    "crop": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 485
+    }
+   },
+   "sizes": {
+    "genomeBytes": 496,
+    "grownBytes": 1193,
+    "ratio": 2.405242
+   }
+  },
+  "shuffled-shopper": {
+   "id": "5c26019a5beea994",
+   "organs": [
+    {
+     "domain": "shopper",
+     "state": "cut",
+     "why": "AUC 0.513084 on cases it never grew on is under the gate (0.6)",
+     "heldAuc": 0.513084,
+     "heldAcc": 0.704762,
+     "train": 7605,
+     "held": 4725
+    },
+    {
+     "domain": "triage",
+     "state": "live",
+     "why": "AUC 0.952127 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.952127,
+     "heldAcc": 0.983333,
+     "train": 1680,
+     "held": 720
+    },
+    {
+     "domain": "water",
+     "state": "live",
+     "why": "AUC 0.747656 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.747656,
+     "heldAcc": 0.769444,
+     "train": 1680,
+     "held": 720
+    },
+    {
+     "domain": "crop",
+     "state": "live",
+     "why": "AUC 0.753796 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.753796,
+     "heldAcc": 0.673611,
+     "train": 1680,
+     "held": 720
+    }
+   ],
+   "calls": {
+    "shopper": {
+     "held": 4725,
+     "verified": 0,
+     "abstained": 4725,
+     "right": 0
+    },
+    "triage": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 708
+    },
+    "water": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 554
+    },
+    "crop": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 485
+    }
+   },
+   "sizes": {
+    "genomeBytes": 496,
+    "grownBytes": 816,
+    "ratio": 1.645161
+   }
+  },
+  "no-water": {
+   "id": "f78145ab7022fbd3",
+   "organs": [
+    {
+     "domain": "shopper",
+     "state": "live",
+     "why": "AUC 0.815265 on 4725 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.815265,
+     "heldAcc": 0.798942,
+     "train": 7605,
+     "held": 4725
+    },
+    {
+     "domain": "triage",
+     "state": "live",
+     "why": "AUC 0.952127 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.952127,
+     "heldAcc": 0.983333,
+     "train": 1680,
+     "held": 720
+    },
+    {
+     "domain": "water",
+     "state": "dormant",
+     "why": "this device holds no water data"
+    },
+    {
+     "domain": "crop",
+     "state": "live",
+     "why": "AUC 0.753796 on 720 cases it never grew on clears the gate (0.6)",
+     "heldAuc": 0.753796,
+     "heldAcc": 0.673611,
+     "train": 1680,
+     "held": 720
+    }
+   ],
+   "calls": {
+    "shopper": {
+     "held": 4725,
+     "verified": 4725,
+     "abstained": 0,
+     "right": 3775
+    },
+    "triage": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 708
+    },
+    "water": {
+     "held": 720,
+     "verified": 0,
+     "abstained": 720,
+     "right": 0
+    },
+    "crop": {
+     "held": 720,
+     "verified": 720,
+     "abstained": 0,
+     "right": 485
+    }
+   },
+   "sizes": {
+    "genomeBytes": 496,
+    "grownBytes": 991,
+    "ratio": 1.997984
+   }
+  }
+ }
+}

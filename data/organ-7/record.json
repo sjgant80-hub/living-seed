@@ -1,0 +1,269 @@
+{
+ "kind": "living-seed.organ-7.record",
+ "v": 1,
+ "resolutions": [
+  2,
+  3,
+  5,
+  8,
+  13,
+  21,
+  34
+ ],
+ "selectiveBar": 0.8,
+ "strength": 20,
+ "organs": [
+  {
+   "domain": "shopper",
+   "trainCases": 7605,
+   "heldCases": 4725,
+   "steps": [
+    {
+     "k": 1,
+     "trainBrier": 0.11774,
+     "heldBrier": 0.164887,
+     "moved": 0
+    },
+    {
+     "k": 2,
+     "trainBrier": 0.10454,
+     "heldBrier": 0.14937,
+     "moved": 0.114128
+    },
+    {
+     "k": 3,
+     "trainBrier": 0.080238,
+     "heldBrier": 0.127936,
+     "moved": 0.141417
+    },
+    {
+     "k": 5,
+     "trainBrier": 0.079198,
+     "heldBrier": 0.123165,
+     "moved": 0.020259
+    },
+    {
+     "k": 8,
+     "trainBrier": 0.077578,
+     "heldBrier": 0.123647,
+     "moved": 0.007728
+    },
+    {
+     "k": 13,
+     "trainBrier": 0.07913,
+     "heldBrier": 0.123092,
+     "moved": 0.005833
+    },
+    {
+     "k": 21,
+     "trainBrier": 0.079103,
+     "heldBrier": 0.123079,
+     "moved": 0.000587
+    },
+    {
+     "k": 34,
+     "trainBrier": 0.077528,
+     "heldBrier": 0.123676,
+     "moved": 0.005061
+    }
+   ],
+   "all": {
+    "coverage": 1,
+    "accuracy": 0.798942
+   },
+   "selective": {
+    "coverage": 0.660529,
+    "accuracy": 0.930471
+   }
+  },
+  {
+   "domain": "triage",
+   "trainCases": 1680,
+   "heldCases": 720,
+   "steps": [
+    {
+     "k": 1,
+     "trainBrier": 0.03111,
+     "heldBrier": 0.016628,
+     "moved": 0
+    },
+    {
+     "k": 2,
+     "trainBrier": 0.030222,
+     "heldBrier": 0.01643,
+     "moved": 0.028993
+    },
+    {
+     "k": 3,
+     "trainBrier": 0.02959,
+     "heldBrier": 0.016144,
+     "moved": 0.017503
+    },
+    {
+     "k": 5,
+     "trainBrier": 0.027521,
+     "heldBrier": 0.015083,
+     "moved": 0.022448
+    },
+    {
+     "k": 8,
+     "trainBrier": 0.027459,
+     "heldBrier": 0.015273,
+     "moved": 0.01744
+    },
+    {
+     "k": 13,
+     "trainBrier": 0.026862,
+     "heldBrier": 0.01512,
+     "moved": 0.011261
+    },
+    {
+     "k": 21,
+     "trainBrier": 0.024177,
+     "heldBrier": 0.013721,
+     "moved": 0.007058
+    },
+    {
+     "k": 34,
+     "trainBrier": 0.026863,
+     "heldBrier": 0.015114,
+     "moved": 0.007245
+    }
+   ],
+   "all": {
+    "coverage": 1,
+    "accuracy": 0.983333
+   },
+   "selective": {
+    "coverage": 0.952778,
+    "accuracy": 0.991254
+   }
+  },
+  {
+   "domain": "water",
+   "trainCases": 1680,
+   "heldCases": 720,
+   "steps": [
+    {
+     "k": 1,
+     "trainBrier": 0.19102,
+     "heldBrier": 0.178107,
+     "moved": 0
+    },
+    {
+     "k": 2,
+     "trainBrier": 0.190835,
+     "heldBrier": 0.178169,
+     "moved": 0.009949
+    },
+    {
+     "k": 3,
+     "trainBrier": 0.175864,
+     "heldBrier": 0.158633,
+     "moved": 0.107773
+    },
+    {
+     "k": 5,
+     "trainBrier": 0.175854,
+     "heldBrier": 0.158555,
+     "moved": 0.001742
+    },
+    {
+     "k": 8,
+     "trainBrier": 0.175832,
+     "heldBrier": 0.158701,
+     "moved": 0.003354
+    },
+    {
+     "k": 13,
+     "trainBrier": 0.175344,
+     "heldBrier": 0.158164,
+     "moved": 0.009375
+    },
+    {
+     "k": 21,
+     "trainBrier": 0.175339,
+     "heldBrier": 0.158165,
+     "moved": 0.000566
+    },
+    {
+     "k": 34,
+     "trainBrier": 0.175337,
+     "heldBrier": 0.158163,
+     "moved": 0.000557
+    }
+   ],
+   "all": {
+    "coverage": 1,
+    "accuracy": 0.769444
+   },
+   "selective": {
+    "coverage": 0.384722,
+    "accuracy": 0.931408
+   }
+  },
+  {
+   "domain": "crop",
+   "trainCases": 1680,
+   "heldCases": 720,
+   "steps": [
+    {
+     "k": 1,
+     "trainBrier": 0.2061,
+     "heldBrier": 0.221149,
+     "moved": 0
+    },
+    {
+     "k": 2,
+     "trainBrier": 0.197233,
+     "heldBrier": 0.207349,
+     "moved": 0.089127
+    },
+    {
+     "k": 3,
+     "trainBrier": 0.198721,
+     "heldBrier": 0.205367,
+     "moved": 0.041765
+    },
+    {
+     "k": 5,
+     "trainBrier": 0.19658,
+     "heldBrier": 0.20469,
+     "moved": 0.042066
+    },
+    {
+     "k": 8,
+     "trainBrier": 0.196306,
+     "heldBrier": 0.204234,
+     "moved": 0.009031
+    },
+    {
+     "k": 13,
+     "trainBrier": 0.195653,
+     "heldBrier": 0.201331,
+     "moved": 0.009132
+    },
+    {
+     "k": 21,
+     "trainBrier": 0.195032,
+     "heldBrier": 0.201991,
+     "moved": 0.011811
+    },
+    {
+     "k": 34,
+     "trainBrier": 0.194972,
+     "heldBrier": 0.201745,
+     "moved": 0.002653
+    }
+   ],
+   "all": {
+    "coverage": 1,
+    "accuracy": 0.673611
+   },
+   "selective": {
+    "coverage": 0.106944,
+    "accuracy": 0.857143
+   }
+  }
+ ]
+}

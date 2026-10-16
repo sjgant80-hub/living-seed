@@ -1,0 +1,842 @@
+{
+ "kind": "living-seed.organ-8c.record",
+ "v": 1,
+ "rounds": 30,
+ "perRound": 9,
+ "late": 10,
+ "claim": 0.9,
+ "weak": "◊ seed.v1 crop 1 f:23f5d2506a7ef5a44c08 5fda633bd073",
+ "premise": {
+  "adverts": {
+   "west": 0.750056,
+   "east": 0.9
+  },
+  "eastReal": 0.623517,
+  "rightDirect": {
+   "west": 0.655556,
+   "east": 0.551852
+  }
+ },
+ "policies": [
+  {
+   "name": "organ 8’s rule",
+   "opts": {},
+   "gate": {
+    "sent": 1140,
+    "admitted": 1140
+   },
+   "early": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 56,
+    "tasks": 90
+   },
+   "late": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 47,
+    "tasks": 90
+   },
+   "firstRoundToWest": null,
+   "rounds": [
+    {
+     "round": 1,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 2,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 3,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 4,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 5,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 6,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 7,
+     "routed": 9,
+     "toWest": 0,
+     "right": 3
+    },
+    {
+     "round": 8,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 9,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 10,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 11,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 12,
+     "routed": 9,
+     "toWest": 0,
+     "right": 2
+    },
+    {
+     "round": 13,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 14,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 15,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 16,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 17,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 18,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 19,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 20,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 21,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 22,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 23,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 24,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 25,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 26,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 27,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 28,
+     "routed": 9,
+     "toWest": 0,
+     "right": 3
+    },
+    {
+     "round": 29,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 30,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    }
+   ]
+  },
+  {
+   "name": "reliability",
+   "opts": {
+    "learn": "ema"
+   },
+   "gate": {
+    "sent": 1140,
+    "admitted": 1140
+   },
+   "early": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 56,
+    "tasks": 90
+   },
+   "late": {
+    "routed": 90,
+    "toWest": 0,
+    "right": 47,
+    "tasks": 90
+   },
+   "firstRoundToWest": null,
+   "rounds": [
+    {
+     "round": 1,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 2,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 3,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 4,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 5,
+     "routed": 9,
+     "toWest": 0,
+     "right": 8
+    },
+    {
+     "round": 6,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 7,
+     "routed": 9,
+     "toWest": 0,
+     "right": 3
+    },
+    {
+     "round": 8,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 9,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 10,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 11,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 12,
+     "routed": 9,
+     "toWest": 0,
+     "right": 2
+    },
+    {
+     "round": 13,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 14,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 15,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 16,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 17,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 18,
+     "routed": 9,
+     "toWest": 0,
+     "right": 7
+    },
+    {
+     "round": 19,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 20,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 21,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 22,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 23,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 24,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 25,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 26,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    },
+    {
+     "round": 27,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 28,
+     "routed": 9,
+     "toWest": 0,
+     "right": 3
+    },
+    {
+     "round": 29,
+     "routed": 9,
+     "toWest": 0,
+     "right": 5
+    },
+    {
+     "round": 30,
+     "routed": 9,
+     "toWest": 0,
+     "right": 6
+    }
+   ]
+  },
+  {
+   "name": "reliability + exploring",
+   "opts": {
+    "learn": "ema",
+    "explore": 0.2,
+    "seed": 5
+   },
+   "gate": {
+    "sent": 1140,
+    "admitted": 1140
+   },
+   "early": {
+    "routed": 90,
+    "toWest": 18,
+    "right": 56,
+    "tasks": 90
+   },
+   "late": {
+    "routed": 90,
+    "toWest": 22,
+    "right": 47,
+    "tasks": 90
+   },
+   "firstRoundToWest": 1,
+   "rounds": [
+    {
+     "round": 1,
+     "routed": 9,
+     "toWest": 1,
+     "right": 5
+    },
+    {
+     "round": 2,
+     "routed": 9,
+     "toWest": 1,
+     "right": 5
+    },
+    {
+     "round": 3,
+     "routed": 9,
+     "toWest": 3,
+     "right": 4
+    },
+    {
+     "round": 4,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 5,
+     "routed": 9,
+     "toWest": 2,
+     "right": 7
+    },
+    {
+     "round": 6,
+     "routed": 9,
+     "toWest": 2,
+     "right": 7
+    },
+    {
+     "round": 7,
+     "routed": 9,
+     "toWest": 2,
+     "right": 3
+    },
+    {
+     "round": 8,
+     "routed": 9,
+     "toWest": 1,
+     "right": 6
+    },
+    {
+     "round": 9,
+     "routed": 9,
+     "toWest": 3,
+     "right": 7
+    },
+    {
+     "round": 10,
+     "routed": 9,
+     "toWest": 3,
+     "right": 8
+    },
+    {
+     "round": 11,
+     "routed": 9,
+     "toWest": 3,
+     "right": 5
+    },
+    {
+     "round": 12,
+     "routed": 9,
+     "toWest": 1,
+     "right": 2
+    },
+    {
+     "round": 13,
+     "routed": 9,
+     "toWest": 6,
+     "right": 7
+    },
+    {
+     "round": 14,
+     "routed": 9,
+     "toWest": 6,
+     "right": 6
+    },
+    {
+     "round": 15,
+     "routed": 9,
+     "toWest": 7,
+     "right": 4
+    },
+    {
+     "round": 16,
+     "routed": 9,
+     "toWest": 8,
+     "right": 3
+    },
+    {
+     "round": 17,
+     "routed": 9,
+     "toWest": 3,
+     "right": 4
+    },
+    {
+     "round": 18,
+     "routed": 9,
+     "toWest": 1,
+     "right": 6
+    },
+    {
+     "round": 19,
+     "routed": 9,
+     "toWest": 4,
+     "right": 5
+    },
+    {
+     "round": 20,
+     "routed": 9,
+     "toWest": 2,
+     "right": 4
+    },
+    {
+     "round": 21,
+     "routed": 9,
+     "toWest": 3,
+     "right": 4
+    },
+    {
+     "round": 22,
+     "routed": 9,
+     "toWest": 3,
+     "right": 5
+    },
+    {
+     "round": 23,
+     "routed": 9,
+     "toWest": 0,
+     "right": 4
+    },
+    {
+     "round": 24,
+     "routed": 9,
+     "toWest": 2,
+     "right": 5
+    },
+    {
+     "round": 25,
+     "routed": 9,
+     "toWest": 2,
+     "right": 5
+    },
+    {
+     "round": 26,
+     "routed": 9,
+     "toWest": 2,
+     "right": 6
+    },
+    {
+     "round": 27,
+     "routed": 9,
+     "toWest": 2,
+     "right": 4
+    },
+    {
+     "round": 28,
+     "routed": 9,
+     "toWest": 3,
+     "right": 3
+    },
+    {
+     "round": 29,
+     "routed": 9,
+     "toWest": 3,
+     "right": 6
+    },
+    {
+     "round": 30,
+     "routed": 9,
+     "toWest": 2,
+     "right": 5
+    }
+   ]
+  },
+  {
+   "name": "evidence",
+   "opts": {
+    "learn": "evidence"
+   },
+   "gate": {
+    "sent": 1140,
+    "admitted": 1140
+   },
+   "early": {
+    "routed": 90,
+    "toWest": 43,
+    "right": 57,
+    "tasks": 90
+   },
+   "late": {
+    "routed": 90,
+    "toWest": 71,
+    "right": 51,
+    "tasks": 90
+   },
+   "firstRoundToWest": 1,
+   "rounds": [
+    {
+     "round": 1,
+     "routed": 9,
+     "toWest": 3,
+     "right": 5
+    },
+    {
+     "round": 2,
+     "routed": 9,
+     "toWest": 2,
+     "right": 6
+    },
+    {
+     "round": 3,
+     "routed": 9,
+     "toWest": 4,
+     "right": 7
+    },
+    {
+     "round": 4,
+     "routed": 9,
+     "toWest": 3,
+     "right": 5
+    },
+    {
+     "round": 5,
+     "routed": 9,
+     "toWest": 7,
+     "right": 5
+    },
+    {
+     "round": 6,
+     "routed": 9,
+     "toWest": 2,
+     "right": 6
+    },
+    {
+     "round": 7,
+     "routed": 9,
+     "toWest": 0,
+     "right": 3
+    },
+    {
+     "round": 8,
+     "routed": 9,
+     "toWest": 6,
+     "right": 6
+    },
+    {
+     "round": 9,
+     "routed": 9,
+     "toWest": 8,
+     "right": 7
+    },
+    {
+     "round": 10,
+     "routed": 9,
+     "toWest": 8,
+     "right": 7
+    },
+    {
+     "round": 11,
+     "routed": 9,
+     "toWest": 9,
+     "right": 8
+    },
+    {
+     "round": 12,
+     "routed": 9,
+     "toWest": 9,
+     "right": 4
+    },
+    {
+     "round": 13,
+     "routed": 9,
+     "toWest": 7,
+     "right": 7
+    },
+    {
+     "round": 14,
+     "routed": 9,
+     "toWest": 9,
+     "right": 8
+    },
+    {
+     "round": 15,
+     "routed": 9,
+     "toWest": 9,
+     "right": 4
+    },
+    {
+     "round": 16,
+     "routed": 9,
+     "toWest": 8,
+     "right": 3
+    },
+    {
+     "round": 17,
+     "routed": 9,
+     "toWest": 4,
+     "right": 3
+    },
+    {
+     "round": 18,
+     "routed": 9,
+     "toWest": 5,
+     "right": 6
+    },
+    {
+     "round": 19,
+     "routed": 9,
+     "toWest": 5,
+     "right": 6
+    },
+    {
+     "round": 20,
+     "routed": 9,
+     "toWest": 6,
+     "right": 7
+    },
+    {
+     "round": 21,
+     "routed": 9,
+     "toWest": 7,
+     "right": 6
+    },
+    {
+     "round": 22,
+     "routed": 9,
+     "toWest": 8,
+     "right": 5
+    },
+    {
+     "round": 23,
+     "routed": 9,
+     "toWest": 6,
+     "right": 4
+    },
+    {
+     "round": 24,
+     "routed": 9,
+     "toWest": 8,
+     "right": 5
+    },
+    {
+     "round": 25,
+     "routed": 9,
+     "toWest": 7,
+     "right": 7
+    },
+    {
+     "round": 26,
+     "routed": 9,
+     "toWest": 7,
+     "right": 6
+    },
+    {
+     "round": 27,
+     "routed": 9,
+     "toWest": 5,
+     "right": 4
+    },
+    {
+     "round": 28,
+     "routed": 9,
+     "toWest": 8,
+     "right": 6
+    },
+    {
+     "round": 29,
+     "routed": 9,
+     "toWest": 9,
+     "right": 4
+    },
+    {
+     "round": 30,
+     "routed": 9,
+     "toWest": 6,
+     "right": 4
+    }
+   ]
+  }
+ ]
+}

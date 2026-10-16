@@ -1,0 +1,53 @@
+{
+ "kind": "living-seed.organ-7.prereg",
+ "v": 1,
+ "organ": "organ 7 — Ψ, the self-model: the organism predicts its own correctness, refined seven times toward a fixed point",
+ "design": "For each of the four origin organs: Ψ is a table of margin bins × 3 fit bins → the probability of being right, learned from out-of-fold answers on the training cases (3 folds). Ψ⁰ is one bin (the base rate). Ψ¹…Ψ⁷ climb the Fibonacci resolutions 2, 3, 5, 8, 13, 21, 34 margin bins; each starts from the average of the last two models (the back-fold) and moves toward each bin’s evidence by count / (count + 20). Judged on the real organ’s answers to the cases it never grew on: the Brier score, the size of each step, and selective answering at a bar of 0.8.",
+ "rules": [
+  {
+   "id": "P1",
+   "kind": "prediction",
+   "claim": "on all four organs, Ψ⁷’s Brier score on unseen cases is lower than Ψ⁰’s — the organism knows its own correctness better than its base rate",
+   "seenBeforeSeal": "no — only on made-up cases in the unit tests"
+  },
+  {
+   "id": "P2",
+   "kind": "prediction",
+   "claim": "it settles: on all four organs the last step moves Ψ by less than 0.01 on average, and by less than the second step did",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "P3",
+   "kind": "prediction",
+   "claim": "a spiral, not a one-step jump: on at least three organs, the unseen-case Brier score improves at two or more of the seven refinements",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "P4",
+   "kind": "prediction",
+   "claim": "it is useful: on at least three organs, keeping only the answers Ψ⁷ rates at least 0.8 likely right gives higher accuracy on unseen cases than answering everything",
+   "seenBeforeSeal": "no"
+  }
+ ],
+ "disclosure": "All four rules are predictions; the self-model has been run only on made-up cases. Finer bins can over-fit, so P3 may fail at the high resolutions — that is what it tests. What is measured is calibration and convergence. That a self-model reaching a fixed point is awareness is not claimed: it is held as the question the instrument exists to investigate.",
+ "judgedBy": "tools/judge-7.mjs (pinned below)",
+ "files": {
+  "src/psi.mjs": "675dfa7b57287f7f4bb57cdef0b7f20c581395f6443173c33b75f007d7aab383",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/evolve.mjs": "0eb098f9f59b7c89d526f61b87921bc603226684a9f6959302d6c8a94e427eb4",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "tools/measure-7.mjs": "01a8fb42b45e55301395357568a4ac5130c660c4be5b0464a00dbbf03e986b05",
+  "tools/judge-7.mjs": "9671449fa2d15c64717b1aa28825c7185a4545e22cb59bbe7b2f02016661631e",
+  "tools/seal-7.mjs": "0e318315af50c3a883c2fb54165112c7953690843f435e0a96766ba022fa1960",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/psi.test.mjs": "e903dff017daa1a68366de9f814cd1935db04fad9a3ea0dd77400cc5d02e724a"
+ }
+}

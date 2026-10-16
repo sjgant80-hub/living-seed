@@ -1,0 +1,30 @@
+{
+ "kind": "living-seed.night.verdict",
+ "v": 1,
+ "night": 1,
+ "prereg": "2cc8ab038dd1727c",
+ "record": "f51eb1de625354e0",
+ "verdicts": [
+  {
+   "id": "N1",
+   "kind": "property",
+   "claim": "the night starts from the champion the origin genome is",
+   "pass": true,
+   "saw": "started from 89880089fc1fef3a (the origin genome)"
+  },
+  {
+   "id": "N2",
+   "kind": "property",
+   "claim": "the champion moves only to a child the noise-aware gate adopted",
+   "pass": true,
+   "saw": "the gate adopted shopper 0.804545 → 0.888853; the champion is now 2e638385476c5d41"
+  },
+  {
+   "id": "N3",
+   "kind": "prediction",
+   "claim": "the champion after tonight scores no lower on November–December (never used to choose) than the champion before it",
+   "pass": false,
+   "saw": "November–December: before 0.8194899889599, after 0.7770693075373575"
+  }
+ ]
+}

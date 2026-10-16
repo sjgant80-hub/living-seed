@@ -1,0 +1,213 @@
+{
+ "kind": "living-seed.organ-8.record",
+ "v": 1,
+ "rounds": 24,
+ "perRound": 12,
+ "nodes": [
+  {
+   "name": "north",
+   "organs": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ],
+   "data": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ]
+  },
+  {
+   "name": "south",
+   "organs": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ],
+   "data": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ]
+  },
+  {
+   "name": "shop-floor",
+   "organs": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ],
+   "data": [
+    "shopper"
+   ]
+  },
+  {
+   "name": "clinic",
+   "organs": [
+    "shopper",
+    "water",
+    "crop"
+   ],
+   "data": [
+    "triage",
+    "water"
+   ]
+  },
+  {
+   "name": "farm",
+   "organs": [
+    "crop"
+   ],
+   "data": [
+    "crop",
+    "shopper"
+   ]
+  },
+  {
+   "name": "noisy",
+   "organs": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ],
+   "data": [
+    "shopper",
+    "water"
+   ]
+  }
+ ],
+ "gate": {
+  "sent": 1259,
+  "admitted": 1259,
+  "refused": 7,
+  "lost": 608,
+  "onSight": 5
+ },
+ "attack": {
+  "tried": 7,
+  "admitted": 0,
+  "warnedNodes": 35,
+  "onSightAfter": 5,
+  "replayedTo": 5
+ },
+ "tasks": {
+  "total": 288,
+  "answered": 0.965278,
+  "right": 0.816547,
+  "routed": 0.440972,
+  "alone": {
+   "answered": 0.541667,
+   "right": 0.833333
+  },
+  "before": {
+   "answered": 1
+  },
+  "after": {
+   "answered": 0.935897
+  }
+ },
+ "grown": [
+  {
+   "round": 9,
+   "node": "farm",
+   "domain": "shopper",
+   "from": "north",
+   "heldAuc": 0.814989
+  },
+  {
+   "round": 9,
+   "node": "noisy",
+   "domain": "shopper",
+   "refused": "AUC 0.513084 on this device’s unseen cases is under the gate (0.6)"
+  },
+  {
+   "round": 11,
+   "node": "clinic",
+   "domain": "triage",
+   "from": "north",
+   "heldAuc": 0.950658
+  }
+ ],
+ "specialists": [
+  {
+   "node": "farm",
+   "domain": "shopper",
+   "from": "north",
+   "round": 9,
+   "heldAuc": 0.814989,
+   "afterTasks": 10,
+   "afterAtHome": 10,
+   "afterRight": 0.8,
+   "routedBefore": 4,
+   "routedBeforeRight": 0.5
+  },
+  {
+   "node": "clinic",
+   "domain": "triage",
+   "from": "north",
+   "round": 11,
+   "heldAuc": 0.950658,
+   "afterTasks": 3,
+   "afterAtHome": 3,
+   "afterRight": 1,
+   "routedBefore": 4,
+   "routedBeforeRight": 1
+  }
+ ],
+ "concentration": {
+  "shopper": {
+   "routed": 6,
+   "top": "north",
+   "share": 1
+  },
+  "triage": {
+   "routed": 10,
+   "top": "north",
+   "share": 1
+  },
+  "water": {
+   "routed": 7,
+   "top": "north",
+   "share": 1
+  },
+  "crop": {
+   "routed": 10,
+   "top": "north",
+   "share": 1
+  }
+ },
+ "healed": {
+  "identical": true,
+  "nodes": [
+   "north",
+   "clinic",
+   "farm",
+   "noisy"
+  ]
+ },
+ "links": {
+  "north": {},
+  "south": {},
+  "shop-floor": {
+   "south": 0.487675
+  },
+  "clinic": {
+   "north": 0.9025
+  },
+  "farm": {
+   "clinic": 0.058398,
+   "north": 0.9025
+  },
+  "noisy": {
+   "north": 0.95,
+   "south": 0.394526
+  }
+ },
+ "events": 2152
+}

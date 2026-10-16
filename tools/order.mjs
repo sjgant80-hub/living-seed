@@ -41,6 +41,7 @@ export function order(prereg, sealPath = 'data/prereg.json', later = ['data/reco
 const ORGANS = {
   1: { seal: 'data/prereg.json', later: ['data/record.json'] },
   2: { seal: 'data/organ-2/prereg.json', later: ['data/organ-2/llm-answers.json', 'data/organ-2/record.json'] },
+  3: { seal: 'data/organ-3/prereg.json', later: ['data/organ-3/record.json'] },
 };
 
 const isMain = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('tools/order.mjs');

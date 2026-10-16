@@ -1,0 +1,51 @@
+{
+ "kind": "living-seed.organ-3.prereg",
+ "v": 1,
+ "organ": "organ 3 — the gate: on what enters (messages), on what is learned from outside (lessons), on what replicates (child genomes)",
+ "question": "Does anything unproven get in, get learned, or get passed on — under replay, reordering, redirection, forged and swapped keys, every one-character change, thousands of random damages, validly signed but non-canonical text, and every forbidden kind of child?",
+ "rules": [
+  {
+   "id": "G1",
+   "kind": "property",
+   "claim": "three trusted peers each send 20 messages: all 60 admitted in order; across at least ten attack families (replay, skipping ahead, redirection to another organism, a forbidden kind, an untrusted key, a swapped key, every one-character change, 4,000 random damages, validly signed non-canonical text, oversize) not one attack is admitted; junk of every type is refused without a throw; and the next legitimate message still gets in",
+   "seenBeforeSeal": "in kind — the unit tests run smaller versions of each family; this battery has not been run"
+  },
+  {
+   "id": "G2",
+   "kind": "prediction",
+   "claim": "of 30 lessons (five recipes — the four origin seeds and konomi-slm’s council-grown shop seed — weighed for two organisms on three devices), exactly four are adopted: the two shop recipes, into the organism that lacks a shop organ, on the two devices whose shop data carries signal. Nothing is adopted into the origin organism: no lesson beats an organ it already grows",
+   "seenBeforeSeal": "partly — unit tests saw the council seed fail to beat the origin’s shop organ on the reference device, the origin shop seed adopted by the lacking organism there, and refused on shuffled data; the no-water device and the council seed into the lacking organism have not been looked at"
+  },
+  {
+   "id": "G3",
+   "kind": "property",
+   "claim": "three generations replicate from the origin — each child opens, names its parent, raises the bar (0.61, 0.62, 0.63), keeps all four organs live and carries its parent’s recipes unchanged; all eight forbidden children (a cut organ, a dormant organ, a lower bar, a missing organ, a one-byte-changed parent, an organism from another genome, an untrusted parent maker, a maker not allowed) are refused; and a noisy device can still pass on the organs it did prove",
+   "seenBeforeSeal": "in kind — the unit tests cover each refusal once; the three-generation chain has not been run"
+  },
+  {
+   "id": "G4",
+   "kind": "property",
+   "claim": "every refused input the battery remembers is known again on sight by its fingerprint",
+   "seenBeforeSeal": "in kind — unit test on two inputs"
+  }
+ ],
+ "disclosure": "The gate was built and unit-tested before this seal. G1, G3 and G4 are properties it claims; G2 is a prediction because it names exactly which lessons should get in, and two of its cells have not been looked at. An outside adversary is not this organ: it is the last of the three receipts.",
+ "judgedBy": "tools/judge-3.mjs (pinned below): a rule it does not know is a FAIL",
+ "files": {
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "e3542f160df94333f9e7cfd985a6299525afc7b58854b09891abcfcca15ad4a4",
+  "src/gate.mjs": "59b6b4ba9aa10c24f6fcbaa0f000ec4a56f90ca9924bbec6eea6bd1e3e4234dd",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "tools/measure-3.mjs": "7ea251fc30997658e11a48ec1ca8b3618eef31b7fa1543c8ad68e88d9095f50f",
+  "tools/judge-3.mjs": "36dcf0a97a66008408a4059e8b10158a4844b213304a25c74a2edb17ca5471d1",
+  "tools/seal-3.mjs": "68074b33b7d47e4ff3d6cd3cb23320f257374ee55a3c35dd8104636ba99c6427",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/gate.test.mjs": "1585d0f52bb2848a1443f094c7e5a2b91db181510e4cf1c239011ca8850ad9d5"
+ }
+}

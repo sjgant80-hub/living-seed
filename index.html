@@ -164,6 +164,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
     <div class="kpi"><div class="v">486/486</div><div class="l">one-character changes refused</div></div>
     <div class="kpi"><div class="v">0</div><div class="l">network calls while it grows</div></div>
   </div>
+  <p class="dim"><b>AUC</b>, used throughout, is how often it ranks a real case above a non-case. For example, how often a visitor who bought scores higher than one who didn’t: 0.5 is a coin toss, 1 is perfect.</p>
 </section>
 
 <section id="start" aria-labelledby="start-h">
@@ -426,7 +427,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
     <div class="panel role"><h4>Chief executive</h4><p>One signed recipe rolls out to every site, and each site’s AI is fitted to that site — not an average of all of them. You can show a regulator, an auditor or a customer exactly what it does: every rule is printed, and every answer comes with the rules that fired.</p></div>
     <div class="panel role"><h4>Finance</h4><p>No licence fee: the code is MIT. This tier runs on machines you already own, with no model hosting and no per-call charges. What you ship to each site is a few hundred bytes. We don’t print a saving we can’t source. Put your own figures in the calculator below.</p></div>
     <div class="panel role"><h4>Operations</h4><p>A site’s board shows every organ <span class="chip live">live</span>, <span class="chip cut">cut</span> or <span class="chip dormant">dormant</span>, and why. An organ that has not earned its place says “I don’t know” instead of mis-routing work. Rolling out means copying one small file.</p></div>
-    <div class="panel role"><h4>Technology &amp; security</h4><p>Ed25519 checked before parse; trust lists of approved makers; 486 of 486 one-character changes refused in the sealed run. No data egress: 0 network calls while growing, and this page’s own security policy forbids connecting anywhere but its own site. Deterministic, so any audit can re-run it to the same fingerprint.</p></div>
+    <div class="panel role"><h4>Technology &amp; security</h4><p>Each genome’s signature (Ed25519) is checked before any of it is read, and devices can keep a list of the only makers they accept. In the sealed run, 486 of 486 one-character changes were refused. No data egress: 0 network calls while growing, and this page’s own security policy forbids connecting anywhere but its own site. Deterministic, so any audit can re-run it to the same fingerprint.</p></div>
     <div class="panel role"><h4>Data &amp; analytics</h4><p>Each organ is a sum of up to six single-measurement thresholds: readable, editable, testable. Every organ is graded on held-out cases against a bar written into the signed genome. The pre-registration tooling here — seal, measure, judge, order — is yours to reuse for your own models.</p></div>
     <div class="panel role"><h4>The people using it</h4><p>An answer tells you what it decided, the score, the line it was judged against and the rules behind it. When it hasn’t earned the right to answer, it says so, so you know when to use your own judgement.</p></div>
   </div>
@@ -480,7 +481,20 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
     <li><b>Gated, not trusted.</b> No organ answers unless it cleared the signed bar on cases it never grew on; the bar is part of what the maker signs.</li>
     <li><b>Proven code.</b> The two kernels are mutation-gated: every one of 69 deliberate faults was caught by the tests. CI re-derives the measurement byte for byte on every push.</li>
     <li><b>This page.</b> Its Content-Security-Policy pins its own scripts by hash and allows connections only to its own site — it cannot send what you type anywhere.</li>
+    <li><b>Nothing third-party inside.</b> The package installs no dependencies. The only cryptography is the platform’s own WebCrypto. Every change re-runs the tests, the mutation gate and every sealed measurement on GitHub’s runners. A change to how organisms grow shows up as a different organism id, so it cannot slip through unseen.</li>
   </ul>
+  <h3>For a regulated buyer: data protection, keys, and keeping it sound</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Question</th><th>Straight answer</th></tr></thead>
+    <tbody>
+      <tr><td>UK GDPR / GDPR</td><td>The records are never sent anywhere to be answered. For this tier, that means no new processor and no international transfer: data minimisation and data protection by design (Articles 5(1)(c) and 25). Health records are special category data (Article 9). Your lawful basis and your data protection impact assessment (Article 35) remain yours. We do not certify compliance, and this page claims none.</td></tr>
+      <tr><td>NHS assurance</td><td>Your Data Security and Protection Toolkit return is your trust’s own. This tier changes what leaves the device (nothing). It does not change your obligations.</td></tr>
+      <tr><td>Where maker keys live</td><td>A maker key is an Ed25519 private key. Here it is a WebCrypto key held by the program that seals; keeping it in a hardware security module is not built in. Treat it like a code-signing key: generate it on an offline machine, seal genomes there, and carry only the sealed genome out.</td></tr>
+      <tr><td>A compromised key</td><td>Rotate it. Re-seal with a new key, and give devices a trust list naming only the new key; they refuse the old one from their next germination. There is no automatic revocation list yet.</td></tr>
+      <tr><td>Updates and patches</td><td>New code arrives like any software update. Your genomes do not change. Because growth is deterministic, the same genome on the same data must give the same organism id before and after an update, so you can check an update changed nothing it shouldn’t.</td></tr>
+      <tr><td>Outside testing</td><td>Not yet. Inside, every attack family in organ 3’s red team was refused and the mutation gate caught every fault. An outside adversary is the last of the three receipts and is not claimed until it happens.</td></tr>
+    </tbody>
+  </table></div>
 
   <h3>Deployment and roll-out</h3>
   <ol class="steps">

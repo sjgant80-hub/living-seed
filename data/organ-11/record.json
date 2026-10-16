@@ -1,0 +1,251 @@
+{
+ "kind": "living-seed.organ-11.record",
+ "v": 1,
+ "evolve": {
+  "generations": 30,
+  "children": 8,
+  "folds": 3,
+  "seed": 1
+ },
+ "checks": [
+  {
+   "window": 50,
+   "every": 10,
+   "act": "stand-down"
+  },
+  {
+   "window": 400,
+   "every": 50,
+   "act": "claim"
+  },
+  {
+   "window": 1600,
+   "every": 100,
+   "act": "claim"
+  }
+ ],
+ "seed": {
+  "ok": true,
+  "id": "89880089fc1fef3a",
+  "cardBytes": 196947
+ },
+ "live": {
+  "cases": 429,
+  "answered": 429,
+  "right": 346,
+  "accuracy": 0.806527,
+  "auc": 0.7211864406779661,
+  "events": [],
+  "final": {
+   "live": {
+    "shopper": 0.825613,
+    "triage": 0.985417,
+    "water": 0.777083,
+    "crop": 0.679167
+   },
+   "down": []
+  },
+  "head": "e53fac0acdf8cdff",
+  "chain": true
+ },
+ "memory": {
+  "bytes": 8947,
+  "cases": 429,
+  "woke": true,
+  "wokeHead": "e53fac0acdf8cdff",
+  "head": "e53fac0acdf8cdff",
+  "carriedHead": "afcea2a8b5dc8c22",
+  "straightHead": "afcea2a8b5dc8c22",
+  "same": true,
+  "tampered": {
+   "a truth changed, not re-signed": {
+    "woke": false,
+    "why": "the memory was changed after it was written"
+   },
+   "a case dropped, re-signed by another device": {
+    "woke": false,
+    "why": "the memory was not written by this device"
+   },
+   "a case dropped, re-signed by this device": {
+    "woke": false,
+    "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+   },
+   "the head changed, not re-signed": {
+    "woke": false,
+    "why": "the memory was changed after it was written"
+   },
+   "the data under it changed": {
+    "woke": true,
+    "why": null
+   }
+  }
+ },
+ "improve": {
+  "ok": true,
+  "parent": "89880089fc1fef3a",
+  "child": "47cef86f6e52d99b",
+  "parents": [
+   "89880089fc1fef3a"
+  ],
+  "opened": true,
+  "organs": [
+   {
+    "domain": "shopper",
+    "adopted": true,
+    "from": 0.804545,
+    "to": 0.855159
+   },
+   {
+    "domain": "triage",
+    "adopted": false,
+    "from": 0.947629,
+    "candidate": 0.922741,
+    "why": "no candidate beat it on cases the evolver never saw"
+   },
+   {
+    "domain": "water",
+    "adopted": false,
+    "from": 0.76028,
+    "candidate": 0.757796,
+    "why": "no candidate beat it on cases the evolver never saw"
+   },
+   {
+    "domain": "crop",
+    "adopted": true,
+    "from": 0.758133,
+    "to": 0.77593
+   }
+  ]
+ },
+ "liveOn": {
+  "cases": 2358,
+  "child": {
+   "cases": 2358,
+   "answered": 2358,
+   "right": 1869,
+   "accuracy": 0.792621,
+   "auc": 0.8129753452356334,
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.777385,
+     "triage": 0.985417,
+     "water": 0.777083,
+     "crop": 0.695833
+    },
+    "down": []
+   },
+   "head": "e19a3968596db3e0",
+   "chain": true
+  },
+  "parent": {
+   "cases": 2358,
+   "answered": 2358,
+   "right": 1904,
+   "accuracy": 0.807464,
+   "auc": 0.820236207807725,
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.825613,
+     "triage": 0.985417,
+     "water": 0.777083,
+     "crop": 0.679167
+    },
+    "down": []
+   },
+   "head": "9ead66ef92bc6e4b",
+   "chain": true
+  },
+  "regrown": {
+   "cases": 2358,
+   "answered": 2358,
+   "right": 1904,
+   "accuracy": 0.807464,
+   "auc": 0.8194899889599,
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.777385,
+     "triage": 0.985417,
+     "water": 0.777083,
+     "crop": 0.679167
+    },
+    "down": []
+   },
+   "head": "821538bdb8c11a19",
+   "chain": true
+  }
+ },
+ "reproduce": {
+  "ok": true,
+  "cardBytes": 196947
+ },
+ "spread": {
+  "booted": true,
+  "id": "47cef86f6e52d99b",
+  "refusedWithoutTrust": true,
+  "refusal": "the card was refused: the genome in the card was refused: untrusted maker",
+  "organs": [
+   {
+    "domain": "shopper",
+    "state": "live",
+    "heldAuc": 0.846334
+   },
+   {
+    "domain": "triage",
+    "state": "live",
+    "heldAuc": 0.96928
+   },
+   {
+    "domain": "water",
+    "state": "live",
+    "heldAuc": 0.712637
+   },
+   {
+    "domain": "crop",
+    "state": "live",
+    "heldAuc": 0.729042
+   }
+  ],
+  "cases": 2367,
+  "child": {
+   "cases": 2367,
+   "answered": 2367,
+   "right": 1880,
+   "accuracy": 0.794254,
+   "auc": 0.8026459216217398,
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.804511,
+     "triage": 0.979167,
+     "water": 0.75,
+     "crop": 0.654167
+    },
+    "down": []
+   },
+   "head": "4ce17d38acfe4ef7",
+   "chain": true
+  },
+  "origin": {
+   "cases": 2367,
+   "answered": 2367,
+   "right": 1871,
+   "accuracy": 0.790452,
+   "auc": 0.8119391410721307,
+   "events": [],
+   "final": {
+    "live": {
+     "shopper": 0.766917,
+     "triage": 0.979167,
+     "water": 0.75,
+     "crop": 0.65
+    },
+    "down": []
+   },
+   "head": "1c980c9559906fc2",
+   "chain": true
+  }
+ }
+}

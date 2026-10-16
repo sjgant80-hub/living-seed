@@ -1,0 +1,76 @@
+{
+ "kind": "living-seed.organ-9b.prereg",
+ "v": 1,
+ "organ": "organ 9, the behaviour watch, second attempt — kept by channel, does it catch the takeover without cutting an honest node?",
+ "why": "Organ 9’s watch kept one mix of everything a peer sent. Honest rounds’ mixes swung as far as 0.8 on a handful of tasks, so the limit taken from them reached its ceiling of 1 and the watch could cut no one: south’s takeover went uncaught (I9, I10 failed; I3’s pass was hollow). Gary W. Floyd’s signatures are kept per domain of behaviour (Lumiea Systems Research Division — ThunderStruck Service LLC — “GEP-Based Security: Behavioral Entropy Signatures for Cybersecurity and DevOps,” 2025); this attempt does the same: what a peer claims (its adverts), how it otherwise conducts itself, and how much it sends, each against its own baseline, each with its own limit from honest rounds alone (src/immune.mjs channels, opts.immune.channels in the mesh). It is an option: organ 9 reproduces as it was.",
+ "scenario": "Organ 9’s, unchanged and run by organ 9’s own trial: the same six organisms, the same three attacks, draw 97, calibration on draw 41 with no attacker, limits = the largest honest value × 1.25 (claims and conduct at most 1, volume at least 1). Organ 8’s and organ 9’s numbers are read from data/organ-9/record.json (pinned below).",
+ "rules": [
+  {
+   "id": "J1",
+   "kind": "prediction",
+   "claim": "kept apart, the claims channel can tell rounds apart: its limit from honest rounds is under 1",
+   "seenBeforeSeal": "no — organ 9 saw only the single mix (0.8)"
+  },
+  {
+   "id": "J2",
+   "kind": "prediction",
+   "claim": "every honest node has cut the taken-over south off by the end of the round after the takeover",
+   "seenBeforeSeal": "in kind — toy-mesh unit tests"
+  },
+  {
+   "id": "J3",
+   "kind": "prediction",
+   "claim": "organ 9b sends the taken-over south at most half as many cases as organ 8 did (37) from the takeover on",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "J4",
+   "kind": "prediction",
+   "claim": "no honest peer is cut off by behaviour, under attack or with no attacker",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "J5",
+   "kind": "property",
+   "claim": "organ 9’s other guarantees hold with the new watch: no forgery admitted, no honest key revoked by a proof, no honest link refused by an honest node still trusting it, memory within its cap",
+   "seenBeforeSeal": "in kind — organ 9"
+  },
+  {
+   "id": "J6",
+   "kind": "prediction",
+   "claim": "the new watch does not weaken the rest: farm’s stolen key is still revoked by every honest node in the round it was stolen, and the flood’s signature checks stay at most a tenth of organ 8’s",
+   "seenBeforeSeal": "in kind — organ 9"
+  },
+  {
+   "id": "J7",
+   "kind": "prediction",
+   "claim": "cutting the takeover costs at most 10 right answers against organ 9 (234 right)",
+   "seenBeforeSeal": "no"
+  }
+ ],
+ "disclosure": "This attempt was designed after organ 9’s verdict, knowing its numbers: that the takeover advertises 0.97, that honest single-mix rounds reached 0.8, and that revoking farm cost its own 8 requests. The attacks, draws and margin were not changed. Organ 9’s verdict stands as it was. A failed prediction is kept.",
+ "judgedBy": "tools/judge-9b.mjs (pinned below)",
+ "files": {
+  "src/immune.mjs": "b2dd1ed0bf28bf683abbb3faea443c015ae483290fed8947a60aa0d05ae0032a",
+  "src/mesh.mjs": "94a97348aba0c9979a3c9edcfe6a8994dcf196a6213725b39e9439faa7e36563",
+  "src/gate.mjs": "57ec603bfb328b93e32a18552f96407eb6c4b2b79d5f25f3be79bac8e71e43be",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "data/organ-9/record.json": "a546aec8a7345f3c18ef253c09a2794f2bc0da28fdb5656940537da329c403ab",
+  "tools/measure-9b.mjs": "4cdc8974ed9fd0bbb6e87f8838c5c4182301874119f05f3dfcc66f34598e1a14",
+  "tools/measure-9.mjs": "6e79f9a4e18f310664fd06ac31b4e0420ce1f1c09b553922660a90f05d7f8f86",
+  "tools/measure-8.mjs": "e3d0ef5c3c660b01f54a59d7d0a8b4b374d8ec9577ddc00ba82e43d134fd88fc",
+  "tools/judge-9b.mjs": "c0bc51dd35c2de62d689563da9e978ada6f34b0760e59968a7876bad35039afa",
+  "tools/seal-9b.mjs": "348b16942321df2a27cf9f982bae4781491313de930f59eeaf1efab6746dac5f",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/immune.test.mjs": "3f3d2e203c375a4a4dcff7e1c33957fdfdca3d6dcd86d2b086c2d6a2c0162d55"
+ }
+}

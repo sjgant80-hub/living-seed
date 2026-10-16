@@ -1,0 +1,20 @@
+{
+ "kind": "living-seed.organ-6.record",
+ "v": 1,
+ "evolution": {
+  "runs": 5,
+  "sameAsPlain": true,
+  "sortsAsked": 15978,
+  "sortsDone": 114,
+  "sortsReused": 15864
+ },
+ "life": {
+  "genomes": 7,
+  "devices": 5,
+  "organisms": 35,
+  "sameAsFresh": 35,
+  "organGrowths": 133,
+  "fromPool": 102,
+  "grownFresh": 31
+ }
+}

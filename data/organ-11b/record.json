@@ -1,0 +1,256 @@
+{
+ "kind": "living-seed.organ-11b.record",
+ "v": 1,
+ "probes": 12,
+ "lived": 712,
+ "head": "afcea2a8b5dc8c22",
+ "unchanged": true,
+ "trainingLabel": [
+  {
+   "row": 226,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 682,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 1136,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 1590,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 2046,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 2500,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 2954,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 3410,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 3864,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 4318,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 4774,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 5228,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  }
+ ],
+ "heldLabel": [
+  {
+   "row": 5552,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 5720,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 5890,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6064,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6238,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6476,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6758,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6980,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7260,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7426,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7642,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7836,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  }
+ ],
+ "livedFeature": [
+  {
+   "row": 5878,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6516,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7104,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7900,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6200,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6752,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7490,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 5564,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6222,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 6748,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7186,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  },
+  {
+   "row": 7744,
+   "woke": false,
+   "why": "living its memory again does not arrive where it left off — the data under it is not what it lived"
+  }
+ ],
+ "livedLabel": [
+  {
+   "row": 5878,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 6516,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 7104,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 7900,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 6200,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 6752,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 7490,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 5564,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 6222,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 6748,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 7186,
+   "woke": true,
+   "why": null
+  },
+  {
+   "row": 7744,
+   "woke": true,
+   "why": null
+  }
+ ]
+}

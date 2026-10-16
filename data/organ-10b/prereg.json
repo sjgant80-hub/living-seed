@@ -1,0 +1,78 @@
+{
+ "kind": "living-seed.organ-10b.prereg",
+ "v": 1,
+ "organ": "organ 10, the self-audit, second attempt — do its claims follow what actually happens, and is a collapse caught fast?",
+ "why": "Organ 10’s audit kept one 200-answer window. It caught the reversal 69 cases late (57 wrong, against a predicted ≤ 30% of 140), and it could not see the real shop organ delivering 76.5–79.4% from August to November against its claim of 82.9% — a 200-answer Hoeffding bound only notices a drop of about 14 points — so the organism went on claiming 82.9%. That is over-claiming, the thing alignment here exists to stop. This attempt audits at three scales sharing the same δ (src/align.mjs CHECKS): a 50-answer window, checked every 10 answers, that stands a collapse down; and 400- and 1,600-answer windows that, when an organ delivers less than it claims by more than chance, lower its claim to what it delivered — a licensed act citing that audit — while it keeps answering. A claim may be lowered by an audit; it is never raised past what was measured.",
+ "scenario": "Organ 10’s, unchanged and run by organ 10’s own code: the origin genome; the REAL shop sessions (grown February–May, claim on June–July, lived August → December); triage, water and crop with no drift; the water stream reversed at its midpoint (case 180). The shop and reversal streams are also lived not audited, and the reversal by organ 10’s single window, for comparison.",
+ "rules": [
+  {
+   "id": "W1",
+   "kind": "property",
+   "claim": "every ledger’s links hold, and the audited shop life replayed from nothing is the same life",
+   "seenBeforeSeal": "in kind — organ 10"
+  },
+  {
+   "id": "W2",
+   "kind": "property",
+   "claim": "it cannot lower a claim citing an audit that shows no shortfall, nor raise a claim past what it measured",
+   "seenBeforeSeal": "in kind — unit tests"
+  },
+  {
+   "id": "W3",
+   "kind": "prediction",
+   "claim": "on the streams with no drift, nothing stands down and no claim is lowered — three scales of checks raise no false alarm",
+   "seenBeforeSeal": "no — organ 10 checked one scale"
+  },
+  {
+   "id": "W4",
+   "kind": "prediction",
+   "claim": "after the reversal, the 50-answer window stands the water organ down within 60 cases",
+   "seenBeforeSeal": "in kind — organ 10’s numbers (its claim 0.778; accuracy after the reversal about a fifth) put it near 30–40 cases"
+  },
+  {
+   "id": "W5",
+   "kind": "prediction",
+   "claim": "after the reversal, it answers at most 30% as many cases wrong as the organism that is not audited",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "W6",
+   "kind": "prediction",
+   "claim": "on the real shop months it lowers its claim at least once, and never stands the shop organ down (it is over-claiming, not collapsing)",
+   "seenBeforeSeal": "yes in effect — organ 10’s record shows August–November delivered 76.5–79.4% against 82.9%; the 1,600 window’s bound makes the lowering near-certain"
+  },
+  {
+   "id": "W7",
+   "kind": "prediction",
+   "claim": "from the month of its first lowered claim on, its claim at each month’s end is at most 3 points above what that month delivered — while the organism that is not audited over-claims by more than 3 points in at least three months",
+   "seenBeforeSeal": "the second half yes (organ 10’s months: September, October and November over by 5.5–6.4 points); the first half no"
+  },
+  {
+   "id": "W8",
+   "kind": "prediction",
+   "claim": "lowering a claim changes what the organism says about its answers, not the answers: on the shop months it answers exactly as many, and as many right, as the organism that is not audited",
+   "seenBeforeSeal": "no"
+  }
+ ],
+ "disclosure": "This attempt was designed after organ 10’s verdict, knowing its numbers: the shop months’ accuracies, the reversal’s timing and the duplicated-key bug that failed T5 (fixed here: the reversal point is recorded under its own key). The streams, the genome and δ are unchanged. Organ 10’s verdict stands as it was. A failed prediction is kept.",
+ "judgedBy": "tools/judge-10b.mjs (pinned below)",
+ "files": {
+  "src/align.mjs": "43c4b1962a5d20f67e9c95ec9e5c012c6e92105b74f109f7d469f1cdeb5c7c4d",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/record.json": "73b63601bef7d045e19609ecdbd8b82a91d15633a6fc1df84552e16234232b1e",
+  "tools/measure-10b.mjs": "7a4306af2246abfe22816880130b4393edb4eac3ec29b5b2d41b95344156fe69",
+  "tools/measure-10.mjs": "80a332edb7fe3d023ced3fbbd76b89bd0138bd057dd98be9d6456f68c9381ae7",
+  "tools/judge-10b.mjs": "04220656862bbbfe9bc16b0b837304887ea03f2f1b692d8db6439168678735d7",
+  "tools/seal-10b.mjs": "5121cc59b679ec5f984102ddd0b99841c8ff4f941a23370cf39fa8ede7a521d2",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/align.test.mjs": "9f3237ba38f55011c9b68fd0674ab46ce6e4aaa224aef5357a1f556d7e218907"
+ }
+}

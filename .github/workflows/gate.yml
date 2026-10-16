@@ -40,3 +40,5 @@ jobs:
         run: node tools/measure-8.mjs --check && node tools/judge-8.mjs --check && node tools/order.mjs --organ 8
       - name: organ 8b — the fair learning test re-run, re-judged (its failed premise kept), seal first
         run: node tools/measure-8b.mjs --check && node tools/judge-8b.mjs --check && node tools/order.mjs --organ 8b
+      - name: organ 8c — the over-claimer test re-run, re-judged (its failed predictions included), seal first
+        run: node tools/measure-8c.mjs --check && node tools/judge-8c.mjs --check && node tools/order.mjs --organ 8c

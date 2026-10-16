@@ -1,0 +1,50 @@
+{
+ "kind": "living-seed.organ-8c.verdict",
+ "v": 1,
+ "prereg": "44847866ac252f0b",
+ "record": "80779cac6e25eee3",
+ "verdicts": [
+  {
+   "id": "E0",
+   "kind": "prediction",
+   "claim": "the premise holds on the tasks themselves: asked directly, west is right on at least 10 points more of them than east, while east advertises more",
+   "pass": true,
+   "saw": "asked directly: west right on 65.6%, east on 55.2%; east advertises 0.9 (its real unseen-case AUC 0.623517), west 0.750056"
+  },
+  {
+   "id": "E1",
+   "kind": "prediction",
+   "claim": "organ 8’s rule never finds the over-claimer out: at most 10% of late routed tasks go to west",
+   "pass": true,
+   "saw": "organ 8’s rule: 0 of 90 late routed tasks to west (0%)"
+  },
+  {
+   "id": "E2",
+   "kind": "prediction",
+   "claim": "the evidence rule finds it out without any exploring: at least 80% of late routed tasks go to west",
+   "pass": false,
+   "saw": "the evidence rule, no exploring: 71 of 90 late routed tasks to west (78.9%); first sent to west in round 1"
+  },
+  {
+   "id": "E3",
+   "kind": "prediction",
+   "claim": "with the evidence rule, the share of tasks answered right in the last 10 rounds is at least 10 points above organ 8’s rule",
+   "pass": false,
+   "saw": "right in the last 10 rounds: organ 8’s rule 52.2%, reliability 52.2%, reliability + exploring 52.2%, evidence 56.7%"
+  },
+  {
+   "id": "E4",
+   "kind": "prediction",
+   "claim": "reliability + exploring finds it out partly: at least 50% of late routed tasks go to west",
+   "pass": false,
+   "saw": "reliability + exploring: 22 of 90 late routed tasks to west (24.4%)"
+  },
+  {
+   "id": "E5",
+   "kind": "property",
+   "claim": "in all four runs every message is admitted by the gate",
+   "pass": true,
+   "saw": "organ 8’s rule 1140/1140; reliability 1140/1140; reliability + exploring 1140/1140; evidence 1140/1140 messages admitted"
+  }
+ ]
+}

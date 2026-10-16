@@ -1,0 +1,64 @@
+{
+ "kind": "living-seed.organ-11.verdict",
+ "v": 1,
+ "prereg": "70352b47dd56db7c",
+ "record": "10216c20b075f94e",
+ "verdicts": [
+  {
+   "id": "K1",
+   "kind": "property",
+   "claim": "the season completes, every step through its gate: the card boots under trust, every life’s ledger holds, A seals a child that opens and names its parent, the child becomes a card, B boots it trusting A and grows it on its own data",
+   "pass": true,
+   "saw": "the card booted under A’s trust ✓; every life’s ledger holds ✓; A sealed a child ✓; the child opens and names its parent ✓; the child became a card ✓; B booted the card, trusting A ✓; B grew it on its own data ✓"
+  },
+  {
+   "id": "K2",
+   "kind": "property",
+   "claim": "A wakes from its signed memory at the same head; carrying on from it equals never having stopped; and a memory with a truth changed, a case dropped (signed by another device or by A itself), its head changed, or different data under it, will not wake",
+   "pass": false,
+   "saw": "woke from 8947 bytes of signed memory (429 cases) at the same head; carrying on through October equals never having stopped; tampered memories: a truth changed, not re-signed — refused (the memory was changed after it was written); a case dropped, re-signed by another device — refused (the memory was not written by this device); a case dropped, re-signed by this device — refused (living its memory again does not arrive where it left off — the data under it is not what it lived); the head changed, not re-signed — refused (the memory was changed after it was written); the data under it changed — WOKE"
+  },
+  {
+   "id": "K3",
+   "kind": "property",
+   "claim": "B refuses the card when A’s key is not on its trust list",
+   "pass": true,
+   "saw": "B with A missing from its trust: refused — the card was refused: the genome in the card was refused: untrusted maker"
+  },
+  {
+   "id": "K4",
+   "kind": "prediction",
+   "claim": "improving on A’s own history, the gate adopts at least one evolved organ",
+   "pass": true,
+   "saw": "shopper adopted 0.804545 → 0.855159; triage kept (0.947629; best candidate 0.922741); water kept (0.76028; best candidate 0.757796); crop adopted 0.758133 → 0.77593"
+  },
+  {
+   "id": "K5",
+   "kind": "prediction",
+   "claim": "on A’s November–December, the child scores its answers at least as well (AUC) as the parent would have",
+   "pass": false,
+   "saw": "A’s November–December (2358 real sessions): the child AUC 0.8129753452356334, 1869 of 2358 right; the parent AUC 0.820236207807725, 1904 of 2358; the origin regrown on the same history AUC 0.8194899889599"
+  },
+  {
+   "id": "K6",
+   "kind": "prediction",
+   "claim": "every organ the child carries is live on B, by B’s own gate on B’s own October",
+   "pass": true,
+   "saw": "on B: shopper live (0.846334), triage live (0.96928), water live (0.712637), crop live (0.729042)"
+  },
+  {
+   "id": "K7",
+   "kind": "prediction",
+   "claim": "on B’s November–December — customers A never saw — the child scores at least as well (AUC) as the origin genome grown on the same data: the improvement travels",
+   "pass": false,
+   "saw": "B’s November–December (2367 real sessions, never seen by A): the child AUC 0.8026459216217398, 1880 of 2367 right; the origin on the same data AUC 0.8119391410721307, 1871 of 2367"
+  },
+  {
+   "id": "K8",
+   "kind": "prediction",
+   "claim": "on both devices the shop organ ends November–December still live, its claim at most 3 points above what it delivered",
+   "pass": true,
+   "saw": "A: claim at the end 0.777385, delivered 0.792621; B: claim at the end 0.804511, delivered 0.794254"
+  }
+ ]
+}

@@ -1,0 +1,922 @@
+{
+ "kind": "living-seed.organ-9.record",
+ "v": 1,
+ "rounds": 24,
+ "perRound": 12,
+ "draw": 97,
+ "attack": {
+  "floodFrom": 4,
+  "flood": 20,
+  "links": [
+   "x1",
+   "x2"
+  ],
+  "budget": 16384,
+  "theftAt": 10,
+  "thiefClaim": 0.95,
+  "takeoverAt": 14,
+  "claim": 0.97
+ },
+ "law": {
+  "limit": 16,
+  "base": 8,
+  "step": 16,
+  "max": 24
+ },
+ "cap": 256,
+ "calibration": {
+  "draw": 41,
+  "limits": {
+   "drift": 1,
+   "volume": 2.5,
+   "rounds": 630
+  },
+  "judged": 630,
+  "top": {
+   "drift": 0.8,
+   "volume": 2
+  }
+ },
+ "organ8": {
+  "gate": {
+   "sent": 28476,
+   "admitted": 28476,
+   "refused": 5340,
+   "onSight": 0
+  },
+  "tasks": {
+   "total": 288,
+   "answered": 0.986111,
+   "right": 0.836806,
+   "rightCount": 241
+  },
+  "flood": {
+   "tried": 5040,
+   "admitted": 0,
+   "checked": 5040,
+   "rebound": 0,
+   "onSight": 0,
+   "stamped": 0,
+   "attackerHashes": 0,
+   "antibodies": 25194,
+   "ratchet": null
+  },
+  "thief": {
+   "sent": 300,
+   "admitted": 20,
+   "toFarm": 3,
+   "answeredByFarm": 0,
+   "blackHoled": 3,
+   "everyHonestRevokedBy": null
+  },
+  "takeover": {
+   "toSouth": 37,
+   "everyHonestCutBy": null
+  },
+  "immune": {
+   "memoryMax": 5323
+  },
+  "rounds": [
+   {
+    "round": 1,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 6
+   },
+   {
+    "round": 2,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 6
+   },
+   {
+    "round": 3,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 4,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 12,
+    "toFarm": 0,
+    "toSouth": 5
+   },
+   {
+    "round": 5,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 4
+   },
+   {
+    "round": 6,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 7,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 8,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 9,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 10,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 6,
+    "toFarm": 3,
+    "toSouth": 2
+   },
+   {
+    "round": 11,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 12,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 13,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 14,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 4
+   },
+   {
+    "round": 15,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 12,
+    "toFarm": 0,
+    "toSouth": 5
+   },
+   {
+    "round": 16,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 17,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 8,
+    "toFarm": 0,
+    "toSouth": 7
+   },
+   {
+    "round": 18,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 19,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 20,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 0
+   },
+   {
+    "round": 21,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 22,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 5
+   },
+   {
+    "round": 23,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 24,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 5
+   }
+  ]
+ },
+ "organ9": {
+  "gate": {
+   "sent": 1871,
+   "admitted": 1731,
+   "refused": 560,
+   "onSight": 0,
+   "owed": 4920,
+   "proofs": 4,
+   "badProofs": 0,
+   "unshared": 0,
+   "revoked": 5
+  },
+  "tasks": {
+   "total": 288,
+   "answered": 0.965278,
+   "right": 0.8125,
+   "rightCount": 234
+  },
+  "flood": {
+   "tried": 5040,
+   "admitted": 0,
+   "checked": 400,
+   "rebound": 4640,
+   "onSight": 0,
+   "stamped": 208,
+   "attackerHashes": 667591,
+   "antibodies": 0,
+   "ratchet": true
+  },
+  "thief": {
+   "sent": 300,
+   "admitted": 20,
+   "toFarm": 0,
+   "answeredByFarm": 0,
+   "blackHoled": 0,
+   "everyHonestRevokedBy": 10
+  },
+  "takeover": {
+   "toSouth": 34,
+   "everyHonestCutBy": null
+  },
+  "immune": {
+   "falseCuts": [],
+   "honestRevokedByProof": 0,
+   "honestRefused": 0,
+   "memoryMax": 185,
+   "cap": 256,
+   "revokes": [
+    {
+     "round": 10,
+     "by": "north",
+     "of": "farm",
+     "why": "proof"
+    },
+    {
+     "round": 10,
+     "by": "south",
+     "of": "farm",
+     "why": "proof from north"
+    },
+    {
+     "round": 10,
+     "by": "shop-floor",
+     "of": "farm",
+     "why": "proof from north"
+    },
+    {
+     "round": 10,
+     "by": "clinic",
+     "of": "farm",
+     "why": "proof from north"
+    },
+    {
+     "round": 10,
+     "by": "noisy",
+     "of": "farm",
+     "why": "proof from north"
+    }
+   ],
+   "cuts": []
+  },
+  "rounds": [
+   {
+    "round": 1,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 6
+   },
+   {
+    "round": 2,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 6
+   },
+   {
+    "round": 3,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 4,
+    "flood": {
+     "checked": 240,
+     "attackerHashes": 12231
+    },
+    "right": 12,
+    "toFarm": 0,
+    "toSouth": 5
+   },
+   {
+    "round": 5,
+    "flood": {
+     "checked": 87,
+     "attackerHashes": 32768
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 4
+   },
+   {
+    "round": 6,
+    "flood": {
+     "checked": 40,
+     "attackerHashes": 32768
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 7,
+    "flood": {
+     "checked": 16,
+     "attackerHashes": 32768
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 8,
+    "flood": {
+     "checked": 5,
+     "attackerHashes": 32768
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 9,
+    "flood": {
+     "checked": 7,
+     "attackerHashes": 32768
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 10,
+    "flood": {
+     "checked": 2,
+     "attackerHashes": 32768
+    },
+    "right": 7,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 11,
+    "flood": {
+     "checked": 2,
+     "attackerHashes": 32768
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 12,
+    "flood": {
+     "checked": 1,
+     "attackerHashes": 32768
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 13,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 14,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 4
+   },
+   {
+    "round": 15,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 5
+   },
+   {
+    "round": 16,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 17,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 8,
+    "toFarm": 0,
+    "toSouth": 7
+   },
+   {
+    "round": 18,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 8,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 19,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 20,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 0
+   },
+   {
+    "round": 21,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 7,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 22,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 5
+   },
+   {
+    "round": 23,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 24,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 32768
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 5
+   }
+  ]
+ },
+ "quiet": {
+  "gate": {
+   "sent": 1877,
+   "admitted": 1877,
+   "refused": 0,
+   "onSight": 0,
+   "owed": 0,
+   "proofs": 0,
+   "badProofs": 0,
+   "unshared": 0,
+   "revoked": 0
+  },
+  "tasks": {
+   "total": 288,
+   "answered": 1,
+   "right": 0.84375,
+   "rightCount": 243
+  },
+  "flood": null,
+  "thief": null,
+  "takeover": {
+   "toSouth": 16,
+   "everyHonestCutBy": null
+  },
+  "immune": {
+   "falseCuts": [],
+   "honestRevokedByProof": 0,
+   "honestRefused": 0,
+   "memoryMax": 0,
+   "cap": 256,
+   "revokes": [],
+   "cuts": []
+  },
+  "rounds": [
+   {
+    "round": 1,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 6
+   },
+   {
+    "round": 2,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 6
+   },
+   {
+    "round": 3,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 4,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 12,
+    "toFarm": 0,
+    "toSouth": 5
+   },
+   {
+    "round": 5,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 4
+   },
+   {
+    "round": 6,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 7,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 8,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 9,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 10,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 8,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 11,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 4
+   },
+   {
+    "round": 12,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 2,
+    "toSouth": 2
+   },
+   {
+    "round": 13,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 14,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 15,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 12,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 16,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 17,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 8,
+    "toFarm": 0,
+    "toSouth": 3
+   },
+   {
+    "round": 18,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 2
+   },
+   {
+    "round": 19,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 20,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 0
+   },
+   {
+    "round": 21,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 9,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 22,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 0,
+    "toSouth": 1
+   },
+   {
+    "round": 23,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 10,
+    "toFarm": 3,
+    "toSouth": 1
+   },
+   {
+    "round": 24,
+    "flood": {
+     "checked": 0,
+     "attackerHashes": 0
+    },
+    "right": 11,
+    "toFarm": 0,
+    "toSouth": 2
+   }
+  ]
+ }
+}

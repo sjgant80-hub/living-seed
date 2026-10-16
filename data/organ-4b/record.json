@@ -1,0 +1,273 @@
+{
+ "kind": "living-seed.organ-4b.record",
+ "v": 1,
+ "opts": {
+  "generations": 30,
+  "children": 8,
+  "seed": 1,
+  "folds": 3
+ },
+ "margin": 0.002,
+ "runs": [
+  {
+   "name": "shopper",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.867875,
+    "final": 0.924341
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.867875,
+     "folds": [
+      0.866319,
+      0.858488,
+      0.878818
+     ],
+     "heldAuc": 0.815265
+    },
+    {
+     "gen": 1,
+     "val": 0.878703,
+     "folds": [
+      0.876176,
+      0.872038,
+      0.887896
+     ],
+     "heldAuc": 0.818357
+    },
+    {
+     "gen": 5,
+     "val": 0.89085,
+     "folds": [
+      0.885236,
+      0.886603,
+      0.900711
+     ],
+     "heldAuc": 0.819059
+    },
+    {
+     "gen": 6,
+     "val": 0.900261,
+     "folds": [
+      0.8973,
+      0.89338,
+      0.910103
+     ],
+     "heldAuc": 0.806094
+    },
+    {
+     "gen": 9,
+     "val": 0.90654,
+     "folds": [
+      0.904536,
+      0.904694,
+      0.910391
+     ],
+     "heldAuc": 0.796781
+    },
+    {
+     "gen": 16,
+     "val": 0.921578,
+     "folds": [
+      0.918928,
+      0.92038,
+      0.925426
+     ],
+     "heldAuc": 0.806368
+    },
+    {
+     "gen": 28,
+     "val": 0.924341,
+     "folds": [
+      0.92261,
+      0.922216,
+      0.928197
+     ],
+     "heldAuc": 0.802782
+    }
+   ],
+   "steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "champion": "◊ seed.v1 shopper 21 f:1f9ae081a3ba9fe5d42d bd5f2f79ceff"
+  },
+  {
+   "name": "triage",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.855121,
+    "final": 0.855121
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.855121,
+     "folds": [
+      0.916915,
+      0.844465,
+      0.803983
+     ],
+     "heldAuc": 0.952127
+    }
+   ],
+   "steps": [
+    1,
+    2
+   ],
+   "champion": "◊ seed.v1 triage 21 f:76f9e00a9c8875945326 2255c18623fd"
+  },
+  {
+   "name": "water",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.70728,
+    "final": 0.732233
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.70728,
+     "folds": [
+      0.695215,
+      0.711679,
+      0.714945
+     ],
+     "heldAuc": 0.747656
+    },
+    {
+     "gen": 5,
+     "val": 0.717037,
+     "folds": [
+      0.704663,
+      0.721648,
+      0.724799
+     ],
+     "heldAuc": 0.732706
+    },
+    {
+     "gen": 8,
+     "val": 0.732233,
+     "folds": [
+      0.717494,
+      0.740255,
+      0.738951
+     ],
+     "heldAuc": 0.759995
+    }
+   ],
+   "steps": [
+    1,
+    2,
+    3
+   ],
+   "champion": "◊ seed.v1 water 21 f:76d8bc14ab8ab1895026 375d21899853"
+  },
+  {
+   "name": "crop",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.761626,
+    "final": 0.767489
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.761626,
+     "folds": [
+      0.75334,
+      0.785455,
+      0.746083
+     ],
+     "heldAuc": 0.753796
+    },
+    {
+     "gen": 14,
+     "val": 0.764998,
+     "folds": [
+      0.756417,
+      0.791763,
+      0.746814
+     ],
+     "heldAuc": 0.760043
+    },
+    {
+     "gen": 22,
+     "val": 0.767489,
+     "folds": [
+      0.756647,
+      0.791801,
+      0.754019
+     ],
+     "heldAuc": 0.762582
+    }
+   ],
+   "steps": [
+    1,
+    2
+   ],
+   "champion": "◊ seed.v1 crop 21 f:3be3cf42185ad3c65026 ba9123ba23cc"
+  }
+ ],
+ "noise": {
+  "name": "shopper, labels shuffled",
+  "heldShownToEvolver": 0,
+  "evals": 241,
+  "val": {
+   "start": 0.500885,
+   "final": 0.520003
+  },
+  "accepted": [
+   {
+    "gen": 0,
+    "val": 0.500885,
+    "folds": [
+     0.487774,
+     0.515756,
+     0.499125
+    ],
+    "heldAuc": 0.513084
+   },
+   {
+    "gen": 3,
+    "val": 0.51381,
+    "folds": [
+     0.493432,
+     0.533165,
+     0.514832
+    ],
+    "heldAuc": 0.504262
+   },
+   {
+    "gen": 6,
+    "val": 0.520003,
+    "folds": [
+     0.501918,
+     0.53469,
+     0.523402
+    ],
+    "heldAuc": 0.488367
+   }
+  ],
+  "steps": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "champion": "◊ seed.v1 shopper 21 f:7f9fe2edda6623e9d42d a725d4baa8e7"
+ }
+}

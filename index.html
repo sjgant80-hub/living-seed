@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-WIEiTiGr2FuUmBx+v/GYAWVWKHmEXY/ozbr8Ncqs2Mk='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-C/xBwN1y4qOwrz3xfuyaIvbxhi28ngglPn0ZA0jZ/io='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Organ 1 of 12, pre-registered and measured: 9 of 9 sealed rules held." />
@@ -147,6 +147,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#evolve">Organ 4 · evolution</a></li>
       <li><a href="#cards">Organ 5 · cards</a></li>
       <li><a href="#power">Organs 6–7</a></li>
+      <li><a href="#mesh">Organ 8 · mesh</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -429,8 +430,28 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <div id="r67" role="status" aria-live="polite"></div>
 </section>
 
+<section id="mesh" aria-labelledby="mesh-h">
+  <h2 id="mesh-h"><span class="n">10</span>Organ 8 · The mesh</h2>
+  <p class="lede">Organisms on their own devices, coupled into one web that wires, prunes and grows itself. No centre: every node is sovereign, and nothing passes between them except signed messages through the gate.</p>
+  <div class="grid three">
+    <div class="panel"><h4>Advertise and route</h4><p>Each node tells the others which organs it has live and how well each scored on cases it never saw. A task a node can’t answer goes to the node that can, and the answer comes back signed. In the sealed run the mesh answered <b>96.5%</b> of 288 unseen cases. The same nodes alone would have answered 54.2%.</p></div>
+    <div class="panel"><h4>Grow what it lacks</h4><p>A node that keeps having to send a domain away, while holding that domain’s data itself, asks for a lesson. It grows the recipe on its own data, and adopts it only if it clears the gate there. The clinic grew a triage specialist (AUC 0.951 on its own unseen cases) and the farm a shop one (0.815). The noisy node’s request was refused on its own data.</p></div>
+    <div class="panel"><h4>Trust outcomes, not claims</h4><p>A node that over-claims, advertising 0.90 while really scoring 0.62, is found out by evidence. Its claim counts as four cases, and after that what it actually did decides. In the sealed test that sent <b>79%</b> of late tasks to the honest node, against 0% under the first rule. It is less than the 80% predicted, and the reason is measured: old evidence fades, so the liar gets retried.</p></div>
+  </div>
+  <div class="note honest"><b>What took three tries, and what is still open.</b> The first mesh run’s “the links concentrate” test was weak: by its last rounds only one full node was left alive. The second test’s premise failed: the faulty node wasn’t actually worse. The third found the over-claimer out, but not as completely as predicted. All three verdicts are kept below. The six nodes run in one process, so this measures the mesh’s logic and its signed messages, not a radio network. A run across real devices is the second of the three receipts.</div>
+  <div class="panel" style="margin-top:14px">
+    <h3>14 · The mesh, live — its real events, replayed</h3>
+    <div class="row"><button id="mesh-go" type="button" class="primary" disabled>Run the sealed mesh here</button><button id="mesh-play" type="button" disabled>Pause</button>
+      <label for="mesh-round">Round</label><input id="mesh-round" type="range" min="1" max="24" value="1" disabled /><span id="mesh-round-v" class="mono">—</span></div>
+    <canvas id="mesh-canvas" width="900" height="420" style="width:100%;height:auto;max-height:440px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;touch-action:none" aria-label="A rotating 3D view of the six organisms, their learned links, and the messages of the current round"></canvas>
+    <div id="mesh-tick" class="status" role="status" aria-live="polite">Press run: your browser runs the same six-node mesh the sealed record holds — same keys, same genomes, every message signed and gated — then replays what happened.</div>
+    <div id="mesh-legend" class="dim" style="font-size:12px"></div>
+  </div>
+  <div id="r8" role="status" aria-live="polite"></div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">10</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">11</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -478,7 +499,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>5</td><td><b>Breeding + the card</b></td><td>Two genomes breed a verified child; the organism travels, germinates and trades as a picture (<a href="#cards">organ 5</a>).</td><td><span class="chip live">proven · 8/8 sealed</span></td></tr>
       <tr><td>6</td><td><b>Self-powering</b></td><td>Germination and improvement run cheap — work done once, reused exactly (<a href="#power">organ 6</a>).</td><td><span class="chip live">proven · 4/4 sealed</span></td></tr>
       <tr><td>7</td><td><b>Self-model</b></td><td>Its prediction of its own correctness beats its base rate and settles to a fixed point — measured, never declared (<a href="#power">organ 7</a>).</td><td><span class="chip live">proven · 4/4 sealed</span></td></tr>
-      <tr><td>8</td><td>Mesh</td><td>N organisms couple, sync and exchange lessons; survive node and relay loss.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>8</td><td><b>Mesh</b></td><td>Organisms couple, route, grow the specialists they lack, find out an over-claimer and survive loss and partition (<a href="#mesh">organ 8</a>).</td><td><span class="chip live">measured · three runs, failures kept</span></td></tr>
       <tr><td>9</td><td>Immune system</td><td>Attacks are captured as antibodies and shared; it holds under outside red-team.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>10</td><td>Alignment</td><td>It cannot act on what is unproven; it audits itself by structure.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>11</td><td>The full organism</td><td>All organs composed, the life cycle running end to end on real devices.</td><td><span class="chip">in order</span></td></tr>
@@ -488,7 +509,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">11</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">12</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -593,7 +614,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">12</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">13</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
     <h3>Abstract</h3>
@@ -637,7 +658,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">13</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">14</span>Questions</h2>
   <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
   <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
@@ -662,6 +683,7 @@ import * as C from './src/card.mjs';
 import { breed } from './src/breed.mjs';
 import * as R from './src/recycle.mjs';
 import * as P from './src/psi.mjs';
+import * as M from './src/mesh.mjs';
 import { operatingPoint } from './src/germinate.mjs';
 import { decodeSeed, fit as ribosomeFit } from './vendor/seed-library/seedlib.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
@@ -1187,6 +1209,108 @@ function render67() {
   $('r67').innerHTML = '<details><summary>Organ 6 — the sealed rules and verdict</summary>' + rulesTable(S.pre6, S.ver6) + '</details><details><summary>Organ 7 — the sealed rules and verdict</summary>' + rulesTable(S.pre7, S.ver7) + '</details>';
 }
 
+// ── organ 8: the mesh, run here and replayed in 3D (the view after Simon’s mesh-live-3d.html, fed real events) ──
+const MESH_COLORS = { north: '#45d0a8', south: '#6ab0ff', 'shop-floor': '#ffcf5c', clinic: '#ff8a65', farm: '#a5d6a7', noisy: '#b58cff' };
+const FLOW_COLORS = { task: '#6ab0ff', reply: '#45d0a8', lesson: '#ffcf5c', antibody: '#ff6b6b', grow: '#ffcf5c' };
+async function meshRun() {
+  // the six nodes, built exactly as tools/measure-8.mjs builds them
+  const third = (ds, k) => ({ ...ds, trainRows: ds.trainRows.filter((i) => i % 3 === k) }), all = (k) => Object.fromEntries(DOMAIN_IDS.map((d) => [d, third(S.data[d], k)]));
+  const plan = [
+    { name: 'north', organs: DOMAIN_IDS, data: all(0) }, { name: 'south', organs: DOMAIN_IDS, data: all(1) },
+    { name: 'shop-floor', organs: DOMAIN_IDS, data: { shopper: third(S.data.shopper, 2) } },
+    { name: 'clinic', organs: ['shopper', 'water', 'crop'], data: { triage: third(S.data.triage, 2), water: third(S.data.water, 2) } },
+    { name: 'farm', organs: ['crop'], data: { crop: third(S.data.crop, 2), shopper: third(S.data.shopper, 0) } },
+    { name: 'noisy', organs: DOMAIN_IDS, data: { shopper: S.subs['shuffled-shopper'].shopper, water: third(S.data.water, 0) } },
+  ];
+  const nodes = [];
+  for (const p of plan) {
+    const k = await fromSeed(sha256Bytes(utf8('living-seed/maker/mesh-' + p.name))), g = await seal({ name: p.name, parents: [], gate: { auc: 0.6 }, organs: p.organs.map((d) => S.seeds[DOMAIN_IDS.indexOf(d)]) }, k);
+    nodes.push((await M.node(p.name, g.text, { name: p.name, data: p.data }, k)).node);
+  }
+  const cut = { on: false }, west = new Set(['north', 'clinic', 'farm']), m = M.mesh(nodes, { cut: (a, b) => cut.on && west.has(a) !== west.has(b) });
+  const work = M.tasks(S.data, nodes.map((x) => x.name), 24 * 12, 81), frames = [], grown = [];
+  let answered = 0, attacksAdmitted = 0;
+  for (let round = 1; round <= 24; round++) {
+    if (round === 12) for (const name of ['south', 'shop-floor']) m.byName.get(name).alive = false;
+    cut.on = round >= 16 && round < 20;
+    const from = m.log.length;
+    await m.gossip(round);
+    const rs = [];
+    for (const t of work.slice((round - 1) * 12, round * 12)) {
+      let at = m.byName.get(t.at);
+      if (!at.alive) at = nodes.filter((x) => x.alive)[parseInt(t.id.slice(-2), 16) % nodes.filter((x) => x.alive).length];
+      const r = await m.task(at, t.domain, t.x, t.truth, round, t.id); rs.push(r); if (r.verdict === 'VERIFIED') answered++;
+    }
+    m.fade(round);
+    for (const g of await m.grow(round)) grown.push(g);
+    if (round === 6) {
+      const stranger = await fromSeed(sha256Bytes(utf8('living-seed/maker/mesh-stranger')));
+      for (const x of nodes) { const f = await G.envelope({ kind: 'task', to: x.org.id, n: 1, body: 'f'.repeat(16) + ' shopper 1,2,3,4,5,6,7,8,9,10' }, stranger, M.MESH); const r = await m.receive(x, f.text); if (r.admit) attacksAdmitted++; else await m.warn(x, f.text, r.stage, round); }
+      const south = m.byName.get('south'), north = m.byName.get('north'), real = await G.envelope({ kind: 'advert', to: north.org.id, n: 1, body: 'shopper 0.9 100' }, south.keys, M.MESH);
+      const first = await m.receive(north, real.text); if (first.admit) attacksAdmitted++; else await m.warn(north, real.text, first.stage, round);
+      for (const x of nodes) if (x !== north) { const r = await m.receive(x, real.text); if (r.admit) attacksAdmitted++; }
+    }
+    frames.push({ round, alive: nodes.map((x) => x.alive), cut: cut.on, links: nodes.map((x) => [...x.links]), events: m.log.slice(from), answered: rs.filter((r) => r.verdict === 'VERIFIED').length, routed: rs.filter((r) => r.routed).length, organs: nodes.map((x) => Object.keys(x.body.patterns)) });
+  }
+  return { nodes: nodes.map((x) => x.name), frames, answered, total: work.length, sent: m.stats.sent, admitted: m.stats.admitted, attacksAdmitted, grown: grown.filter((g) => g.from).map((g) => g.node + ':' + g.domain).sort() };
+}
+const WORD = { advert: ['advert', 'adverts'], task: ['task', 'tasks'], reply: ['reply', 'replies'], lesson: ['lesson', 'lessons'], antibody: ['antibody', 'antibodies'], grow: ['specialist grown', 'specialists grown'], prune: ['link dropped', 'links dropped'], lost: ['message undeliverable', 'messages undeliverable'] };
+const MV = { rotY: 0.4, rotX: -0.35, drag: false, lx: 0, ly: 0, frame: 0, t: 0, playing: true, run: null, last: 0 };
+function meshPos(i, n) { const a = (i / n) * Math.PI * 2; return { x: Math.cos(a), y: i % 2 ? 0.28 : -0.28, z: Math.sin(a) }; }
+function meshDraw(now) {
+  const cv = $('mesh-canvas'), ctx = cv.getContext('2d'), W = cv.width, H = cv.height, run = MV.run;
+  ctx.clearRect(0, 0, W, H);
+  if (!run) return;
+  if (!MV.drag) MV.rotY += 0.002;
+  if (MV.playing) { MV.t += (now - MV.last) / 2600; if (MV.t >= 1) { MV.t = 0; MV.frame = (MV.frame + 1) % run.frames.length; showRound(); } }
+  MV.last = now;
+  const f = run.frames[MV.frame], n = run.nodes.length;
+  const proj = run.nodes.map((name, i) => { const p = meshPos(i, n), cy = Math.cos(MV.rotY), sy = Math.sin(MV.rotY), x1 = p.x * cy - p.z * sy, z1 = p.x * sy + p.z * cy, cx = Math.cos(MV.rotX), sx = Math.sin(MV.rotX), y1 = p.y * cx - z1 * sx, z2 = p.y * sx + z1 * cx, s = 3.2 / (3.2 + z2); return { name, px: W / 2 + x1 * 260 * s, py: H / 2 + y1 * 260 * s, s, z: z2 }; });
+  const at = Object.fromEntries(proj.map((p) => [p.name, p]));
+  f.links.forEach((ls, i) => ls.forEach(([to, w]) => { const a = proj[i], b = at[to]; if (!b) return; ctx.beginPath(); ctx.moveTo(a.px, a.py); ctx.lineTo(b.px, b.py); ctx.strokeStyle = 'rgba(120,160,220,' + (0.12 + Math.min(1, w) * 0.5) + ')'; ctx.lineWidth = 1 + Math.min(1, w) * 4; ctx.stroke(); }));
+  const flows = f.events.filter((e) => FLOW_COLORS[e.type] && e.to && at[e.to] && at[e.from]);
+  flows.forEach((e, k) => { const t = (MV.t * 1.6 + k / Math.max(flows.length, 1)) % 1, a = at[e.from], b = at[e.to]; ctx.beginPath(); ctx.arc(a.px + (b.px - a.px) * t, a.py + (b.py - a.py) * t, 3.5, 0, 7); ctx.fillStyle = FLOW_COLORS[e.type]; ctx.shadowColor = FLOW_COLORS[e.type]; ctx.shadowBlur = 10; ctx.fill(); ctx.shadowBlur = 0; });
+  [...proj].sort((a, b) => b.z - a.z).forEach((p) => {
+    const i = run.nodes.indexOf(p.name), alive = f.alive[i], r = (6 + f.organs[i].length * 3) * p.s;
+    ctx.beginPath(); ctx.arc(p.px, p.py, r, 0, 7); ctx.fillStyle = alive ? MESH_COLORS[p.name] : '#555'; ctx.globalAlpha = alive ? 1 : 0.4; ctx.fill(); ctx.globalAlpha = 1;
+    ctx.fillStyle = getComputedStyle(document.body).color; ctx.font = (12 * p.s + 1) + 'px system-ui'; ctx.fillText(p.name + (alive ? '' : ' (lost)'), p.px + r + 4, p.py - 2);
+    ctx.font = (10 * p.s + 1) + 'px ui-monospace,monospace'; ctx.fillText(f.organs[i].join(' ') || '—', p.px + r + 4, p.py + 11);
+  });
+  if (f.cut) { ctx.fillStyle = '#ff6b6b'; ctx.font = '14px system-ui'; ctx.fillText('partition: north · clinic · farm cut off from the rest', 16, 24); }
+  requestAnimationFrame(meshDraw);
+}
+function showRound() {
+  const f = MV.run.frames[MV.frame], c = {}; for (const e of f.events) c[e.type] = (c[e.type] || 0) + 1;
+  $('mesh-round').value = f.round; $('mesh-round-v').textContent = f.round + ' / 24';
+  const said = [];
+  if (f.round === 6) said.push('an outsider forged a task to every node and a spent counter was replayed — every one refused, and the bytes shared as antibodies');
+  if (f.round === 12) said.push('south and shop-floor were lost');
+  if (f.cut) said.push('the mesh is partitioned');
+  if (f.round === 20) said.push('the partition healed');
+  for (const e of f.events.filter((x) => x.type === 'grow')) said.push(e.to + ' grew a ' + e.domain + ' specialist from ' + e.from + '’s lesson');
+  $('mesh-tick').innerHTML = '<b>Round ' + f.round + '</b> · ' + f.answered + '/12 tasks answered, ' + f.routed + ' routed · ' + Object.entries(c).filter(([k]) => k !== 'answer').map(([k, v]) => v + ' ' + (v === 1 ? WORD[k][0] : WORD[k][1])).join(' · ') + (said.length ? '<br>' + esc(said.join('; ')) : '');
+}
+async function meshGo() {
+  $('mesh-go').disabled = true;
+  $('mesh-tick').textContent = 'Running the sealed mesh: 24 rounds, every message signed and gated…';
+  const t0 = performance.now(), run = await meshRun(), ms = Math.round(performance.now() - t0);
+  MV.run = run; MV.frame = 0; MV.t = 0; MV.playing = true; MV.last = performance.now();
+  for (const id of ['mesh-play', 'mesh-round']) $(id).disabled = false;
+  const ci = S.rec8, same = ci && ci.gate.sent === run.sent && ci.gate.admitted === run.admitted && Math.round((run.answered / run.total) * 1e6) / 1e6 === ci.tasks.answered && JSON.stringify(run.grown) === JSON.stringify(ci.grown.filter((g) => g.from).map((g) => g.node + ':' + g.domain).sort());
+  $('mesh-legend').innerHTML = 'Ran in ' + n(ms) + ' ms: ' + n(run.sent) + ' signed messages, ' + n(run.admitted) + ' admitted; ' + run.attacksAdmitted + ' attacks admitted; ' + n(run.answered) + ' of ' + run.total + ' tasks answered; grew ' + esc(run.grown.join(', ')) + '. ' + (ci ? (same ? '<span class="ok-t">✓ the same mesh CI sealed</span>' : '<span class="bad-t">✗ differs from CI’s record</span>') : '') +
+    '<br>Pulses: <span style="color:#6ab0ff">task</span> · <span style="color:#45d0a8">reply</span> · <span style="color:#ffcf5c">lesson</span> · <span style="color:#ff6b6b">antibody</span>. Lines: the links each node has learned, thicker where they pay. Node size: organs live.';
+  showRound();
+  note('the mesh', 'ran the sealed six-node mesh here: ' + run.answered + '/' + run.total + ' answered, grew ' + run.grown.join(', '), 'you ran it');
+  if (!MV.looping) { MV.looping = true; requestAnimationFrame(meshDraw); }
+  $('mesh-go').disabled = false;
+}
+function render8() {
+  if (!S.rec8) return;
+  $('r8').innerHTML = '<details><summary>Organ 8 — the first mesh run: sealed rules and verdict</summary>' + rulesTable(S.pre8, S.ver8) + '</details>' +
+    (S.rec8b ? '<details><summary>Organ 8b — the fair learning test whose premise failed</summary>' + rulesTable(S.pre8b, S.ver8b) + '</details>' : '') +
+    (S.rec8c ? '<details><summary>Organ 8c — finding out an over-claimer</summary>' + rulesTable(S.pre8c, S.ver8c) + '</details>' : '');
+}
+
 async function bootBody() {
   const ref = (await germinate(S.origin, { name: 'reference', data: S.subs.reference })).organism;
   S.refOrg = ref;
@@ -1201,6 +1325,7 @@ async function bootBody() {
   $('card-make').disabled = false; $('breed-go').disabled = !S.rec4b;
   await makeCard();
   $('pow-go').disabled = false;
+  $('mesh-go').disabled = false;
   setTimeout(renderPsi, 50);
   DOMAIN_IDS.forEach((d, i) => setTimeout(() => { selfModelOf(d); if (S.organism && $('ask-domain').value === d) ask(); }, 400 + i * 300));
   gSay('<p class="dim">A trusted peer (another demo key from a public phrase) may send this organism lessons and antibodies. Send it something, then try to get something past the gate.</p>');
@@ -1225,6 +1350,8 @@ async function boot() {
   const organ4 = Promise.all([recordOf('4'), recordOf('4b'), recordOf(5), recordOf(6), recordOf(7)]).then(([a, b, c, d6, d7]) => { if (a) [S.rec4, S.pre4, S.ver4] = a; if (b) [S.rec4b, S.pre4b, S.ver4b] = b; if (c) [S.rec5, S.pre5, S.ver5] = c; if (d6) [S.rec6, S.pre6, S.ver6] = d6; if (d7) [S.rec7, S.pre7, S.ver7] = d7; });
   S.selfModels = {};
   $('pow-go').disabled = true;
+  const organ8 = Promise.all([recordOf(8), recordOf('8b'), recordOf('8c')]).then(([a, b, c]) => { if (a) [S.rec8, S.pre8, S.ver8] = a; if (b) [S.rec8b, S.pre8b, S.ver8b] = b; if (c) [S.rec8c, S.pre8c, S.ver8c] = c; });
+  $('mesh-go').disabled = true;
   for (const id of ['card-make', 'card-damage', 'breed-go', 'breed-trade']) $(id).disabled = true;
   $('evo-go').disabled = true;
   for (const id of GATE_BUTTONS) $(id).disabled = true;
@@ -1248,8 +1375,8 @@ async function boot() {
   const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
-  await organ2; await organ3; await organ4;
-  renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67();
+  await organ2; await organ3; await organ4; await organ8;
+  renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8();
   const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
   for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
@@ -1290,6 +1417,12 @@ $('breed-trade').addEventListener('click', breedTrade);
 $('pow-go').addEventListener('click', powerRun);
 $('psi-d').addEventListener('change', renderPsi);
 $('psi-bar').addEventListener('input', renderPsi);
+$('mesh-go').addEventListener('click', meshGo);
+$('mesh-play').addEventListener('click', () => { MV.playing = !MV.playing; $('mesh-play').textContent = MV.playing ? 'Pause' : 'Play'; MV.last = performance.now(); });
+$('mesh-round').addEventListener('input', () => { if (!MV.run) return; MV.frame = Number($('mesh-round').value) - 1; MV.t = 0; showRound(); });
+$('mesh-canvas').addEventListener('pointerdown', (e) => { MV.drag = true; MV.lx = e.clientX; MV.ly = e.clientY; });
+addEventListener('pointerup', () => { MV.drag = false; });
+addEventListener('pointermove', (e) => { if (!MV.drag) return; MV.rotY += (e.clientX - MV.lx) * 0.006; MV.rotX = Math.max(-1.2, Math.min(1.2, MV.rotX + (e.clientY - MV.ly) * 0.006)); MV.lx = e.clientX; MV.ly = e.clientY; });
 $('mk-seal').addEventListener('click', async () => {
   const st = $('mk-status');
   try {

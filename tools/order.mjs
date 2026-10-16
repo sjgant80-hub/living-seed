@@ -51,6 +51,7 @@ const ORGANS = {
   '8b': { seal: 'data/organ-8b/prereg.json', later: ['data/organ-8b/record.json'] },
   '8c': { seal: 'data/organ-8c/prereg.json', later: ['data/organ-8c/record.json'] },
   9: { seal: 'data/organ-9/prereg.json', later: ['data/organ-9/record.json'] },
+  '9b': { seal: 'data/organ-9b/prereg.json', later: ['data/organ-9b/record.json'] },
 };
 
 const isMain = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('tools/order.mjs');

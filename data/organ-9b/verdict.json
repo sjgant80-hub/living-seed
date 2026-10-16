@@ -1,0 +1,57 @@
+{
+ "kind": "living-seed.organ-9b.verdict",
+ "v": 1,
+ "prereg": "098bf73c25bd7d13",
+ "record": "958e4ce245aaf977",
+ "verdicts": [
+  {
+   "id": "J1",
+   "kind": "prediction",
+   "claim": "kept apart, the claims channel can tell rounds apart: its limit from honest rounds is under 1",
+   "pass": true,
+   "saw": "limits from honest rounds alone (draw 41): claims 0.625 (honest rounds reached 0.5), conduct 1 (reached 1), volume 2.5"
+  },
+  {
+   "id": "J2",
+   "kind": "prediction",
+   "claim": "every honest node has cut the taken-over south off by the end of the round after the takeover",
+   "pass": true,
+   "saw": "every honest node had cut south off by round 14 (taken over in round 14)"
+  },
+  {
+   "id": "J3",
+   "kind": "prediction",
+   "claim": "organ 9b sends the taken-over south at most half as many cases as organ 8 did (37) from the takeover on",
+   "pass": true,
+   "saw": "cases sent to south from round 14: organ 8 37, organ 9 34, organ 9b 4 (10.8% of organ 8’s); honest south with no attacker was sent 16"
+  },
+  {
+   "id": "J4",
+   "kind": "prediction",
+   "claim": "no honest peer is cut off by behaviour, under attack or with no attacker",
+   "pass": true,
+   "saw": "honest peers cut off by behaviour: 0 under attack, 0 with no attacker"
+  },
+  {
+   "id": "J5",
+   "kind": "property",
+   "claim": "organ 9’s other guarantees hold with the new watch: no forgery admitted, no honest key revoked by a proof, no honest link refused by an honest node still trusting it, memory within its cap",
+   "pass": true,
+   "saw": "forgeries admitted 0 of 5040; honest keys revoked by a proof 0, 0; honest links refused by a node still trusting them 0, 0; largest memory 201 (cap 256)"
+  },
+  {
+   "id": "J6",
+   "kind": "prediction",
+   "claim": "the new watch does not weaken the rest: farm’s stolen key is still revoked by every honest node in the round it was stolen, and the flood’s signature checks stay at most a tenth of organ 8’s",
+   "pass": true,
+   "saw": "farm’s stolen key revoked by every honest node by round 10; forgeries checked 400 against organ 8’s 5040 (7.9%)"
+  },
+  {
+   "id": "J7",
+   "kind": "prediction",
+   "claim": "cutting the takeover costs at most 10 right answers against organ 9 (234 right)",
+   "pass": true,
+   "saw": "tasks answered right under the attacks: organ 8 241, organ 9 234, organ 9b 234 of 288; organ 9b with no attacker 243"
+  }
+ ]
+}

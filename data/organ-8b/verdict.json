@@ -1,0 +1,50 @@
+{
+ "kind": "living-seed.organ-8b.verdict",
+ "v": 1,
+ "prereg": "00b257135ffbad4e",
+ "record": "ba16a6176157d733",
+ "verdicts": [
+  {
+   "id": "L0",
+   "kind": "prediction",
+   "claim": "the premise holds: asked directly on the same tasks, west is right on at least 10 points more of them than east, while east advertises the higher score",
+   "pass": false,
+   "saw": "asked directly: west right on 74.8%, east on 75.2% (east abstained on 0 of 270); adverts west 0.814989, east 0.816352"
+  },
+  {
+   "id": "L1",
+   "kind": "prediction",
+   "claim": "under organ 8’s rule, routing locks onto east: in the last 10 rounds at most 10% of routed tasks go to west",
+   "pass": true,
+   "saw": "organ 8’s rule: 0 of 90 late routed tasks to west (0%)"
+  },
+  {
+   "id": "L2",
+   "kind": "prediction",
+   "claim": "the reliability rule alone also locks onto east (at most 10% to west): without exploring, the better node is never tried",
+   "pass": true,
+   "saw": "reliability alone: 0 of 90 late routed tasks to west (0%)"
+  },
+  {
+   "id": "L3",
+   "kind": "prediction",
+   "claim": "with exploring, at least 70% of routed tasks in the last 10 rounds go to west",
+   "pass": false,
+   "saw": "reliability + exploring: 31 of 90 late routed tasks to west (34.4%); early: 18.9%"
+  },
+  {
+   "id": "L4",
+   "kind": "prediction",
+   "claim": "with exploring, the share of tasks answered right in the last 10 rounds is at least 10 points higher than under organ 8’s rule",
+   "pass": false,
+   "saw": "right in the last 10 rounds: organ 8’s rule 74.4%, reliability alone 74.4%, with exploring 74.4%"
+  },
+  {
+   "id": "L5",
+   "kind": "property",
+   "claim": "in all three runs every message is admitted by the gate",
+   "pass": true,
+   "saw": "organ 8’s rule 1140/1140; reliability 1140/1140; reliability + exploring 1140/1140 messages admitted"
+  }
+ ]
+}

@@ -38,3 +38,5 @@ jobs:
         run: node tools/measure-7.mjs --check && node tools/judge-7.mjs --check && node tools/order.mjs --organ 7
       - name: organ 8 — the mesh re-run (every signed message), re-judged, seal first
         run: node tools/measure-8.mjs --check && node tools/judge-8.mjs --check && node tools/order.mjs --organ 8
+      - name: organ 8b — the fair learning test re-run, re-judged (its failed premise kept), seal first
+        run: node tools/measure-8b.mjs --check && node tools/judge-8b.mjs --check && node tools/order.mjs --organ 8b

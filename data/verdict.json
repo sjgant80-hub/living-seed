@@ -1,0 +1,71 @@
+{
+ "kind": "living-seed.organ-1.verdict",
+ "v": 1,
+ "prereg": "c05c990bd1a0438a",
+ "record": "73b63601bef7d045",
+ "verdicts": [
+  {
+   "id": "R1",
+   "kind": "property",
+   "claim": "the whole four-organ genome, sealed, is at most 512 bytes",
+   "pass": true,
+   "saw": "4 organs in 496 bytes"
+  },
+  {
+   "id": "R2",
+   "kind": "property",
+   "claim": "all five germinations, the seal check included, make no network call",
+   "pass": true,
+   "saw": "0 network calls over 5 germinations"
+  },
+  {
+   "id": "R3",
+   "kind": "property",
+   "claim": "on the reference data every organ reproduces seed-library’s sealed held-out AUC exactly, and answers every held case at exactly the accuracy the ribosome grades",
+   "pass": true,
+   "saw": "shopper 0.815265 = sealed, triage 0.952127 = sealed, water 0.747656 = sealed, crop 0.753796 = sealed; every held case answered at the graded accuracy"
+  },
+  {
+   "id": "R4",
+   "kind": "property",
+   "claim": "every one-character change to the genome is refused; the maker’s key swapped is refused on the signature; another maker’s trust list refuses it",
+   "pass": true,
+   "saw": "486/486 one-character changes refused; maker swapped → signature; another maker trusted → untrusted maker"
+  },
+  {
+   "id": "R5",
+   "kind": "property",
+   "claim": "the rules it grows are at least twice the bytes the genome carries: the device’s data supplies the rest",
+   "pass": true,
+   "saw": "grows 1196 bytes of rules from 496 carried (×2.41129)"
+  },
+  {
+   "id": "R6",
+   "kind": "prediction",
+   "claim": "on device-a and device-b, each holding half the history, all four organs still clear the gate, each within 0.03 AUC of the reference, and the three organisms all differ",
+   "pass": true,
+   "saw": "a/shopper live 0.815543 (Δ0.000278), a/triage live 0.952997 (Δ0.00087), a/water live 0.746534 (Δ-0.001122), a/crop live 0.749908 (Δ-0.003888), b/shopper live 0.814959 (Δ-0.000306), b/triage live 0.952399 (Δ0.000272), b/water live 0.742234 (Δ-0.005422), b/crop live 0.753188 (Δ-0.000608); 3 distinct ids"
+  },
+  {
+   "id": "R7",
+   "kind": "property",
+   "claim": "germination is deterministic: three more runs grow the reference organism’s id, and CI re-derives the record byte for byte",
+   "pass": true,
+   "saw": "3 more germinations → c11de7054e9bb8ea"
+  },
+  {
+   "id": "R8",
+   "kind": "prediction",
+   "claim": "with the shopper labels shuffled the shopper organ scores a coin (held-out AUC from 0.45 to 0.55), is cut, and abstains on every shopper case, while the other three organs answer every case",
+   "pass": true,
+   "saw": "shopper cut at AUC 0.513084, 4725/4725 abstained; triage 720/720 answered, water 720/720 answered, crop 720/720 answered"
+  },
+  {
+   "id": "R9",
+   "kind": "property",
+   "claim": "with no water data the water organ is dormant and abstains on every water case; the other three are live and answer every case",
+   "pass": true,
+   "saw": "water dormant, 720/720 abstained; shopper 4725/4725, triage 720/720, crop 720/720 answered"
+  }
+ ]
+}

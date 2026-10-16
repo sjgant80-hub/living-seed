@@ -9,6 +9,8 @@
     "witness": "node witness-all.mjs",
     "seal": "node tools/seal.mjs",
     "measure": "node tools/measure.mjs",
-    "check": "node tools/measure.mjs --check"
+    "check": "node tools/measure.mjs --check",
+    "judge": "node tools/judge.mjs --check",
+    "order": "node tools/order.mjs"
   }
 }

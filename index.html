@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-rdIvVHue/Vq8gwlsMo6S+CoxJap5N91hM3r5rbxmQpE='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-WIEiTiGr2FuUmBx+v/GYAWVWKHmEXY/ozbr8Ncqs2Mk='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Organ 1 of 12, pre-registered and measured: 9 of 9 sealed rules held." />
@@ -146,6 +146,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#gate">Organ 3 · the gate</a></li>
       <li><a href="#evolve">Organ 4 · evolution</a></li>
       <li><a href="#cards">Organ 5 · cards</a></li>
+      <li><a href="#power">Organs 6–7</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -406,8 +407,30 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <div id="c5-rec" role="status" aria-live="polite"></div>
 </section>
 
+<section id="power" aria-labelledby="power-h">
+  <h2 id="power-h"><span class="n">09</span>Organs 6 and 7 · Self-powering, and the self-model</h2>
+  <div class="grid two">
+    <div class="panel"><h4>Organ 6 — work done once</h4><p>Growing and evolving organs keeps asking for the same work. A pool keeps what was done: each feature’s column is sorted once, and each organ grown from a recipe on the same data is kept. The rule that makes this safe: a recycled result is byte-for-byte what fresh computation gives. In the sealed run, evolution did <b>0.71%</b> of the sorts it asked for, and <b>77%</b> of the organism’s organ growths came from the pool. It ran about 6.5 times faster. No power meter was attached, so energy is not claimed; what was measured is work not repeated.</p></div>
+    <div class="panel"><h4>Organ 7 — it knows how likely it is to be right</h4><p>For every answer, the organism predicts its own chance of being right. It uses two things it knows about itself: how far the case is from its own line, and how much the case resembles what it grew on. That self-model is refined seven times, at finer and finer resolution, each time starting from the average of its last two versions. It is judged on cases it never saw. It beat the base rate on all four organs and settled to a fixed point. Answering only where it rates itself 80% or more likely right lifted the shop’s accuracy from 79.9% to 93.0% on two-thirds of the cases. <i>What is measured is calibration and convergence. That a self-model reaching a fixed point is awareness is not claimed.</i></p></div>
+  </div>
+  <div class="grid two" style="margin-top:14px">
+    <div class="panel">
+      <h3>12 · Evolve with and without the pool</h3>
+      <div class="row"><button id="pow-go" type="button" class="primary" disabled>Run both (the water organ)</button></div>
+      <div id="pow-out" role="status" aria-live="polite"><p class="dim">The same evolution twice, plain and through a fresh pool, timed in your browser.</p></div>
+    </div>
+    <div class="panel">
+      <h3>13 · The self-model</h3>
+      <div class="row"><label for="psi-d">Organ</label><select id="psi-d"><option value="shopper">shop</option><option value="triage">triage</option><option value="water">water</option><option value="crop">crop</option></select>
+        <label for="psi-bar">Answer only above</label><input id="psi-bar" type="range" min="0.5" max="0.99" step="0.01" value="0.8" /><span id="psi-bar-v" class="mono">0.80</span></div>
+      <div id="psi-out" role="status" aria-live="polite"><p class="dim">Grown in your browser when the page loads.</p></div>
+    </div>
+  </div>
+  <div id="r67" role="status" aria-live="polite"></div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">09</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">10</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -453,8 +476,8 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>3</td><td><b>The gate</b></td><td>Nothing unproven enters, is learned from outside, or is passed on — the three doors red-teamed (<a href="#gate">organ 3</a>).</td><td><span class="chip" id="organ3-state">built · being measured</span></td></tr>
       <tr><td>4</td><td><b>Variation + selection</b></td><td>Improvement on held-out cases, judged blind, able to fail — measured twice; it did fail, and the gate is what keeps a loss out (<a href="#evolve">organ 4</a>).</td><td><span class="chip" id="organ4-state">measured · two predictions failed, kept</span></td></tr>
       <tr><td>5</td><td><b>Breeding + the card</b></td><td>Two genomes breed a verified child; the organism travels, germinates and trades as a picture (<a href="#cards">organ 5</a>).</td><td><span class="chip live">proven · 8/8 sealed</span></td></tr>
-      <tr><td>6</td><td>Self-powering</td><td>Germination and improvement run cheap — the reuse hit-rate measured.</td><td><span class="chip">in order</span></td></tr>
-      <tr><td>7</td><td>Self-model</td><td>Its prediction of itself converges to a stable fixed point instead of plateauing — measured, never declared.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>6</td><td><b>Self-powering</b></td><td>Germination and improvement run cheap — work done once, reused exactly (<a href="#power">organ 6</a>).</td><td><span class="chip live">proven · 4/4 sealed</span></td></tr>
+      <tr><td>7</td><td><b>Self-model</b></td><td>Its prediction of its own correctness beats its base rate and settles to a fixed point — measured, never declared (<a href="#power">organ 7</a>).</td><td><span class="chip live">proven · 4/4 sealed</span></td></tr>
       <tr><td>8</td><td>Mesh</td><td>N organisms couple, sync and exchange lessons; survive node and relay loss.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>9</td><td>Immune system</td><td>Attacks are captured as antibodies and shared; it holds under outside red-team.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>10</td><td>Alignment</td><td>It cannot act on what is unproven; it audits itself by structure.</td><td><span class="chip">in order</span></td></tr>
@@ -465,7 +488,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">10</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">11</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -570,7 +593,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">11</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">12</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
     <h3>Abstract</h3>
@@ -614,7 +637,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">12</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">13</span>Questions</h2>
   <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
   <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
@@ -637,6 +660,10 @@ import * as G from './src/gate.mjs';
 import * as E from './src/evolve.mjs';
 import * as C from './src/card.mjs';
 import { breed } from './src/breed.mjs';
+import * as R from './src/recycle.mjs';
+import * as P from './src/psi.mjs';
+import { operatingPoint } from './src/germinate.mjs';
+import { decodeSeed, fit as ribosomeFit } from './vendor/seed-library/seedlib.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
 import { rng } from './vendor/seed-library/seedlib.mjs';
 import { fromSeed, generate } from './vendor/keys/keys.mjs';
@@ -782,7 +809,10 @@ function ask() {
   const said = (l) => (l ? 'yes — ' : 'no — not ') + LABEL[d];
   note('ask an organ', d + ' case ' + askCase().k + (edited ? ' (edited)' : '') + ': ' + (a.verdict === 'VERIFIED' ? 'VERIFIED ' + said(a.label) : 'ABSTAIN, ' + a.why), 'you asked');
   if (a.verdict === 'VERIFIED') {
+    const sm = S.selfModels && S.selfModels[d], fitNow = sm && S.body ? (B.route(S.body, x).find((r) => r.domain === d) || { fit: 0 }).fit : 0;
+    const rate = sm ? Math.round(P.read(sm.psi, Math.abs(a.score - a.threshold), fitNow) * 100) : null;
     $('ask-out').innerHTML = '<div class="answer"><div class="v ok-t">VERIFIED · ' + esc(said(a.label)) + '</div><div>score <code>' + esc(a.score) + '</code> against the line <code>' + esc(a.threshold) + '</code> · from its ' + esc(a.organ) + ' organ</div>' +
+      (rate === null ? '' : '<div>it rates this answer <b>' + rate + '%</b> likely to be right <span class="dim">(its self-model, organ 7)</span></div>') +
       (a.fired.length ? '<div class="dim" style="margin-top:6px">rules that fired:</div><ul class="rules">' + a.fired.map((r) => '<li>' + esc(r.feat) + ' ' + esc(r.op) + ' ' + esc(r.v) + ' → ' + (r.w > 0 ? '+' : '') + esc(r.w) + '</li>').join('') + '</ul>' : '<div class="dim">no rule fired</div>') +
       '<div style="margin-top:6px">' + (edited ? '<span class="dim">you changed the measurements, so there is no recorded outcome to compare</span>' : 'what actually happened: <b>' + esc(said(truth)) + '</b> · ' + (a.label === truth ? '<span class="ok-t">right</span>' : '<span class="bad-t">wrong</span>')) + '</div></div>';
   } else {
@@ -1118,6 +1148,45 @@ function renderCards() {
   $('c5-rec').innerHTML = '<h3>The sealed measurement</h3><div class="kpis"><div class="kpi"><div class="v">' + a.flipsRefused + '/' + a.flips + '</div><div class="l">damaged cards refused</div></div><div class="kpi"><div class="v">' + a.forgedRefused + '/' + a.forged + '</div><div class="l">re-wrapped forgeries refused by the seal</div></div><div class="kpi"><div class="v">' + S.rec5.child.live + '/4</div><div class="l">of the child’s organs live</div></div><div class="kpi"><div class="v">' + esc(S.rec5.child.heldAuc.shopper) + '</div><div class="l">the child’s shop organ, on unseen cases — above both parents</div></div></div>' + rulesTable(S.pre5, S.ver5);
 }
 
+// ── organs 6 and 7: recycled work, the self-model ─────────────────────────────────────────────────────────
+function powerRun() {
+  $('pow-go').disabled = true;
+  $('pow-out').innerHTML = '<p class="dim">Running twice…</p>';
+  setTimeout(() => {
+    const ds = S.data.water, seed = S.seeds[DOMAIN_IDS.indexOf('water')], opts = { generations: 30, children: 8, seed: 1, folds: 3 };
+    let t0 = performance.now(); const plain = E.evolve(seed, E.blind(ds), opts); const plainMs = performance.now() - t0;
+    const counted = R.pool({ cap: 0 }); E.evolve(seed, E.blind(ds), { ...opts, assess: R.assessWith(counted) });
+    const p = R.pool(); t0 = performance.now(); const pooled = E.evolve(seed, E.blind(ds), { ...opts, assess: R.assessWith(p) }); const pooledMs = performance.now() - t0;
+    const same = stable(plain) === stable(pooled);
+    $('pow-out').innerHTML = '<div class="status ' + (same ? 'ok' : 'bad') + '">' + (same ? '<span class="ok-t">The same steps, the same champion</span>' : '<span class="bad-t">The results differ</span>') + ' — plain ' + n(Math.round(plainMs)) + ' ms, through the pool ' + n(Math.round(pooledMs)) + ' ms (×' + (Math.round((plainMs / pooledMs) * 10) / 10) + ').</div><p>' + n(p.stats().sortMisses) + ' column sorts done, of ' + n(counted.stats().sortMisses) + ' asked for; the other ' + n(p.stats().sortHits) + ' were read from the pool.</p>';
+    note('recycling', 'evolved the water organ twice: same result ' + same + ', ×' + (Math.round((plainMs / pooledMs) * 10) / 10), 'you ran it');
+    $('pow-go').disabled = false;
+  }, 30);
+}
+/** the self-model of one origin organ, built as tools/measure-7.mjs builds it (out-of-fold, then climbed) */
+function selfModelOf(d) {
+  if (S.selfModels[d]) return S.selfModels[d];
+  const ds = S.data[d], genome = decodeSeed(S.seeds[DOMAIN_IDS.indexOf(d)]).seed.genome;
+  const patternOn = (rows) => { const card = ribosomeFit(ds, rows, genome); return { rules: card.rules, threshold: operatingPoint(card, ds, rows), features: ds.features, shape: Object.fromEntries(ds.features.map((f) => [f, B.fingerprint(ds, rows, f)])) }; };
+  const caseAs = (p, i) => { const s = P.introspect(p, caseOf(ds, i)); return { margin: s.margin, fit: s.fit, right: s.label === ds.y[i] ? 1 : 0 }; };
+  const train = E.kfolds(ds, ds.trainRows, 3, 7).flatMap((part) => { const p = patternOn(part.rest); return part.held.map((i) => caseAs(p, i)); });
+  const organ = patternOn(ds.trainRows), held = ds.heldRows.map((i) => caseAs(organ, i));
+  const c = P.climb(train, held);
+  return (S.selfModels[d] = { c, held, organ, psi: c.models[c.models.length - 1] });
+}
+function renderPsi() {
+  const d = $('psi-d').value, bar = Number($('psi-bar').value), m = selfModelOf(d), ci = S.rec7 && S.rec7.organs.find((o) => o.domain === d);
+  $('psi-bar-v').textContent = bar.toFixed(2);
+  const same = ci && stable(ci.steps) === stable(m.c.steps), all = P.selective(m.psi, m.held, 0), sel = P.selective(m.psi, m.held, bar);
+  $('psi-out').innerHTML = '<div class="tw"><table><thead><tr><th>Refinement</th><th>Resolution</th><th>Error on unseen cases (Brier)</th><th>How far it moved</th></tr></thead><tbody>' + m.c.steps.map((s, i) => '<tr><td class="num">Ψ' + i + '</td><td class="num">' + s.k + ' bins</td><td class="num">' + esc(s.heldBrier) + '</td><td class="num">' + (i ? esc(s.moved) : '—') + '</td></tr>').join('') + '</tbody></table></div>' +
+    '<div class="answer">Answering everything: <b>' + (Math.round(all.accuracy * 1000) / 10) + '%</b> right. Answering only where it rates itself ≥ ' + bar.toFixed(2) + ': <b>' + (Math.round(sel.accuracy * 1000) / 10) + '%</b> right, on <b>' + (Math.round(sel.coverage * 1000) / 10) + '%</b> of cases (the rest it would hand to a person).</div>' +
+    (ci ? '<p class="dim">' + (same ? '<span class="ok-t">✓ every step the same as CI’s sealed record</span>' : '<span class="bad-t">✗ differs from CI’s record</span>') + '</p>' : '');
+}
+function render67() {
+  if (!S.rec6 || !S.rec7) { $('r67').innerHTML = ''; return; }
+  $('r67').innerHTML = '<details><summary>Organ 6 — the sealed rules and verdict</summary>' + rulesTable(S.pre6, S.ver6) + '</details><details><summary>Organ 7 — the sealed rules and verdict</summary>' + rulesTable(S.pre7, S.ver7) + '</details>';
+}
+
 async function bootBody() {
   const ref = (await germinate(S.origin, { name: 'reference', data: S.subs.reference })).organism;
   S.refOrg = ref;
@@ -1131,6 +1200,9 @@ async function bootBody() {
   S.peer2 = await fromSeed(sha256Bytes(utf8('living-seed/maker/peer-2')));
   $('card-make').disabled = false; $('breed-go').disabled = !S.rec4b;
   await makeCard();
+  $('pow-go').disabled = false;
+  setTimeout(renderPsi, 50);
+  DOMAIN_IDS.forEach((d, i) => setTimeout(() => { selfModelOf(d); if (S.organism && $('ask-domain').value === d) ask(); }, 400 + i * 300));
   gSay('<p class="dim">A trusted peer (another demo key from a public phrase) may send this organism lessons and antibodies. Send it something, then try to get something past the gate.</p>');
   S.mem = B.memory();
   let c = B.cube();
@@ -1150,7 +1222,9 @@ async function boot() {
   const recordOf = (k) => states.then((s) => (s[k] === 'measured' ? Promise.all(['record', 'prereg', 'verdict'].map((f) => get('data/organ-' + k + '/' + f + '.json'))) : null)).catch(() => null);
   const organ2 = recordOf(2).then((x) => { if (x) [S.rec2, S.pre2, S.ver2] = x; });
   const organ3 = recordOf(3).then((x) => { if (x) [S.rec3, S.pre3, S.ver3] = x; });
-  const organ4 = Promise.all([recordOf('4'), recordOf('4b'), recordOf(5)]).then(([a, b, c]) => { if (a) [S.rec4, S.pre4, S.ver4] = a; if (b) [S.rec4b, S.pre4b, S.ver4b] = b; if (c) [S.rec5, S.pre5, S.ver5] = c; });
+  const organ4 = Promise.all([recordOf('4'), recordOf('4b'), recordOf(5), recordOf(6), recordOf(7)]).then(([a, b, c, d6, d7]) => { if (a) [S.rec4, S.pre4, S.ver4] = a; if (b) [S.rec4b, S.pre4b, S.ver4b] = b; if (c) [S.rec5, S.pre5, S.ver5] = c; if (d6) [S.rec6, S.pre6, S.ver6] = d6; if (d7) [S.rec7, S.pre7, S.ver7] = d7; });
+  S.selfModels = {};
+  $('pow-go').disabled = true;
   for (const id of ['card-make', 'card-damage', 'breed-go', 'breed-trade']) $(id).disabled = true;
   $('evo-go').disabled = true;
   for (const id of GATE_BUTTONS) $(id).disabled = true;
@@ -1175,7 +1249,7 @@ async function boot() {
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
   await organ2; await organ3; await organ4;
-  renderContest(); renderGateRecord(); renderEvolve(); renderCards();
+  renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67();
   const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
   for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
@@ -1213,6 +1287,9 @@ $('card-damage').addEventListener('click', damageCard);
 $('card-file').addEventListener('change', async (e) => { const f = e.target.files && e.target.files[0]; if (f) await openCardBytes(new Uint8Array(await f.arrayBuffer()), 'the card ' + f.name); });
 $('breed-go').addEventListener('click', breedGo);
 $('breed-trade').addEventListener('click', breedTrade);
+$('pow-go').addEventListener('click', powerRun);
+$('psi-d').addEventListener('change', renderPsi);
+$('psi-bar').addEventListener('input', renderPsi);
 $('mk-seal').addEventListener('click', async () => {
   const st = $('mk-status');
   try {

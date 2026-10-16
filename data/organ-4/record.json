@@ -1,0 +1,253 @@
+{
+ "kind": "living-seed.organ-4.record",
+ "v": 1,
+ "opts": {
+  "generations": 30,
+  "children": 8,
+  "seed": 1
+ },
+ "margin": 0.002,
+ "runs": [
+  {
+   "name": "shopper",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.860197,
+    "final": 0.915349
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.860197,
+     "heldAuc": 0.815265
+    },
+    {
+     "gen": 1,
+     "val": 0.873039,
+     "heldAuc": 0.818357
+    },
+    {
+     "gen": 3,
+     "val": 0.875492,
+     "heldAuc": 0.805851
+    },
+    {
+     "gen": 4,
+     "val": 0.877982,
+     "heldAuc": 0.821011
+    },
+    {
+     "gen": 5,
+     "val": 0.886453,
+     "heldAuc": 0.815765
+    },
+    {
+     "gen": 6,
+     "val": 0.902055,
+     "heldAuc": 0.796781
+    },
+    {
+     "gen": 18,
+     "val": 0.909486,
+     "heldAuc": 0.817351
+    },
+    {
+     "gen": 20,
+     "val": 0.915349,
+     "heldAuc": 0.772841
+    }
+   ],
+   "steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "champion": "◊ seed.v1 shopper 21 f:565fe309e69e67e5d42d fa10d6af8113"
+  },
+  {
+   "name": "triage",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.831495,
+    "final": 0.901287
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.831495,
+     "heldAuc": 0.952127
+    },
+    {
+     "gen": 1,
+     "val": 0.843137,
+     "heldAuc": 0.910891
+    },
+    {
+     "gen": 5,
+     "val": 0.860417,
+     "heldAuc": 0.845392
+    },
+    {
+     "gen": 11,
+     "val": 0.869424,
+     "heldAuc": 0.838048
+    },
+    {
+     "gen": 16,
+     "val": 0.901287,
+     "heldAuc": 0.879393
+    }
+   ],
+   "steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "champion": "◊ seed.v1 triage 21 f:7ab8f23ea4bcf18d5326 7bc2751a7dae"
+  },
+  {
+   "name": "water",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.704706,
+    "final": 0.737731
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.704706,
+     "heldAuc": 0.747656
+    },
+    {
+     "gen": 3,
+     "val": 0.708299,
+     "heldAuc": 0.757041
+    },
+    {
+     "gen": 5,
+     "val": 0.711892,
+     "heldAuc": 0.766425
+    },
+    {
+     "gen": 11,
+     "val": 0.717834,
+     "heldAuc": 0.768664
+    },
+    {
+     "gen": 19,
+     "val": 0.720486,
+     "heldAuc": 0.75214
+    },
+    {
+     "gen": 25,
+     "val": 0.729399,
+     "heldAuc": 0.704399
+    },
+    {
+     "gen": 29,
+     "val": 0.737731,
+     "heldAuc": 0.720924
+    }
+   ],
+   "steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "champion": "◊ seed.v1 water 21 f:f65ebf54af8a89855026 8e64a049a3ea"
+  },
+  {
+   "name": "crop",
+   "heldShownToEvolver": 0,
+   "evals": 241,
+   "val": {
+    "start": 0.827622,
+    "final": 0.832981
+   },
+   "accepted": [
+    {
+     "gen": 0,
+     "val": 0.827622,
+     "heldAuc": 0.753796
+    },
+    {
+     "gen": 14,
+     "val": 0.832981,
+     "heldAuc": 0.760043
+    }
+   ],
+   "steps": [
+    1,
+    2
+   ],
+   "champion": "◊ seed.v1 crop 21 f:3be3cf42189ad3c65026 ba6418a63d29"
+  }
+ ],
+ "noise": {
+  "name": "shopper, labels shuffled",
+  "heldShownToEvolver": 0,
+  "evals": 241,
+  "val": {
+   "start": 0.483526,
+   "final": 0.53917
+  },
+  "accepted": [
+   {
+    "gen": 0,
+    "val": 0.483526,
+    "heldAuc": 0.513084
+   },
+   {
+    "gen": 1,
+    "val": 0.496862,
+    "heldAuc": 0.511965
+   },
+   {
+    "gen": 2,
+    "val": 0.524399,
+    "heldAuc": 0.486212
+   },
+   {
+    "gen": 4,
+    "val": 0.526444,
+    "heldAuc": 0.488139
+   },
+   {
+    "gen": 8,
+    "val": 0.536269,
+    "heldAuc": 0.489797
+   },
+   {
+    "gen": 18,
+    "val": 0.53917,
+    "heldAuc": 0.491986
+   }
+  ],
+  "steps": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "champion": "◊ seed.v1 shopper 21 f:6a2be735dd0a7ba6d42d 64cb271f0bcf"
+ }
+}

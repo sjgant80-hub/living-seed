@@ -1,0 +1,56 @@
+{
+ "kind": "living-seed.organ-6.prereg",
+ "v": 1,
+ "organ": "organ 6 — self-powering: completed computation is kept in a pool and reused, so the organism pays fresh only for new work",
+ "workload": "A — organ 4’s second-design evolution (four domains and the shuffled shop, 30 generations × 8 children × 3 folds), run plain, through a pool that keeps nothing (so every sort is counted on the same code path), and through a pool that keeps. B — the organism’s life so far: the seven genomes of organs 1–5 (origin, evolved, child, grandchild, three generations of replication) each grown on organ 1’s five devices, fresh and through one shared pool.",
+ "rules": [
+  {
+   "id": "S1",
+   "kind": "property",
+   "claim": "recycling never changes an answer: evolution through the pool takes exactly the same steps as without it, and every one of the 35 organisms grown through the pool is byte-for-byte the organism grown fresh",
+   "seenBeforeSeal": "in kind — unit tests on toy data"
+  },
+  {
+   "id": "S2",
+   "kind": "prediction",
+   "claim": "evolution performs at most 2% of the column sorts it asks for — the rest are read from the pool",
+   "seenBeforeSeal": "no — on a toy set it sorted at most once per fold and feature"
+  },
+  {
+   "id": "S3",
+   "kind": "prediction",
+   "claim": "across the organism’s life, at least half of all organ growths come from the pool — the same recipe on equal data, grown once",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "S4",
+   "kind": "prediction",
+   "claim": "on this machine the pooled evolution runs at least three times faster in wall time than plain (median of three alternating repeats)",
+   "seenBeforeSeal": "no"
+  }
+ ],
+ "disclosure": "Recycling here is reuse of finished work — sorted columns and grown organs — not energy from nowhere: no power meter is attached, so watt-hours are not claimed, only work not repeated and the time it saves. Wall time is measured once, with a local language model answering in the background, and recorded with the machine. A failed prediction is kept.",
+ "judgedBy": "tools/judge-6.mjs (pinned below)",
+ "files": {
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/evolve.mjs": "0eb098f9f59b7c89d526f61b87921bc603226684a9f6959302d6c8a94e427eb4",
+  "src/breed.mjs": "5f53746eacc0ad74e5679d19eb961522a29c5a44cc18bc10c02815c000179316",
+  "src/gate.mjs": "59b6b4ba9aa10c24f6fcbaa0f000ec4a56f90ca9924bbec6eea6bd1e3e4234dd",
+  "src/recycle.mjs": "56c1de71026cbc9561b55291984142774dd8685dcacc1c65dd4bdb538cad7945",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "data/organ-4b/record.json": "523690408e16cbd1af23d5d520badd44bcbe3bd21245ef52630de6d763e3bb6a",
+  "tools/measure-6.mjs": "87d601565810335ead2d839742c37e2d6caeb5ed43395f51e135bff775ab71e6",
+  "tools/time-6.mjs": "dbc0c130d4912c6425ffedf4383da2ba876d1b01dcbf1f8232f19dc888d6b164",
+  "tools/judge-6.mjs": "292993d62d7627981212005d8c429a4bb1223f5e309b7d850cab9f567a95eb5d",
+  "tools/seal-6.mjs": "e382f12e158b7b4d563d6e9e2f609699b38ede83f42836bd288b99cd5a80965e",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "test/recycle.test.mjs": "9ad7e6e2a5627d2dbb1695f1cd67a8b49ebfe489f04dcafd3b5339cfbd91941a"
+ }
+}

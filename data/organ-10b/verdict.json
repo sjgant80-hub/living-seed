@@ -1,0 +1,64 @@
+{
+ "kind": "living-seed.organ-10b.verdict",
+ "v": 1,
+ "prereg": "1e67defa200f00c3",
+ "record": "e58702c491f63395",
+ "verdicts": [
+  {
+   "id": "W1",
+   "kind": "property",
+   "claim": "every ledger’s links hold, and the audited shop life replayed from nothing is the same life",
+   "pass": true,
+   "saw": "ledgers whose links hold: 6 of 6; the shop life replayed from nothing: the same head, ff51d11005eed659"
+  },
+  {
+   "id": "W2",
+   "kind": "property",
+   "claim": "it cannot lower a claim citing an audit that shows no shortfall, nor raise a claim past what it measured",
+   "pass": true,
+   "saw": "lower its claim citing an audit that shows no shortfall: refused — the audit it cites does not show it falling short; raise its claim back above what it measured: refused — the claim is more than the organ measured (0.775)"
+  },
+  {
+   "id": "W3",
+   "kind": "prediction",
+   "claim": "on the streams with no drift, nothing stands down and no claim is lowered — three scales of checks raise no false alarm",
+   "pass": true,
+   "saw": "on the streams with no drift: 0 stand-downs, 0 claims lowered (1080 answers)"
+  },
+  {
+   "id": "W4",
+   "kind": "prediction",
+   "claim": "after the reversal, the 50-answer window stands the water organ down within 60 cases",
+   "pass": true,
+   "saw": "the water organ stood down 29 cases after the reversal (case 180), by the 50-answer window (0.46 against 0.777778)"
+  },
+  {
+   "id": "W5",
+   "kind": "prediction",
+   "claim": "after the reversal, it answers at most 30% as many cases wrong as the organism that is not audited",
+   "pass": true,
+   "saw": "answered wrong after the reversal: 10b 24, organ 10 57, not audited 140 (10b: 17.1%)"
+  },
+  {
+   "id": "W6",
+   "kind": "prediction",
+   "claim": "on the real shop months it lowers its claim at least once, and never stands the shop organ down (it is over-claiming, not collapsing)",
+   "pass": true,
+   "saw": "on the real shop months: claim lowered 0.829167 → 0.775 at case 1599 (1600 answers); stand-downs 0"
+  },
+  {
+   "id": "W7",
+   "kind": "prediction",
+   "claim": "from the month of its first lowered claim on, its claim at each month’s end is at most 3 points above what that month delivered — while the organism that is not audited over-claims by more than 3 points in at least three months",
+   "pass": true,
+   "saw": "claim at each month’s end against what that month delivered — 10b: Aug 0.829167 vs 0.794457, Sep 0.829167 vs 0.770089, Oct 0.829167 vs 0.774135, Nov 0.775 vs 0.764843, Dec 0.775 vs 0.858135; not audited, months over-claimed by more than 3 points: 4"
+  },
+  {
+   "id": "W8",
+   "kind": "prediction",
+   "claim": "lowering a claim changes what the organism says about its answers, not the answers: on the shop months it answers exactly as many, and as many right, as the organism that is not audited",
+   "pass": true,
+   "saw": "the real shop months: 10b answered 6155, 4889 right; not audited 6155, 4889 right — lowering a claim changes what it says about its answers, not the answers"
+  }
+ ]
+}

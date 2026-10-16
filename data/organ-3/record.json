@@ -1,0 +1,384 @@
+{
+ "kind": "living-seed.organ-3.record",
+ "v": 1,
+ "input": {
+  "legit": 60,
+  "legitAdmitted": 60,
+  "attacks": {
+   "replay — every admitted message sent again": {
+    "tried": 60,
+    "admitted": 0,
+    "stages": {
+     "counter": 60
+    }
+   },
+   "out of order — a counter that skips ahead": {
+    "tried": 3,
+    "admitted": 0,
+    "stages": {
+     "counter": 3
+    }
+   },
+   "redirected — the next message, delivered to another organism": {
+    "tried": 3,
+    "admitted": 0,
+    "stages": {
+     "shape": 3
+    }
+   },
+   "a sender sending a kind it may not": {
+    "tried": 1,
+    "admitted": 0,
+    "stages": {
+     "sender": 1
+    }
+   },
+   "an untrusted key": {
+    "tried": 1,
+    "admitted": 0,
+    "stages": {
+     "sender": 1
+    }
+   },
+   "another key claiming a trusted sender": {
+    "tried": 3,
+    "admitted": 0,
+    "stages": {
+     "signature": 3
+    }
+   },
+   "every one-character change to a valid next message": {
+    "tried": 273,
+    "admitted": 0,
+    "stages": {
+     "magic": 18,
+     "shape": 42,
+     "sender": 64,
+     "signature": 149
+    }
+   },
+   "random damage — truncations, insertions, deletions, repeats": {
+    "tried": 4000,
+    "admitted": 0,
+    "stages": {
+     "shape": 3739,
+     "magic": 229,
+     "signature": 32
+    }
+   },
+   "validly signed, but not written the one way": {
+    "tried": 9,
+    "admitted": 0,
+    "stages": {
+     "magic": 6,
+     "shape": 3
+    }
+   },
+   "too large": {
+    "tried": 1,
+    "admitted": 0,
+    "stages": {
+     "size": 1
+    }
+   }
+  },
+  "attacksTried": 4354,
+  "breached": 0,
+  "threw": 0,
+  "nextStillAdmitted": true
+ },
+ "knowledge": {
+  "weighings": [
+   {
+    "device": "reference",
+    "organism": "origin",
+    "lesson": "shopper 21",
+    "adopt": false,
+    "why": "AUC 0.815265 does not beat the shopper organ it would replace (0.815265)"
+   },
+   {
+    "device": "reference",
+    "organism": "origin",
+    "lesson": "triage 21",
+    "adopt": false,
+    "why": "AUC 0.952127 does not beat the triage organ it would replace (0.952127)"
+   },
+   {
+    "device": "reference",
+    "organism": "origin",
+    "lesson": "water 21",
+    "adopt": false,
+    "why": "AUC 0.747656 does not beat the water organ it would replace (0.747656)"
+   },
+   {
+    "device": "reference",
+    "organism": "origin",
+    "lesson": "crop 21",
+    "adopt": false,
+    "why": "AUC 0.753796 does not beat the crop organ it would replace (0.753796)"
+   },
+   {
+    "device": "reference",
+    "organism": "origin",
+    "lesson": "shopper 7",
+    "adopt": false,
+    "why": "AUC 0.813532 does not beat the shopper organ it would replace (0.815265)"
+   },
+   {
+    "device": "reference",
+    "organism": "lacking-shop",
+    "lesson": "shopper 21",
+    "adopt": true,
+    "why": "adopted at AUC 0.815265"
+   },
+   {
+    "device": "reference",
+    "organism": "lacking-shop",
+    "lesson": "triage 21",
+    "adopt": false,
+    "why": "AUC 0.952127 does not beat the triage organ it would replace (0.952127)"
+   },
+   {
+    "device": "reference",
+    "organism": "lacking-shop",
+    "lesson": "water 21",
+    "adopt": false,
+    "why": "AUC 0.747656 does not beat the water organ it would replace (0.747656)"
+   },
+   {
+    "device": "reference",
+    "organism": "lacking-shop",
+    "lesson": "crop 21",
+    "adopt": false,
+    "why": "AUC 0.753796 does not beat the crop organ it would replace (0.753796)"
+   },
+   {
+    "device": "reference",
+    "organism": "lacking-shop",
+    "lesson": "shopper 7",
+    "adopt": true,
+    "why": "adopted at AUC 0.813532"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "origin",
+    "lesson": "shopper 21",
+    "adopt": false,
+    "why": "AUC 0.513084 on this device’s unseen cases is under the gate (0.6)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "origin",
+    "lesson": "triage 21",
+    "adopt": false,
+    "why": "AUC 0.952127 does not beat the triage organ it would replace (0.952127)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "origin",
+    "lesson": "water 21",
+    "adopt": false,
+    "why": "AUC 0.747656 does not beat the water organ it would replace (0.747656)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "origin",
+    "lesson": "crop 21",
+    "adopt": false,
+    "why": "AUC 0.753796 does not beat the crop organ it would replace (0.753796)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "origin",
+    "lesson": "shopper 7",
+    "adopt": false,
+    "why": "AUC 0.509207 on this device’s unseen cases is under the gate (0.6)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "lacking-shop",
+    "lesson": "shopper 21",
+    "adopt": false,
+    "why": "AUC 0.513084 on this device’s unseen cases is under the gate (0.6)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "lacking-shop",
+    "lesson": "triage 21",
+    "adopt": false,
+    "why": "AUC 0.952127 does not beat the triage organ it would replace (0.952127)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "lacking-shop",
+    "lesson": "water 21",
+    "adopt": false,
+    "why": "AUC 0.747656 does not beat the water organ it would replace (0.747656)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "lacking-shop",
+    "lesson": "crop 21",
+    "adopt": false,
+    "why": "AUC 0.753796 does not beat the crop organ it would replace (0.753796)"
+   },
+   {
+    "device": "shuffled-shopper",
+    "organism": "lacking-shop",
+    "lesson": "shopper 7",
+    "adopt": false,
+    "why": "AUC 0.509207 on this device’s unseen cases is under the gate (0.6)"
+   },
+   {
+    "device": "no-water",
+    "organism": "origin",
+    "lesson": "shopper 21",
+    "adopt": false,
+    "why": "AUC 0.815265 does not beat the shopper organ it would replace (0.815265)"
+   },
+   {
+    "device": "no-water",
+    "organism": "origin",
+    "lesson": "triage 21",
+    "adopt": false,
+    "why": "AUC 0.952127 does not beat the triage organ it would replace (0.952127)"
+   },
+   {
+    "device": "no-water",
+    "organism": "origin",
+    "lesson": "water 21",
+    "adopt": false,
+    "why": "this device holds no water data to test it on"
+   },
+   {
+    "device": "no-water",
+    "organism": "origin",
+    "lesson": "crop 21",
+    "adopt": false,
+    "why": "AUC 0.753796 does not beat the crop organ it would replace (0.753796)"
+   },
+   {
+    "device": "no-water",
+    "organism": "origin",
+    "lesson": "shopper 7",
+    "adopt": false,
+    "why": "AUC 0.813532 does not beat the shopper organ it would replace (0.815265)"
+   },
+   {
+    "device": "no-water",
+    "organism": "lacking-shop",
+    "lesson": "shopper 21",
+    "adopt": true,
+    "why": "adopted at AUC 0.815265"
+   },
+   {
+    "device": "no-water",
+    "organism": "lacking-shop",
+    "lesson": "triage 21",
+    "adopt": false,
+    "why": "AUC 0.952127 does not beat the triage organ it would replace (0.952127)"
+   },
+   {
+    "device": "no-water",
+    "organism": "lacking-shop",
+    "lesson": "water 21",
+    "adopt": false,
+    "why": "this device holds no water data to test it on"
+   },
+   {
+    "device": "no-water",
+    "organism": "lacking-shop",
+    "lesson": "crop 21",
+    "adopt": false,
+    "why": "AUC 0.753796 does not beat the crop organ it would replace (0.753796)"
+   },
+   {
+    "device": "no-water",
+    "organism": "lacking-shop",
+    "lesson": "shopper 7",
+    "adopt": true,
+    "why": "adopted at AUC 0.813532"
+   }
+  ],
+  "adopted": 4
+ },
+ "replication": {
+  "lineage": [
+   {
+    "gen": 1,
+    "id": "f6cfcd6836613200",
+    "parent": "89880089fc1fef3a",
+    "namesParent": true,
+    "gate": 0.61,
+    "live": 4,
+    "sameRecipes": true
+   },
+   {
+    "gen": 2,
+    "id": "48a00b7a9c4ca7dc",
+    "parent": "f6cfcd6836613200",
+    "namesParent": true,
+    "gate": 0.62,
+    "live": 4,
+    "sameRecipes": true
+   },
+   {
+    "gen": 3,
+    "id": "d7bb8ac27633b462",
+    "parent": "48a00b7a9c4ca7dc",
+    "namesParent": true,
+    "gate": 0.63,
+    "live": 4,
+    "sameRecipes": true
+   }
+  ],
+  "refusals": [
+   {
+    "attempt": "a cut organ passed on",
+    "sealed": false,
+    "why": "the shopper organ is cut on this device, and only a proven organ is passed on"
+   },
+   {
+    "attempt": "a dormant organ passed on",
+    "sealed": false,
+    "why": "the water organ is dormant on this device, and only a proven organ is passed on"
+   },
+   {
+    "attempt": "a lower bar than the parent’s",
+    "sealed": false,
+    "why": "a child’s bar may not be lower than its parent’s (0.6)"
+   },
+   {
+    "attempt": "an organ the parent does not have",
+    "sealed": false,
+    "why": "the parent has no weather organ to pass on"
+   },
+   {
+    "attempt": "a parent genome changed by one byte",
+    "sealed": false,
+    "why": "the parent genome was refused: signature"
+   },
+   {
+    "attempt": "an organism grown from another genome",
+    "sealed": false,
+    "why": "the organism was not grown from this genome"
+   },
+   {
+    "attempt": "a parent from an untrusted maker",
+    "sealed": false,
+    "why": "the parent genome was refused: untrusted maker"
+   },
+   {
+    "attempt": "a maker not allowed to seal children",
+    "sealed": false,
+    "why": "this maker may not seal children"
+   }
+  ],
+  "provenOrgansFromANoisyDevice": true
+ },
+ "immune": {
+  "remembered": 3319,
+  "knownAgain": 4273,
+  "digest": "5c00110fe797a94c"
+ }
+}

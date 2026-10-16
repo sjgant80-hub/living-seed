@@ -180,6 +180,25 @@ test('organ 10’s section prints the numbers its two records hold', () => {
   has('over-claimed by ' + Math.min(...overs).toFixed(1) + '–' + Math.max(...overs).toFixed(1) + ' points', 'August–October over-claim');
 });
 
+test('organ 11’s section prints the numbers its two records hold', () => {
+  const sec = html.slice(html.indexOf('<section id="season"'), html.indexOf('</section>', html.indexOf('<section id="season"')));
+  const r = JSON.parse(read('data/organ-11/record.json')), b = JSON.parse(read('data/organ-11b/record.json'));
+  const has = (s, what) => assert.ok(sec.includes(s), what + ': ' + s), f3 = (x) => x.toFixed(3);
+  has('<span id="o-mem">' + r.memory.bytes.toLocaleString('en-GB') + '</span> bytes', 'the memory’s size');
+  const by = (d) => r.improve.organs.find((o) => o.domain === d);
+  has('<b>' + f3(by('shopper').from) + ' → ' + f3(by('shopper').to) + '</b>', 'the shop organ adopted');
+  has('crop, ' + f3(by('crop').from) + ' → ' + f3(by('crop').to), 'crop adopted');
+  assert.ok(!by('triage').adopted && !by('water').adopted, 'triage and water kept');
+  const refused = ['trainingLabel', 'heldLabel', 'livedFeature'].reduce((a, k) => a + b[k].filter((x) => !x.woke).length, 0), tried = ['trainingLabel', 'heldLabel', 'livedFeature'].reduce((a, k) => a + b[k].length, 0);
+  has('<b>' + refused + ' of ' + tried + '</b> real changes', 'the memory refusals');
+  assert.equal(refused, tried);
+  has('A claimed ' + f3(r.liveOn.child.final.live.shopper) + ' and delivered ' + f3(r.liveOn.child.accuracy), 'A’s honest claim');
+  has('B claimed ' + f3(r.spread.child.final.live.shopper) + ' and delivered ' + f3(r.spread.child.accuracy), 'B’s honest claim');
+  has('AUC <b>' + f3(r.liveOn.child.auc) + '</b> against its parent’s <b>' + f3(r.liveOn.parent.auc) + '</b>', 'A’s November–December');
+  has(f3(r.spread.child.auc) + ' against ' + f3(r.spread.origin.auc) + ' at B', 'B’s November–December');
+  assert.ok(r.spread.organs.every((o) => o.state === 'live'), 'every organ live on B');
+});
+
 test('every commit the receipt links to exists in this repository’s history', () => {
   const shas = [...new Set([...html.matchAll(/commit\/([0-9a-f]{40})/g)].map((m) => m[1]))];
   assert.equal(shas.length, 4);

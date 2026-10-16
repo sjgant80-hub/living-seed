@@ -1,0 +1,92 @@
+{
+ "kind": "living-seed.organ-9.verdict",
+ "v": 1,
+ "prereg": "bcf1fa24c6c9e90a",
+ "record": "a546aec8a7345f3c",
+ "verdicts": [
+  {
+   "id": "I1",
+   "kind": "property",
+   "claim": "no forgery is admitted, with or without organ 9",
+   "pass": true,
+   "saw": "forgeries admitted: organ 8 0 of 5040, organ 9 0 of 5040"
+  },
+  {
+   "id": "I2",
+   "kind": "property",
+   "claim": "it never turns on itself by its own rules: no honest key is revoked by a proof, and no honest node’s link is ever refused by an honest node that still trusts it (so never owes it work), under attack or with no attacker (cuts by behaviour are I3)",
+   "pass": true,
+   "saw": "honest keys revoked by a proof: 0 under attack, 0 with no attacker; most refusals of one honest node’s link by an honest node still trusting it: 0, 0"
+  },
+  {
+   "id": "I3",
+   "kind": "prediction",
+   "claim": "no honest peer is cut off by behaviour, under attack or with no attacker",
+   "pass": true,
+   "saw": "honest peers cut off by behaviour: 0 under attack, 0 with no attacker — limits from the calibration run: drift 1, volume 2.5"
+  },
+  {
+   "id": "I4",
+   "kind": "property",
+   "claim": "no node’s immune memory grows past its cap (256)",
+   "pass": true,
+   "saw": "largest immune memory: organ 9 185 (cap 256); organ 8, which has no cap, 5323"
+  },
+  {
+   "id": "I5",
+   "kind": "prediction",
+   "claim": "over the flood, organ 9 checks the signatures of at most a tenth as many forgeries as organ 8",
+   "pass": true,
+   "saw": "forgeries whose signature was checked: organ 8 5040, organ 9 400 (7.9%); organ 9 refused 4640 at the rebound, unchecked; the attacker spent 667591 hashes and stamped 208"
+  },
+  {
+   "id": "I6",
+   "kind": "property",
+   "claim": "the work a link owes a node never falls from one flood round to the next",
+   "pass": true,
+   "saw": "the work each link owed each node never fell from one flood round to the next"
+  },
+  {
+   "id": "I7",
+   "kind": "prediction",
+   "claim": "every honest node has revoked farm’s stolen key by the end of the round it was stolen in",
+   "pass": true,
+   "saw": "every honest node had revoked farm’s key by round 10 (stolen in round 10)"
+  },
+  {
+   "id": "I8",
+   "kind": "prediction",
+   "claim": "the thief black-holes tasks under organ 8, and organ 9 black-holes at most a fifth as many (tasks sent to farm’s key that never come back answered)",
+   "pass": true,
+   "saw": "tasks sent to farm’s key that never came back answered, from round 10: organ 8 3 (of 3 sent), organ 9 0 (of 0)"
+  },
+  {
+   "id": "I9",
+   "kind": "prediction",
+   "claim": "every honest node has cut the taken-over south off by the end of the round after the takeover",
+   "pass": false,
+   "saw": "not every honest node cut south off"
+  },
+  {
+   "id": "I10",
+   "kind": "prediction",
+   "claim": "the takeover draws more cases under organ 8 than honest south was sent, and organ 9 sends it at most half as many as organ 8",
+   "pass": false,
+   "saw": "cases sent to south from round 14: organ 8 37, organ 9 34 (91.9%); honest south, with no attacker, was sent 16"
+  },
+  {
+   "id": "I11",
+   "kind": "prediction",
+   "claim": "under the same attacks organ 9 answers at least as many tasks right as organ 8 — the defence pays for itself",
+   "pass": false,
+   "saw": "tasks answered right under the attacks: organ 8 241, organ 9 234 of 288; organ 9 with no attacker 243"
+  },
+  {
+   "id": "I12",
+   "kind": "prediction",
+   "claim": "it gets stronger as it is attacked: in organ 9, the flood’s last five rounds check at most a tenth as many forgeries as its first five",
+   "pass": true,
+   "saw": "organ 9, forgeries checked: 388 in the flood’s first five rounds, 0 in its last five; organ 8 checked 1200 in its last five"
+  }
+ ]
+}

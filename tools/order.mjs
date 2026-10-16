@@ -60,7 +60,8 @@ const ORGANS = {
 
 const isMain = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('tools/order.mjs');
 if (isMain) {
-  const at = process.argv.indexOf('--organ'), o = ORGANS[at > 0 ? process.argv[at + 1] : 1];
+  const at = process.argv.indexOf('--organ'), name = at > 0 ? process.argv[at + 1] : 1, night = /^night-([1-9][0-9]{0,3})$/.exec(String(name));
+  const o = night ? { seal: 'data/nights/' + night[1] + '/prereg.json', later: ['data/nights/' + night[1] + '/record.json'] } : ORGANS[name];   // a night's receipt: sealed before it ran, like every organ
   if (!o) { console.log('ORDER ✗ no such organ'); process.exit(1); }
   const h = order(JSON.parse(readFileSync(new URL(o.seal, ROOT), 'utf8')), o.seal, o.later);
   console.log((h.ok ? 'ORDER ✓ ' : 'ORDER ✗ ') + h.why);

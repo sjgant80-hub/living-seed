@@ -1,0 +1,50 @@
+{
+ "kind": "living-seed.organ-4b.verdict",
+ "v": 1,
+ "prereg": "319941467ac2dcaf",
+ "record": "523690408e16cbd1",
+ "verdicts": [
+  {
+   "id": "F1",
+   "kind": "property",
+   "claim": "every run is shown 0 held-out cases, tries exactly 1 + 30 × 8 variants, and scores each on 3 folds",
+   "pass": true,
+   "saw": "shopper: 0 held-out cases shown, 241 variants, 3 folds; triage: 0 held-out cases shown, 241 variants, 3 folds; water: 0 held-out cases shown, 241 variants, 3 folds; crop: 0 held-out cases shown, 241 variants, 3 folds; shopper, labels shuffled: 0 held-out cases shown, 241 variants, 3 folds"
+  },
+  {
+   "id": "F2",
+   "kind": "prediction",
+   "claim": "do no harm: on the unseen cases, the final champion is no more than 0.005 AUC below the origin organ on all 4 domains",
+   "pass": false,
+   "saw": "shopper -0.012483; triage +0; water +0.012339; crop +0.008786 on unseen cases"
+  },
+  {
+   "id": "F3",
+   "kind": "prediction",
+   "claim": "some good: on at least 1 of the 4 domains the final champion beats the origin organ by at least 0.005 AUC on the unseen cases",
+   "pass": true,
+   "saw": "2 of 4 domains gained at least 0.005 on unseen cases"
+  },
+  {
+   "id": "F4",
+   "kind": "prediction",
+   "claim": "from one kept champion to the next, the unseen-case AUC never drops by more than 0.01, on all 4 domains",
+   "pass": false,
+   "saw": "shopper 6 steps kept, worst -0.012965; triage 0 steps kept, worst 0; water 2 steps kept, worst -0.01495; crop 2 steps kept, worst 0"
+  },
+  {
+   "id": "F5",
+   "kind": "prediction",
+   "claim": "with the shop labels shuffled, at most one step is kept (a unanimous win across folds is hard to fake on noise), and nothing reaches the 0.6 gate on unseen cases",
+   "pass": false,
+   "saw": "2 steps kept on noise; best on unseen cases 0.513084"
+  },
+  {
+   "id": "F6",
+   "kind": "prediction",
+   "claim": "on at least 3 of the 4 domains this design’s final champion scores at least as well on unseen cases as the first design’s",
+   "pass": true,
+   "saw": "shopper 0.772841 → 0.802782; triage 0.879393 → 0.952127; water 0.720924 → 0.759995; crop 0.760043 → 0.762582 (first design → second, final champion on unseen cases)"
+  }
+ ]
+}

@@ -28,3 +28,5 @@ jobs:
         run: node tools/measure-4.mjs --check
       - name: organ 4 — re-judged by its sealed rules (its two failed predictions included), and its seal came first
         run: node tools/judge-4.mjs --check && node tools/order.mjs --organ 4
+      - name: organ 4, second design — re-runs, re-judged (its failed predictions included), seal first
+        run: node tools/measure-4b.mjs --check && node tools/judge-4b.mjs --check && node tools/order.mjs --organ 4b

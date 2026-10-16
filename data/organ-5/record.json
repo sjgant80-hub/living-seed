@@ -1,0 +1,119 @@
+{
+ "kind": "living-seed.organ-5.record",
+ "v": 1,
+ "parents": {
+  "origin": "89880089fc1fef3a",
+  "evolved": "86519725eec1dec8",
+  "evolvedParents": [
+   "89880089fc1fef3a"
+  ],
+  "heldAuc": {
+   "origin": {
+    "shopper": 0.815265,
+    "triage": 0.952127,
+    "water": 0.747656,
+    "crop": 0.753796
+   },
+   "evolved": {
+    "shopper": 0.802782,
+    "triage": 0.952127,
+    "water": 0.759995,
+    "crop": 0.762582
+   }
+  }
+ },
+ "child": {
+  "id": "29880e8b58024060",
+  "parents": [
+   "89880089fc1fef3a",
+   "86519725eec1dec8"
+  ],
+  "gate": 0.6,
+  "crossed": [
+   "shopper",
+   "triage",
+   "water",
+   "crop"
+  ],
+  "dropped": [],
+  "heldAuc": {
+   "shopper": 0.827767,
+   "triage": 0.952127,
+   "water": 0.747656,
+   "crop": 0.753796
+  },
+  "live": 4
+ },
+ "grandchild": {
+  "id": "6c434278c4dbe3f2",
+  "parents": [
+   "29880e8b58024060",
+   "89880089fc1fef3a"
+  ],
+  "live": 4,
+  "carried": 4
+ },
+ "hostile": {
+  "noisy": {
+   "dropped": [
+    {
+     "domain": "shopper",
+     "why": "cut: AUC 0.516236 on cases it never grew on is under the gate (0.6)"
+    }
+   ],
+   "carried": 3
+  },
+  "dry": {
+   "dropped": [
+    {
+     "domain": "water",
+     "why": "dormant: this device holds no water data"
+    }
+   ],
+   "carried": 3
+  }
+ },
+ "cards": {
+  "origin": {
+   "bytes": 196947,
+   "hash": "f5c8ebd1c24d3280",
+   "deterministic": true,
+   "roundTrip": true
+  },
+  "evolved": {
+   "bytes": 196947,
+   "hash": "35123e69df586eec",
+   "deterministic": true,
+   "roundTrip": true
+  },
+  "child": {
+   "bytes": 196947,
+   "hash": "7e9689f5e899ccaa",
+   "deterministic": true,
+   "roundTrip": true
+  },
+  "grandchild": {
+   "bytes": 196947,
+   "hash": "829706c16ed21ff7",
+   "deterministic": true,
+   "roundTrip": true
+  }
+ },
+ "attacks": {
+  "flips": 300,
+  "flipsRefused": 300,
+  "forged": 527,
+  "forgedRefused": 527,
+  "recompressedOpens": true,
+  "truncations": 5,
+  "truncRefused": 5
+ },
+ "trade": {
+  "sameGenome": true,
+  "organismA": "b4ff8d8772d2631e",
+  "organismB": "a74eeef6830a86c9",
+  "liveA": 4,
+  "liveB": 4,
+  "untrusted": "the genome in the card was refused: untrusted maker"
+ }
+}

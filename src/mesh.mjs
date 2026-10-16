@@ -1,0 +1,175 @@
+// mesh.mjs — THE MESH: organisms on their own devices, coupled into one living web that wires, prunes and grows itself.
+//
+// Build-order step 8, with Simon's mesh-of-specialists spec (2026-10-16) folded in. Every node is an organism grown from a
+// genome on its own device's data. Nothing passes between nodes except signed envelopes through organ 3's gate —
+// addressed to one organism, carrying the sender's next counter, refused if replayed, redirected or forged.
+//
+//   advertise — each node tells the others which organs it has live and how well each scored on cases it never grew
+//               on: the capability map. Every node keeps the latest advert per (node, domain), so maps converge.
+//   route     — a task a node cannot answer itself (no live organ, or the case is unlike its data) goes to the node
+//               whose advert, plus the strength of the link between them, fits best. The answer comes back signed.
+//   learn     — when the truth arrives, a link whose answer was right strengthens, a wrong one weakens; every round
+//               every link fades a little, and a link that fades below the floor is dropped. The web draws itself
+//               from use (what fires together wires together) and prunes what stops paying.
+//   grow      — a node that keeps abstaining on a domain it holds data for has a gap: it asks the best advertiser for a
+//               lesson, weighs it on its own data (organ 3 — never trusting the score it claims), and if it clears the
+//               bar, grows the specialist: a child of its own genome, carrying the new organ, sealed by itself.
+//   defend    — bytes a node refuses become an antibody (their fingerprint), shared with its neighbours, so the same
+//               attack is refused on sight everywhere.
+//   survive   — a node that dies stops answering; links to it fade and drop; tasks route elsewhere. A partition heals:
+//               adverts flow again and every map converges.
+//
+// Powered by the Konomi architecture, created by Thomas Frumkin. Deterministic (seeded, Ed25519 signatures are
+// deterministic), so a run is a receipt anyone can re-derive.
+import { envelope, admit, weigh, immune, fingerprintOf, GRAMMAR } from './gate.mjs';
+import { germinate, caseOf } from './germinate.mjs';
+import { embody, ask } from './body.mjs';
+import { seal, open } from './genome.mjs';
+import { rng, round6 } from '../vendor/seed-library/seedlib.mjs';
+
+const NUM = '-?\\d+(\\.\\d+)?';
+/** The mesh's grammar: what each kind of message's body looks like, exactly. */
+export const MESH = Object.freeze({
+  kinds: ['advert', 'task', 'reply', 'lesson', 'antibody'],
+  body: {
+    advert: /^[a-z][a-z0-9-]{0,31} (0|1|0\.\d{1,6}) [1-9]\d{0,6}$/,
+    task: new RegExp('^[0-9a-f]{16} [a-z][a-z0-9-]{0,31} ' + NUM + '(,' + NUM + '){0,15}$'),
+    reply: new RegExp('^[0-9a-f]{16} (VERIFIED [01] ' + NUM + '|ABSTAIN)$'),
+    lesson: GRAMMAR.body.lesson,
+    antibody: GRAMMAR.body.antibody,
+  },
+});
+export const ETA = 0.2, DECAY = 0.95, PRUNE = 0.05, GAP = 4;
+const num = (v) => String(round6(v));
+
+/** A node: an organism grown on its own data, with its keys, its links, its map of the others and its immune memory. */
+export async function node(name, genomeText, substrate, keys) {
+  const g = await germinate(genomeText, substrate);
+  if (!g.ok) return { ok: false, why: g.why };
+  return { ok: true, node: { name, keys, pub: keys.pub, genome: genomeText, substrate, org: g.organism, body: embody(g.organism, substrate).body,
+    links: new Map(), inLast: new Map(), outN: new Map(), map: new Map(), abstains: new Map(), imm: immune(), alive: true, grown: [] } };
+}
+
+/** The live organs a node advertises: domain, unseen-case AUC, cases graded. */
+export const adverts = (n) => n.org.organs.filter((o) => o.state === 'live').map((o) => ({ domain: o.domain, auc: o.heldAuc, held: o.held }));
+
+/**
+ * A mesh of nodes that trust each other's keys. opts.cut(a, b) → true when a and b cannot reach each other (a partition).
+ * → { nodes, send, gossip, task, log, stats }
+ */
+export function mesh(nodes, opts = {}) {
+  const byName = new Map(nodes.map((n) => [n.name, n])), senders = Object.fromEntries(nodes.map((n) => [n.pub, MESH.kinds]));
+  const log = [], stats = { sent: 0, admitted: 0, refused: 0, onSight: 0, lost: 0 };
+  const reach = (a, b) => a.alive && b.alive && !(opts.cut && opts.cut(a.name, b.name));
+
+  /** deliver raw bytes to a node: refused on sight if its immune memory knows them; else through the gate */
+  async function receive(to, text) {
+    if (to.imm.seen(text)) { stats.onSight++; return { admit: false, stage: 'immune', why: 'refused on sight' }; }
+    const a = await admit(text, { me: to.org.id, senders, last: (p) => to.inLast.get(p) || 0, grammar: MESH });
+    if (a.admit) { to.inLast.set(a.msg.from, a.msg.n); stats.admitted++; } else { stats.refused++; to.imm.add(text, a.stage); }
+    return a;
+  }
+  /** sign and send one message from a to b. → { ok, msg, text } | { ok: false, why } */
+  async function send(a, b, kind, body, round) {
+    if (!reach(a, b)) { stats.lost++; log.push({ round, type: 'lost', from: a.name, to: b.name, kind }); return { ok: false, why: 'unreachable' }; }
+    const n = (a.outN.get(b.pub) || 0) + 1;
+    a.outN.set(b.pub, n);
+    const e = await envelope({ kind, to: b.org.id, n, body }, a.keys, MESH);
+    if (!e.ok) return { ok: false, why: e.why };
+    stats.sent++;
+    const r = await receive(b, e.text);
+    log.push({ round, type: kind, from: a.name, to: b.name, ok: r.admit });
+    return r.admit ? { ok: true, msg: r.msg, text: e.text } : { ok: false, why: r.why };
+  }
+  /** every live node tells every node it can reach what it has live */
+  async function gossip(round) {
+    for (const a of nodes) for (const b of nodes) if (a !== b) for (const ad of adverts(a)) {
+      const r = await send(a, b, 'advert', ad.domain + ' ' + num(ad.auc) + ' ' + ad.held, round);
+      if (r.ok) b.map.set(a.name + '|' + ad.domain, { node: a.name, domain: ad.domain, auc: round6(ad.auc), held: ad.held, v: r.msg.n });
+    }
+    for (const a of nodes) for (const [k, ad] of a.map) { const src = byName.get(ad.node); if (src && reach(a, src) && !adverts(src).some((x) => x.domain === ad.domain)) a.map.delete(k); }
+  }
+  /** the best node to route a domain's task to, by advert and link strength */
+  const bestFor = (a, domain) => [...a.map.values()].filter((ad) => ad.domain === domain && ad.node !== a.name && byName.has(ad.node))   // only nodes this mesh knows
+    .map((ad) => ({ ad, score: round6(ad.auc + (a.links.get(ad.node) || 0)) })).sort((x, y) => y.score - x.score)[0];   // ties: the first advertised (the sort is stable)
+
+  /**
+   * A task arrives at a node: answer it, or route it, and learn from the truth. → { by, verdict, label, right, routed }
+   */
+  async function task(a, domain, x, truth, round, id) {
+    const local = ask(a.body, x, { domain });
+    if (local.verdict === 'VERIFIED') { log.push({ round, type: 'answer', from: a.name, domain, ok: local.label === truth }); return { by: a.name, verdict: 'VERIFIED', label: local.label, right: local.label === truth, routed: false }; }
+    a.abstains.set(domain, (a.abstains.get(domain) || 0) + 1);
+    const best = bestFor(a, domain);
+    if (!best) return { by: null, verdict: 'ABSTAIN', right: false, routed: false };
+    const b = byName.get(best.ad.node), features = Object.keys(x);   // the domain's own schema, in its own order
+    const sent = await send(a, b, 'task', id + ' ' + domain + ' ' + features.map((f) => num(x[f])).join(','), round);
+    if (!sent.ok) {   // gone for now: forget what it advertised (it advertises again if it comes back) and weaken the link
+      for (const k of [...a.map.keys()]) if (a.map.get(k).node === b.name) a.map.delete(k);
+      a.links.set(b.name, Math.max(0, (a.links.get(b.name) || 0) - ETA / 2));
+      return { by: null, verdict: 'ABSTAIN', right: false, routed: true };
+    }
+    // what b does with the task it admitted: read it in its own copy of the domain's schema, and answer from its own body
+    const mine = b.body.patterns[domain] ? b.body.patterns[domain].features : [], vals = sent.msg.body.split(' ')[2].split(',').map(Number);
+    const there = ask(b.body, Object.fromEntries(mine.map((f, i) => [f, vals[i]])), { domain });
+    const back = await send(b, a, 'reply', id + ' ' + (there.verdict === 'VERIFIED' ? 'VERIFIED ' + there.label + ' ' + num(there.score) : 'ABSTAIN'), round);
+    const said = back.ok ? back.msg.body.split(' ') : [];   // a reads the reply it admitted — nothing else
+    if (said[1] !== 'VERIFIED') { a.links.set(b.name, Math.max(0, (a.links.get(b.name) || 0) - ETA / 2)); return { by: null, verdict: 'ABSTAIN', right: false, routed: true }; }
+    const label = Number(said[2]), right = label === truth;
+    a.links.set(b.name, right ? Math.min(1, (a.links.get(b.name) || 0) + ETA) : Math.max(0, (a.links.get(b.name) || 0) - ETA / 2));
+    log.push({ round, type: 'answer', from: b.name, to: a.name, domain, ok: right });
+    return { by: b.name, verdict: 'VERIFIED', label, right, routed: true };
+  }
+  /** every link fades a little; one that fades below the floor is dropped */
+  function fade(round) {
+    for (const a of nodes) for (const [b, w] of a.links) { const v = round6(w * DECAY); if (v < PRUNE) { a.links.delete(b); log.push({ round, type: 'prune', from: a.name, to: b }); } else a.links.set(b, v); }
+  }
+  /**
+   * Gap-sensing: a node that has abstained GAP times on a domain it holds data for, with no live organ for it, asks the
+   * best advertiser for a lesson, weighs it on its own data, and grows the specialist if it clears.
+   * → [{ node, domain, from, heldAuc } | { node, domain, refused: why }]
+   */
+  async function grow(round) {
+    const out = [];
+    for (const a of nodes) for (const [domain, count] of a.abstains) {
+      const has = Object.prototype.hasOwnProperty.call(a.substrate.data || {}, domain), live = a.body.patterns[domain];
+      if (count < GAP || !has || live || !a.alive || a.grown.some((g) => g.domain === domain)) continue;
+      const best = bestFor(a, domain);
+      if (!best) continue;
+      const b = byName.get(best.ad.node), recipe = b.org.organs.find((o) => o.domain === domain).recipe;
+      const sent = await send(b, a, 'lesson', recipe, round);
+      if (!sent.ok) continue;
+      const w = weigh(sent.msg, a.org, a.substrate);
+      if (!w.adopt) { a.grown.push({ domain, refused: w.why }); out.push({ node: a.name, domain, refused: w.why }); continue; }
+      const parent = await open(a.genome), organs = [...parent.fields.organs.filter((o) => !o.includes(' ' + domain + ' ')), recipe];
+      const child = await seal({ name: parent.fields.name, parents: [parent.id], gate: parent.fields.gate, organs }, a.keys);
+      const g = child.ok ? await germinate(child.text, a.substrate) : child;
+      if (!g.ok) { a.grown.push({ domain, refused: g.why }); out.push({ node: a.name, domain, refused: g.why }); continue; }
+      a.genome = child.text; a.org = g.organism; a.body = embody(g.organism, a.substrate).body;
+      a.grown.push({ domain, from: b.name, heldAuc: w.organ.heldAuc, round });
+      log.push({ round, type: 'grow', from: b.name, to: a.name, domain, ok: true });
+      out.push({ node: a.name, domain, from: b.name, heldAuc: w.organ.heldAuc });
+    }
+    return out;
+  }
+  /** a node that refused bytes tells its neighbours their fingerprint; they refuse the same bytes on sight */
+  async function warn(a, text, family, round) {
+    const fp = fingerprintOf(text);
+    let told = 0;
+    for (const b of nodes) if (b !== a) { const r = await send(a, b, 'antibody', fp + ' ' + family, round); if (r.ok) { const [f, fam] = r.msg.body.split(' '); b.imm.adopt(f, fam); told++; } }   // b holds only the fingerprint
+    return told;
+  }
+  return { nodes, byName, send, receive, gossip, task, fade, grow, warn, bestFor, log, stats, reach };
+}
+
+/** The capability map a node holds, as plain sorted data (for comparing maps across nodes). */
+export const mapOf = (n) => [...[...n.map.values()].map((a) => [a.node, a.domain, a.auc]), ...adverts(n).map((a) => [n.name, a.domain, round6(a.auc)])].sort();   // entries are unique; the default order of their text
+
+/** A seeded draw of tasks: held-out cases of the given domains, each arriving at a random node. */
+export function tasks(datasets, nodeNames, count, seed) {
+  const r = rng(seed), domains = Object.keys(datasets);
+  return Array.from({ length: count }, (_, k) => {
+    const d = domains[Math.floor(r() * domains.length)], ds = datasets[d], i = ds.heldRows[Math.floor(r() * ds.heldRows.length)];
+    return { id: (k + 1).toString(16).padStart(16, '0'), domain: d, row: i, x: caseOf(ds, i), truth: ds.y[i], at: nodeNames[Math.floor(r() * nodeNames.length)] };
+  });
+}

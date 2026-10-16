@@ -35,6 +35,9 @@ const BODY = {
   lesson: /^◊ seed\.v1 [a-z][a-z0-9-]{0,31} [1-9][0-9]{0,9} f:[0-9a-f]{20} [0-9a-f]{12}$/,
   antibody: /^[0-9a-f]{16} [a-z][a-z-]{0,31}$/,
 };
+/** The grammar the gate reads by default: which kinds exist, and the exact form of each kind's body. Another organ may
+ *  hand the gate its own grammar (mesh.mjs does); the checks, their order and the signature are the same for every grammar. */
+export const GRAMMAR = Object.freeze({ kinds: KINDS, body: BODY });
 const ADMITTED = new WeakSet();
 /** True only for a message this gate itself admitted. */
 export const isAdmitted = (m) => typeof m === 'object' && m !== null && ADMITTED.has(m);
@@ -46,14 +49,15 @@ function bodyOf({ kind, from, to, n, body }) {
   return [MAGIC + ' ' + kind, 'from ' + from, 'to ' + to, 'n ' + n, 'body ' + body].join('\n');
 }
 
-/** Write and sign one envelope. fields: { kind, to, n, body }; keys: { pub, priv }. → { ok, text } | a refusal */
-export async function envelope(fields, keys) {
+/** Write and sign one envelope. fields: { kind, to, n, body }; keys: { pub, priv }; grammar: GRAMMAR unless given.
+ *  → { ok, text } | a refusal */
+export async function envelope(fields, keys, grammar = GRAMMAR) {
   try {
     const { kind, to, n, body } = fields || {};
-    if (!KINDS.includes(kind)) return no('a message is a lesson or an antibody');
+    if (!grammar.kinds.includes(kind)) return no(grammar === GRAMMAR ? 'a message is a lesson or an antibody' : 'a message is not a kind this grammar knows');
     if (typeof to !== 'string' || !ID.test(to)) return no('a message names the organism it is for');
     if (!Number.isSafeInteger(n) || n < 1) return no('a message carries a counter from 1');
-    if (typeof body !== 'string' || !BODY[kind].test(body)) return no('the body is not a ' + kind);
+    if (typeof body !== 'string' || !grammar.body[kind].test(body)) return no('the body is not a ' + kind);
     const text = bodyOf({ kind, from: keys.pub, to, n, body });
     return { ok: true, text: text + '\nsig ' + (await sign(keys, utf8(text))) };
   } catch { return no('the message could not be sealed'); }
@@ -61,19 +65,20 @@ export async function envelope(fields, keys) {
 
 /**
  * THE INPUT GATE. text: an envelope as received; ctx: { me: this organism's id, senders: { pub: [kinds it may send] },
- * last: (pub) → the last counter admitted from it (0 before the first) }.
+ * last: (pub) → the last counter admitted from it (0 before the first), grammar: GRAMMAR unless given }.
  * → { admit: true, stage: 'admitted', msg } | { admit: false, stage, why } — nothing is parsed before the signature
  * and the counter pass.
  */
 export async function admit(text, ctx) {
   try {
+    const G = (ctx && ctx.grammar) || GRAMMAR;
     if (typeof text !== 'string' || utf8(text).length > MAX_MSG) return refuse('size', 'not a message of at most ' + MAX_MSG + ' bytes');
     const lines = text.split('\n');
     const m = /^◊ msg\.v1 ([a-z]+)$/.exec(lines[0]);
-    if (!m || !KINDS.includes(m[1])) return refuse('magic', 'not a living-seed message');
+    if (!m || !G.kinds.includes(m[1])) return refuse('magic', 'not a living-seed message');
     if (lines.length !== 6) return refuse('shape', 'a message is six lines');
     const kind = m[1], [from, to, n, body, sig] = ['from ', 'to ', 'n ', 'body ', 'sig '].map((p, i) => (lines[i + 1].startsWith(p) ? lines[i + 1].slice(p.length) : null));
-    if (!PUB.test(from) || !ID.test(to) || !COUNTER.test(n) || !BODY[kind].test(body) || !SIG.test(sig)) return refuse('shape', 'a line is not in the form a ' + kind + ' takes');
+    if (!PUB.test(from) || !ID.test(to) || !COUNTER.test(n) || !G.body[kind].test(body) || !SIG.test(sig)) return refuse('shape', 'a line is not in the form a ' + kind + ' takes');
     if (to !== ctx.me) return refuse('shape', 'the message is for another organism');
     const may = Object.prototype.hasOwnProperty.call(ctx.senders, from) ? ctx.senders[from] : null;
     if (!Array.isArray(may)) return refuse('sender', 'no trusted sender with that key');
@@ -143,11 +148,13 @@ export async function replicate(parentText, organism, fields, keys, opts = {}) {
 /** The fingerprint an antibody names: the first 16 hex of the SHA-256 of a refused input. */
 export const fingerprintOf = (text) => sha256Hex(String(text)).slice(0, 16);
 
-/** A refusal remembered as a fingerprint, so the same bytes are refused on sight next time. → { seen(text), add(text, family) } */
+/** A refusal remembered as a fingerprint, so the same bytes are refused on sight next time. → { seen(text), add(text, family),
+ *  adopt(fingerprint, family) — a peer's antibody, size(), digest() } */
 export function immune() {
   const known = new Map();
   return {
     add: (text, family) => { known.set(fingerprintOf(text), family); return fingerprintOf(text); },
+    adopt: (fp, family) => { if (/^[0-9a-f]{16}$/.test(fp)) known.set(fp, family); return known.has(fp); },   // an antibody from a peer: the fingerprint alone
     seen: (text) => known.get(fingerprintOf(text)) || null,
     size: () => known.size,
     digest: () => sha256Hex(stable([...known].sort())).slice(0, 16),

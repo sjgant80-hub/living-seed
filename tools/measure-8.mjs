@@ -55,7 +55,7 @@ export async function measure() {
     await m.gossip(round);
     for (const t of work.slice((round - 1) * PER_ROUND, round * PER_ROUND)) {
       let at = m.byName.get(t.at);
-      if (!at.alive) at = nodes.filter((n) => n.alive)[Number(t.id.slice(-2)) % nodes.filter((n) => n.alive).length];   // tasks only reach live nodes
+      if (!at.alive) at = nodes.filter((n) => n.alive)[parseInt(t.id.slice(-2), 16) % nodes.filter((n) => n.alive).length];   // tasks only reach live nodes
       const alone = ask(at.body, t.x, { domain: t.domain });   // what this node would have done on its own
       const r = await m.task(at, t.domain, t.x, t.truth, round, t.id);
       const rec = { round, at: at.name, domain: t.domain, by: r.by, answered: r.verdict === 'VERIFIED', right: r.right, routed: r.routed, alone: alone.verdict === 'VERIFIED', aloneRight: alone.verdict === 'VERIFIED' && alone.label === t.truth };

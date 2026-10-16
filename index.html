@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-wDEFEsFCQ/ajHW/pGo7iHtFP+ySn6OfbLdwU5OhV4dI='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-atZfs11b6e4kjuTgH9m4e0eksDELZx+N7G1tqB//A8w='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Organ 1 of 12, pre-registered and measured: 9 of 9 sealed rules held." />
@@ -144,6 +144,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#receipt">The receipt</a></li>
       <li><a href="#body">Organ 2 · the body</a></li>
       <li><a href="#gate">Organ 3 · the gate</a></li>
+      <li><a href="#evolve">Organ 4 · evolution</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -361,8 +362,24 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <div class="tw"><table id="rules3"><caption class="sr">Organ 3 sealed rules and their verdicts</caption><thead><tr><th>Rule</th><th>Kind</th><th>What was claimed</th><th>Seen before the seal?</th><th>Verdict</th><th>What the record holds</th></tr></thead><tbody><tr><td colspan="6" class="dim">Loading…</td></tr></tbody></table></div>
 </section>
 
+<section id="evolve" aria-labelledby="evolve-h">
+  <h2 id="evolve-h"><span class="n">07</span>Organ 4 · Variation and selection</h2>
+  <p class="lede">Can an organ improve itself? Here, honestly measured: twice, under two seals, and allowed to fail. It did fail, in instructive ways.</p>
+  <div class="grid two">
+    <div class="panel"><h4>How it evolves</h4><p>A child is the organ’s recipe with a few single changes: a rule switched on or off, or a rule’s measurement, threshold, side or weight changed. The best child replaces the champion only if it scores better. The evolver is <b>blind</b>: it refuses any data that still holds the held-out cases, and selects on slices carved from the training cases alone. How big a step to take is regulated, not fixed, by Rechenberg’s one-fifth success rule. A separate judge, the only code that reads the held-out cases, scores every kept step afterwards.</p></div>
+    <div class="panel"><h4>What happened</h4><p><b>First design</b> (one validation slice): it climbed on that slice on all four domains, and got <b>worse</b> on unseen cases on three of them. That is the winner’s curse: choose among 241 variants by one small slice, and you fit the slice. <b>Second design</b> (must win on all three folds of the training cases): better than the first everywhere, with real gains on water and crop. It still lost ground on the shop, whose unseen months differ from its training. In both designs, on data with no signal, nothing selection kept came anywhere near the gate.</p></div>
+  </div>
+  <div class="note honest"><b>What this means.</b> Selection on its own is not safe: it can make an organ worse on the cases that matter while it gets better on the cases it sees. Self-improvement is safe here only because of organ 3’s gate. A new recipe is adopted only if it beats the current organ on the device’s own unseen cases, so the shop’s loss would never be adopted. The water and crop gains would.</div>
+  <div id="evo-rec" role="status" aria-live="polite"><p class="dim">Loading the organ-4 records…</p></div>
+  <div class="panel" style="margin-top:14px">
+    <h3>9 · Evolve an organ here, blind</h3>
+    <div class="row"><label for="evo-d">Organ</label><select id="evo-d"><option value="water">water</option><option value="crop">crop</option><option value="triage">triage</option><option value="shopper">shop (slower)</option></select><button id="evo-go" type="button" class="primary" disabled>Evolve it (second design)</button></div>
+    <div id="evo-out" role="status" aria-live="polite"><p class="dim">30 generations, 8 children each, 3 folds, seed 1 — the same run as the sealed measurement, so the result must match CI’s record.</p></div>
+  </div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">07</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">08</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -406,7 +423,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>1</td><td><b>Genome + germination</b></td><td>A sealed seed grows a working organism on a device, offline.</td><td><span class="chip live">proven · 9/9 sealed</span></td></tr>
       <tr><td>2</td><td><b>Body</b></td><td>Patterns that route and abstain far from their data, an exact-fact cube, a memory that cannot be quietly rewritten, a model slot that only proposes — and a 58-byte organ against language models up to 14B on the same unseen cases (<a href="#body">organ 2</a>).</td><td><span class="chip" id="organ2-state">built · being measured</span></td></tr>
       <tr><td>3</td><td><b>The gate</b></td><td>Nothing unproven enters, is learned from outside, or is passed on — the three doors red-teamed (<a href="#gate">organ 3</a>).</td><td><span class="chip" id="organ3-state">built · being measured</span></td></tr>
-      <tr><td>4</td><td>Mutation + fitness</td><td>Improvement on held-out cases, judged blind, able to fail.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>4</td><td><b>Variation + selection</b></td><td>Improvement on held-out cases, judged blind, able to fail — measured twice; it did fail, and the gate is what keeps a loss out (<a href="#evolve">organ 4</a>).</td><td><span class="chip" id="organ4-state">measured</span></td></tr>
       <tr><td>5</td><td>Breeding + the card</td><td>Two cards breed a verified child; cards carry, germinate and trade.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>6</td><td>Self-powering</td><td>Germination and improvement run cheap — the reuse hit-rate measured.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>7</td><td>Self-model</td><td>Its prediction of itself converges to a stable fixed point instead of plateauing — measured, never declared.</td><td><span class="chip">in order</span></td></tr>
@@ -420,7 +437,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">08</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">09</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -525,7 +542,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">09</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">10</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
     <h3>Abstract</h3>
@@ -569,7 +586,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">10</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">11</span>Questions</h2>
   <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
   <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
@@ -589,6 +606,7 @@ import { open, seal } from './src/genome.mjs';
 import { germinate, answer, caseOf, sizes, stable } from './src/germinate.mjs';
 import * as B from './src/body.mjs';
 import * as G from './src/gate.mjs';
+import * as E from './src/evolve.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
 import { rng } from './vendor/seed-library/seedlib.mjs';
 import { fromSeed, generate } from './vendor/keys/keys.mjs';
@@ -643,6 +661,7 @@ function trustOpts() {
 function makerName(pub) {
   if (S.maker && pub === S.maker.pub) return 'the origin maker (demo key)';
   if (S.mine && pub === S.mine.pub) return 'you (the key this tab just made)';
+  if (S.peer && pub === S.peer.pub) return 'the trusted peer (demo key)';
   return 'an unknown maker';
 }
 
@@ -977,6 +996,37 @@ function renderGateRecord() {
   }
 }
 
+// ── organ 4: variation and selection ──────────────────────────────────────────────────────────────────────
+const rulesTable = (pre, ver) => { const v = Object.fromEntries(ver.verdicts.map((x) => [x.id, x])); return '<div class="tw"><table><thead><tr><th>Rule</th><th>Kind</th><th>What was claimed</th><th>Verdict</th><th>What the record holds</th></tr></thead><tbody>' + pre.rules.map((q) => { const x = v[q.id] || { pass: false, saw: 'no verdict' }; return '<tr><td><b>' + esc(q.id) + '</b></td><td>' + (q.kind === 'prediction' ? '<span class="chip pred">prediction</span>' : '<span class="chip">property</span>') + '</td><td>' + esc(q.claim) + '</td><td>' + (x.pass ? '<span class="chip pass">PASS</span>' : '<span class="chip fail">FAIL</span>') + '</td><td class="dim">' + esc(x.saw) + '</td></tr>'; }).join('') + '</tbody></table></div>'; };
+function renderEvolve() {
+  if (!S.rec4 || !S.rec4b) { $('evo-rec').innerHTML = '<div class="note">The organ-4 records load when they are committed.</div>'; return; }
+  const last = (x) => x.accepted[x.accepted.length - 1], sign = (x) => (x > 0 ? '+' : '') + (Math.round(x * 1e4) / 1e4);
+  const row = (a, b) => '<tr><td>' + esc(a.name) + '</td><td class="num">' + esc(a.accepted[0].heldAuc) + '</td><td class="num">' + esc(last(a).heldAuc) + ' <span class="' + (last(a).heldAuc < a.accepted[0].heldAuc ? 'bad-t' : 'ok-t') + '">(' + sign(last(a).heldAuc - a.accepted[0].heldAuc) + ')</span></td><td class="num">' + esc(last(b).heldAuc) + ' <span class="' + (last(b).heldAuc < b.accepted[0].heldAuc ? 'bad-t' : 'ok-t') + '">(' + sign(last(b).heldAuc - b.accepted[0].heldAuc) + ')</span></td><td class="num">' + (a.accepted.length - 1) + ' / ' + (b.accepted.length - 1) + '</td><td class="num">' + esc(a.val.start) + ' → ' + esc(a.val.final) + ' / ' + esc(b.val.start) + ' → ' + esc(b.val.final) + '</td></tr>';
+  $('evo-rec').innerHTML = '<div class="tw"><table><thead><tr><th>Organ</th><th>Origin, on unseen cases</th><th>First design, final</th><th>Second design, final</th><th>Steps kept (1st / 2nd)</th><th>Climb on what it could see (1st / 2nd)</th></tr></thead><tbody>' +
+    S.rec4.runs.map((a, i) => row(a, S.rec4b.runs[i])).join('') + row(S.rec4.noise, S.rec4b.noise) + '</tbody></table></div><p class="dim">AUC on unseen cases, read by the separate judge after evolution ended. The last row is the shop with its labels shuffled: what climbs there is noise, and it never reaches the gate (0.6).</p>' +
+    '<details><summary>The first design’s sealed rules and verdict</summary>' + rulesTable(S.pre4, S.ver4) + '</details><details><summary>The second design’s sealed rules and verdict</summary>' + rulesTable(S.pre4b, S.ver4b) + '</details>';
+}
+function sparkline(e, j) {
+  const W = 560, H = 120, vals = e.trajectory.map((t) => t.val), held = e.accepted.map((a, i) => ({ gen: a.gen, v: j[i].heldAuc }));
+  const all = [...vals, ...held.map((h) => h.v)], lo = Math.min(...all) - 0.01, hi = Math.max(...all) + 0.01;
+  const x = (g) => 30 + (g / (vals.length - 1)) * (W - 40), y = (v) => H - 18 - ((v - lo) / (hi - lo)) * (H - 30);
+  return '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;max-width:' + W + 'px;height:auto" role="img" aria-label="Validation score by generation, and the held-out score of each kept step"><polyline fill="none" stroke="var(--accent2)" stroke-width="2" points="' + vals.map((v, g) => x(g) + ',' + y(v)).join(' ') + '"/>' +
+    held.map((h) => '<circle cx="' + x(h.gen) + '" cy="' + y(h.v) + '" r="4" fill="var(--gold)"/>').join('') + '<text x="30" y="12" class="dg-s">blue: what it could see (validation) · gold: the judge, on unseen cases, at each kept step</text><text x="30" y="' + (H - 4) + '" class="dg-s">generation 0</text><text x="' + (W - 70) + '" y="' + (H - 4) + '" class="dg-s">generation ' + (vals.length - 1) + '</text></svg>';
+}
+function evolveHere() {
+  const d = $('evo-d').value;
+  $('evo-go').disabled = true;
+  $('evo-out').innerHTML = '<p class="dim">Evolving the ' + esc(d) + ' organ — ' + (d === 'shopper' ? 'about ten seconds' : 'a few seconds') + '…</p>';
+  setTimeout(() => {
+    const t0 = performance.now(), e = E.evolve(S.seeds[DOMAIN_IDS.indexOf(d)], E.blind(S.data[d]), { generations: 30, children: 8, seed: 1, folds: 3 });
+    const j = E.judge(e.accepted.map((a) => a.recipe), S.data[d]), ms = Math.round(performance.now() - t0);
+    const ci = S.rec4b && S.rec4b.runs.find((r) => r.name === d), same = ci && ci.champion === e.champion && ci.accepted.every((a, i) => j[i] && a.heldAuc === j[i].heldAuc);
+    $('evo-out').innerHTML = sparkline(e, j) + '<div class="tw"><table><thead><tr><th>Kept at generation</th><th>On the three folds it could see</th><th>On unseen cases (the judge)</th></tr></thead><tbody>' + e.accepted.map((a, i) => '<tr><td class="num">' + a.gen + '</td><td class="num">' + esc(a.folds.join(' · ')) + ' → ' + esc(a.val) + '</td><td class="num">' + esc(j[i].heldAuc) + '</td></tr>').join('') + '</tbody></table></div><p>' + n(e.evals) + ' variants tried in ' + n(ms) + ' ms, with 0 unseen cases shown to the evolver. ' + (ci ? (same ? '<span class="ok-t">✓ the same steps and the same scores as CI’s sealed record</span>' : '<span class="bad-t">✗ differs from CI’s record</span>') : '') + '</p>';
+    note('evolution', 'evolved the ' + d + ' organ here: ' + (e.accepted.length - 1) + ' steps kept, unseen ' + j[0].heldAuc + ' → ' + j[j.length - 1].heldAuc, 'you ran it');
+    $('evo-go').disabled = false;
+  }, 30);
+}
+
 async function bootBody() {
   const ref = (await germinate(S.origin, { name: 'reference', data: S.subs.reference })).organism;
   S.refOrg = ref;
@@ -986,6 +1036,7 @@ async function bootBody() {
   S.stranger = await fromSeed(sha256Bytes(utf8('living-seed/maker/stranger')));
   S.gLast = {};
   for (const id of GATE_BUTTONS) $(id).disabled = false;
+  $('evo-go').disabled = false;
   gSay('<p class="dim">A trusted peer (another demo key from a public phrase) may send this organism lessons and antibodies. Send it something, then try to get something past the gate.</p>');
   S.mem = B.memory();
   let c = B.cube();
@@ -1005,6 +1056,8 @@ async function boot() {
   const recordOf = (k) => states.then((s) => (s[k] === 'measured' ? Promise.all(['record', 'prereg', 'verdict'].map((f) => get('data/organ-' + k + '/' + f + '.json'))) : null)).catch(() => null);
   const organ2 = recordOf(2).then((x) => { if (x) [S.rec2, S.pre2, S.ver2] = x; });
   const organ3 = recordOf(3).then((x) => { if (x) [S.rec3, S.pre3, S.ver3] = x; });
+  const organ4 = Promise.all([recordOf('4'), recordOf('4b')]).then(([a, b]) => { if (a) [S.rec4, S.pre4, S.ver4] = a; if (b) [S.rec4b, S.pre4b, S.ver4b] = b; });
+  $('evo-go').disabled = true;
   for (const id of GATE_BUTTONS) $(id).disabled = true;
   renderCalc();
   renderDevices();
@@ -1026,8 +1079,8 @@ async function boot() {
   const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
-  await organ2; await organ3;
-  renderContest(); renderGateRecord();
+  await organ2; await organ3; await organ4;
+  renderContest(); renderGateRecord(); renderEvolve();
   const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
   for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
@@ -1059,6 +1112,7 @@ $('m-go').addEventListener('click', recallNow);
 $('m-q').addEventListener('keydown', (e) => { if (e.key === 'Enter') recallNow(); });
 $('m-tamper').addEventListener('click', tamperMemory);
 for (const id of GATE_BUTTONS) $(id).addEventListener('click', () => gAct(id.slice(2)));
+$('evo-go').addEventListener('click', evolveHere);
 $('mk-seal').addEventListener('click', async () => {
   const st = $('mk-status');
   try {

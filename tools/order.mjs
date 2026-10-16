@@ -18,23 +18,36 @@ const run = { cwd: new URL('.', ROOT), stdio: ['ignore', 'pipe', 'ignore'], maxB
 const git = (...a) => execFileSync('git', a, { ...run, encoding: 'utf8' });
 const commits = (opts, path) => git('log', ...opts, '--format=%H', '--', path).trim().split('\n').filter(Boolean);
 
-/** → { ok, why, seal, record } */
-export function order(prereg, sealPath = 'data/prereg.json', recordPath = 'data/record.json') {
-  const seal = commits(['-1'], sealPath)[0], record = commits(['--diff-filter=A'], recordPath).pop();
-  if (!seal || !record) return { ok: false, why: 'the seal or the record is not committed' };
-  if (seal === record) return { ok: false, why: 'the seal and the record came in the same commit', seal, record };
-  try { git('merge-base', '--is-ancestor', seal, record); } catch { return { ok: false, why: 'the seal as it stands was not committed before the record', seal, record }; }
-  for (const [path, hash] of Object.entries(prereg.files)) {
-    let bytes;
-    try { bytes = execFileSync('git', ['show', record + ':' + path], run); } catch { return { ok: false, why: path + ' is missing from the record commit', seal, record }; }
-    if (fileHash(bytes) !== hash) return { ok: false, why: path + ' changed between the seal and the measurement', seal, record };
+/** later: the files that must come after the seal (each judged at the commit that first added it).
+ *  → { ok, why, seal, record } — record: the first commit of the last of them */
+export function order(prereg, sealPath = 'data/prereg.json', later = ['data/record.json']) {
+  const seal = commits(['-1'], sealPath)[0];
+  if (!seal) return { ok: false, why: 'the seal is not committed' };
+  let record = null;
+  for (const path of [].concat(later)) {
+    record = commits(['--diff-filter=A'], path).pop();
+    if (!record) return { ok: false, why: path + ' is not committed', seal };
+    if (seal === record) return { ok: false, why: 'the seal and ' + path + ' came in the same commit', seal, record };
+    try { git('merge-base', '--is-ancestor', seal, record); } catch { return { ok: false, why: 'the seal as it stands was not committed before ' + path, seal, record }; }
+    for (const [p, hash] of Object.entries(prereg.files)) {
+      let bytes;
+      try { bytes = execFileSync('git', ['show', record + ':' + p], run); } catch { return { ok: false, why: p + ' is missing from the commit that added ' + path, seal, record }; }
+      if (fileHash(bytes) !== hash) return { ok: false, why: p + ' changed between the seal and ' + path, seal, record };
+    }
   }
-  return { ok: true, why: 'sealed in ' + seal.slice(0, 7) + ', measured in ' + record.slice(0, 7) + ' on the ' + Object.keys(prereg.files).length + ' files it pinned, byte for byte', seal, record };
+  return { ok: true, why: 'sealed in ' + seal.slice(0, 7) + ', then ' + [].concat(later).map((p) => p.split('/').pop() + ' in ' + commits(['--diff-filter=A'], p).pop().slice(0, 7)).join(', ') + ' — on the ' + Object.keys(prereg.files).length + ' files it pinned, byte for byte', seal, record };
 }
+
+const ORGANS = {
+  1: { seal: 'data/prereg.json', later: ['data/record.json'] },
+  2: { seal: 'data/organ-2/prereg.json', later: ['data/organ-2/llm-answers.json', 'data/organ-2/record.json'] },
+};
 
 const isMain = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('tools/order.mjs');
 if (isMain) {
-  const h = order(JSON.parse(readFileSync(new URL('data/prereg.json', ROOT), 'utf8')));
+  const at = process.argv.indexOf('--organ'), o = ORGANS[at > 0 ? process.argv[at + 1] : 1];
+  if (!o) { console.log('ORDER ✗ no such organ'); process.exit(1); }
+  const h = order(JSON.parse(readFileSync(new URL(o.seal, ROOT), 'utf8')), o.seal, o.later);
   console.log((h.ok ? 'ORDER ✓ ' : 'ORDER ✗ ') + h.why);
   process.exit(h.ok ? 0 : 1);
 }

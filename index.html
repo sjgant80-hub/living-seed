@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-QsZwxDBZAGwKTnyXXGIAjuHSa5P9oCIdg1QuVzK2jH0='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-wDEFEsFCQ/ajHW/pGo7iHtFP+ySn6OfbLdwU5OhV4dI='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Organ 1 of 12, pre-registered and measured: 9 of 9 sealed rules held." />
@@ -142,6 +142,8 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#try">Try it</a></li>
       <li><a href="#how">How it works</a></li>
       <li><a href="#receipt">The receipt</a></li>
+      <li><a href="#body">Organ 2 · the body</a></li>
+      <li><a href="#gate">Organ 3 · the gate</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -289,8 +291,77 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <p>CI runs all five on every push: <a href="https://github.com/sjgant80-hub/living-seed/actions">github.com/sjgant80-hub/living-seed/actions</a>.</p>
 </section>
 
+<section id="body" aria-labelledby="body-h">
+  <h2 id="body-h"><span class="n">05</span>Organ 2 · The body</h2>
+  <p class="lede">Germination grows organs. The body is what the organism <b>knows</b>, and the only ways it is allowed to answer. It has four kinds of knowing, and each has its own way of refusing.</p>
+  <div class="grid two">
+    <div class="panel"><h4>Patterns that know their own ground</h4><p>Each live organ keeps the shape of the data it grew on. A case is answered only by an organ it resembles. Far from anything an organ has seen, the body says <b>ABSTAIN</b>, never a confident guess. Every answer carries a receipt, a fingerprint of the genome, the organism, the organ, its score and the rules that fired. Change any field and the receipt no longer matches.</p></div>
+    <div class="panel"><h4>Exact facts</h4><p>A cube of facts: every value any source asserted, kept with its source and time, read back byte for byte. Two sources are never blended, and similar keys are never merged: <code>count</code> and <code>Count</code> are two keys. A missing fact is an abstention, not a guess.</p></div>
+    <div class="panel"><h4>A memory that cannot be quietly rewritten</h4><p>Every episode records what happened, when and why, and names the episode before it. Edit one, even re-fingerprinting it, and the chain breaks at the next. Recall fuses word matching with geometric closeness. The estate measured that geometry alone loses to word matching on familiar words and wins only when the words differ, so the body uses both.</p></div>
+    <div class="panel"><h4>A small model that may only propose</h4><p>A language model can suggest which organ a question is about. Its suggestion is marked <i>ungraded</i> and is never an answer. To get an answer, the body still needs the case’s measurements, and those are routed and gated like everything else.</p></div>
+  </div>
+  <div class="grid two" style="margin-top:14px">
+    <div class="panel">
+      <h3>5 · Ask the body — without naming an organ</h3>
+      <div class="row">
+        <button id="b-real" type="button">A real unseen case</button>
+        <button id="b-far" type="button">A case far from anything it grew on</button>
+        <button id="b-half" type="button">Half a case</button>
+      </div>
+      <div id="b-out" role="status" aria-live="polite"><p class="dim">Grows from the origin genome on the reference data when the page has loaded.</p></div>
+      <div class="row"><button id="b-tamper" type="button" disabled>Edit the receipt and check it</button><span id="b-tamper-out" class="dim"></span></div>
+    </div>
+    <div class="panel">
+      <h3>6 · Exact facts</h3>
+      <div class="row"><label for="k-key">Key</label><input id="k-key" value="count" size="10" /><label for="k-val">Value</label><input id="k-val" value="7" size="8" /><label for="k-src">Source</label><input id="k-src" value="gated count" size="12" /></div>
+      <div class="row"><button id="k-write" type="button">Write</button><button id="k-read" type="button">Read the latest</button><button id="k-read-src" type="button">Read this source’s</button></div>
+      <div id="k-res" role="status" aria-live="polite" class="dim">Try writing <code>count</code> = 6 from <code>eyeballed</code> and 7 from <code>gated count</code>, then read each, then read <code>Count</code>.</div>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:14px">
+    <h3>7 · The body’s memory of this visit</h3>
+    <p class="dim">Everything you do on this page is remembered here, in a chain, in this tab only.</p>
+    <div class="row"><label for="m-q">Recall</label><input id="m-q" value="which organ was cut" size="28" /><button id="m-go" type="button">Recall</button><button id="m-tamper" type="button">Rewrite an old episode</button></div>
+    <div id="m-out" role="status" aria-live="polite"></div>
+    <div id="m-log" class="tw"></div>
+  </div>
+  <h3>The head-to-head: a 58-byte organ against language models up to 14 billion parameters</h3>
+  <p>The Living Seed’s specification makes a claim: knowledge kept in a verified pattern beats a much bigger model. Before this organ, the estate held no receipt for it. So we measured it, sealed before a single model was asked. Three local language models were each asked about the same 300 unseen shop sessions: 100 that ended in a purchase and 200 that did not, from November and December. Each model was asked twice, once cold and once with 24 past sessions and their outcomes shown first. Every model answered on this machine, with no cloud. Every reply is committed, so the score can be re-checked without running a model.</p>
+  <div id="h2h" role="status" aria-live="polite"><p class="dim">Loading the organ-2 record…</p></div>
+  <div class="tw"><table id="rules2"><caption class="sr">Organ 2 sealed rules and their verdicts</caption><thead><tr><th>Rule</th><th>Kind</th><th>What was claimed</th><th>Seen before the seal?</th><th>Verdict</th><th>What the record holds</th></tr></thead><tbody><tr><td colspan="6" class="dim">Loading…</td></tr></tbody></table></div>
+</section>
+
+<section id="gate" aria-labelledby="gate-h">
+  <h2 id="gate-h"><span class="n">06</span>Organ 3 · The gate</h2>
+  <p class="lede">Nothing unproven gets in, gets learned, or gets passed on. Germination already gates what an organism grows. This organ gates the three doors left open.</p>
+  <div class="grid three">
+    <div class="panel"><h4>What enters</h4><p>Every message an organism receives is a signed envelope addressed to that one organism. It carries the sender’s next counter, and is checked on its raw bytes in a fixed order: size, form, sender, signature, counter. Nothing in it is read until all of that passes. A replay, a reordering, a message meant for someone else, a stranger’s key, or a text signed but not written the one way messages are written is refused at the stage that catches it.</p></div>
+    <div class="panel"><h4>What is learned from outside</h4><p>Another organism can send a <b>lesson</b>, one of its organ recipes. The score it claims is never believed. The recipe is grown here, on this device’s own data, and graded on this device’s unseen cases. It is adopted only if it clears this organism’s bar <i>and</i> beats the organ it would replace.</p></div>
+    <div class="panel"><h4>What is passed on</h4><p>A child genome is sealed only from a genome that opens, by an organism grown from that very genome. It carries only organs that are <span class="chip live">live</span> on the parent’s own device, at a bar no lower than the parent’s, and names its parent. Cut and dormant organs are never passed on: the organism spreads only what it has proven.</p></div>
+  </div>
+  <div class="panel" style="margin-top:14px">
+    <h3>8 · Try to get past it</h3>
+    <div class="row">
+      <button id="g-legit" type="button">Send the next real message</button>
+      <button id="g-replay" type="button">Replay the last one</button>
+      <button id="g-flip" type="button">Change one character</button>
+      <button id="g-redirect" type="button">Send it to another organism</button>
+      <button id="g-stranger" type="button">Sign it with a stranger’s key</button>
+    </div>
+    <div class="row">
+      <button id="g-lesson" type="button">Offer a lesson: a different shop recipe</button>
+      <button id="g-child-cut" type="button">Breed a child carrying a cut organ</button>
+      <button id="g-child" type="button">Breed a proper child</button>
+    </div>
+    <div id="g-out" role="status" aria-live="polite"><p class="dim">A trusted peer is set up for this organism when the page has loaded.</p></div>
+  </div>
+  <h3>The red team, sealed before it ran</h3>
+  <div id="g-rec" role="status" aria-live="polite"><p class="dim">Loading the organ-3 record…</p></div>
+  <div class="tw"><table id="rules3"><caption class="sr">Organ 3 sealed rules and their verdicts</caption><thead><tr><th>Rule</th><th>Kind</th><th>What was claimed</th><th>Seen before the seal?</th><th>Verdict</th><th>What the record holds</th></tr></thead><tbody><tr><td colspan="6" class="dim">Loading…</td></tr></tbody></table></div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">05</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">07</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -304,6 +375,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
     </tbody>
   </table></div>
   <p>The recipe carries the <b>shape</b> of each organ; the device supplies the <b>numbers</b>. Each rule’s threshold is a fixed quantile of that measurement in the device’s own train cases. That is why device A and device B grow different rules from the same genome — and why both still clear the gate.</p>
+  <div class="panel"><h4>What an organ actually is — the shop organ, in words</h4><div id="organ-words" class="dim">Read from the organism this page grows, once it has loaded.</div></div>
   <h3>Opening a genome — verify before parse</h3>
   <ol class="steps">
     <li>It starts <code>◊ life.v1 </code> and is at most 2,048 bytes, or it is “not a genome” / “too large”.</li>
@@ -331,8 +403,8 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
     <thead><tr><th>#</th><th>Organ</th><th>What it must prove</th><th>State</th></tr></thead>
     <tbody>
       <tr><td>1</td><td><b>Genome + germination</b></td><td>A sealed seed grows a working organism on a device, offline.</td><td><span class="chip live">proven · 9/9 sealed</span></td></tr>
-      <tr><td>2</td><td>Body</td><td>Knowledge in verified patterns beats a bigger model on a domain — the claim checked against its primary source before it is reused.</td><td><span class="chip">being built</span></td></tr>
-      <tr><td>3</td><td>The gate</td><td>Nothing unproven enters, acts or replicates — red-teamed.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>2</td><td><b>Body</b></td><td>Patterns that route and abstain far from their data, an exact-fact cube, a memory that cannot be quietly rewritten, a model slot that only proposes — and a 58-byte organ against language models up to 14B on the same unseen cases (<a href="#body">organ 2</a>).</td><td><span class="chip" id="organ2-state">built · being measured</span></td></tr>
+      <tr><td>3</td><td><b>The gate</b></td><td>Nothing unproven enters, is learned from outside, or is passed on — the three doors red-teamed (<a href="#gate">organ 3</a>).</td><td><span class="chip" id="organ3-state">built · being measured</span></td></tr>
       <tr><td>4</td><td>Mutation + fitness</td><td>Improvement on held-out cases, judged blind, able to fail.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>5</td><td>Breeding + the card</td><td>Two cards breed a verified child; cards carry, germinate and trade.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>6</td><td>Self-powering</td><td>Germination and improvement run cheap — the reuse hit-rate measured.</td><td><span class="chip">in order</span></td></tr>
@@ -347,7 +419,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">06</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">08</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -367,9 +439,24 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <label>Size of the model you ship to each today (MB)<input id="c-mb" type="number" min="0" step="any" value="50" /></label>
       <label>Updates a year<input id="c-upd" type="number" min="0" value="12" /></label>
       <label>Records each site sends off-site a month, to get answers<input id="c-rec" type="number" min="0" value="10000" /></label>
+      <label>Your cost per GB shipped to sites (£, optional)<input id="c-gbp" type="number" min="0" step="any" placeholder="your figure" /></label>
+      <label>Your cost per 1,000 records sent off-site (£, optional)<input id="c-recp" type="number" min="0" step="any" placeholder="your figure" /></label>
     </div>
     <div id="c-out" role="status" aria-live="polite"></div>
   </div>
+
+  <h3>What it costs you to run</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th>What it takes</th></tr></thead>
+    <tbody>
+      <tr><td>Licence</td><td>None. The code is under the <a href="https://github.com/sjgant80-hub/living-seed/blob/main/LICENSE">MIT licence</a>, which lets you use, copy, change and run it, including commercially, provided you keep the copyright notice. There is no licence fee and no hidden term.</td></tr>
+      <tr><td>New hardware</td><td>None for this tier. It runs in a web browser or in Node on machines you already have. Growing all four organs took 25–65 ms in a browser on this page, and an answer is a sum of up to six rules.</td></tr>
+      <tr><td>Cloud and model hosting</td><td>None. It makes no network call to grow or to answer.</td></tr>
+      <tr><td>Your team’s time</td><td>A pilot is one question at one site: choose it, make a maker key, seal a genome, germinate on the site’s records, run it beside your current process. The effort is your team’s, and the steps are below.</td></tr>
+      <tr><td>Support</td><td>Agreed per deployment with <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Product pages carry no prices; ask for terms for your deployment.</td></tr>
+      <tr><td>Payback</td><td>Count what you stop paying for: the hosted AI calls or model shipping this replaces, and the records you no longer send away (the calculator above, with your own costs). Set that against your team’s pilot time and the support you agree. We don’t print a figure for you, because only your costs make it true.</td></tr>
+    </tbody>
+  </table></div>
 
   <h3>Against what you have now</h3>
   <div class="tw"><table>
@@ -388,7 +475,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <h3>Security, compliance and data protection</h3>
   <ul>
     <li><b>Data stays put.</b> Growing and answering run on the device; the records never leave it. That is data minimisation by construction. It is not a certification, so your own data-protection assessment still applies.</li>
-    <li><b>Signed, and checked first.</b> A genome is refused before any of it is read unless its Ed25519 signature checks out over the exact bytes; a device can keep a list of the only makers it accepts.</li>
+    <li><b>Signed, and checked first.</b> A genome carries a digital signature (Ed25519, the scheme modern SSH keys use). Only the holder of the maker’s private key can produce it, and changing any character of the genome breaks it. A device refuses the genome before reading any of it unless the signature checks out over the exact bytes. A device can also keep a list of the only makers it accepts.</li>
     <li><b>One form, one fingerprint.</b> Every genome has exactly one byte form, and the same genome on the same data grows the same organism id anywhere. An auditor re-runs it and compares fingerprints.</li>
     <li><b>Gated, not trusted.</b> No organ answers unless it cleared the signed bar on cases it never grew on; the bar is part of what the maker signs.</li>
     <li><b>Proven code.</b> The two kernels are mutation-gated: every one of 69 deliberate faults was caught by the tests. CI re-derives the measurement byte for byte on every push.</li>
@@ -410,6 +497,10 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 
   <h3>Risks, answered straight</h3>
   <details><summary>Is it accurate enough?</summary><p>On the one real dataset — 12,330 online shop sessions — it ranks buyers above non-buyers with AUC 0.815 and is right 79.9% of the time on November–December sessions it never grew on. The three other domains here (field triage, drinking water, crop planting) are synthetic test domains, not real patients, samples or fields: 0.952, 0.748 and 0.754. Each organ is a small sum of rules, not a deep model; for some problems that is the ceiling.</p></details>
+  <details><summary>How will it compare with what we run now?</summary><p>Only your own data can tell, and we won’t guess. That is what step 5 of the roll-out does: the organism runs beside your current process on the same cases, and you compare its calls and its abstentions with what actually happened. Organ 2 on this page does the same against language models up to 14 billion parameters, sealed before they answered.</p></details>
+  <details><summary>How does it keep up as the business changes?</summary><p>Germinate again on newer records, which is one call that takes milliseconds. Every organ is re-graded on held-out cases each time. One that no longer clears the bar is cut and abstains, with no retraining project and nobody needing to notice first.</p></details>
+  <details><summary>Will it behave the same in an urban store and a rural one?</summary><p>Each store grows its own organs from its own records, so each is fitted to that store. On this page, two devices each holding half the history moved no organ’s AUC by more than 0.0054. Where a store’s data doesn’t support an organ, it is cut at that store and nowhere else.</p></details>
+  <details><summary>What do we do if a maker key is stolen?</summary><p>Rotate it. Make a new key, re-seal your genomes with it, and give your devices a trust list naming only the new key. From their next germination they refuse anything signed with the old one. Keep maker keys offline so this is rare. Organ 1 has no automatic revocation list; the rotation is a procedure you run.</p></details>
   <details><summary>Isn’t a gate of 0.6 a low bar?</summary><p>It is a default. The bar is a field in the genome, signed by its maker. Set it as high as your question demands. The gate is a floor that has been tested at its edges: an organ exactly on the bar lives, and one a hair under it is cut.</p></details>
   <details><summary>What if a maker key is stolen?</summary><p>Whoever holds it can sign genomes that devices trusting that maker will accept. Keep maker keys offline and use trust lists. Organ 1 has no revocation list yet, and we say so rather than imply one.</p></details>
   <details><summary>Does it learn and improve by itself?</summary><p>Organ 1 grows fresh from whatever data the device holds each time it germinates; it does not improve itself. Self-improvement — variation kept only when it beats held-out cases, judged blind — is organ 4, and it will be measured when it lands.</p></details>
@@ -420,7 +511,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">07</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">09</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
     <h3>Abstract</h3>
@@ -464,7 +555,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">08</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">10</span>Questions</h2>
   <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
   <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
@@ -481,11 +572,13 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 
 <script type="module">
 import { open, seal } from './src/genome.mjs';
-import { germinate, answer, caseOf, sizes } from './src/germinate.mjs';
+import { germinate, answer, caseOf, sizes, stable } from './src/germinate.mjs';
+import * as B from './src/body.mjs';
+import * as G from './src/gate.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
 import { rng } from './vendor/seed-library/seedlib.mjs';
 import { fromSeed, generate } from './vendor/keys/keys.mjs';
-import { sha256Bytes, utf8 } from './vendor/seed-library/sha256.mjs';
+import { sha256Bytes, sha256Hex, utf8 } from './vendor/seed-library/sha256.mjs';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -561,6 +654,7 @@ function flipOne() {
   $('genome').value = t.slice(0, i) + swap + t.slice(i + 1);
   const line = t.slice(0, i).split('\n').length;
   $('growhint').textContent = 'changed character ' + (i + 1) + ' (line ' + line + '): ' + JSON.stringify(c) + ' → ' + JSON.stringify(swap);
+  note('tamper', 'changed character ' + (i + 1) + ' of the genome, on line ' + line, 'you changed it');
   checkGenome();
 }
 
@@ -583,9 +677,11 @@ async function grow() {
   if (!r.ok) {
     S.organism = null;
     el.innerHTML = '<div class="status bad"><b class="bad-t">Nothing grew.</b> ' + esc(r.why) + '. Network calls: ' + touched + '.</div>';
+    note('refusal', 'nothing grew on ' + dev.label + ': ' + r.why, 'you pressed Germinate');
     renderAsk(); return;
   }
   const o = r.organism; S.organism = o;
+  note('germination', 'grew organism ' + o.id + ' on ' + dev.label + ': ' + o.organs.map((x) => x.domain + ' ' + x.state).join(', '), 'you pressed Germinate');
   const ci = S.rec.organisms[dev.name], sameGenome = text === S.origin;
   const match = sameGenome && ci ? (ci.id === o.id ? '<span class="ok-t">✓ the same organism CI grew (id ' + esc(ci.id) + ')</span>' : '<span class="bad-t">✗ differs from CI’s ' + esc(ci.id) + '</span>') : '<span class="dim">your own genome — no CI record to compare</span>';
   const sz = sizes(text, o);
@@ -621,6 +717,7 @@ function ask() {
   for (const inp of $('ask-fields').querySelectorAll('input')) { const v = inp.value === '' ? NaN : Number(inp.value); if (v !== x[inp.dataset.feat]) edited = true; x[inp.dataset.feat] = v; }
   const a = answer(S.organism, d, x), truth = ds.y[i];
   const said = (l) => (l ? 'yes — ' : 'no — not ') + LABEL[d];
+  note('ask an organ', d + ' case ' + askCase().k + (edited ? ' (edited)' : '') + ': ' + (a.verdict === 'VERIFIED' ? 'VERIFIED ' + said(a.label) : 'ABSTAIN, ' + a.why), 'you asked');
   if (a.verdict === 'VERIFIED') {
     $('ask-out').innerHTML = '<div class="answer"><div class="v ok-t">VERIFIED · ' + esc(said(a.label)) + '</div><div>score <code>' + esc(a.score) + '</code> against the line <code>' + esc(a.threshold) + '</code> · from its ' + esc(a.organ) + ' organ</div>' +
       (a.fired.length ? '<div class="dim" style="margin-top:6px">rules that fired:</div><ul class="rules">' + a.fired.map((r) => '<li>' + esc(r.feat) + ' ' + esc(r.op) + ' ' + esc(r.v) + ' → ' + (r.w > 0 ? '+' : '') + esc(r.w) + '</li>').join('') + '</ul>' : '<div class="dim">no rule fired</div>') +
@@ -651,6 +748,7 @@ async function rerun() {
   }
   rows.push(['every one-character change refused', refused === g.text.length && refused === S.rec.tamper.refused, refused + ' / ' + g.text.length + ' (CI: ' + S.rec.tamper.refused + ' / ' + S.rec.tamper.positions + ')']);
   const ms = Math.round(performance.now() - t0), all = rows.every((r) => r[1]);
+  note('re-run', all ? 'the whole measurement re-ran here and reproduced every result CI committed' : 'the re-run did not reproduce: ' + rows.filter((r) => !r[1]).map((r) => r[0]).join('; '), 'you re-ran it');
   $('rerun-out').innerHTML = '<div class="status ' + (all ? 'ok' : 'bad') + '">' + (all ? '<b class="ok-t">Reproduced.</b> Your browser re-derived every result CI committed' : '<b class="bad-t">Not reproduced.</b> See the row marked ✗') + ' — in ' + n(ms) + ' ms.</div><div class="tw"><table><tbody>' +
     rows.map((r) => '<tr><td>' + (r[1] ? '<span class="ok-t">✓</span>' : '<span class="bad-t">✗</span>') + '</td><td>' + esc(r[0]) + '</td><td class="num">' + esc(r[2]) + '</td></tr>').join('') + '</tbody></table></div>';
   $('rerun').disabled = false;
@@ -683,15 +781,217 @@ function renderCalc() {
   const v = (id) => Math.max(0, Number($(id).value) || 0);
   const sites = v('c-sites'), mb = v('c-mb'), upd = v('c-upd'), rec = v('c-rec'), gb = S.rec ? S.rec.genome.bytes : 496;
   const now = sites * mb * upd, seed = sites * gb * upd;
-  const kb = seed / 1024;
-  $('c-out').innerHTML = '<div class="tw"><table><thead><tr><th></th><th>Today</th><th>With a genome</th></tr></thead><tbody>' +
-    '<tr><td>Shipped to sites a year</td><td class="num">' + n(Math.round(now)) + ' MB</td><td class="num">' + (kb < 1024 ? n(Math.round(kb * 10) / 10) + ' KB' : n(Math.round(kb / 1024 * 10) / 10) + ' MB') + '</td></tr>' +
-    '<tr><td>Records leaving sites a year</td><td class="num">' + n(Math.round(sites * rec * 12)) + '</td><td class="num">0</td></tr>' +
-    '</tbody></table></div><p class="dim">Computed from your inputs: ' + n(sites) + ' sites × the genome’s ' + n(gb) + ' bytes × ' + n(upd) + ' updates. We don’t turn this into money without your own costs per MB and per record.</p>';
+  const kb = seed / 1024, records = sites * rec * 12;
+  const gbp = $('c-gbp').value === '' ? null : v('c-gbp'), recp = $('c-recp').value === '' ? null : v('c-recp');
+  const money = (x) => '£' + n(Math.round(x));
+  const shipSaved = gbp === null ? null : (now / 1024 - seed / 1024 ** 3) * gbp, recSaved = recp === null ? null : (records / 1000) * recp;
+  $('c-out').innerHTML = '<div class="tw"><table><thead><tr><th></th><th>Today</th><th>With a genome</th><th>A year, at your costs</th></tr></thead><tbody>' +
+    '<tr><td>Shipped to sites a year</td><td class="num">' + n(Math.round(now)) + ' MB</td><td class="num">' + (kb < 1024 ? n(Math.round(kb * 10) / 10) + ' KB' : n(Math.round(kb / 1024 * 10) / 10) + ' MB') + '</td><td class="num">' + (shipSaved === null ? '<span class="dim">enter your cost per GB</span>' : money(shipSaved) + ' not spent') + '</td></tr>' +
+    '<tr><td>Records leaving sites a year</td><td class="num">' + n(Math.round(records)) + '</td><td class="num">0</td><td class="num">' + (recSaved === null ? '<span class="dim">enter your cost per 1,000</span>' : money(recSaved) + ' not spent') + '</td></tr>' +
+    '</tbody></table></div><p class="dim">Computed from your inputs only: ' + n(sites) + ' sites × the genome’s ' + n(gb) + ' bytes × ' + n(upd) + ' updates. Any money figure is your own costs multiplied out; it does not include your team’s time or the support you agree.</p>';
+}
+
+// ── organ 2: the body ─────────────────────────────────────────────────────────────────────────────────────
+const fmtV = (v) => (typeof v === 'number' ? String(Math.round(v * 1e4) / 1e4) : JSON.stringify(v));
+function note(what, text, why) {
+  if (!S.mem) return;
+  const r = B.remember(S.mem, { text, what, when: Date.now(), why });
+  if (r.ok) { S.mem = r.memory; renderMemory(); }
+}
+function renderMemory(extra) {
+  const es = S.mem.entries, c = B.memoryCheck(S.mem);
+  $('m-log').innerHTML = '<div class="status ' + (c.ok ? 'ok' : 'bad') + '">' + (c.ok ? '<span class="ok-t">Chain whole</span> — ' + es.length + ' episodes, each naming the one before it.' : '<span class="bad-t">Chain broken at episode ' + c.at + '</span> — it no longer follows from the one before it.') + (extra || '') + '</div>' +
+    '<table><thead><tr><th>#</th><th>What</th><th>Episode</th><th>Id</th><th>Names</th></tr></thead><tbody>' +
+    es.slice(-8).reverse().map((e) => '<tr><td class="num">' + e.n + '</td><td>' + esc(e.what) + '</td><td>' + esc(e.text) + '</td><td class="num">' + esc(e.id.slice(0, 8)) + '</td><td class="num">' + (e.prev ? esc(e.prev.slice(0, 8)) : '—') + '</td></tr>').join('') + '</tbody></table>';
+}
+function recallNow() {
+  const hits = B.recall(S.mem, $('m-q').value, { k: 3 });
+  $('m-out').innerHTML = hits.length ? '<ol class="rules">' + hits.map((h) => '<li><b>' + esc(h.what) + '</b> — ' + esc(h.text) + ' <span class="dim">(#' + S.mem.entries.findIndex((e) => e.id === h.id) + ' · words ' + esc(h.bm25) + ' · geometry ' + esc(h.cosine) + ' · fused ' + esc(h.fused) + ')</span></li>').join('') + '</ol>' : '<p class="dim">Nothing in its memory shares any evidence with that — so nothing is returned.</p>';
+}
+function tamperMemory() {
+  if (S.memSaved) { S.mem = S.memSaved; S.memSaved = null; $('m-tamper').textContent = 'Rewrite an old episode'; renderMemory(); return; }
+  const es = S.mem.entries;
+  if (es.length < 2) { $('m-out').innerHTML = '<p class="dim">Do something first — the memory needs two episodes.</p>'; return; }
+  const i = Math.floor(Math.random() * (es.length - 1));
+  const { id, ...core } = { ...es[i], text: es[i].text + ' (rewritten)' };
+  S.memSaved = S.mem;
+  S.mem = { entries: es.map((e, j) => (j === i ? { ...core, id: sha256Hex(stable(core)).slice(0, 16) } : e)) };
+  $('m-tamper').textContent = 'Put it back';
+  renderMemory(' Episode ' + i + ' was rewritten and re-fingerprinted, as a forger would; the episode after it still names the original.');
+}
+function bodyCase(kind) {
+  const d = DOMAIN_IDS[Math.floor(Math.random() * DOMAIN_IDS.length)], ds = S.data[d], i = ds.heldRows[Math.floor(Math.random() * ds.heldRows.length)];
+  let x = caseOf(ds, i);
+  if (kind === 'far') { const p = S.body.patterns[d]; x = Object.fromEntries(p.features.map((f) => { const s = p.shape[f], w = s.max - s.min + 1; return [f, Math.random() < 0.5 ? s.max + (1 + Math.random()) * 3 * w : s.min - (1 + Math.random()) * 3 * w]; })); }
+  if (kind === 'half') { const ks = Object.keys(x); for (const k of ks.slice(0, Math.ceil(ks.length / 2))) delete x[k]; }
+  return { d, x, truth: kind === 'real' ? ds.y[i] : null };
+}
+function bodyAsk(kind) {
+  const { d, x, truth } = bodyCase(kind), a = B.ask(S.body, x), fits = B.route(S.body, x);
+  S.lastReceipt = a.receipt || null;
+  $('b-tamper').disabled = !S.lastReceipt; $('b-tamper-out').textContent = '';
+  const caseHtml = '<div class="dim" style="font-size:12.5px;font-family:var(--mono);overflow-wrap:anywhere">' + esc(Object.entries(x).map(([k, v]) => k + '=' + fmtV(v)).join(' · ')) + '</div>';
+  const fitHtml = '<table><tbody>' + fits.map((f) => '<tr><td>' + esc(f.domain) + '</td><td class="num">' + esc(f.fit) + '</td><td style="width:60%"><div style="height:8px;border-radius:4px;background:' + (f.fit >= B.ROUTE_MIN ? 'var(--accent)' : 'var(--line)') + ';width:' + Math.round(f.fit * 100) + '%"></div></td></tr>').join('') + '</tbody></table><div class="dim" style="font-size:12px">resemblance to each organ’s data; it must reach ' + B.ROUTE_MIN + ' to be answered</div>';
+  const ans = a.verdict === 'VERIFIED'
+    ? '<div class="answer"><div class="v ok-t">VERIFIED · ' + esc((a.label ? 'yes — ' : 'no — not ') + LABEL[a.domain]) + '</div><div>routed to its <b>' + esc(a.domain) + '</b> organ (resemblance ' + esc(a.fit) + ') · score <code>' + esc(a.score) + '</code> against <code>' + esc(a.threshold) + '</code></div><div class="dim">receipt <code>' + esc(a.receipt.hash.slice(0, 16)) + '…</code> — genome ' + esc(a.receipt.genome) + ', organism ' + esc(a.receipt.organism) + ', held-out AUC ' + esc(a.receipt.heldAuc) + '</div>' + (truth === null ? '' : '<div>what actually happened: <b>' + esc((truth ? 'yes — ' : 'no — not ') + LABEL[d]) + '</b> · ' + (a.label === truth ? '<span class="ok-t">right</span>' : '<span class="bad-t">wrong</span>') + '</div>') + '</div>'
+    : '<div class="answer"><div class="v warn-t">ABSTAIN</div><div>' + esc(a.why) + '.</div></div>';
+  $('b-out').innerHTML = '<p>A ' + (kind === 'real' ? 'real unseen ' + esc(d) + ' case' : kind === 'far' ? 'case far outside the ' + esc(d) + ' data' : 'half of a ' + esc(d) + ' case') + ', handed over with no organ named:</p>' + caseHtml + fitHtml + ans;
+  note('ask the body', (kind === 'real' ? 'a real unseen ' : kind === 'far' ? 'a far ' : 'a half ') + d + ' case: ' + (a.verdict === 'VERIFIED' ? 'VERIFIED by its ' + a.domain + ' organ' : 'ABSTAIN, ' + a.why), 'you asked');
+}
+function tamperReceipt() {
+  const r = S.lastReceipt;
+  if (!r) return;
+  const forged = { ...r, label: 1 - r.label };
+  $('b-tamper-out').innerHTML = 'as issued: ' + (B.checkReceipt(r) ? '<span class="ok-t">✓ genuine</span>' : '<span class="bad-t">✗</span>') + ' · with its answer flipped to ' + forged.label + ': ' + (B.checkReceipt(forged) ? '<span class="bad-t">✓ (wrong!)</span>' : '<span class="ok-t">✗ refused — it no longer re-hashes</span>');
+}
+function cubeValue() { const v = $('k-val').value; try { return JSON.parse(v); } catch { return v; } }
+function cubeShow(r) {
+  const key = $('k-key').value, hist = B.cubeHistory(S.cube, key);
+  $('k-res').innerHTML = r + '<div class="dim" style="margin-top:6px">' + (hist.length ? 'every fact under <code>' + esc(JSON.stringify(key)) + '</code>: ' + hist.map((f) => esc(JSON.stringify(f.value)) + ' from ' + esc(f.source)).join(' · ') : 'no fact has ever been written under <code>' + esc(JSON.stringify(key)) + '</code>') + ' · cube check ' + (B.cubeCheck(S.cube).ok ? '<span class="ok-t">whole</span>' : '<span class="bad-t">broken</span>') + '</div>';
+}
+function cubeWriteNow() {
+  const r = B.cubeWrite(S.cube, { key: $('k-key').value, value: cubeValue(), source: $('k-src').value, ts: Date.now() });
+  if (!r.ok) { cubeShow('<span class="bad-t">Not written: ' + esc(r.why) + '.</span>'); return; }
+  S.cube = r.cube;
+  cubeShow('<span class="ok-t">Written</span> as fact <code>' + esc(r.id) + '</code>.');
+  note('a fact', JSON.stringify($('k-key').value) + ' = ' + JSON.stringify(cubeValue()) + ' from ' + $('k-src').value, 'you wrote it');
+}
+function cubeReadNow(bySource) {
+  const r = B.cubeRead(S.cube, $('k-key').value, bySource ? { source: $('k-src').value } : {});
+  cubeShow(r.verdict === 'EXACT' ? '<b class="ok-t">EXACT</b> · <code>' + esc(JSON.stringify(r.value)) + '</code> from <b>' + esc(r.source) + '</b>' : '<b class="warn-t">ABSTAIN</b> · ' + esc(r.why) + '.');
+}
+function renderContest() {
+  if (!S.rec2) { $('h2h').innerHTML = '<div class="note">The head-to-head is being measured. Its rules are sealed and the models are answering on this machine; the table fills in when the sealed record is committed.</div>'; return; }
+  const c = S.rec2.contest, rows = Object.entries(c.models);
+  const size = (b) => (b >= 1e9 ? (Math.round(b / 1e8) / 10) + ' GB' : n(b) + ' B');
+  $('h2h').innerHTML = '<div class="tw"><table><thead><tr><th>Contestant</th><th>Size</th><th>AUC on the 300 unseen sessions</th><th>The organ’s lead (95% lower bound)</th><th>Median time per answer</th><th>Unreadable replies</th></tr></thead><tbody>' +
+    '<tr><td><b>The shop organ</b> (grown from its seed on the device’s own history)</td><td class="num">' + n(c.organ.seedBytes) + ' B seed</td><td class="num"><b>' + esc(c.organ.auc) + '</b></td><td>—</td><td class="num">' + (c.organ.timing ? esc(c.organ.timing.perAnswerUs) + ' µs' : '—') + '</td><td class="num">0</td></tr>' +
+    rows.map(([k, v]) => '<tr><td>' + esc(k.replace(' · zero', ', cold').replace(' · few', ', with 24 examples')) + '</td><td class="num">' + (v.bytes ? size(v.bytes) : '—') + '</td><td class="num">' + (v.auc === undefined ? 'missing ' + esc(v.missing) : esc(v.auc)) + '</td><td class="num">' + (v.organLead === undefined ? '—' : (v.organLead > 0 ? '+' : '') + esc(v.organLead) + ' (' + esc(v.organLeadLow95) + ')') + '</td><td class="num">' + (v.medianMs === undefined ? '—' : n(v.medianMs) + ' ms') + '</td><td class="num">' + (v.unreadable === undefined ? '—' : esc(v.unreadable)) + '</td></tr>').join('') +
+    '</tbody></table></div><p class="dim">' + esc(c.sample.cases) + ' sessions, ' + esc(c.sample.purchases) + ' of them purchases. Every model ran on this machine' + (c.organ.timing ? ' (' + esc(c.organ.timing.box) + ')' : '') + ', at temperature 0, with each reply committed. AUC asks how often a buyer is ranked above a non-buyer: 0.5 is a coin.</p>';
+  if (S.pre2 && S.ver2) {
+    const v = Object.fromEntries(S.ver2.verdicts.map((x) => [x.id, x]));
+    $('rules2').querySelector('tbody').innerHTML = S.pre2.rules.map((r) => { const x = v[r.id] || { pass: false, saw: 'no verdict' }; return '<tr><td><b>' + esc(r.id) + '</b></td><td>' + (r.kind === 'prediction' ? '<span class="chip pred">prediction</span>' : '<span class="chip">property</span>') + '</td><td>' + esc(r.claim) + '</td><td class="dim">' + esc(r.seenBeforeSeal) + '</td><td>' + (x.pass ? '<span class="chip pass">PASS</span>' : '<span class="chip fail">FAIL</span>') + '</td><td class="dim">' + esc(x.saw) + '</td></tr>'; }).join('');
+  }
+}
+const SAYS = {
+  Administrative: 'account pages visited', Administrative_Duration: 'seconds on account pages', Informational: 'information pages visited',
+  Informational_Duration: 'seconds on information pages', ProductRelated: 'product pages visited', ProductRelated_Duration: 'seconds on product pages',
+  BounceRates: 'the bounce rate of the pages visited', ExitRates: 'the exit rate of the pages visited', PageValues: 'the value of the pages visited before a purchase',
+  SpecialDay: 'how close the visit is to a special day (0 to 1)',
+};
+function organInWords(p) {
+  $('organ-words').innerHTML = '<ol class="rules">' + p.rules.map((r) => '<li>' + (r.w > 0 ? '+' : '−') + Math.abs(r.w) + ' point' + (Math.abs(r.w) === 1 ? '' : 's') + ' if ' + esc(SAYS[r.feat] || r.feat) + ' is ' + (r.op === '>' ? 'more than ' : 'at most ') + esc(r.v) + ' <span class="dim">(' + esc(r.feat + ' ' + r.op + ' ' + r.v) + ')</span></li>').join('') + '</ol>' +
+    (new Set(p.rules.map((r) => r.feat + r.op + r.v)).size < p.rules.length ? '<p class="dim">Two lines are the same rule: the recipe names it twice, so it counts double. That is how a recipe of single-weight rules gives one rule more weight.</p>' : '') +
+    '<p>It calls a visit <b>“will buy”</b> when the points add up to more than <b>' + esc(p.threshold) + '</b>. That is the whole organ: ' + p.rules.length + ' rules, every one readable, and every threshold set from this device’s own past visits. On ' + n(p.held) + ' visits it never saw it ranks buyers above non-buyers with AUC ' + esc(p.heldAuc) + '.</p>';
+}
+// ── organ 3: the gate ─────────────────────────────────────────────────────────────────────────────────────
+const GATE_BUTTONS = ['g-legit', 'g-replay', 'g-flip', 'g-redirect', 'g-stranger', 'g-lesson', 'g-child-cut', 'g-child'];
+const COUNCIL_SHOP = '◊ seed.v1 shopper 7 f:1e785a2176032512f516 3ad3c7c0c75d';
+const gCtx = (me) => ({ me: me || S.refOrg.id, senders: { [S.peer.pub]: ['lesson', 'antibody'] }, last: (p) => S.gLast[p] || 0 });
+const gSay = (html) => { $('g-out').innerHTML = html; };
+const gVerdict = (a) => (a.admit ? '<b class="ok-t">ADMITTED</b> — passed size, form, sender, signature and counter, then parsed and written back byte for byte.' : '<b class="bad-t">REFUSED at “' + esc(a.stage) + '”</b> — ' + esc(a.why) + '. Nothing in it was read past that point.');
+async function gNext(kind = 'antibody', body) {
+  const n = (S.gLast[S.peer.pub] || 0) + 1;
+  return (await G.envelope({ kind, to: S.refOrg.id, n, body: body || sha256Hex('note ' + n).slice(0, 16) + ' seen-by-peer' }, S.peer)).text;
+}
+async function gAct(what) {
+  try {
+    if (what === 'legit') {
+      const t = await gNext(), a = await G.admit(t, gCtx());
+      if (a.admit) { S.gLast[a.msg.from] = a.msg.n; S.gLastText = t; }
+      gSay('<pre>' + esc(t) + '</pre>' + gVerdict(a));
+      note('the gate', 'message ' + (a.admit ? a.msg.n + ' from the trusted peer admitted' : 'refused: ' + a.why), 'you sent it');
+    } else if (what === 'replay') {
+      if (!S.gLastText) { gSay('<p class="dim">Send a real message first, then replay it.</p>'); return; }
+      const a = await G.admit(S.gLastText, gCtx());
+      gSay('<p>The last admitted message, sent again, byte for byte:</p>' + gVerdict(a));
+      note('the gate', 'a replay refused: ' + a.why, 'you replayed it');
+    } else if (what === 'flip') {
+      const t = await gNext(), i = Math.floor(Math.random() * t.length), c = t[i];
+      const bad = t.slice(0, i) + (c === 'a' ? 'b' : c === '\n' ? ' ' : c === '0' ? '1' : 'a') + t.slice(i + 1);
+      const a = await G.admit(bad, gCtx());
+      gSay('<p>The next real message, with character ' + (i + 1) + ' changed (' + esc(JSON.stringify(c)) + '):</p>' + gVerdict(a));
+      note('the gate', 'a one-character change refused at ' + a.stage, 'you changed it');
+    } else if (what === 'redirect') {
+      const t = await gNext(), other = S.rec.organisms['device-a'].id;
+      const a = await G.admit(t, gCtx(other));
+      gSay('<p>The next real message for this organism, delivered instead to organism <code>' + esc(other) + '</code> (Device A):</p>' + gVerdict(a));
+      note('the gate', 'a redirected message refused: ' + a.why, 'you redirected it');
+    } else if (what === 'stranger') {
+      const t = (await G.envelope({ kind: 'antibody', to: S.refOrg.id, n: 1, body: '0123456789abcdef stranger' }, S.stranger)).text;
+      const claimed = t.replace('from ' + S.stranger.pub, 'from ' + S.peer.pub);
+      const a = await G.admit(t, gCtx()), b = await G.admit(claimed, gCtx());
+      gSay('<p>Signed with a stranger’s key:</p>' + gVerdict(a) + '<p style="margin-top:8px">The same, claiming to be the trusted peer:</p>' + gVerdict(b));
+      note('the gate', 'a stranger refused (' + a.stage + '), and the stranger posing as the peer refused (' + b.stage + ')', 'you tried it');
+    } else if (what === 'lesson') {
+      const t = await gNext('lesson', COUNCIL_SHOP), a = await G.admit(t, gCtx());
+      if (!a.admit) { gSay(gVerdict(a)); return; }
+      S.gLast[a.msg.from] = a.msg.n; S.gLastText = t;
+      const w = G.weigh(a.msg, S.refOrg, { name: 'reference', data: S.subs.reference });
+      if (!S.lacking) S.lacking = (await germinate((await seal({ name: 'lacking', organs: S.seeds.slice(1) }, S.maker)).text, { name: 'lacking', data: S.subs.reference })).organism;
+      const w2 = G.weigh(a.msg, S.lacking, { name: 'reference', data: S.subs.reference });
+      gSay('<p>The peer offers a different shop recipe (<code>' + esc(COUNCIL_SHOP) + '</code>, grown by konomi-slm’s council). The message is admitted; the recipe is grown here, on this device’s own data:</p>' +
+        '<div class="answer">For this organism: ' + (w.adopt ? '<b class="ok-t">ADOPTED</b> at AUC ' + esc(w.organ.heldAuc) : '<b class="warn-t">NOT ADOPTED</b> — ' + esc(w.why)) + '</div>' +
+        '<div class="answer">For an organism with no shop organ: ' + (w2.adopt ? '<b class="ok-t">ADOPTED</b> — AUC ' + esc(w2.organ.heldAuc) + ' on this device’s unseen cases clears its bar' : '<b class="warn-t">NOT ADOPTED</b> — ' + esc(w2.why)) + '</div>');
+      note('the gate', 'a lesson weighed: ' + (w.adopt ? 'adopted' : w.why), 'the peer offered it');
+    } else if (what === 'child-cut' || what === 'child') {
+      if (what === 'child-cut') {
+        if (!S.noisyOrg) S.noisyOrg = (await germinate(S.origin, { name: 'shuffled-shopper', data: S.subs['shuffled-shopper'] })).organism;
+        const c = await G.replicate(S.origin, S.noisyOrg, { name: 'child', organs: ['shopper', 'triage'], gate: { auc: 0.6 } }, S.peer);
+        gSay('<p>On the noisy-shop device, breed a child carrying its shop organ (which was cut there) and its triage organ:</p>' + (c.ok ? '<b class="bad-t">SEALED — this should not happen</b>' : '<b class="bad-t">REFUSED</b> — ' + esc(c.why) + '.'));
+        note('the gate', 'breeding a cut organ refused: ' + (c.ok ? 'SEALED' : c.why), 'you tried it');
+      } else {
+        const c = await G.replicate(S.origin, S.refOrg, { name: 'child', organs: ['shopper', 'triage', 'water', 'crop'], gate: { auc: 0.65 } }, S.peer);
+        if (!c.ok) { gSay('<b class="bad-t">' + esc(c.why) + '</b>'); return; }
+        $('genome').value = c.text; checkGenome();
+        gSay('<p>A child of the origin genome, every organ proven on this device, its bar raised to 0.65, signed by the peer. It is now in box 1. Germinate it.</p><pre>' + esc(c.text) + '</pre>');
+        note('the gate', 'bred child genome ' + c.id + ' of ' + S.originId, 'you bred it');
+      }
+    }
+  } catch { gSay('<b class="bad-t">This browser could not run the gate (it needs Ed25519).</b>'); }
+}
+function renderGateRecord() {
+  if (!S.rec3) { $('g-rec').innerHTML = '<div class="note">The red team runs after its rules are sealed; this fills in when the sealed record is committed.</div>'; return; }
+  const i = S.rec3.input, k = S.rec3.knowledge, r = S.rec3.replication;
+  $('g-rec').innerHTML = '<div class="kpis"><div class="kpi"><div class="v">' + n(i.breached) + '/' + n(i.attacksTried) + '</div><div class="l">attacks admitted</div></div><div class="kpi"><div class="v">' + i.legitAdmitted + '/' + i.legit + '</div><div class="l">real messages admitted, in order</div></div><div class="kpi"><div class="v">' + k.adopted + '/' + k.weighings.length + '</div><div class="l">lessons adopted</div></div><div class="kpi"><div class="v">' + r.refusals.filter((x) => !x.sealed).length + '/' + r.refusals.length + '</div><div class="l">forbidden children refused</div></div></div>' +
+    '<div class="tw"><table><thead><tr><th>Attack</th><th>Tried</th><th>Admitted</th><th>Refused at</th></tr></thead><tbody>' + Object.entries(i.attacks).map(([f, a]) => '<tr><td>' + esc(f) + '</td><td class="num">' + n(a.tried) + '</td><td class="num">' + a.admitted + '</td><td class="dim">' + Object.entries(a.stages).map(([s, c]) => esc(s) + ' ' + n(c)).join(' · ') + '</td></tr>').join('') + '</tbody></table></div>' +
+    '<details><summary>Every lesson weighed (' + k.weighings.length + ')</summary><div class="tw"><table><thead><tr><th>Device</th><th>Organism</th><th>Lesson</th><th>Decision</th></tr></thead><tbody>' + k.weighings.map((w) => '<tr><td>' + esc(w.device) + '</td><td>' + esc(w.organism) + '</td><td class="num">' + esc(w.lesson) + '</td><td>' + (w.adopt ? '<span class="ok-t">' : '<span class="dim">') + esc(w.why) + '</span></td></tr>').join('') + '</tbody></table></div></details>' +
+    '<details><summary>Three generations, and every forbidden child</summary><ol class="rules">' + r.lineage.map((g) => '<li>generation ' + g.gen + ': genome ' + esc(g.id) + ', parent ' + esc(g.parent) + ', bar ' + esc(g.gate) + ', ' + g.live + ' organs live</li>').join('') + '</ol><ul class="rules">' + r.refusals.map((x) => '<li>' + esc(x.attempt) + ' → ' + (x.sealed ? '<span class="bad-t">SEALED</span>' : 'refused: ' + esc(x.why)) + '</li>').join('') + '</ul></details>';
+  if (S.pre3 && S.ver3) {
+    const v = Object.fromEntries(S.ver3.verdicts.map((x) => [x.id, x]));
+    $('rules3').querySelector('tbody').innerHTML = S.pre3.rules.map((q) => { const x = v[q.id] || { pass: false, saw: 'no verdict' }; return '<tr><td><b>' + esc(q.id) + '</b></td><td>' + (q.kind === 'prediction' ? '<span class="chip pred">prediction</span>' : '<span class="chip">property</span>') + '</td><td>' + esc(q.claim) + '</td><td class="dim">' + esc(q.seenBeforeSeal) + '</td><td>' + (x.pass ? '<span class="chip pass">PASS</span>' : '<span class="chip fail">FAIL</span>') + '</td><td class="dim">' + esc(x.saw) + '</td></tr>'; }).join('');
+  }
+}
+
+async function bootBody() {
+  const ref = (await germinate(S.origin, { name: 'reference', data: S.subs.reference })).organism;
+  S.refOrg = ref;
+  S.body = B.embody(ref, { name: 'reference', data: S.subs.reference }).body;
+  organInWords(S.body.patterns.shopper);
+  S.peer = await fromSeed(sha256Bytes(utf8('living-seed/maker/peer-1')));
+  S.stranger = await fromSeed(sha256Bytes(utf8('living-seed/maker/stranger')));
+  S.gLast = {};
+  for (const id of GATE_BUTTONS) $(id).disabled = false;
+  gSay('<p class="dim">A trusted peer (another demo key from a public phrase) may send this organism lessons and antibodies. Send it something, then try to get something past the gate.</p>');
+  S.mem = B.memory();
+  let c = B.cube();
+  for (const f of [{ key: 'genome', value: S.originId, source: 'germination', ts: 1 }, { key: 'organism', value: ref.id, source: 'germination', ts: 1 }, { key: 'live organs', value: Object.keys(S.body.patterns), source: 'germination', ts: 1 }]) c = B.cubeWrite(c, f).cube;
+  S.cube = c;
+  note('germination', 'the origin genome grew organism ' + ref.id + ' on the reference data: ' + Object.keys(S.body.patterns).join(', ') + ' live', 'the body forms');
+  for (const id of ['b-real', 'b-far', 'b-half']) $(id).disabled = false;
+  $('b-out').innerHTML = '<p class="dim">The body formed: ' + Object.keys(S.body.patterns).length + ' organs, each with the shape of the data it grew on. Hand it a case.</p>';
 }
 
 async function boot() {
-  for (const id of ['c-sites', 'c-mb', 'c-upd', 'c-rec']) $(id).addEventListener('input', renderCalc);
+  for (const id of ['c-sites', 'c-mb', 'c-upd', 'c-rec', 'c-gbp', 'c-recp']) $(id).addEventListener('input', renderCalc);
+  for (const id of ['b-real', 'b-far', 'b-half']) $(id).disabled = true;
+  // organ 2's record, if it is committed yet — fetched (and settled) before anything is grown, so the network trap
+  // around germination never meets one of the page's own loads
+  const states = get('data/organs.json').catch(() => ({}));
+  const recordOf = (k) => states.then((s) => (s[k] === 'measured' ? Promise.all(['record', 'prereg', 'verdict'].map((f) => get('data/organ-' + k + '/' + f + '.json'))) : null)).catch(() => null);
+  const organ2 = recordOf(2).then((x) => { if (x) [S.rec2, S.pre2, S.ver2] = x; });
+  const organ3 = recordOf(3).then((x) => { if (x) [S.rec3, S.pre3, S.ver3] = x; });
+  for (const id of GATE_BUTTONS) $(id).disabled = true;
   renderCalc();
   renderDevices();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
@@ -712,7 +1012,12 @@ async function boot() {
   const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
+  await organ2; await organ3;
+  renderContest(); renderGateRecord();
+  const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
+  for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
+  await bootBody();
   for (const id of ['grow', 'rerun']) $(id).disabled = false;
   await checkGenome();
   renderAsk();
@@ -729,6 +1034,17 @@ $('ask-case').addEventListener('change', renderAsk);
 $('ask-next').addEventListener('click', () => { const ds = S.data && S.data[$('ask-domain').value]; if (!ds) return; $('ask-case').value = 1 + Math.floor(Math.random() * ds.heldRows.length); renderAsk(); });
 $('ask-go').addEventListener('click', ask);
 $('rerun').addEventListener('click', rerun);
+$('b-real').addEventListener('click', () => bodyAsk('real'));
+$('b-far').addEventListener('click', () => bodyAsk('far'));
+$('b-half').addEventListener('click', () => bodyAsk('half'));
+$('b-tamper').addEventListener('click', tamperReceipt);
+$('k-write').addEventListener('click', cubeWriteNow);
+$('k-read').addEventListener('click', () => cubeReadNow(false));
+$('k-read-src').addEventListener('click', () => cubeReadNow(true));
+$('m-go').addEventListener('click', recallNow);
+$('m-q').addEventListener('keydown', (e) => { if (e.key === 'Enter') recallNow(); });
+$('m-tamper').addEventListener('click', tamperMemory);
+for (const id of GATE_BUTTONS) $(id).addEventListener('click', () => gAct(id.slice(2)));
 $('mk-seal').addEventListener('click', async () => {
   const st = $('mk-status');
   try {
@@ -739,6 +1055,7 @@ $('mk-seal').addEventListener('click', async () => {
     if (![...$('trust').options].some((o) => o.value === 'mine')) $('trust').insertAdjacentHTML('beforeend', '<option value="mine">only my new key</option>');
     $('genome').value = r.text; $('growhint').textContent = '';
     st.innerHTML = '<span class="ok-t">Sealed.</span> Genome <code>' + esc(r.id) + '</code> by your key <code>' + short(S.mine.pub) + '</code> — now in box 1. Germinate it.';
+    note('a new genome', 'sealed genome ' + r.id + ' (' + organs.length + ' organs, gate ' + $('mk-gate').value + ') with a key made in this tab', 'you made it');
     checkGenome();
   } catch { st.innerHTML = '<span class="bad-t">This browser could not make an Ed25519 key.</span>'; }
 });

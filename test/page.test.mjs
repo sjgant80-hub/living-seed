@@ -45,9 +45,12 @@ test('every element the script reaches for is on the page; no id is defined twic
   const wanted = new Set([...script.matchAll(/\$\('([^']+)'\)/g)].map((m) => m[1]));
   assert.ok(wanted.size > 25);
   assert.deepEqual([...wanted].filter((x) => !ids.includes(x)), [], 'the script reaches for an element that is not there');
-  // and every control on the page is wired: each button id is used by the script
+  // and every control on the page is wired: each button id is named by the script (by $('id') or in a list it wires)
+  const named = new Set([...script.matchAll(/'([a-z0-9-]+)'/g)].map((m) => m[1]));
   const buttons = [...html.matchAll(/<button id="([^"]+)"/g)].map((m) => m[1]);
-  assert.deepEqual(buttons.filter((b) => !wanted.has(b)), [], 'a dead button');
+  assert.deepEqual(buttons.filter((b) => !named.has(b)), [], 'a dead button');
+  const lists = [...script.matchAll(/const [A-Z_]+ = \[([^\]]*)\];\n/g)].flatMap((m) => [...m[1].matchAll(/'([a-z0-9-]+)'/g)].map((x) => x[1])).filter((x) => /^[a-z]-/.test(x));
+  assert.deepEqual(lists.filter((x) => !ids.includes(x)), [], 'a wired list names an element that is not there');
 });
 
 test('every in-page link lands, every colour token is defined, every form control has a label', () => {

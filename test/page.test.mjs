@@ -120,6 +120,35 @@ test('the header’s tally is the sum of every committed verdict, failures inclu
   assert.equal(tally.red, String(vs.filter((v) => !v.pass && v.kind !== 'prediction').length));
 });
 
+test('organ 9’s section prints the numbers its two records hold', () => {
+  const sec = html.slice(html.indexOf('<section id="immune"'), html.indexOf('</section>', html.indexOf('<section id="immune"')));
+  const r = JSON.parse(read('data/organ-9/record.json')), b = JSON.parse(read('data/organ-9b/record.json'));
+  const gb = (x) => Number(x).toLocaleString('en-GB'), has = (s, what) => assert.ok(sec.includes(s), what + ': ' + s);
+  has('<b>' + gb(r.organ8.flood.tried) + '</b> forgeries', 'the flood');
+  assert.equal(r.organ8.flood.checked, r.organ8.flood.tried, 'organ 8 checked every one');
+  has('<b>' + gb(r.organ9.flood.checked) + '</b> (' + Math.round((r.organ9.flood.checked / r.organ8.flood.checked) * 1000) / 10 + '%)', 'organ 9’s checks');
+  assert.equal(r.organ9.rounds.slice(-5).reduce((a, x) => a + x.flood.checked, 0), 0, 'none in the last five');
+  has(gb(r.organ9.flood.attackerHashes) + ' hashes', 'the attacker’s work');
+  has('<b>round ' + r.attack.theftAt + '</b>', 'the theft round');
+  assert.equal(r.organ9.thief.everyHonestRevokedBy, r.attack.theftAt);
+  assert.equal(r.organ9.thief.toFarm, 0, 'no task went to the thief');
+  assert.equal(r.organ9.immune.revokes.filter((e) => e.why === 'proof').map((e) => e.by).join(), 'north', 'north caught the clash');
+  has('taken over in round ' + r.attack.takeoverAt, 'the takeover');
+  has('claiming ' + r.attack.claim, 'what it claimed');
+  assert.equal(b.organ9b.takeover.everyHonestCutBy, r.attack.takeoverAt, 'cut that same round');
+  has('sent ' + b.organ9b.takeover.toSouth + ' cases', '9b’s cases to south');
+  has('<b>' + r.organ8.takeover.toSouth + '</b> under organ 8', 'organ 8’s');
+  has('reached <b>' + gb(r.organ8.immune.memoryMax) + '</b>', 'organ 8’s memory');
+  has('peaked at ' + r.organ9.immune.memoryMax, 'organ 9’s memory');
+  has('cap of ' + r.cap, 'the cap');
+  has('as far as ' + r.calibration.top.drift, 'the single mix’s honest swing');
+  assert.equal(r.calibration.limits.drift, 1, 'its limit hit the ceiling');
+  has('honest rounds reached ' + b.calibration.top.claims, 'the claims channel');
+  has('the takeover reached ' + Math.min(...b.organ9b.immune.cuts.filter((c) => c.of === 'south').map((c) => c.claims)), 'the takeover’s claims drift');
+  assert.equal(b.calibration.top.conduct, 1, 'conduct reached 1');
+  has('answered ' + r.organ9.tasks.rightCount + ' tasks right against organ 8’s ' + r.organ8.tasks.rightCount, 'the cost');
+});
+
 test('every commit the receipt links to exists in this repository’s history', () => {
   const shas = [...new Set([...html.matchAll(/commit\/([0-9a-f]{40})/g)].map((m) => m[1]))];
   assert.equal(shas.length, 4);

@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-C/xBwN1y4qOwrz3xfuyaIvbxhi28ngglPn0ZA0jZ/io='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-gL65ePlRIhuC+8Ll06UeRkUMwIwA6uEzn0FtAByL8Pk='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
-<meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: organs 1 to 8 so far, 49 of 60 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
+<meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: organs 1 to 9 so far, 65 of 79 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
 <link rel="canonical" href="https://sjgant80-hub.github.io/living-seed/" />
 <meta property="og:title" content="The Living Seed — a genome that grows a verified AI on your own device" />
-<meta property="og:description" content="496 signed bytes → a working organism grown from the device's own data, offline. It answers only where it has earned it. Organs 1 to 8 of 12, each measured against rules sealed before the run, failures kept." />
+<meta property="og:description" content="496 signed bytes → a working organism grown from the device's own data, offline. It answers only where it has earned it. Organs 1 to 9 of 12, each measured against rules sealed before the run, failures kept." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sjgant80-hub.github.io/living-seed/" />
 <link rel="manifest" href="manifest.webmanifest" />
@@ -125,11 +125,11 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
 <header id="top">
   <h1>The <span class="x">Living</span> Seed</h1>
   <p class="lede"><b>A 496-byte genome that grows a working, verified AI on whatever device it lands on</b> — from that device’s own records, offline. Each part of the AI must prove itself on past cases it never trained on, or it is switched off and says “I don’t know”. Change a single byte of the genome and nothing grows.</p>
-  <p class="tag">This page runs the real thing: the same code that its tests, its mutation gate and its pre-registered measurement prove, in your browser, on nothing but this page’s own files. The Living Seed is built from twelve organs, each one measured against rules sealed before it ran and allowed to fail. Organs 1 to 8 are on this page: genome, body, gate, evolution, cards, self-powering, self-model and mesh.</p>
+  <p class="tag">This page runs the real thing: the same code that its tests, its mutation gate and its pre-registered measurement prove, in your browser, on nothing but this page’s own files. The Living Seed is built from twelve organs, each one measured against rules sealed before it ran and allowed to fail. Organs 1 to 9 are on this page: genome, body, gate, evolution, cards, self-powering, self-model, mesh and the immune system.</p>
   <div class="pills" id="tally">
-    <span class="pill ok">organs 1–8 of 12 · each sealed, then measured</span>
-    <span class="pill ok"><span data-tally="held">49 of 60</span> sealed rules held across <span data-tally="tests">10</span> sealed tests</span>
-    <span class="pill warn"><span data-tally="failed">11</span> predictions failed · every one kept</span>
+    <span class="pill ok">organs 1–9 of 12 · each sealed, then measured</span>
+    <span class="pill ok"><span data-tally="held">65 of 79</span> sealed rules held across <span data-tally="tests">12</span> sealed tests</span>
+    <span class="pill warn"><span data-tally="failed">14</span> predictions failed · every one kept</span>
     <span class="pill ok"><span data-tally="red">0</span> properties red</span>
     <span class="pill ok">organ 1 · 9 / 9 sealed rules held</span>
     <span class="pill ok">mutation gate CLEAN on every kernel, every push</span>
@@ -150,6 +150,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#cards">Organ 5 · cards</a></li>
       <li><a href="#power">Organs 6–7</a></li>
       <li><a href="#mesh">Organ 8 · mesh</a></li>
+      <li><a href="#immune">Organ 9 · immune</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -452,8 +453,33 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <div id="r8" role="status" aria-live="polite"></div>
 </section>
 
+<section id="immune" aria-labelledby="immune-h">
+  <h2 id="immune-h"><span class="n">11</span>Organ 9 · The immune system</h2>
+  <p class="lede">Every attack makes it stronger, and it never turns on itself. The gate already refuses anything not signed by a trusted key. This organ deals with what a gate alone cannot: a flood of forgeries, a stolen key, and a node taken over by someone else.</p>
+  <div class="grid two">
+    <div class="panel"><h4>The rebound — attacks pay for themselves</h4><p>A link the gate keeps refusing gets 16 refusals free. After that it must attach proof-of-work before its bytes are even looked at. The work it owes rises with every refusal and never falls. Refusing it costs this node one hash, and nothing is sent back. In the sealed run a flood of <b>5,040</b> forgeries cost organ 8 a signature check each. Organ 9 checked <b>400</b> (7.9%), and <b>none</b> in the flood’s last five rounds. The attacker burned 667,591 hashes buying looks, and every one was refused.</p></div>
+    <div class="panel"><h4>Proofs — herd immunity that cannot be faked</h4><p>An honest node’s counter only goes up. So a key that signs two different messages on the same counter is in two hands, and the two signed messages <b>are the proof</b>. Every node rebuilds both and checks both signatures itself before it acts. A proof against an honest key cannot be made, so no node can be smeared. When farm’s key was stolen, north caught the clash. The other four nodes checked north’s proof and revoked the key, all in <b>round 10</b>, the round it was stolen. No task went to the thief.</p></div>
+    <div class="panel"><h4>The watch — behaviour, not identity</h4><p>A key stolen outright leaves no clash to catch. What the new holder does instead is behave unlike the owner. Each node keeps a baseline of what each peer <i>claims</i>, how it otherwise <i>conducts</i> itself, and how much it sends. It cuts off a peer whose round departs further than honest rounds were measured to. The limits come from honest behaviour alone, so no attack is ever needed to train them. South was taken over in round 14 and began claiming 0.97 at everything. Every honest node cut it off <b>that same round</b>. It was sent 4 cases from then on, against <b>37</b> under organ 8.</p><p class="dim" style="font-size:13px">After Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — “GEP-Based Security: Behavioral Entropy Signatures for Cybersecurity and DevOps,” 2025 (open defensive prior art, CC BY 4.0): identity is not enough; behaviour is authoritative.</p></div>
+    <div class="panel"><h4>A memory that is not a way in</h4><p>Bytes a node refused are remembered and refused on sight, in a memory that never grows past its cap of 256. Under the same flood organ 8’s uncapped memory reached <b>5,323</b>, while organ 9’s peaked at 185. Behaviour judgements stay with the node that made them: another node cannot re-run them, so they are never spread.</p></div>
+  </div>
+  <div class="note honest"><b>What failed, and what was found.</b> While building this organ we found that organ 8’s shared fingerprints protected nothing. Every message is addressed to one organism, so every other node’s gate already refused those bytes at its shape check, more cheaply than a hash. They are gone, and proofs replace them. The first watch failed: it kept one mix of everything a peer sent, and honest rounds swung as far as 0.8 on a handful of tasks. Its limit hit the ceiling of 1, so it could cut no one, and the takeover went uncaught. That is why organ 9’s own “no false cuts” pass is hollow. The second attempt (9b) keeps the channels apart, as Gary W. Floyd’s method does. The claims channel did the work there: honest rounds reached 0.5, set by a node growing a specialist, and the takeover reached 0.75. The conduct channel reached 1 on honest rounds, so it tells nothing apart on its own.<br>Revoking a stolen key also cuts off its real owner until it re-keys: farm’s own requests to the others went unanswered, and organ 9 answered 234 tasks right against organ 8’s 241. Under organ 8 the stolen key kept half-working for farm and the thief alike, racing each other on the counter. Our seal had said farm was lost under either organ; for organ 8 that was wrong. Finally, the mesh runs in one process with no real timing, so the “too regular” half of Gary W. Floyd’s method is not measured here. The attackers’ moves were fixed in advance; an outside adversary is the third receipt.</div>
+  <div class="panel" style="margin-top:14px">
+    <h3>15 · The sealed attack, run here</h3>
+    <p class="dim">The same six organisms, under the same three attacks at once: a forgery flood that pays the rebound, a thief using farm’s stolen key, and south taken over in round 14. Every message is signed and gated, using organ 9b’s watch and the limits its calibration set. It takes up to a minute, because the attacker really does its proof-of-work: hundreds of thousands of hashes, in your browser.</p>
+    <div class="row"><button id="imm-go" type="button" class="primary" disabled>Attack the mesh here</button></div>
+    <div id="imm-out" role="status" aria-live="polite"></div>
+  </div>
+  <div class="panel" style="margin-top:14px">
+    <h3>16 · Try to smear an honest node</h3>
+    <p class="dim">Write a “proof” that north signed two messages on one counter, then send it to clinic. Clinic checks it the way every node does. Then let a demo key really sign twice, and watch the same check accept it.</p>
+    <div class="row"><button id="smear-go" type="button" disabled>Forge a proof against north</button><button id="smear-real" type="button" disabled>A key really signs twice</button></div>
+    <div id="smear-out" role="status" aria-live="polite"></div>
+  </div>
+  <div id="r9" role="status" aria-live="polite"></div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">11</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">12</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -480,12 +506,21 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <div class="tw"><table>
     <thead><tr><th>File</th><th>Role</th></tr></thead>
     <tbody>
-      <tr><td><code>src/genome.mjs</code></td><td>The genome: format, seal, open (verify before parse). Mutation-gated, 41/41 mutants caught.</td></tr>
-      <tr><td><code>src/germinate.mjs</code></td><td>Germination Γ: grows each organ on the device’s data, applies the gate, answers or abstains. 28/28 mutants caught.</td></tr>
-      <tr><td><code>vendor/seed-library/</code></td><td>The universal ribosome and the four domains, vendored unchanged from <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a> @ <code>b7a93f8</code>.</td></tr>
+      <tr><td><code>src/genome.mjs</code></td><td>Organ 1 · the genome: format, seal, open (verify before parse).</td></tr>
+      <tr><td><code>src/germinate.mjs</code></td><td>Organ 1 · germination Γ: grows each organ on the device’s data, applies the gate, answers or abstains.</td></tr>
+      <tr><td><code>src/body.mjs</code></td><td>Organ 2 · the body: patterns that route and abstain far from their data, the exact-fact cube, the tamper-evident memory, the model slot that only proposes.</td></tr>
+      <tr><td><code>src/gate.mjs</code></td><td>Organ 3 · the gate: messages checked on raw bytes before a field is read; lessons grown here before they are trusted; children carry only proven organs.</td></tr>
+      <tr><td><code>src/evolve.mjs</code></td><td>Organ 4 · variation and selection, judged blind on held-out folds.</td></tr>
+      <tr><td><code>src/card.mjs · src/breed.mjs</code></td><td>Organ 5 · the genome in a picture, and breeding two genomes into a verified child.</td></tr>
+      <tr><td><code>src/recycle.mjs</code></td><td>Organ 6 · the pool: work done once, reused exactly.</td></tr>
+      <tr><td><code>src/psi.mjs</code></td><td>Organ 7 · the self-model: its own correctness, predicted and climbed to a fixed point.</td></tr>
+      <tr><td><code>src/mesh.mjs</code></td><td>Organ 8 · the mesh: advertise, route, learn, grow specialists, survive loss.</td></tr>
+      <tr><td><code>src/immune.mjs</code></td><td>Organ 9 · the immune system: bounded memory, the rebound, proofs a key is in two hands, the watch on behaviour.</td></tr>
+      <tr><td><code>vendor/seed-library/</code></td><td>The universal ribosome and the domains, vendored unchanged from <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a> @ <code>b7a93f8</code>.</td></tr>
       <tr><td><code>vendor/keys/</code></td><td>Ed25519 through WebCrypto — the same code in Node and the browser — from <code>sovereign-enterprise</code> @ <code>21f838b</code>.</td></tr>
-      <tr><td><code>tools/seal.mjs · measure.mjs · judge.mjs · order.mjs</code></td><td>The pre-registration, the deterministic measurement, the judge with its rules written as code, and the order proof from git.</td></tr>
-      <tr><td><code>data/prereg.json · record.json · verdict.json</code></td><td>The seal, the measurement, the verdict.</td></tr>
+      <tr><td><code>witness-all.mjs</code></td><td>The mutation gate: every kernel above, mutated line by line; CI fails if a single mutant survives its tests.</td></tr>
+      <tr><td><code>tools/seal-N · measure-N · judge-N · order.mjs</code></td><td>Per organ: the pre-registration, the deterministic measurement, the judge with its rules written as code, and the order proof from git that the seal came first.</td></tr>
+      <tr><td><code>data/organ-N/ · prereg · record · verdict</code></td><td>Each organ’s seal, measurement and verdict — failures included. CI re-runs every one on every push.</td></tr>
       <tr><td><code>index.html</code></td><td>This page. It imports the kernels above, so what you run here is the code the gate proves.</td></tr>
     </tbody>
   </table></div>
@@ -502,7 +537,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>6</td><td><b>Self-powering</b></td><td>Germination and improvement run cheap — work done once, reused exactly (<a href="#power">organ 6</a>).</td><td><span class="chip live">proven · 4/4 sealed</span></td></tr>
       <tr><td>7</td><td><b>Self-model</b></td><td>Its prediction of its own correctness beats its base rate and settles to a fixed point — measured, never declared (<a href="#power">organ 7</a>).</td><td><span class="chip live">proven · 4/4 sealed</span></td></tr>
       <tr><td>8</td><td><b>Mesh</b></td><td>Organisms couple, route, grow the specialists they lack, find out an over-claimer and survive loss and partition (<a href="#mesh">organ 8</a>).</td><td><span class="chip live">measured · three runs, failures kept</span></td></tr>
-      <tr><td>9</td><td>Immune system</td><td>Attacks are captured as antibodies and shared; it holds under outside red-team.</td><td><span class="chip">in order</span></td></tr>
+      <tr><td>9</td><td><b>Immune system</b></td><td>Attacks make it stronger and it never turns on itself: the rebound, proofs a key is in two hands, a watch on behaviour, a memory with a cap (<a href="#immune">organ 9</a>). The outside red-team is the third receipt.</td><td><span class="chip live">measured · two runs, failures kept</span></td></tr>
       <tr><td>10</td><td>Alignment</td><td>It cannot act on what is unproven; it audits itself by structure.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>11</td><td>The full organism</td><td>All organs composed, the life cycle running end to end on real devices.</td><td><span class="chip">in order</span></td></tr>
       <tr><td>12</td><td>The three receipts</td><td>It improved this week on its own hardware; the mesh stayed consistent on N real devices; an outside adversary could not break it.</td><td><span class="chip">in order</span></td></tr>
@@ -511,7 +546,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">12</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">13</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -616,7 +651,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">13</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">14</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
     <h3>Abstract</h3>
@@ -660,7 +695,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">14</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">15</span>Questions</h2>
   <details><summary>Is this a language model?</summary><p>No. Nothing that runs in germination or in an answer is a language model. Each organ is a sum of readable threshold rules.</p></details>
   <details><summary>Where does the data on this page come from?</summary><p>From this page’s own files, loaded once and cached for offline use: the UCI Online Shoppers Purchasing Intention dataset (real), and seed-library’s three synthetic domains, generated in your browser. Nothing is fetched while it grows.</p></details>
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
@@ -686,6 +721,7 @@ import { breed } from './src/breed.mjs';
 import * as R from './src/recycle.mjs';
 import * as P from './src/psi.mjs';
 import * as M from './src/mesh.mjs';
+import * as I from './src/immune.mjs';
 import { operatingPoint } from './src/germinate.mjs';
 import { decodeSeed, fit as ribosomeFit } from './vendor/seed-library/seedlib.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
@@ -1214,8 +1250,8 @@ function render67() {
 // ── organ 8: the mesh, run here and replayed in 3D (the view after Simon’s mesh-live-3d.html, fed real events) ──
 const MESH_COLORS = { north: '#45d0a8', south: '#6ab0ff', 'shop-floor': '#ffcf5c', clinic: '#ff8a65', farm: '#a5d6a7', noisy: '#b58cff' };
 const FLOW_COLORS = { task: '#6ab0ff', reply: '#45d0a8', lesson: '#ffcf5c', antibody: '#ff6b6b', grow: '#ffcf5c' };
-async function meshRun() {
-  // the six nodes, built exactly as tools/measure-8.mjs builds them
+/** the six nodes, built exactly as tools/measure-8.mjs builds them (organ 9 uses the same six) */
+async function sixNodes() {
   const third = (ds, k) => ({ ...ds, trainRows: ds.trainRows.filter((i) => i % 3 === k) }), all = (k) => Object.fromEntries(DOMAIN_IDS.map((d) => [d, third(S.data[d], k)]));
   const plan = [
     { name: 'north', organs: DOMAIN_IDS, data: all(0) }, { name: 'south', organs: DOMAIN_IDS, data: all(1) },
@@ -1229,6 +1265,10 @@ async function meshRun() {
     const k = await fromSeed(sha256Bytes(utf8('living-seed/maker/mesh-' + p.name))), g = await seal({ name: p.name, parents: [], gate: { auc: 0.6 }, organs: p.organs.map((d) => S.seeds[DOMAIN_IDS.indexOf(d)]) }, k);
     nodes.push((await M.node(p.name, g.text, { name: p.name, data: p.data }, k)).node);
   }
+  return nodes;
+}
+async function meshRun() {
+  const nodes = await sixNodes();
   const cut = { on: false }, west = new Set(['north', 'clinic', 'farm']), m = M.mesh(nodes, { cut: (a, b) => cut.on && west.has(a) !== west.has(b) });
   const work = M.tasks(S.data, nodes.map((x) => x.name), 24 * 12, 81), frames = [], grown = [];
   let answered = 0, attacksAdmitted = 0;
@@ -1306,6 +1346,85 @@ async function meshGo() {
   if (!MV.looping) { MV.looping = true; requestAnimationFrame(meshDraw); }
   $('mesh-go').disabled = false;
 }
+// ── organ 9: the sealed attack, run here — as tools/measure-9.mjs’s trial runs it, with organ 9b’s watch ──
+const HONEST9 = ['north', 'shop-floor', 'clinic', 'noisy'], CHECKED = ['signature', 'counter', 'canonical', 'admitted'];
+async function immuneRun(onRound) {
+  const nodes = await sixNodes(), m = M.mesh(nodes, { learn: 'evidence', immune: { cap: 256, law: I.LAW, channels: true, limits: S.rec9b.calibration.limits } });
+  const work = M.tasks(S.data, nodes.map((x) => x.name), 24 * 12, S.rec9b.draw);
+  const fr = rng(13), hex = (k) => Array.from({ length: k }, () => '0123456789abcdef'[Math.floor(fr() * 16)]).join('');
+  let stolen = null, checked = 0, hashes = 0, right = 0;
+  const rounds = [];
+  for (let round = 1; round <= 24; round++) {
+    const c0 = checked, h0 = hashes;
+    if (round === 10) { const farm = m.byName.get('farm'); stolen = { keys: farm.keys, outN: new Map(farm.outN) }; }
+    if (round === 14) m.byName.get('south').claims = Object.fromEntries(DOMAIN_IDS.map((d) => [d, 0.97]));
+    if (stolen) for (const b of nodes) if (b.name !== 'farm') for (const d of DOMAIN_IDS) {   // the thief gets in first
+      const k = (stolen.outN.get(b.pub) || 0) + 1;
+      stolen.outN.set(b.pub, k);
+      await m.deliver(b, (await G.envelope({ kind: 'advert', to: b.org.id, n: k, body: d + ' 0.95 1000' }, stolen.keys, m.grammar)).text, 'thief', undefined, round);
+    }
+    await m.gossip(round);
+    for (const t of work.slice((round - 1) * 12, round * 12)) if ((await m.task(m.byName.get(t.at), t.domain, t.x, t.truth, round, t.id)).right) right++;
+    m.fade(round);
+    if (round >= 4) for (const link of ['x1', 'x2']) {   // the flood: 20 forgeries a node a link, and 2^14 hashes a link to pay with
+      let budget = 1 << 14;
+      for (const b of nodes) for (let k = 0; k < 20; k++) {
+        const others = nodes.filter((x) => x !== b), as = others[Math.floor(fr() * others.length)];
+        const text = ['◊ msg.v1 advert', 'from ' + as.pub, 'to ' + b.org.id, 'n ' + (1 + Math.floor(fr() * 999)), 'body shopper 0.9' + Math.floor(fr() * 10) + ' 100', 'sig ' + hex(128)].join('\n');
+        const bits = b.sentinel.rebound.owes(link);
+        let nonce;
+        if (bits > 0 && budget > 0) { const s = I.solve(link, text, bits, budget); budget -= s.spent; hashes += s.spent; if (s.nonce !== null) nonce = s.nonce; }
+        if (CHECKED.includes((await m.deliver(b, text, link, nonce, round)).stage)) checked++;
+      }
+    }
+    await m.grow(round);
+    m.watch(round);
+    rounds.push({ round, checked: checked - c0, hashes: hashes - h0, revokes: m.log.filter((e) => e.round === round && e.type === 'revoke') });
+    if (onRound) await onRound(round);
+  }
+  const revokes = m.log.filter((e) => e.type === 'revoke');
+  const allBy = (of) => { const rs = HONEST9.map((h) => revokes.find((e) => e.from === h && e.to === of)); return rs.every(Boolean) ? Math.max(...rs.map((e) => e.round)) : null; };
+  return { rounds, checked, hashes, right, total: work.length, farmBy: allBy('farm'), southBy: allBy('south'), toSouth: m.log.filter((e) => e.type === 'task' && e.to === 'south' && e.round >= 14 && e.ok).length, sent: m.stats.sent };
+}
+async function immuneGo() {
+  $('imm-go').disabled = true;
+  const t0 = performance.now();
+  $('imm-out').innerHTML = '<div class="status">Attacking: round 1 of 24…</div>';
+  const run = await immuneRun((r) => new Promise((ok) => { $('imm-out').innerHTML = '<div class="status">Attacking: round ' + r + ' of 24…</div>'; setTimeout(ok, 0); }));
+  const ms = Math.round(performance.now() - t0), ci = S.rec9b.organ9b, o8 = S.rec9.organ8.rounds;
+  const same = run.checked === ci.flood.checked && run.hashes === ci.flood.attackerHashes && run.farmBy === ci.thief.everyHonestRevokedBy && run.southBy === ci.takeover.everyHonestCutBy && run.toSouth === ci.takeover.toSouth && run.right === ci.tasks.rightCount;
+  const bar = (v, max, c) => '<span style="display:inline-block;height:9px;width:' + Math.round((v / max) * 120) + 'px;background:' + c + ';border-radius:2px;vertical-align:middle"></span>';
+  const said = (r) => {
+    const by = (why) => r.revokes.filter((e) => e.why.startsWith(why));
+    const out = [];
+    if (r.round === 4) out.push('the flood starts');
+    if (r.round === 10) out.push('farm’s key is stolen; ' + by('proof').map((e) => e.from).join(', ') + ' revoked it (' + by('proof').filter((e) => e.why === 'proof').map((e) => e.from).join(', ') + ' caught the clash, the rest checked its proof)');
+    if (r.round === 14) out.push('south is taken over; cut off by ' + by('behaviour').map((e) => e.from).join(', ') + ' — by what it claimed');
+    return out.join('; ');
+  };
+  $('imm-out').innerHTML = '<div class="status ' + (same ? 'ok' : 'bad') + '">' + (same ? '<span class="ok-t">✓ the same run CI sealed</span>' : '<span class="bad-t">✗ differs from CI’s record</span>') + ' — ' + n(run.sent) + ' signed messages in ' + n(ms) + ' ms. Forgeries whose signature was checked: <b>' + n(run.checked) + '</b> (organ 8: ' + n(S.rec9.organ8.flood.checked) + '). The attacker spent ' + n(run.hashes) + ' hashes. Farm’s stolen key revoked everywhere by round ' + run.farmBy + '; south cut off everywhere by round ' + run.southBy + ', and sent ' + run.toSouth + ' cases from round 14 (organ 8: ' + S.rec9.organ8.takeover.toSouth + '). ' + run.right + ' of ' + run.total + ' tasks answered right.</div>' +
+    '<div class="tw"><table><thead><tr><th>Round</th><th>Signatures checked on forgeries — organ 9 here · <span style="color:var(--warn)">organ 8</span></th><th>Attacker’s hashes</th><th>What happened</th></tr></thead><tbody>' +
+    run.rounds.map((r, i) => '<tr><td class="num">' + r.round + '</td><td>' + bar(r.checked, 240, 'var(--accent)') + ' <span class="mono">' + r.checked + '</span><br>' + bar(o8[i].flood.checked, 240, 'var(--warn)') + ' <span class="mono">' + o8[i].flood.checked + '</span></td><td class="num">' + n(r.hashes) + '</td><td>' + esc(said(r)) + '</td></tr>').join('') + '</tbody></table></div>';
+  note('the immune system', 'attacked the sealed mesh here: ' + run.checked + ' forgeries checked, the stolen key revoked in round ' + run.farmBy + ', the takeover cut in round ' + run.southBy, 'you ran it');
+  $('imm-go').disabled = false;
+}
+async function smearGo(real) {
+  const g = M.mesh([], { immune: { cap: 1, law: I.LAW, limits: { drift: 1, volume: 1 } } }).grammar;
+  const north = await fromSeed(sha256Bytes(utf8('living-seed/maker/mesh-north'))), clinicId = 'c11a1c0000000000';
+  const signer = real ? await fromSeed(sha256Bytes(utf8('living-seed/maker/demo-twice'))) : await fromSeed(sha256Bytes(utf8('living-seed/maker/demo-forger')));
+  const two = [await G.envelope({ kind: 'advert', to: clinicId, n: 7, body: 'crop 0.81 1575' }, signer, g), await G.envelope({ kind: 'advert', to: clinicId, n: 7, body: 'crop 0.99 1575' }, signer, g)];
+  let body = I.proofOf(two[0].text, two[1].text);
+  if (!real) body = body.replace(/^[0-9a-f]{64}/, north.pub);   // claim it was north who signed them
+  const c = await I.checkProof(body, g);
+  $('smear-out').innerHTML = '<p class="dim">The proof, as sent: <code style="word-break:break-all">' + esc(body.slice(0, 96)) + '…</code> (' + body.length + ' characters)</p>' +
+    '<div class="status ' + (c.ok ? 'ok' : 'bad') + '">' + (c.ok ? '<span class="ok-t">Accepted</span> — both messages verify under key ' + esc(c.from.slice(0, 12)) + '…, on the same counter, and they differ. That key is in two hands: clinic revokes it.' : '<span class="bad-t">Refused</span> — ' + esc(c.why) + '. Clinic rebuilt both messages and checked them against north’s key itself. Only north’s private key can make north’s signature, so north is untouched.') + '</div>';
+  note('the immune system', real ? 'a key that really signed twice: the proof was accepted' : 'a forged proof against north: refused — ' + c.why, 'you tried it');
+}
+function render9() {
+  if (!S.rec9) return;
+  $('r9').innerHTML = '<details><summary>Organ 9 — the immune system under three attacks: sealed rules and verdict</summary>' + rulesTable(S.pre9, S.ver9) + '</details>' +
+    (S.rec9b ? '<details><summary>Organ 9b — the behaviour watch by channel</summary>' + rulesTable(S.pre9b, S.ver9b) + '</details>' : '');
+}
 function render8() {
   if (!S.rec8) return;
   $('r8').innerHTML = '<details><summary>Organ 8 — the first mesh run: sealed rules and verdict</summary>' + rulesTable(S.pre8, S.ver8) + '</details>' +
@@ -1328,6 +1447,8 @@ async function bootBody() {
   await makeCard();
   $('pow-go').disabled = false;
   $('mesh-go').disabled = false;
+  $('imm-go').disabled = !(S.rec9 && S.rec9b);
+  for (const id of ['smear-go', 'smear-real']) $(id).disabled = false;
   setTimeout(renderPsi, 50);
   DOMAIN_IDS.forEach((d, i) => setTimeout(() => { selfModelOf(d); if (S.organism && $('ask-domain').value === d) ask(); }, 400 + i * 300));
   gSay('<p class="dim">A trusted peer (another demo key from a public phrase) may send this organism lessons and antibodies. Send it something, then try to get something past the gate.</p>');
@@ -1354,6 +1475,8 @@ async function boot() {
   $('pow-go').disabled = true;
   const organ8 = Promise.all([recordOf(8), recordOf('8b'), recordOf('8c')]).then(([a, b, c]) => { if (a) [S.rec8, S.pre8, S.ver8] = a; if (b) [S.rec8b, S.pre8b, S.ver8b] = b; if (c) [S.rec8c, S.pre8c, S.ver8c] = c; });
   $('mesh-go').disabled = true;
+  const organ9 = Promise.all([recordOf(9), recordOf('9b')]).then(([a, b]) => { if (a) [S.rec9, S.pre9, S.ver9] = a; if (b) [S.rec9b, S.pre9b, S.ver9b] = b; });
+  for (const id of ['imm-go', 'smear-go', 'smear-real']) $(id).disabled = true;
   for (const id of ['card-make', 'card-damage', 'breed-go', 'breed-trade']) $(id).disabled = true;
   $('evo-go').disabled = true;
   for (const id of GATE_BUTTONS) $(id).disabled = true;
@@ -1377,8 +1500,8 @@ async function boot() {
   const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
-  await organ2; await organ3; await organ4; await organ8;
-  renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8();
+  await organ2; await organ3; await organ4; await organ8; await organ9;
+  renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8(); render9();
   const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
   for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
@@ -1420,6 +1543,9 @@ $('pow-go').addEventListener('click', powerRun);
 $('psi-d').addEventListener('change', renderPsi);
 $('psi-bar').addEventListener('input', renderPsi);
 $('mesh-go').addEventListener('click', meshGo);
+$('imm-go').addEventListener('click', immuneGo);
+$('smear-go').addEventListener('click', () => smearGo(false));
+$('smear-real').addEventListener('click', () => smearGo(true));
 $('mesh-play').addEventListener('click', () => { MV.playing = !MV.playing; $('mesh-play').textContent = MV.playing ? 'Pause' : 'Play'; MV.last = performance.now(); });
 $('mesh-round').addEventListener('input', () => { if (!MV.run) return; MV.frame = Number($('mesh-round').value) - 1; MV.t = 0; showRound(); });
 $('mesh-canvas').addEventListener('pointerdown', (e) => { MV.drag = true; MV.lx = e.clientX; MV.ly = e.clientY; });

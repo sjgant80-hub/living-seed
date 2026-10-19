@@ -1,0 +1,57 @@
+{
+ "kind": "living-seed.organ-2.verdict",
+ "v": 1,
+ "prereg": "55e77edcd899a290",
+ "record": "737560a552e09f62",
+ "verdicts": [
+  {
+   "id": "B1",
+   "kind": "property",
+   "claim": "on every unseen case of every domain, each answer the body gives equals what its organ gives and carries a receipt that re-hashes; at least 90% of each domain’s unseen cases resemble their organ enough to be answered, and at least 90% find their own organ unasked",
+   "pass": true,
+   "saw": "shopper 100% answered (all as the organ), 100% routed home; triage 100% answered (all as the organ), 100% routed home; water 100% answered (all as the organ), 100% routed home; crop 100% answered (all as the organ), 100% routed home"
+  },
+  {
+   "id": "B2",
+   "kind": "property",
+   "claim": "every one of 2,000 cases drawn outside what the organs grew on abstains, asked and unasked; every unseen case asked of the wrong organ abstains",
+   "pass": true,
+   "saw": "2000/2000 far cases abstained; 1200/1200 cases asked of the wrong organ abstained"
+  },
+  {
+   "id": "B3",
+   "kind": "property",
+   "claim": "after 2,000 seeded writes, every fact reads back exactly, by source and latest; no near-miss key (case, a space, an underscore) answers; every one of 200 single-fact edits is found where it was made",
+   "pass": true,
+   "saw": "1261/1261 read back exactly by source, 398/398 latest; 0 of 1592 near-miss keys answered; 200/200 edits found where made"
+  },
+  {
+   "id": "B4",
+   "kind": "property",
+   "claim": "over 150 episodes the memory chain holds, every edit a forger re-hashes is found at the entry after it, and at least 95% of episodes are recalled first by their own words",
+   "pass": true,
+   "saw": "chain whole; 149/149 re-hashed forgeries found; 150/150 recalled first by their own words"
+  },
+  {
+   "id": "B5",
+   "kind": "prediction",
+   "claim": "on the 300 unseen shop sessions the organ’s AUC is higher than every model’s in both conditions — six comparisons, all six won",
+   "pass": true,
+   "saw": "organ 0.8205 vs qwen2.5:14b · zero 0.73165, qwen2.5:14b · few 0.80645, qwen2.5:7b · zero 0.641425, qwen2.5:7b · few 0.725175, llama3.2:1b · zero 0.5, llama3.2:1b · few 0.5"
+  },
+  {
+   "id": "B6",
+   "kind": "prediction",
+   "claim": "against qwen2.5:14b in its better condition, the organ leads by at least 0.05 AUC, and the paired-bootstrap 95% lower bound of its lead is above 0",
+   "pass": false,
+   "saw": "against the 14B few-shot (AUC 0.80645): lead 0.01405, 95% lower bound -0.016962"
+  },
+  {
+   "id": "B7",
+   "kind": "prediction",
+   "claim": "on this machine the organ answers at least 10,000 times faster than qwen2.5:14b at its fastest median, from at least 10 million times fewer bytes (its seed against the model’s weights)",
+   "pass": true,
+   "saw": "organ 1.224 µs per answer vs the 14B median 22587 ms (×18,453,431); 58 B of seed vs 8,988,124,069 B of weights (×154,967,656)"
+  }
+ ]
+}

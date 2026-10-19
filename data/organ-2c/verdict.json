@@ -1,0 +1,36 @@
+{
+ "kind": "living-seed.organ-2c.verdict",
+ "v": 1,
+ "prereg": "1af801dcb8ae3529",
+ "record": "8f9f99d91ca15071",
+ "verdicts": [
+  {
+   "id": "D1",
+   "kind": "property",
+   "claim": "every model is fitted on the 7,605 February–October sessions alone (scrambling every November–December measurement and label leaves each fit unchanged), each fit is the same twice, every one of the 4,725 November–December sessions gets a finite score, and the organ scores what organ 1 sealed",
+   "pass": true,
+   "saw": "fitted on 7605 February–October sessions, scored on 4725 November–December; fitted on those alone (every held measurement and label scrambled, the same fit): true; the same fit twice: true; every score finite: true; the organ 0.815265 (organ 1 sealed 0.815265)"
+  },
+  {
+   "id": "D2",
+   "kind": "prediction",
+   "claim": "the organ beats PageValues alone on November–December: the 95% lower bound of its lead is above 0",
+   "pass": false,
+   "saw": "PageValues alone 0.806814, the organ 0.815265; the organ’s lead 0.00845, its 95% lower bound -0.001953"
+  },
+  {
+   "id": "D3",
+   "kind": "prediction",
+   "claim": "the organ is not worse than logistic regression by more than 0.02 AUC: the 95% lower bound of its lead is above −0.02",
+   "pass": true,
+   "saw": "logistic regression 0.800521, the organ 0.815265; the organ’s lead 0.014743, its 95% lower bound -0.000402 against −0.02"
+  },
+  {
+   "id": "D4",
+   "kind": "prediction",
+   "claim": "the organ is not worse than the boosted trees by more than 0.05 AUC: the 95% lower bound of its lead is above −0.05",
+   "pass": true,
+   "saw": "boosted trees 0.824043, the organ 0.815265; the organ’s lead -0.008778, its 95% lower bound -0.021908 against −0.05"
+  }
+ ]
+}

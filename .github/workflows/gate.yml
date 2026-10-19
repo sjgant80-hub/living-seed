@@ -47,7 +47,8 @@ jobs:
       - name: organ 2c — the organ against PageValues alone, logistic regression and boosted trees, re-fitted, re-scored and re-judged, seal first
         run: node tools/measure-2c.mjs --check && node tools/judge-2c.mjs --check && node tools/order.mjs --organ 2c
       - name: organ 2b — the head-to-head settled on 1,200 new sessions, re-run and re-judged, seal first (while the 14B is being asked, the seal alone is checked)
-        run: if grep -q '"2b": "measured"' data/organs.json; then node tools/measure-2b.mjs --check && node tools/judge-2b.mjs --check && node tools/order.mjs --organ 2b; else test -f data/organ-2b/prereg.json && echo "organ 2b sealed, being asked"; fi
+        run: |
+          if grep -q '"2b": "measured"' data/organs.json; then node tools/measure-2b.mjs --check && node tools/judge-2b.mjs --check && node tools/order.mjs --organ 2b; else test -f data/organ-2b/prereg.json && echo "organ 2b sealed, being asked"; fi
       - name: organ 9 — the immune system under three attacks, re-run and re-judged (its failed predictions included), seal first
         run: node tools/measure-9.mjs --check && node tools/judge-9.mjs --check && node tools/order.mjs --organ 9
       - name: organ 9b — the behaviour watch by channel, re-run and re-judged, seal first

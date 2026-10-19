@@ -96,6 +96,8 @@ td.num{font-family:var(--mono);white-space:nowrap}
 .kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .kpi .v{font-size:clamp(20px,4vw,28px);font-weight:800;font-family:var(--mono);line-height:1.15}
 .kpi .l{font-size:13px;color:var(--dim)}
+.gloss{display:grid;grid-template-columns:1fr;gap:4px 18px;margin:8px 0 0}@media(min-width:760px){.gloss{grid-template-columns:repeat(2,1fr)}}
+.gloss div{border-top:1px solid var(--line);padding:6px 0}.gloss dt{font-weight:700;display:inline}.gloss dd{display:inline;margin:0;color:var(--dim)}
 .role h4{color:var(--accent)}
 .note{border-left:3px solid var(--warn);padding:6px 12px;background:var(--panel);border-radius:0 8px 8px 0;margin:10px 0;max-width:80ch}
 .note.honest{border-left-color:var(--violet)}
@@ -154,6 +156,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
 <main>
 <section id="what" aria-labelledby="what-h">
   <h2 id="what-h"><span class="n">00</span>What it is, in plain words</h2>
+  <p>New to the words? They are explained <a href="#words">at the end of this section</a>.</p>
   <p>Most AI is shipped as a big trained file, or as a service your data has to be sent to. The Living Seed ships something else: a <b>recipe</b>. The recipe says which measurements matter for a question and which way they push the answer — nine short lines of text, signed by whoever wrote it.</p>
   <p>A device that receives the recipe <b>grows its own AI from its own records</b>: it sets every threshold from the data it holds, then marks the result against past cases it kept back and never trained on. A part that does well enough goes <span class="chip live">live</span> and answers. A part that does not is <span class="chip cut">cut</span>. A part for which the device has no data stays <span class="chip dormant">dormant</span>. Cut and dormant parts answer every question with <b>ABSTAIN</b> — they never guess.</p>
   <p>The same recipe on the same data always grows the same AI, byte for byte, on any device. Its id is a fingerprint of everything in it, so anyone can check it. Before a single line of the recipe is read, its signature is checked against the exact bytes. One byte different and the device refuses it and grows nothing.</p>
@@ -164,6 +167,21 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
     <div class="kpi"><div class="v">0</div><div class="l">network calls while it grows</div></div>
   </div>
   <p class="dim"><b>AUC</b>, used throughout, is how often it ranks a real case above a non-case. For example, how often a visitor who bought scores higher than one who didn’t: 0.5 is a coin toss, 1 is perfect.</p>
+  <h3 id="words">The words this page uses</h3>
+  <dl class="gloss">
+    <div><dt>Genome</dt> <dd>— the signed recipe: a few hundred bytes of text that say what to grow.</dd></div>
+    <div><dt>Organ</dt> <dd>— one part of the grown AI, answering one kind of question (will this visitor buy?).</dd></div>
+    <div><dt>Germinate, grow</dt> <dd>— turn the recipe into a working AI on one device, from that device’s own records.</dd></div>
+    <div><dt>Organism</dt> <dd>— everything one genome grew on one device: its organs, and which are live.</dd></div>
+    <div><dt>The gate</dt> <dd>— the test an organ must pass on past cases it never saw before it may answer at all.</dd></div>
+    <div><dt>ABSTAIN</dt> <dd>— its answer when it has not earned one: “I don’t know”, never a guess.</dd></div>
+    <div><dt>Maker key</dt> <dd>— the digital seal whoever writes a genome signs it with. Devices accept only the makers they trust.</dd></div>
+    <div><dt>Sealed</dt> <dd>— rules written down and published before a measurement ran, so they could not be bent to fit the result.</dd></div>
+    <div><dt>Prediction, property</dt> <dd>— a sealed rule that may fail (and is kept when it does), or one the build promises must hold.</dd></div>
+    <div><dt>Mutation gate</dt> <dd>— we deliberately break the code, line by line, and check the tests notice every break.</dd></div>
+    <div><dt>Receipt</dt> <dd>— evidence anyone can check again for themselves: a record, its signatures, the code that made it.</dd></div>
+    <div><dt>Mesh</dt> <dd>— devices linked so they share answers, lessons and proofs, never their records.</dd></div>
+  </dl>
 </section>
 
 <section id="start" aria-labelledby="start-h">

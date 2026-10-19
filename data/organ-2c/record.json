@@ -1,0 +1,82 @@
+{
+ "kind": "living-seed.organ-2c.record",
+ "v": 1,
+ "settings": {
+  "feature": "PageValues",
+  "logistic": {
+   "lambda": 1
+  },
+  "boosted": {
+   "rounds": 200,
+   "rate": 0.1,
+   "bins": 32,
+   "lambda": 1,
+   "minHess": 1
+  }
+ },
+ "features": [
+  "Administrative",
+  "Administrative_Duration",
+  "Informational",
+  "Informational_Duration",
+  "ProductRelated",
+  "ProductRelated_Duration",
+  "BounceRates",
+  "ExitRates",
+  "PageValues",
+  "SpecialDay"
+ ],
+ "split": {
+  "fitted": 7605,
+  "scored": 4725,
+  "purchasesScored": 976
+ },
+ "organ": {
+  "recipe": "◊ seed.v1 shopper 21 f:7fdfe22dde6663ead42d e16124d225ba",
+  "state": "live",
+  "auc": 0.815265,
+  "sealedInOrgan1": 0.815265,
+  "rules": 6,
+  "numbers": 20,
+  "distinctScores": 5
+ },
+ "models": {
+  "pageValues": {
+   "kind": "single",
+   "numbers": 1,
+   "fingerprint": "7b5b4ec6f8784116",
+   "fitRowsAuc": 0.921356,
+   "auc": 0.806814,
+   "organLead": 0.00845,
+   "organLeadLow95": -0.001953,
+   "modelLeadLow95": -0.018867,
+   "finite": true
+  },
+  "logistic": {
+   "kind": "logistic",
+   "numbers": 31,
+   "fingerprint": "344860df888b667c",
+   "fitRowsAuc": 0.933374,
+   "auc": 0.800521,
+   "organLead": 0.014743,
+   "organLeadLow95": -0.000402,
+   "modelLeadLow95": -0.029764,
+   "finite": true,
+   "newtonSteps": 10
+  },
+  "boosted": {
+   "kind": "boosted",
+   "numbers": 2001,
+   "fingerprint": "97e94550a674fc08",
+   "fitRowsAuc": 0.963008,
+   "auc": 0.824043,
+   "organLead": -0.008778,
+   "organLeadLow95": -0.021908,
+   "modelLeadLow95": -0.004659,
+   "finite": true,
+   "trees": 200
+  }
+ },
+ "fittedOnTrainOnly": true,
+ "deterministic": true
+}

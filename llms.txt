@@ -18,7 +18,7 @@ Source: https://github.com/sjgant80-hub/living-seed
 
 ## Measured, organ by organ (each against rules sealed before it ran)
 - Organ 1, genome + germination — A signed seed grows a working organism offline. Sealed rules held: 9 of 9. 496 bytes grew four organs; 486 of 486 one-character changes refused.
-- Organ 2, body — Patterns that route and abstain; a 58-byte organ against language models and against classical models. Sealed rules held: 6 of 7 · 3 of 4. Beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); 18 million times faster (1.2 µs against 22.6 s an answer, on the same laptop); tied PageValues alone, logistic regression and boosted trees with 2,001 numbers (0.824 against 0.815).
+- Organ 2, body — Patterns that route and abstain; a 58-byte organ against language models and against classical models. Sealed rules held: 6 of 7 · 3 of 4. Beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); organ 2b, 1,200 more sessions, sealed and being asked; 18 million times faster (1.2 µs against 22.6 s an answer, on the same laptop); tied PageValues alone, logistic regression and boosted trees with 2,001 numbers (0.824 against 0.815).
 - Organ 3, the gate — Nothing unproven enters, is learned, or is passed on. Sealed rules held: 4 of 4. 0 of 4,354 attacks admitted.
 - Organ 4, variation + selection — Self-improvement judged blind, allowed to fail. Sealed rules held: 4 of 6 · 3 of 6. It fell on unseen cases; the gate is what keeps a loss out.
 - Organ 5, breeding + the card — A verified child; the organism travels as a picture. Sealed rules held: 8 of 8. The child’s shop organ (0.828) beat both parents.

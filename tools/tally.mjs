@@ -53,13 +53,36 @@ export function nightWords(ns = nights()) {
   return words;
 }
 
-/** the page with every count and night word put in */
+/** the white paper's organ table: which measured verdicts each row counts */
+export const PAPER = { 1: ['1'], 2: ['2', '2b', '2c'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'] };
+const verdictOf = (k) => JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts;
+export function paperCells(organs = JSON.parse(read('data/organs.json'))) {
+  return Object.fromEntries(Object.entries(PAPER).map(([n, ks]) => [n, ks.filter((k) => organs[k] === 'measured').map((k) => { const v = verdictOf(k); return v.filter((x) => x.pass).length + ' of ' + v.length; }).join(' · ')]));
+}
+
+/** organ 2b's words: sealed and being asked, or what its record and verdict say. block fills <!-- 2b -->, what fills data-2b="what" */
+export function words2b(r = null, v = null) {
+  if (!r) return { block: '<p id="h2b-words">Organ 2b settles it. Sealed before a new case was asked, it puts the same 14B, shown the same 24 examples, against the organ on 1,200 more November–December sessions that organ 2 never asked. It is being asked on this machine, one session at a time, and this paragraph fills in from its record when it is judged.</p>', what: 'organ 2b, 1,200 more sessions, sealed and being asked' };
+  const pass = Object.fromEntries(v.map((x) => [x.id, x.pass])), f = r.fresh, t = r.together, f3 = (x) => x.toFixed(3), f4 = (x) => x.toFixed(4), gb = (x) => x.toLocaleString('en-GB');
+  const call = pass.C2 ? 'a win beyond the noise (C2 held)' : pass.C3 ? 'still a tie, but the organ is not worse by more than ' + r.margin + ' (C2 failed and is kept; C3 held)' : 'the organ may be worse by more than ' + r.margin + ' (C2 and C3 failed, and are kept)';
+  return {
+    block: '<p class="answer" id="h2b-words"><b>Organ 2b settled it</b> on ' + gb(f.cases) + ' new sessions, sealed before the model was asked a single one. The organ scored <b>' + f4(f.organ) + '</b>, the 14B shown 24 examples <b>' + f4(f.model) + '</b>. The organ’s lead is ' + f4(f.lead) + ', with a 95% lower bound of ' + f4(f.leadLow95) + ': ' + call + '. '
+      + (pass.C4 ? 'Both scored within 0.03 of what organ 2’s 300 gave, so those 300 were representative (C4 held).' : 'At least one scored more than 0.03 away from what organ 2’s 300 gave (C4 failed, kept).')
+      + ' On all ' + gb(t.cases) + ' sessions together: the organ ' + f4(t.organ) + ', the 14B ' + f4(t.model) + '.' + (f.unreadable ? ' ' + f.unreadable + ' of the 14B’s replies could not be read, and each counts as 0.5.' : '') + '</p>',
+    what: 'on 1,200 new sessions (organ 2b) ' + (pass.C2 ? 'a win' : 'still a tie') + ', lead ' + f3(f.lead) + ', bound ' + f3(f.leadLow95),
+  };
+}
+
+/** the page with every count and every generated word put in */
 export function render(html, t = tally(), w = nightWords()) {
   for (const [k, v] of Object.entries(t)) html = html.replace(new RegExp('(data-tally="' + k + '">)[^<]*(<)', 'g'), '$1' + v + '$2');
   for (const k of ['held', 'failed']) html = html.replace(new RegExp('(data-paper="' + k + '">)[^<]*(<)', 'g'), '$1' + t[k] + '$2');   // the white paper's own totals
   html = html.replace(/(all twelve organs, )[0-9]+ of [0-9]+( sealed rules held)/, '$1' + t.held + '$2');   // the meta description
   for (const [k, v] of Object.entries(w)) if (k !== 'block') html = html.replace(new RegExp('(data-nights="' + k + '">)[^<]*(<)', 'g'), '$1' + v + '$2');
+  for (const [n, v] of Object.entries(paperCells())) html = html.replace(new RegExp('(data-held="' + n + '">)[^<]*(<)'), '$1' + v + '$2');
   html = html.replace(/(data-held="12">)[^<]*(<)/, '$1' + w.held + '$2');
+  const measured2b = JSON.parse(read('data/organs.json'))['2b'] === 'measured', b = measured2b ? words2b(JSON.parse(read('data/organ-2b/record.json')), verdictOf('2b')) : words2b();
+  html = html.replace(/(data-2b="what">)[^<]*(<)/, '$1' + b.what + '$2').replace(/(<!-- 2b -->)[\s\S]*?(<!-- \/2b -->)/, '$1' + b.block + '$2');
   return html.replace(/(<!-- nights -->)[\s\S]*?(<!-- \/nights -->)/, '$1' + w.block + '$2');
 }
 
@@ -69,7 +92,7 @@ if (isMain) {
   console.log('sealed rules held ' + t.held + ' across ' + t.tests + ' tests · ' + t.failed + ' predictions failed · ' + t.red + ' properties red · ' + nights().length + ' nights judged');
   if (process.argv.includes('--write')) { writeFileSync(new URL('index.html', ROOT), out); console.log('wrote the tally and the nights into index.html'); }
   if (process.argv.includes('--check')) {
-    if (!html.includes('<!-- nights -->') || out !== html) { console.log('TALLY DRIFT · index.html does not say what the verdicts and the nights say — run node tools/tally.mjs --write'); process.exit(1); }
+    if (!html.includes('<!-- nights -->') || !html.includes('<!-- 2b -->') || !html.includes('data-2b="what"') || out !== html) { console.log('TALLY DRIFT · index.html does not say what the verdicts and the nights say — run node tools/tally.mjs --write'); process.exit(1); }
     console.log('the page says what the verdicts and the nights say');
   }
 }

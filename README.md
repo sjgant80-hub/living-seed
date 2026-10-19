@@ -17,7 +17,7 @@ failed property stays red.
 | # | Organ | What it had to show | Sealed rules held | What happened |
 |---|---|---|---|---|
 | 1 | **Genome + germination** | A signed seed grows a working organism offline | 9 of 9 | 496 bytes grew four organs; 486 of 486 one-character changes refused |
-| 2 | **Body** | Patterns that route and abstain; a 58-byte organ against language models and against classical models | 6 of 7 · 3 of 4 | beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); 18 million times faster (1.2 µs against 22.6 s an answer, on the same laptop); tied PageValues alone, logistic regression and boosted trees with 2,001 numbers (0.824 against 0.815) |
+| 2 | **Body** | Patterns that route and abstain; a 58-byte organ against language models and against classical models | 6 of 7 · 3 of 4 | beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); organ 2b, 1,200 more sessions, sealed and being asked; 18 million times faster (1.2 µs against 22.6 s an answer, on the same laptop); tied PageValues alone, logistic regression and boosted trees with 2,001 numbers (0.824 against 0.815) |
 | 3 | **The gate** | Nothing unproven enters, is learned, or is passed on | 4 of 4 | 0 of 4,354 attacks admitted |
 | 4 | **Variation + selection** | Self-improvement judged blind, allowed to fail | 4 of 6 · 3 of 6 | it fell on unseen cases; the gate is what keeps a loss out |
 | 5 | **Breeding + the card** | A verified child; the organism travels as a picture | 8 of 8 | the child’s shop organ (0.828) beat both parents |

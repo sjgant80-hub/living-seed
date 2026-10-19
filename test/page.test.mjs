@@ -11,7 +11,7 @@ import { tmpdir } from 'node:os';
 import { germinate } from '../src/germinate.mjs';
 import { DOMAIN_IDS, loadDomain } from '../vendor/seed-library/domains.mjs';
 import { rng } from '../vendor/seed-library/seedlib.mjs';
-import { tally as tallyOf, nights as nightsOf, nightWords, render as renderTally } from '../tools/tally.mjs';
+import { tally as tallyOf, nights as nightsOf, nightWords, render as renderTally, PAPER, words2b } from '../tools/tally.mjs';
 
 const read = (p) => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
 const html = read('index.html');
@@ -125,7 +125,9 @@ test('the header’s tally is the sum of every committed verdict, failures inclu
   // each row of the paper's organ table says what that organ's own verdicts say
   const cell = Object.fromEntries([...html.matchAll(/data-held="([0-9]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   const of = (k) => { const v = JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts; return v.filter((x) => x.pass).length + ' of ' + v.length; };
-  for (const [n, ks] of Object.entries({ 1: ['1'], 2: ['2', '2c'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'] })) assert.equal(cell[n], ks.map(of).join(' · '), 'organ ' + n + ' in the paper');
+  assert.deepEqual(Object.keys(PAPER).map(Number), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+  assert.deepEqual(Object.values(PAPER).flat().sort(), Object.keys(organs).sort(), 'every sealed organ is counted in exactly one row');
+  for (const [n, ks] of Object.entries(PAPER)) assert.equal(cell[n], ks.filter((k) => organs[k] === 'measured').map(of).join(' · '), 'organ ' + n + ' in the paper');
   const nv = nightsOf().map((x) => JSON.parse(read('data/nights/' + x.n + '/verdict.json')).verdicts).flat();
   assert.equal(cell[12], nv.filter((x) => x.pass).length + ' of ' + nv.length + ' over ' + nightsOf().length + ' nights', 'organ 12 in the paper: every night');
 });
@@ -231,6 +233,20 @@ test('organ 2c prints what its record holds: the organ against three classical m
   for (const [k, name] of [['pageValues', 'PageValues alone'], ['logistic', 'Logistic regression'], ['boosted', 'Boosted trees']]) has('<tr><td>' + name + '</td><td class="num">' + m[k].numbers.toLocaleString('en-GB') + '</td><td class="num">' + f3(m[k].fitRowsAuc) + '</td><td class="num"><b>' + f3(m[k].auc) + '</b></td>', name + ' row');
   for (const s of ['boosted trees scored 0.824, the organ 0.815, PageValues alone 0.807 and logistic regression 0.801', 'boosted trees with 2,001 numbers scored 0.824, logistic regression 0.801 and PageValues alone 0.807']) assert.ok(html.includes(s), 'the brochure and the FAQ: ' + s);
   assert.ok([m.boosted.auc, r.organ.auc, m.pageValues.auc, m.logistic.auc].map(f3).join() === '0.824,0.815,0.807,0.801' && m.boosted.numbers === 2001, 'and those words are the record’s');
+});
+
+test('organ 2b’s words come from its record and verdict, whichever way it falls', () => {
+  assert.match(words2b().block, /being asked/);
+  const rec = (organ, model, low, unreadable = 0) => ({ margin: 0.02, fresh: { cases: 1200, organ, model, lead: organ - model, leadLow95: low, unreadable }, together: { cases: 1500, organ: 0.82, model: 0.8 } });
+  const ver = (c2, c3, c4) => [{ id: 'C1', pass: true }, { id: 'C2', pass: c2 }, { id: 'C3', pass: c3 }, { id: 'C4', pass: c4 }];
+  const win = words2b(rec(0.83, 0.8, 0.01), ver(true, true, true)), tie = words2b(rec(0.82, 0.81, -0.01, 3), ver(false, true, false)), worse = words2b(rec(0.78, 0.82, -0.06), ver(false, false, true));
+  const has = (s, part) => assert.ok(s.includes(part), part + ' in: ' + s);
+  has(win.block, 'a win beyond the noise (C2 held)'); has(win.what, 'a win, lead 0.030, bound 0.010'); has(win.block, 'C4 held');
+  has(tie.block, 'still a tie, but the organ is not worse by more than 0.02 (C2 failed and is kept; C3 held)'); has(tie.block, 'C4 failed'); assert.match(tie.block, /3 of the 14B’s replies could not be read/); assert.match(tie.what, /still a tie/);
+  assert.match(worse.block, /C2 and C3 failed/); assert.ok(!/could not be read/.test(win.block));
+  assert.ok(!/NaN|undefined/.test(win.block + tie.block + worse.block + win.what + tie.what));
+  const o = JSON.parse(read('data/organs.json'));
+  assert.ok(html.includes(o['2b'] === 'measured' ? 'Organ 2b settled it' : 'Organ 2b settles it'), 'the page says the state organs.json says');
 });
 
 test('receipt (a) says what every judged night says, and the nightly job keeps it so', () => {

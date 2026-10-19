@@ -1,0 +1,55 @@
+{
+ "kind": "living-seed.organ-2c.prereg",
+ "v": 1,
+ "organ": "organ 2, against the classical models — what does the shop organ give up, or gain, against what a data scientist would fit first on the same table?",
+ "why": "The page compares the organ with language models, but a buyer’s analyst would compare it with the standard models first. This fits three on the same 10 measurements and the same 7,605 February–October sessions the organ grew on, and scores them on the same 4,725 November–December sessions it never grew on: PageValues alone (the measurement an analyst would try first), logistic regression, and gradient-boosted trees (src/baseline.mjs, mutation-gated; settings fixed in tools/measure-2c.mjs before any held-out score was computed).",
+ "scenario": "The organ is organ 1’s shop organ: the origin genome grown on the reference data (six threshold rules; its score is a sum of on/off rules, so it ranks with ties). Logistic regression: log(1 + x), standardised on the fitted sessions, L2 penalty 1, Newton’s method to convergence. Boosted trees: 200 trees of depth 2, learning rate 0.1, cuts at 32 quantiles, L2 on leaves 1. Bounds: organ 2’s paired bootstrap (2,000 resamples, seed 99) on the 4,725. The other columns of the dataset (browser, region, traffic type, visitor type, weekend) are not used by the organ and are not given to the models either.",
+ "rules": [
+  {
+   "id": "D1",
+   "kind": "property",
+   "claim": "every model is fitted on the 7,605 February–October sessions alone (scrambling every November–December measurement and label leaves each fit unchanged), each fit is the same twice, every one of the 4,725 November–December sessions gets a finite score, and the organ scores what organ 1 sealed",
+   "seenBeforeSeal": "the plumbing only: a dry run in a scratch copy that printed nothing but “ran”"
+  },
+  {
+   "id": "D2",
+   "kind": "prediction",
+   "claim": "the organ beats PageValues alone on November–December: the 95% lower bound of its lead is above 0",
+   "seenBeforeSeal": "no — PageValues was chosen as the measurement an analyst would try first here; the organ itself leans on it twice"
+  },
+  {
+   "id": "D3",
+   "kind": "prediction",
+   "claim": "the organ is not worse than logistic regression by more than 0.02 AUC: the 95% lower bound of its lead is above −0.02",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "D4",
+   "kind": "prediction",
+   "claim": "the organ is not worse than the boosted trees by more than 0.05 AUC: the 95% lower bound of its lead is above −0.05",
+   "seenBeforeSeal": "no — nothing was computed on this split; the expectation was that the trees win"
+  }
+ ],
+ "disclosure": "Designed knowing the organ’s own score (0.815 on these 4,725) and nothing about the classical models on them. The predictions are the claims a seller would like to make; written before the run, the expectation was that the boosted trees win and that D2 and D3 are genuinely open. A failed prediction is kept, and the page says what it means for a buyer.",
+ "judgedBy": "tools/judge-2c.mjs (pinned below)",
+ "files": {
+  "src/baseline.mjs": "b4f7ddb958edfa19ef2d33e33173aab41146437195b7e89e1f7c60021d23ad4c",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "data/record.json": "73b63601bef7d045e19609ecdbd8b82a91d15633a6fc1df84552e16234232b1e",
+  "tools/sample.mjs": "79487a28654c4ce51bb3260c79ee3ea2b3126eac0a0b05f5dd7374417e52b98a",
+  "tools/measure-2.mjs": "3328050b14833ce9fc60aa2253aa823b458331f6ad00c0d4835f73c9a50197d9",
+  "tools/measure-2c.mjs": "3fcc5d8be13c3e49c887376c403b53f82a1de56250dc1aa5282e0c140b9b0307",
+  "tools/judge-2c.mjs": "7973ffef3e9f8b25bbac0909e679b09d2df32649f4a24ee6339d275bf8d8ae34",
+  "tools/seal-2c.mjs": "61513d9424f4b06d2b23bf0ed0923281db0d4f8fbfa40f399e4a22f191e806bf",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6"
+ }
+}

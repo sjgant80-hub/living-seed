@@ -133,3 +133,30 @@ test('the noise in an AUC (Hanley & McNeil): and a gate that adopts only a gain 
   assert.equal((await O.improve(g, SUB, dev, { evolve: E, z: zEdge * 1.01 })).organs[0].adopted, false, 'a gain just under: noise, not a gain');
   assert.equal((await O.improve(g, SUB, dev, { evolve: E, z: 0.001, margin: base.to - base.from })).organs[0].adopted, false, 'the margin still holds when it is the larger bar');
 });
+
+test('the time-fold gate: a candidate is adopted only if it beats the organ on every slice, each judged on its own', async () => {
+  const g = await genome(), dev = await key('device'), E = { generations: 6, children: 4, folds: 3, seed: 1 };
+  const held = DS.heldRows, slices = { alpha: [held.slice(0, 60), held.slice(60, 120), held.slice(120)] };
+  const r = await O.improve(g, SUB, dev, { evolve: E, slices }), o = r.organs[0];
+  assert.equal(o.slices.length, 3);
+  assert.deepEqual(o.slices.map((s) => s.cases), [60, 60, 60]);
+  for (const s of o.slices) assert.ok(typeof s.mine === 'number' && typeof s.candidate === 'number' && s.bar === 0.002);
+  const worst = Math.min(...o.slices.map((s) => s.candidate - s.mine));
+  assert.equal(o.adopted, worst > 0.002, 'adopted exactly when every slice is beaten by the margin');
+  // the margin set exactly at the worst slice's gain: not a gain; just under: adopted — the weakest slice decides
+  assert.equal((await O.improve(g, SUB, dev, { evolve: E, slices, margin: worst })).organs[0].adopted, false);
+  if (worst > 0) assert.equal((await O.improve(g, SUB, dev, { evolve: E, slices, margin: worst - 1e-9 })).organs[0].adopted, true);
+  // a slice that reaches into the training cases, an empty slice, or no slices at all: refused, the recipe kept
+  for (const bad of [[held.slice(0, 60), [0, 1, 2]], [held.slice(0, 60), []], []]) {
+    const x = (await O.improve(g, SUB, dev, { evolve: E, slices: { alpha: bad } })).organs[0];
+    assert.deepEqual([x.adopted, x.why], [false, 'a slice holds cases the evolver could have seen']);
+  }
+  // with z, each slice's bar is z standard errors of that slice's own AUC
+  const zr = (await O.improve(g, SUB, dev, { evolve: E, slices, z: 1 })).organs[0];
+  for (const [k, s] of zr.slices.entries()) { const rows = slices.alpha[k], pos = rows.filter((i) => DS.y[i] === 1).length; assert.equal(s.bar, Math.max(0.002, O.aucError(s.mine, pos, rows.length - pos))); }
+  // an evolution that could not run: every slice has no candidate, and nothing is adopted
+  const none = (await O.improve(g, SUB, dev, { evolve: { generations: 0 }, slices })).organs[0];
+  assert.deepEqual([none.adopted, none.slices.map((s) => s.candidate)], [false, [null, null, null]]);
+  // a domain with no slices given keeps the pooled gate
+  assert.equal((await O.improve(g, SUB, dev, { evolve: E, slices: { other: slices.alpha } })).organs[0].slices, undefined);
+});

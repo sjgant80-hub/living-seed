@@ -19,12 +19,16 @@ import { open } from '../src/genome.mjs';
 import { auc } from '../vendor/seed-library/seedlib.mjs';
 import { sha256Hex } from '../vendor/seed-library/sha256.mjs';
 import { fileHash } from './judge.mjs';
-import { GENOME } from './measure-10.mjs';
+import { GENOME, MONTH } from './measure-10.mjs';
 import { key, months, device, stream } from './measure-11.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, ROOT), 'utf8');
 export const Z = 2, EVOLVE = { generations: 30, children: 8, folds: 3 }, WEEK = 7;
+/** night 1 judged a candidate on October pooled; it adopted a gain the holiday months undid. From night 2 the gate is
+ *  time-folded: the shop candidate is evolved on February–May and must beat the champion on August, September and
+ *  October, each on its own, by the margin and Z standard errors of that month's AUC. */
+export const METHOD = (n) => (n === 1 ? 'pooled' : 'time-folds'), SLICES = ['Aug', 'Sep', 'Oct'];
 const dir = (n) => 'data/nights/' + n + '/';
 const PINNED = ['src/organism.mjs', 'src/align.mjs', 'src/evolve.mjs', 'src/germinate.mjs', 'src/body.mjs', 'src/genome.mjs', 'vendor/seed-library/seedlib.mjs',
   'vendor/seed-library/domains.mjs', 'data/online_shoppers_intention.csv', 'data/record.json', 'tools/night.mjs', 'tools/measure-11.mjs', 'tools/measure-10.mjs', 'tools/judge.mjs'];
@@ -35,28 +39,34 @@ const startOf = (n) => (n === 1 ? GENOME : JSON.parse(read(dir(n - 1) + 'record.
 export function prereg(n) {
   const rules = [
     { id: 'N1', kind: 'property', claim: 'the night starts from the champion ' + (n === 1 ? 'the origin genome is' : 'night ' + (n - 1) + ' left') },
-    { id: 'N2', kind: 'property', claim: 'the champion moves only to a child the noise-aware gate adopted' },
+    { id: 'N2', kind: 'property', claim: METHOD(n) === 'pooled' ? 'the champion moves only to a child the noise-aware gate adopted' : 'the champion moves only to a child the time-fold gate adopted (the shop candidate beating it on August, September and October, each on its own, by the margin and ' + Z + ' standard errors)' },
     { id: 'N3', kind: 'prediction', claim: 'the champion after tonight scores no lower on November–December (never used to choose) than the champion before it' },
   ];
   if (n >= WEEK) rules.push({ id: 'N4', kind: 'prediction', claim: 'over the week, the champion improved: after night ' + n + ' it scores higher on November–December than the origin genome did before night 1' });
-  return { kind: 'living-seed.night.prereg', v: 1, night: n, seed: 100 + n, z: Z, evolve: EVOLVE, rules,
+  return { kind: 'living-seed.night.prereg', v: 1, night: n, seed: 100 + n, z: Z, evolve: EVOLVE, ...(METHOD(n) === 'pooled' ? {} : { method: METHOD(n), slices: SLICES }), rules,
     files: Object.fromEntries([...PINNED, ...(n > 1 ? [dir(n - 1) + 'record.json'] : [])].map((p) => { const b = readFileSync(new URL(p, ROOT)); if (b.includes(13)) throw new Error(p + ' holds a carriage return'); return [p, fileHash(b)]; })) };
 }
 
 export async function record(n) {
   const maker = await key('origin'), devA = await key('device-a-11'), trust = [maker.pub, devA.pub];
   const hist = device(0, { train: months('Feb', 'Mar', 'May', 'Aug', 'Sep'), held: months('Oct') }), final = stream(0, 'Nov', 'Dec');
-  const before = startOf(n), r = await O.improve(before, hist, devA, { trust, evolve: { ...EVOLVE, seed: 100 + n }, z: Z });
+  const before = startOf(n);
+  let r;
+  if (METHOD(n) === 'pooled') r = await O.improve(before, hist, devA, { trust, evolve: { ...EVOLVE, seed: 100 + n }, z: Z });
+  else {   // the time-fold gate: evolve on February–May, judge on each later month on its own
+    const gate = device(0, { train: months('Feb', 'Mar', 'May'), held: months(...SLICES) });
+    r = await O.improve(before, gate, devA, { trust, evolve: { ...EVOLVE, seed: 100 + n }, z: Z, slices: { shopper: SLICES.map((m) => gate.data.shopper.heldRows.filter((i) => MONTH[i] === m)) } });
+  }
   const adopted = r.organs.some((o) => o.adopted), after = adopted ? r.child : before;
   const score = async (g) => { const l = await A.life(g, hist, final, { checks: A.CHECKS }), ans = l.ledger.filter((e) => e.act.kind === 'answer'); return { id: (await open(g)).id, finalAuc: auc(ans.map((e) => e.act.receipt.score), ans.map((e) => final[e.act.at].truth)), right: l.right, answered: l.answered }; };
-  return { kind: 'living-seed.night.record', v: 1, night: n, seed: 100 + n, z: Z, origin: (await open(GENOME)).id,
+  return { kind: 'living-seed.night.record', v: 1, night: n, seed: 100 + n, z: Z, ...(METHOD(n) === 'pooled' ? {} : { method: METHOD(n) }), origin: (await open(GENOME)).id,
     previous: n === 1 ? null : JSON.parse(read(dir(n - 1) + 'record.json')).after.id,
     before: await score(before), organs: r.organs, adopted, child: r.id, after: { ...(await score(after)), genome: after } };
 }
 
 export const RULES = {
   N1: (r) => { const want = r.night === 1 ? r.origin : r.previous; return { pass: r.before.id === want, saw: 'started from ' + r.before.id + (r.night === 1 ? ' (the origin genome)' : ' (night ' + (r.night - 1) + ' left ' + r.previous + ')') }; },
-  N2: (r) => ({ pass: r.adopted ? r.after.id === r.child : r.after.id === r.before.id, saw: (r.adopted ? 'the gate adopted ' + r.organs.filter((o) => o.adopted).map((o) => o.domain + ' ' + o.from + ' → ' + o.to).join(', ') + '; the champion is now ' + r.after.id : 'the gate adopted nothing — ' + r.organs.map((o) => o.domain + (o.candidate === null || o.candidate === undefined ? '' : ' best ' + o.candidate + ' vs ' + o.from)).join(', ') + '; the champion stays ' + r.after.id) }),
+  N2: (r) => ({ pass: r.adopted ? r.after.id === r.child : r.after.id === r.before.id, saw: (r.adopted ? 'the gate adopted ' + r.organs.filter((o) => o.adopted).map((o) => o.domain + ' ' + o.from + ' → ' + o.to).join(', ') + '; the champion is now ' + r.after.id : 'the gate adopted nothing — ' + r.organs.map((o) => o.domain + (o.slices ? ' (by month: ' + o.slices.map((s, k) => SLICES[k] + ' ' + s.candidate + ' vs ' + s.mine).join(', ') + ')' : o.candidate === null || o.candidate === undefined ? '' : ' best ' + o.candidate + ' vs ' + o.from)).join(', ') + '; the champion stays ' + r.after.id) }),
   N3: (r) => ({ pass: r.after.finalAuc >= r.before.finalAuc, saw: 'November–December: before ' + r.before.finalAuc + ', after ' + r.after.finalAuc }),
   N4: (r, first) => ({ pass: Boolean(first) && r.after.finalAuc > first.before.finalAuc, saw: 'the origin before night 1: ' + (first ? first.before.finalAuc : '—') + '; the champion after night ' + r.night + ': ' + r.after.finalAuc }),
 };

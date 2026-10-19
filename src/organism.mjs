@@ -96,8 +96,18 @@ export async function improve(genomeText, substrate, keys, opts = {}) {
     if (mine.state !== 'live') { recipes.push(recipe); organs.push({ domain, adopted: false, why: 'it is ' + mine.state + ' here' }); continue; }
     const e = evolve(recipe, blind(ds), opts.evolve);
     const c = e.ok ? express(ds, e.champion) : null;
-    const pos = ds.heldRows.filter((i) => ds.y[i] === 1).length, bar = Math.max(margin, z * aucError(mine.heldAuc, pos, ds.heldRows.length - pos));
-    if (c && c.ok && c.heldAuc - mine.heldAuc > bar) { recipes.push(e.champion); organs.push({ domain, adopted: true, from: mine.heldAuc, to: c.heldAuc }); }
+    const barOn = (auc, rows) => { const pos = rows.filter((i) => ds.y[i] === 1).length; return Math.max(margin, z * aucError(auc, pos, rows.length - pos)); };
+    const slices = opts.slices && opts.slices[domain];
+    if (slices) {   // the time-fold gate: the candidate must beat the organ on every slice, each judged on its own
+      const held = new Set(ds.heldRows);
+      if (!slices.length || !slices.every((rows) => rows.length && rows.every((i) => held.has(i)))) { recipes.push(recipe); organs.push({ domain, adopted: false, why: 'a slice holds cases the evolver could have seen' }); continue; }
+      const per = slices.map((rows) => { const v = { ...ds, heldRows: rows }, a = express(v, recipe), b = c && c.ok ? express(v, e.champion) : null; return { cases: rows.length, mine: a.heldAuc, candidate: b && b.ok ? b.heldAuc : null, bar: barOn(a.heldAuc, rows) }; });
+      const won = per.every((s) => s.candidate !== null && s.candidate - s.mine > s.bar);
+      recipes.push(won ? e.champion : recipe);
+      organs.push({ domain, adopted: won, from: mine.heldAuc, slices: per, ...(won ? { to: c.heldAuc } : { why: 'the candidate did not beat it on every slice' }) });
+      continue;
+    }
+    if (c && c.ok && c.heldAuc - mine.heldAuc > barOn(mine.heldAuc, ds.heldRows)) { recipes.push(e.champion); organs.push({ domain, adopted: true, from: mine.heldAuc, to: c.heldAuc }); }
     else { recipes.push(recipe); organs.push({ domain, adopted: false, from: mine.heldAuc, candidate: c && c.ok ? c.heldAuc : null, why: 'no candidate beat it on cases the evolver never saw' }); }
   }
   const child = await seal({ name: p.fields.name, parents: [p.id], gate: p.fields.gate, organs: recipes }, keys);

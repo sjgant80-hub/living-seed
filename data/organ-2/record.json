@@ -1,0 +1,167 @@
+{
+ "kind": "living-seed.organ-2.record",
+ "v": 1,
+ "body": {
+  "organism": "c11de7054e9bb8ea",
+  "genome": "89880089fc1fef3a",
+  "patterns": [
+   "shopper",
+   "triage",
+   "water",
+   "crop"
+  ],
+  "resting": 0
+ },
+ "patterns": {
+  "shopper": {
+   "held": 4725,
+   "verified": 4725,
+   "sameAsOrgan": 4725,
+   "receiptsCheck": 4725,
+   "routedHome": 4725
+  },
+  "triage": {
+   "held": 720,
+   "verified": 720,
+   "sameAsOrgan": 720,
+   "receiptsCheck": 720,
+   "routedHome": 720
+  },
+  "water": {
+   "held": 720,
+   "verified": 720,
+   "sameAsOrgan": 720,
+   "receiptsCheck": 720,
+   "routedHome": 720
+  },
+  "crop": {
+   "held": 720,
+   "verified": 720,
+   "sameAsOrgan": 720,
+   "receiptsCheck": 720,
+   "routedHome": 720
+  }
+ },
+ "far": {
+  "shopper": {
+   "cases": 500,
+   "abstained": 500
+  },
+  "triage": {
+   "cases": 500,
+   "abstained": 500
+  },
+  "water": {
+   "cases": 500,
+   "abstained": 500
+  },
+  "crop": {
+   "cases": 500,
+   "abstained": 500
+  }
+ },
+ "cross": {
+  "asked": 1200,
+  "abstained": 1200
+ },
+ "cube": {
+  "writes": 2000,
+  "facts": 2000,
+  "keysBySource": 1261,
+  "exactBySource": 1261,
+  "keys": 398,
+  "exactLatest": 398,
+  "nearMisses": 1592,
+  "nearMissAnswered": 0,
+  "edits": 200,
+  "editsFound": 200,
+  "chain": true
+ },
+ "memory": {
+  "episodes": 150,
+  "chain": true,
+  "forgedEdits": 149,
+  "forgedFound": 149,
+  "selfFirst": 150
+ },
+ "contest": {
+  "sample": {
+   "cases": 300,
+   "purchases": 100,
+   "sha": "4695e888667afdab"
+  },
+  "organ": {
+   "auc": 0.8205,
+   "seedBytes": 58,
+   "ruleBytes": 379,
+   "timing": {
+    "answers": 300000,
+    "totalMs": 367,
+    "perAnswerUs": 1.224,
+    "box": "12th Gen Intel(R) Core(TM) i7-1255U · 12 threads · 16 GB RAM · no GPU in use"
+   }
+  },
+  "models": {
+   "qwen2.5:14b · zero": {
+    "auc": 0.73165,
+    "organLead": 0.08885,
+    "organLeadLow95": 0.039977,
+    "unreadable": 0,
+    "distinct": 13,
+    "medianMs": 22587,
+    "bytes": 8988124069,
+    "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6"
+   },
+   "qwen2.5:14b · few": {
+    "auc": 0.80645,
+    "organLead": 0.01405,
+    "organLeadLow95": -0.016962,
+    "unreadable": 0,
+    "distinct": 12,
+    "medianMs": 36816,
+    "bytes": 8988124069,
+    "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6"
+   },
+   "qwen2.5:7b · zero": {
+    "auc": 0.641425,
+    "organLead": 0.179075,
+    "organLeadLow95": 0.117679,
+    "unreadable": 6,
+    "distinct": 10,
+    "medianMs": 8336,
+    "bytes": 4683087332,
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e"
+   },
+   "qwen2.5:7b · few": {
+    "auc": 0.725175,
+    "organLead": 0.095325,
+    "organLeadLow95": 0.053502,
+    "unreadable": 0,
+    "distinct": 10,
+    "medianMs": 13783,
+    "bytes": 4683087332,
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e"
+   },
+   "llama3.2:1b · zero": {
+    "auc": 0.5,
+    "organLead": 0.3205,
+    "organLeadLow95": 0.271169,
+    "unreadable": 300,
+    "distinct": 1,
+    "medianMs": 3180,
+    "bytes": 1321098329,
+    "digest": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878"
+   },
+   "llama3.2:1b · few": {
+    "auc": 0.5,
+    "organLead": 0.3205,
+    "organLeadLow95": 0.271169,
+    "unreadable": 300,
+    "distinct": 1,
+    "medianMs": 4102,
+    "bytes": 1321098329,
+    "digest": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878"
+   }
+  }
+ }
+}

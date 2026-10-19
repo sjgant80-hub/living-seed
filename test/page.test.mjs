@@ -11,6 +11,7 @@ import { tmpdir } from 'node:os';
 import { germinate } from '../src/germinate.mjs';
 import { DOMAIN_IDS, loadDomain } from '../vendor/seed-library/domains.mjs';
 import { rng } from '../vendor/seed-library/seedlib.mjs';
+import { tally as tallyOf, nights as nightsOf, nightWords, render as renderTally } from '../tools/tally.mjs';
 
 const read = (p) => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
 const html = read('index.html');
@@ -125,6 +126,8 @@ test('the header’s tally is the sum of every committed verdict, failures inclu
   const cell = Object.fromEntries([...html.matchAll(/data-held="([0-9]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   const of = (k) => { const v = JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts; return v.filter((x) => x.pass).length + ' of ' + v.length; };
   for (const [n, ks] of Object.entries({ 1: ['1'], 2: ['2'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'] })) assert.equal(cell[n], ks.map(of).join(' · '), 'organ ' + n + ' in the paper');
+  const nv = nightsOf().map((x) => JSON.parse(read('data/nights/' + x.n + '/verdict.json')).verdicts).flat();
+  assert.equal(cell[12], nv.filter((x) => x.pass).length + ' of ' + nv.length + ' over ' + nightsOf().length + ' nights', 'organ 12 in the paper: every night');
 });
 
 test('organ 9’s section prints the numbers its two records hold', () => {
@@ -214,6 +217,18 @@ test('organ 12’s section prints night 1 as its record holds it', () => {
   assert.ok(r.after.finalAuc < r.before.finalAuc, 'it got worse — and the page says so');
 });
 
+test('receipt (a) says what every judged night says, and the nightly job keeps it so', () => {
+  assert.equal(renderTally(html), html, 'node tools/tally.mjs --write has been run since the last night was judged');
+  const ns = nightsOf(), w = nightWords(ns), sec = html.slice(html.indexOf('<section id="receipts"'), html.indexOf('</section>', html.indexOf('<section id="receipts"')));
+  assert.ok(ns.length >= 2 && ns.every((x, i) => x.n === i + 1), 'the nights are numbered 1, 2, … with none missing');
+  assert.ok(sec.includes('<table data-nights-count="' + ns.length + '">'), 'one row a night, and the page fetches each one');
+  for (const x of ns) assert.ok(sec.includes('<tr><td>' + x.n + '</td>'), 'night ' + x.n + ' has its row');
+  for (const k of ['short', 'what', 'since']) assert.ok(html.includes('data-nights="' + k + '">' + w[k] + '<'), k);
+  assert.match(w.since, ns.slice(1).some((x) => x.adopted.length) ? /adopted a change/ : /adopted nothing/, 'the stricter gate’s nights, as their records hold them');
+  for (const stale of ['owner’s decision', 'night 1 measured, and it got worse', 'the first night</h4>', 'four times']) assert.ok(!html.includes(stale), 'no stale words: ' + stale);
+  assert.ok(sec.includes('<code>tools/night-nightly.ps1</code>') && read('tools/night-nightly.ps1').includes('node tools/tally.mjs --write'), 'the job the page names rewrites the page');
+});
+
 test('organ 2’s result, in words, is the record’s', () => {
   const words = html.slice(html.indexOf('<p class="answer" id="h2h-words">'), html.indexOf('</p>', html.indexOf('id="h2h-words"')));
   const c = JSON.parse(read('data/organ-2/record.json')).contest, m = c.models, f3 = (x) => (Math.round(x * 1000) / 1000).toString();
@@ -243,8 +258,9 @@ test('the brochure and the questions print what the records hold', () => {
   assert.ok(html.includes('0 of ' + r9.organ9.flood.tried.toLocaleString('en-GB') + ' forgeries were admitted') && r9.organ9.flood.admitted === 0, 'forgeries');
   assert.ok(html.includes('came down from ' + re.from.toFixed(3) + ' to ' + re.to.toFixed(3) + ' in November'), 'the claim that came down');
   assert.ok(html.includes('the 14B took a median ' + (Math.round(c.models['qwen2.5:14b · zero'].medianMs / 100) / 10) + ' s per answer, and the organ ' + (Math.round(c.organ.timing.perAnswerUs * 10) / 10) + ' µs'), 'the speeds');
-  const vs = [...Object.entries(JSON.parse(read('data/organs.json'))).filter(([, s]) => s === 'measured').map(([k]) => (k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')), 'data/nights/1/verdict.json'].flatMap((f) => JSON.parse(read(f)).verdicts);
-  assert.ok(html.includes(vs.filter((v) => !v.pass && v.kind === 'prediction').length + ' predictions failed and one property was over-claimed'), 'what did not work');
+  const vs = [...Object.entries(JSON.parse(read('data/organs.json'))).filter(([, s]) => s === 'measured').map(([k]) => (k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')), ...nightsOf().map((x) => 'data/nights/' + x.n + '/verdict.json')].flatMap((f) => JSON.parse(read(f)).verdicts);
+  assert.ok(html.includes(vs.filter((v) => !v.pass && v.kind === 'prediction').length + '</span> predictions failed and one property was over-claimed'), 'what did not work, every night counted');
+  assert.equal(tallyOf().failed, String(vs.filter((v) => !v.pass && v.kind === 'prediction').length));
   assert.ok(html.includes('0 of ' + r3.input.attacksTried.toLocaleString('en-GB') + ' attacks got past the gate') && r3.input.breached === 0, 'organ 3’s attacks');
 });
 

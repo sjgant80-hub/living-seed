@@ -186,6 +186,14 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
     <li><b>Ask it something.</b> In box 3, pick a domain and a case it never grew on, change any measurement you like, and press <b>Ask</b>. A live organ answers VERIFIED and shows the rules that fired; a cut or dormant one abstains.</li>
     <li><b>Break it.</b> Press <b>Change one character</b> under the genome (or type into it), then germinate again: refused, nothing grows. Then press <b>Re-run the measurement</b> in box 4 — your browser regrows all five organisms and checks each against the record CI committed.</li>
   </ol>
+  <p class="sub">Then the whole organism, one box at a time, each running the real code here:</p>
+  <ul class="steps">
+    <li><b>Watch it answer only where it has earned it.</b> Box 5 asks the body a case far from its data; it abstains. The organ-2 table shows a 58-byte organ against language models up to 14B.</li>
+    <li><b>Watch it defend itself.</b> Box 15 runs the sealed attack: a forgery flood, a stolen key, a node taken over. Box 16 lets you try to smear an honest node.</li>
+    <li><b>Watch it be honest about itself.</b> Box 17 lives the real shop months. Its claim comes down when it delivers less, and you can try to rewrite what it did.</li>
+    <li><b>Watch a whole season.</b> Box 18 runs seed → live → remember → improve → child → spread, step for step against CI’s record.</li>
+    <li><b>Link two of your own devices.</b> Box 19, phone and laptop, with no server in between.</li>
+  </ul>
 </section>
 
 <section id="try" aria-labelledby="try-h">
@@ -298,8 +306,13 @@ npm test                         # the unit, page and policy tests
 node witness-all.mjs             # mutation gate: every mutant of the kernels must be caught
 node tools/measure.mjs --check   # re-derives data/record.json byte for byte
 node tools/judge.mjs --check     # re-judges it by the sealed rules
-node tools/order.mjs             # proves the seal came first, on the code it pinned</pre>
-  <p>CI runs all five on every push: <a href="https://github.com/sjgant80-hub/living-seed/actions">github.com/sjgant80-hub/living-seed/actions</a>.</p>
+node tools/order.mjs             # proves the seal came first, on the code it pinned
+for n in 2 3 4 4b 5 6 7 8 8b 8c 9 9b 10 10b 11 11b; do   # every other organ, the same way
+  node tools/measure-$n.mjs --check && node tools/judge-$n.mjs --check && node tools/order.mjs --organ $n
+done                             # organ 2's order refuses on one file, re-derived from its sealed bytes; organ 11 stays red
+node tools/sealed-rerun.mjs --organ 2   # organ 2's record, from the exact bytes it sealed
+node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
+  <p>CI runs all of these on every push: <a href="https://github.com/sjgant80-hub/living-seed/actions">github.com/sjgant80-hub/living-seed/actions</a>.</p>
 </section>
 
 <section id="body" aria-labelledby="body-h">

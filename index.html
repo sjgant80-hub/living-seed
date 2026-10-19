@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-RIkWOU0oeXHe/s6FiPsMCflzJ8wce6pRuXzoH1VTNc4='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WBvDjxMB2qk/6JLQ167g2dbI37yaMuYWiJfvlSi+NEU=' 'sha256-tD5EVcdgwwdYdKuTbxFcPSuzdQKPfGc0BKIwTx/V7ps='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
-<meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: all twelve organs, 89 of 112 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
+<meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: all twelve organs, 95 of 119 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
 <link rel="canonical" href="https://sjgant80-hub.github.io/living-seed/" />
 <meta property="og:title" content="The Living Seed — a genome that grows a verified AI on your own device" />
 <meta property="og:description" content="496 signed bytes → a working organism grown from the device's own data, offline. It answers only where it has earned it. All 12 organs, each measured against rules sealed before the run, failures kept." />
@@ -128,8 +128,8 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
   <p class="tag">This page runs the real thing: the same code that its tests, its mutation gate and its pre-registered measurement prove, in your browser, on nothing but this page’s own files. The Living Seed is built from twelve organs, each one measured against rules sealed before it ran and allowed to fail. All twelve organs are on this page: genome, body, gate, evolution, cards, self-powering, self-model, mesh, the immune system, alignment, the full organism, and the three receipts. One receipt is measured; the other two can only be supplied by other devices and other people.</p>
   <div class="pills" id="tally">
     <span class="pill ok">12 of 12 organs · each sealed, then measured · receipts (b), (c) need others</span>
-    <span class="pill ok"><span data-tally="held">89 of 112</span> sealed rules held across <span data-tally="tests">17</span> sealed tests</span>
-    <span class="pill warn"><span data-tally="failed">22</span> predictions failed · every one kept</span>
+    <span class="pill ok"><span data-tally="held">95 of 119</span> sealed rules held across <span data-tally="tests">18</span> sealed tests</span>
+    <span class="pill warn"><span data-tally="failed">23</span> predictions failed · every one kept</span>
     <span class="pill warn"><span data-tally="red">1</span> property red · organ 11’s K2, said below</span>
     <span class="pill ok">organ 1 · 9 / 9 sealed rules held</span>
     <span class="pill ok">mutation gate CLEAN on every kernel, every push</span>
@@ -338,6 +338,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   </div>
   <h3>The head-to-head: a 58-byte organ against language models up to 14 billion parameters</h3>
   <p>The Living Seed’s specification makes a claim: knowledge kept in a verified pattern beats a much bigger model. Before this organ, the estate held no receipt for it. So we measured it, sealed before a single model was asked. Three local language models were each asked about the same 300 unseen shop sessions: 100 that ended in a purchase and 200 that did not, from November and December. Each model was asked twice, once cold and once with 24 past sessions and their outcomes shown first. Every model answered on this machine, with no cloud. Every reply is committed, so the score can be re-checked without running a model.</p>
+  <p class="answer" id="h2h-words"><b>The result.</b> The organ, grown from 58 bytes of seed on the device’s own history, scored AUC <b>0.8205</b>. It beat every model asked cold: the 14B scored 0.732, and the 7B 0.641. The 1B could not give a readable answer to any of its 300 cases, cold or with examples, so it scores 0.5. Shown 24 past sessions first, the 14B reached <b>0.806</b>. The organ’s lead over that is 0.014, and its 95% lower bound is −0.017. On 300 sessions that is a tie, not a win, so the sealed prediction that it would win (B6) failed, and it is kept. The organ answers in 1.2 µs against the 14B’s 22.6 s, from 58 bytes against 9 GB of weights.</p>
   <div id="h2h" role="status" aria-live="polite"><p class="dim">Loading the organ-2 record…</p></div>
   <div class="tw"><table id="rules2"><caption class="sr">Organ 2 sealed rules and their verdicts</caption><thead><tr><th>Rule</th><th>Kind</th><th>What was claimed</th><th>Seen before the seal?</th><th>Verdict</th><th>What the record holds</th></tr></thead><tbody><tr><td colspan="6" class="dim">Loading…</td></tr></tbody></table></div>
 </section>
@@ -656,7 +657,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
 
   <h3>Against what you have now</h3>
   <div class="tw"><table>
-    <thead><tr><th>Question to ask</th><th>A hosted AI service</th><th>A model file you ship</th><th>The Living Seed (organ 1)</th></tr></thead>
+    <thead><tr><th>Question to ask</th><th>A hosted AI service</th><th>A model file you ship</th><th>The Living Seed</th></tr></thead>
     <tbody>
       <tr><td>Where do the records go to get an answer?</td><td>To the provider</td><td>Nowhere</td><td>Nowhere — measured: 0 calls</td></tr>
       <tr><td>What travels to each site?</td><td>Every request</td><td>The whole model, every update</td><td>496 signed bytes</td></tr>
@@ -664,6 +665,10 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>What does it do when it has not earned the answer?</td><td>Answers anyway</td><td>Answers anyway</td><td>ABSTAIN</td></tr>
       <tr><td>Can you read why it answered?</td><td>Usually not</td><td>Depends on the model</td><td>Every rule that fired</td></tr>
       <tr><td>Can a tampered copy run?</td><td>—</td><td>Unless you sign and check it</td><td>No — refused before it is read</td></tr>
+      <tr><td>Does it tell you when it is doing worse than it says?</td><td>Not usually</td><td>No</td><td>Yes — its claim comes down to what it delivers, on the record (<a href="#align">organ 10</a>)</td></tr>
+      <tr><td>Can you replay exactly what it did?</td><td>No</td><td>Rarely</td><td>Yes — every act chained, replayed byte for byte (<a href="#align">organ 10</a>)</td></tr>
+      <tr><td>Can your sites work together without sharing records?</td><td>Records go to the provider</td><td>One model for every site</td><td>Each site grows its own; they share signed answers, lessons and proofs, never records (<a href="#mesh">organ 8</a>)</td></tr>
+      <tr><td>If a site’s key is stolen?</td><td>—</td><td>—</td><td>Used beside its owner, it is revoked everywhere the moment it signs twice; taken over outright, its peers cut it off by behaviour (<a href="#immune">organ 9</a>)</td></tr>
       <tr><td>Licence</td><td>Per seat or per call</td><td>Varies</td><td>MIT — no licence fee</td></tr>
     </tbody>
   </table></div>
@@ -674,7 +679,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
     <li><b>Signed, and checked first.</b> A genome carries a digital signature (Ed25519, the scheme modern SSH keys use). Only the holder of the maker’s private key can produce it, and changing any character of the genome breaks it. A device refuses the genome before reading any of it unless the signature checks out over the exact bytes. A device can also keep a list of the only makers it accepts.</li>
     <li><b>One form, one fingerprint.</b> Every genome has exactly one byte form, and the same genome on the same data grows the same organism id anywhere. An auditor re-runs it and compares fingerprints.</li>
     <li><b>Gated, not trusted.</b> No organ answers unless it cleared the signed bar on cases it never grew on; the bar is part of what the maker signs.</li>
-    <li><b>Proven code.</b> The two kernels are mutation-gated: every one of 69 deliberate faults was caught by the tests. CI re-derives the measurement byte for byte on every push.</li>
+    <li><b>Proven code.</b> Every kernel is mutation-gated: CI deliberately breaks each one, line by line, and fails if a single break goes unnoticed by the tests. CI also re-derives every sealed measurement byte for byte on every push, and re-judges it by the rules sealed before it ran.</li>
     <li><b>This page.</b> Its Content-Security-Policy pins its own scripts by hash and allows connections only to its own site — it cannot send what you type anywhere.</li>
     <li><b>Nothing third-party inside.</b> The package installs no dependencies. The only cryptography is the platform’s own WebCrypto. Every change re-runs the tests, the mutation gate and every sealed measurement on GitHub’s runners. A change to how organisms grow shows up as a different organism id, so it cannot slip through unseen.</li>
   </ul>
@@ -685,7 +690,7 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       <tr><td>UK GDPR / GDPR</td><td>The records are never sent anywhere to be answered. For this tier, that means no new processor and no international transfer: data minimisation and data protection by design (Articles 5(1)(c) and 25). Health records are special category data (Article 9). Your lawful basis and your data protection impact assessment (Article 35) remain yours. We do not certify compliance, and this page claims none.</td></tr>
       <tr><td>NHS assurance</td><td>Your Data Security and Protection Toolkit return is your trust’s own. This tier changes what leaves the device (nothing). It does not change your obligations.</td></tr>
       <tr><td>Where maker keys live</td><td>A maker key is an Ed25519 private key. Here it is a WebCrypto key held by the program that seals; keeping it in a hardware security module is not built in. Treat it like a code-signing key: generate it on an offline machine, seal genomes there, and carry only the sealed genome out.</td></tr>
-      <tr><td>A compromised key</td><td>Rotate it. Re-seal with a new key, and give devices a trust list naming only the new key; they refuse the old one from their next germination. There is no automatic revocation list yet.</td></tr>
+      <tr><td>A compromised key</td><td>Rotate it. Re-seal with a new key, and give devices a trust list naming only the new key; they refuse the old one from their next germination. For genomes there is no automatic revocation list. Between running organisms there is: a key used by two parties signs two messages on one counter, and every node revokes it on that proof (<a href="#immune">organ 9</a>).</td></tr>
       <tr><td>Updates and patches</td><td>New code arrives like any software update. Your genomes do not change. Because growth is deterministic, the same genome on the same data must give the same organism id before and after an update, so you can check an update changed nothing it shouldn’t.</td></tr>
       <tr><td>Outside testing</td><td>Not yet. Inside, every attack family in organ 3’s red team was refused and the mutation gate caught every fault. An outside adversary is the last of the three receipts and is not claimed until it happens.</td></tr>
     </tbody>
@@ -707,35 +712,77 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <h3>Risks, answered straight</h3>
   <details><summary>Is it accurate enough?</summary><p>On the one real dataset — 12,330 online shop sessions — it ranks buyers above non-buyers with AUC 0.815 and is right 79.9% of the time on November–December sessions it never grew on. The three other domains here (field triage, drinking water, crop planting) are synthetic test domains, not real patients, samples or fields: 0.952, 0.748 and 0.754. Each organ is a small sum of rules, not a deep model; for some problems that is the ceiling.</p></details>
   <details><summary>How will it compare with what we run now?</summary><p>Only your own data can tell, and we won’t guess. That is what step 5 of the roll-out does: the organism runs beside your current process on the same cases, and you compare its calls and its abstentions with what actually happened. Organ 2 on this page does the same against language models up to 14 billion parameters, sealed before they answered.</p></details>
-  <details><summary>How does it keep up as the business changes?</summary><p>Germinate again on newer records, which is one call that takes milliseconds. Every organ is re-graded on held-out cases each time. One that no longer clears the bar is cut and abstains, with no retraining project and nobody needing to notice first.</p></details>
+  <details><summary>How does it keep up as the business changes?</summary><p>Two ways, both measured. It audits itself as results arrive: when an organ delivers less than it claims, by more than chance, it lowers its claim to what it delivered. On the real shop months it came down from 0.829 to 0.775 in November. If an organ collapses, it stands down and abstains within a few dozen answers (<a href="#align">organ 10</a>). And you can germinate again on newer records, which is one call that takes milliseconds: every organ is re-graded on held-out cases, and one that no longer clears the bar is cut.</p></details>
   <details><summary>Will it behave the same in an urban store and a rural one?</summary><p>Each store grows its own organs from its own records, so each is fitted to that store. On this page, two devices each holding half the history moved no organ’s AUC by more than 0.0054. Where a store’s data doesn’t support an organ, it is cut at that store and nowhere else.</p></details>
-  <details><summary>What do we do if a maker key is stolen?</summary><p>Rotate it. Make a new key, re-seal your genomes with it, and give your devices a trust list naming only the new key. From their next germination they refuse anything signed with the old one. Keep maker keys offline so this is rare. Organ 1 has no automatic revocation list; the rotation is a procedure you run.</p></details>
+  <details><summary>What if a maker key, or a site’s key, is stolen?</summary><p>A stolen maker key can sign genomes that devices trusting that maker will accept. Keep maker keys offline, use trust lists, and if one is stolen, rotate it: make a new key, re-seal your genomes, and give your devices a trust list naming only the new one. From their next germination they refuse the old. For genomes this rotation is a procedure you run; there is no automatic revocation list. A running site’s key is different. Used beside its owner, it is revoked by every node the moment it signs two messages on one counter. Taken over outright, its peers cut it off when its behaviour departs from its own baseline. In the sealed run both happened in the round of the attack (<a href="#immune">organ 9</a>).</p></details>
   <details><summary>Isn’t a gate of 0.6 a low bar?</summary><p>It is a default. The bar is a field in the genome, signed by its maker. Set it as high as your question demands. The gate is a floor that has been tested at its edges: an organ exactly on the bar lives, and one a hair under it is cut.</p></details>
-  <details><summary>What if a maker key is stolen?</summary><p>Whoever holds it can sign genomes that devices trusting that maker will accept. Keep maker keys offline and use trust lists. Organ 1 has no revocation list yet, and we say so rather than imply one.</p></details>
-  <details><summary>Does it learn and improve by itself?</summary><p>Organ 1 grows fresh from whatever data the device holds each time it germinates; it does not improve itself. Self-improvement — variation kept only when it beats held-out cases, judged blind — is organ 4, and it will be measured when it lands.</p></details>
-  <details><summary>Has anyone outside tried to break it?</summary><p>Not yet. Inside: every one-character change, swapped keys and wrong makers were refused; the mutation gate caught 69 of 69 faults. An outside adversary is the last of the three receipts, and it is not claimed until it happens.</p></details>
+  <details><summary>Does it learn and improve by itself?</summary><p>It can try, only through a gate: a change is kept only if it beats the organ it would replace on cases the change was never chosen on. We sealed that four times, and on this data the gains did not survive the future. Organ 4’s evolution fell on unseen cases. Organ 11’s October gain did not hold in November–December. Night 1 adopted a gain larger than the noise, and the holiday season still undid it (<a href="#receipts">organ 12</a>). What did hold was honesty: as results arrive it lowers its own claims to what it delivers. Plan on it staying honest about itself, not on it getting smarter by itself.</p></details>
+  <details><summary>Has anyone outside tried to break it?</summary><p>Not yet. Inside: every one-character change to a genome was refused, 0 of 4,354 attacks got past the gate, 0 of 5,040 forgeries were admitted, and every kernel survives its mutation gate. An outside adversary is the last of the three receipts. The invitation, with exactly what counts as a break and where to report it, is open (<a href="#receipts">organ 12</a>). It is not claimed until it happens.</p></details>
 
   <h3>The case for the board</h3>
-  <p>AI that has to send your records away to answer, or that answers when it hasn’t earned the right, is a liability you carry. This is the opposite shape: a signed recipe that grows at each site, from that site’s own records, and answers only where it has proven itself on that site’s own past. It is small enough to email and auditable down to the rule. You can re-run it to the same fingerprint. There is no licence fee. The first step is a one-site pilot on a question where you already hold the history.</p>
+  <p>AI that has to send your records away to answer, or that answers when it hasn’t earned the right, is a liability you carry. This is the opposite shape: a signed recipe that grows at each site, from that site’s own records, and answers only where it has proven itself on that site’s own past. It is small enough to email and auditable down to the rule. You can re-run it to the same fingerprint. It keeps a ledger of everything it did, and it lowers its own claims when it delivers less, so you are never relying on a number it no longer earns. There is no licence fee. The first step is a one-site pilot on a question where you already hold the history.</p>
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
   <h2 id="paper-h"><span class="n">17</span>White paper</h2>
   <article class="paper">
-    <p class="dim">The Living Seed, organ 1: a signed genome and offline germination of gated, abstaining organs — a pre-registered measurement.</p>
+    <p class="dim">The Living Seed: a signed seed that grows a gated, self-auditing AI on each device’s own data — built organ by organ, every organ measured against rules sealed before it ran, and every failure kept.</p>
     <h3>Abstract</h3>
-    <p>We describe a genome format of at most 2,048 bytes that carries recipes for up to eight predictive organs, a held-out bar, a lineage and an Ed25519 seal, and an operator Γ that grows the genome into an organism on a device’s own data without the network. A genome is verified before it is parsed and has a single canonical byte form. Each organ’s structure is carried in the genome; its thresholds are fitted to the device’s training cases. It is then graded on held-out cases against the signed bar: an organ that clears it answers, and every other organ abstains. Nine rules were sealed with the hash of every measuring file before measurement, two of them predictions. All nine held. A 496-byte, four-organ genome reproduced its source library’s held-out AUCs exactly (0.815, 0.952, 0.748, 0.754) and grew offline with 0 network calls. All 486 single-character tamperings were refused. Halving a device’s history moved no organ’s AUC by more than 0.0054. With the shop labels shuffled, that organ scored 0.513 and was cut while the other three answered every case.</p>
+    <p>We built a digital organism in twelve organs. A signed genome of a few hundred bytes grows, on each device and from that device’s own records, an organism whose every organ must clear a bar on cases it never trained on, or say “I don’t know”. It answers with receipts. It refuses unsigned or replayed messages before reading them. It improves only through a gate. It travels as a picture. It couples into a mesh, defends itself, audits its own claims against what actually happens, remembers what it lived, and has children. Each organ was pre-registered, measured deterministically, judged by its own sealed rules, and re-run by CI on every push. Across all of them, <span data-paper="held">95 of 119</span> sealed rules held. The <span data-paper="failed">23</span> failed predictions are kept, and one property we got wrong is kept red. The engineering claims are measured. The deeper claims in the specification are held as a way of thinking, not claimed.</p>
     <h3>1 · The problem</h3>
-    <p>AI today ships as large trained artefacts or as services that the data must travel to. Both are opaque, and neither is fitted to the place it runs. Neither declines to answer outside what it has shown it can do. For a business with many sites, that means shipping either gigabytes or records, and trusting answers it cannot inspect.</p>
-    <h3>2 · The genome</h3>
+    <p>AI today ships as large trained artefacts, or as services the data must travel to. Both are opaque, neither is fitted to the place it runs, and neither declines to answer outside what it has shown it can do. A business with many sites ends up with one average model that is fitted to none of them, with records leaving every site, and with no way to show anyone why an answer was given or that it should have been.</p>
+    <h3>2 · Method: sealed first, then measured, then judged</h3>
+    <p>For every organ: build the kernel; prove its tests catch deliberate faults (a mutation gate: CI fails if one mutant survives); dry-run the measurement’s plumbing in a scratch copy, printing nothing but “ran”; write the rules (properties that must hold, predictions that may fail, and what had been seen before) and pin the exact bytes of every file that will measure; commit and push that seal; only then measure; judge with the sealed rules; prove from git that the seal came first. A failed prediction is kept. A failed property turns the build red. When an attempt failed for a reason worth fixing, the next attempt was sealed again, its design disclosed as made after seeing the failure, and the first verdict kept.</p>
+    <h3>3 · The twelve organs, and what each measured</h3>
+    <div class="tw"><table>
+      <thead><tr><th>#</th><th>Organ</th><th>What it had to show</th><th>Sealed rules held</th><th>What happened</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>Genome + germination</b></td><td>A signed seed grows a working organism offline</td><td class="num" data-held="1">9 of 9</td><td>496 bytes grew four organs; 486 of 486 one-character changes refused</td></tr>
+        <tr><td>2</td><td><b>Body</b></td><td>Patterns that route and abstain; a 58-byte organ against language models</td><td class="num" data-held="2">6 of 7</td><td>beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); 18 million times faster</td></tr>
+        <tr><td>3</td><td><b>The gate</b></td><td>Nothing unproven enters, is learned, or is passed on</td><td class="num" data-held="3">4 of 4</td><td>0 of 4,354 attacks admitted</td></tr>
+        <tr><td>4</td><td><b>Variation + selection</b></td><td>Self-improvement judged blind, allowed to fail</td><td class="num" data-held="4">4 of 6 · 3 of 6</td><td>it fell on unseen cases; the gate is what keeps a loss out</td></tr>
+        <tr><td>5</td><td><b>Breeding + the card</b></td><td>A verified child; the organism travels as a picture</td><td class="num" data-held="5">8 of 8</td><td>the child’s shop organ (0.828) beat both parents</td></tr>
+        <tr><td>6</td><td><b>Self-powering</b></td><td>Work done once, reused exactly</td><td class="num" data-held="6">4 of 4</td><td>0.71% of the sorts done, ×6.54 faster, the same result</td></tr>
+        <tr><td>7</td><td><b>Self-model</b></td><td>Its prediction of its own correctness beats its base rate</td><td class="num" data-held="7">4 of 4</td><td>answering only where it rates itself ≥ 0.8: 79.9% → 93.0% right, on 66% of cases</td></tr>
+        <tr><td>8</td><td><b>Mesh</b></td><td>Organisms couple, route, grow specialists, survive loss</td><td class="num" data-held="8">7 of 7 · 3 of 6 · 3 of 6</td><td>96.5% of cases answered against 54.2% alone; an over-claimer found out (78.9% of late tasks to the honest node)</td></tr>
+        <tr><td>9</td><td><b>Immune system</b></td><td>Attacks make it stronger; it never turns on itself</td><td class="num" data-held="9">9 of 12 · 7 of 7</td><td>signature checks 5,040 → 400; a stolen key revoked in its round; a takeover cut in its round</td></tr>
+        <tr><td>10</td><td><b>Alignment</b></td><td>It cannot act unproven or hide an act; its claims follow reality</td><td class="num" data-held="10">4 of 9 · 8 of 8</td><td>96 of 96 tampers caught; its claim lowered 0.829 → 0.775 when the shop delivered less</td></tr>
+        <tr><td>11</td><td><b>The full organism</b></td><td>One season end to end on two devices</td><td class="num" data-held="11">5 of 8 · 5 of 5</td><td>every gate held; the October gain did not carry into November–December</td></tr>
+        <tr><td>12</td><td><b>The three receipts</b></td><td>Better on its own hardware; consistent on real devices; unbroken from outside</td><td class="num" data-held="12">2 of 3 (night 1)</td><td>night 1 got worse (0.819 → 0.777); the two-device instrument works; no outside attempt yet</td></tr>
+      </tbody>
+    </table></div>
+    <h3>4 · What failed, and what it taught</h3>
+    <ul>
+      <li><b>Self-improvement is not safe by itself.</b> Organ 4’s evolution climbed on its validation slice and fell on unseen cases. Organ 11’s October gain did not hold in November–December. Night 1 adopted a gain larger than the noise, and the holiday season still undid it. A gate that looks back cannot see a world that is changing. What kept the organism honest was the audit that lowers its claims as reality arrives (organ 10b), not the gate.</li>
+      <li><b>A detector can be switched off by its own calibration.</b> Organ 9’s first behaviour watch mixed every message into one signal. Honest noise pushed its limit to the ceiling, so it could cut no one. Keeping the channels apart (claims, conduct, volume), as Gary W. Floyd’s method does, caught the takeover in its first round.</li>
+      <li><b>A defence must stop something the stage before it does not.</b> Organ 8’s shared fingerprints protected nothing that the addressed-envelope gate did not already refuse. Organ 9 replaced them with proofs that a key is in two hands, which no one can forge against an honest key.</li>
+      <li><b>Our own claims needed gating too.</b> Organ 10’s T5 failed on a duplicated key in our measurement code. Organ 11’s K2 property promised more than the design gives, and stays red. Organ 11b measured the exact guarantee.</li>
+    </ul>
+    <h3>5 · Limitations</h3>
+    <ul>
+      <li>One real dataset: a public shop’s sessions. Triage, water and crop are synthetic test domains.</li>
+      <li>Organs are small rule sums; the default bar is AUC 0.6.</li>
+      <li>The mesh and the two “devices” of organs 8–11 run in one process. N real devices is receipt (b), and the instrument for it is on this page.</li>
+      <li>No outside adversary has tried to break it (receipt (c)).</li>
+      <li>Maker keys for genomes have no revocation list; in the mesh, a key in two hands is revoked by proof.</li>
+    </ul>
+    <h3>6 · References</h3>
+    <ul>
+      <li>Sakar, C. O., & Kastro, Y. (2018). Online Shoppers Purchasing Intention Dataset. UCI Machine Learning Repository, DOI 10.24432/C5F88Q, CC BY 4.0.</li>
+      <li>Hanley, J. A., & McNeil, B. J. (1982). The meaning and use of the area under a receiver operating characteristic (ROC) curve. Radiology 143(1).</li>
+      <li>Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — “GEP-Based Security: Behavioral Entropy Signatures for Cybersecurity and DevOps,” 2025 (open defensive prior art, CC BY 4.0).</li>
+      <li>Hoeffding, W. (1963). Probability inequalities for sums of bounded random variables. JASA 58(301).</li>
+      <li>Powered by the Konomi architecture, created by Thomas Frumkin.</li>
+    </ul>
+    <h3>Appendix A · Organ 1 in detail — the genome</h3>
     <p>A genome is nine or more lines of text: a tag and name, a parents line, a gate line, one line per organ, the maker’s key and a signature over everything above it. Each organ line is a seed-library seed: the organ’s domain, a seed number, a packed recipe of up to six single-measurement rules (feature, quantile, side, weight) in 10 bytes, and a library check code. The check code catches corruption but not forgery, since every ribosome holds its key. The genome’s signature is what stops forgery. Opening is <i>verify before parse</i>: the signature and key are located by position and checked over the exact bytes before any field is read. The fields are then parsed strictly and re-rendered, and the result must be byte-identical, so a genome has exactly one form and one id (the first 16 hex characters of the SHA-256 of its signed body).</p>
-    <h3>3 · Germination</h3>
+    <h3>A.2 · Germination</h3>
     <p>For each organ, Γ looks for the domain’s data on the device. With none, the organ is dormant. Otherwise the ribosome sets each rule’s threshold at its quantile of that feature in the device’s training cases. It grades the resulting scorecard on held-out cases it never grew on, and fixes an operating point from the training cases alone. The organism is a plain record of the genome id, the maker, the substrate and each organ’s state, scores and rules. Its id is the SHA-256 of its canonical JSON, so the same genome on the same data grows the same organism on any engine.</p>
-    <h3>4 · The gate and abstention</h3>
+    <h3>A.3 · The gate and abstention</h3>
     <p>An organ goes live only when its held-out AUC is at least the genome’s bar. Asked about a case, a live organ returns VERIFIED with its label, score, threshold and the rules that fired. A cut or dormant organ returns ABSTAIN with the reason, and so does an organ asked about a case that lacks a measurement its rules read. We gate on AUC rather than accuracy because accuracy rewards a majority-class guess. The organ cut on shuffled labels would still have been 70.5% accurate.</p>
-    <h3>5 · Method</h3>
+    <h3>A.4 · Method</h3>
     <p>Before measuring, <code>tools/seal.mjs</code> wrote <code>data/prereg.json</code>: the nine rules, which were properties and which predictions, what had already been seen during development, and the SHA-256 of the 17 files that would measure. It was committed first. <code>tools/measure.mjs</code> then produced a deterministic record using seeded maker keys and no clock. <code>tools/judge.mjs</code>, one of the pinned files, judged it, and <code>tools/order.mjs</code> proves from git that the seal’s last commit is a strict ancestor of the record’s first, on byte-identical pinned files. Most rules were seen during development and are claimed as properties of the build. Only R6 (half the history suffices, within 0.03 AUC) and R8 (no signal reads as a coin, and the rest stays whole) were unseen in the part that mattered.</p>
-    <h3>6 · Results</h3>
+    <h3>A.5 · Results</h3>
     <div class="tw"><table>
       <thead><tr><th>Device</th><th>Shop</th><th>Triage</th><th>Water</th><th>Crop</th></tr></thead>
       <tbody>
@@ -747,19 +794,8 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
       </tbody>
     </table></div>
     <p>Held-out AUC per organ. The shop data is real (UCI, 12,330 sessions; held-out = November and December, 4,725 sessions). Triage, water and crop are seed-library’s synthetic test domains (2,400 rows each, 720 held out). The cut shop organ abstained on 4,725 of 4,725 cases. The dormant water organ abstained on 720 of 720. Every live organ answered every held case. The rules grown on each device are 1,193–1,199 bytes, about 2.4× the genome that travelled.</p>
-    <h3>7 · Limitations</h3>
-    <ul>
-      <li>Three of the four domains are synthetic. The one real dataset is a single public shop.</li>
-      <li>Organs are small rule sums; the bar defaults to 0.6.</li>
-      <li>There is no maker-key revocation in organ 1.</li>
-      <li>Most sealed rules were seen during development, as disclosed.</li>
-      <li>There has been no outside adversary yet.</li>
-      <li>The genome is readable text, not further compressed.</li>
-    </ul>
-    <h3>8 · What comes next</h3>
-    <p>The body (organ 2) puts the organs’ knowledge in a verified pattern library and checks the claim that a tiny rule beats a far larger model against its primary source before reusing it. The gate, variation with fitness, breeding through a sealed card, self-powering, a self-model, the mesh, the immune system and structural alignment follow, each sealed before it runs. Then the whole organism, and the three receipts.</p>
     <h3>What we do not claim</h3>
-    <p>The Living Seed’s specification includes a self-model organ whose self-prediction is to converge to a fixed point. We will build and measure that mechanism. We do not claim that it is, or will produce, consciousness, and we do not claim that its self-improvement is open-ended. Both are kept as questions the instruments exist to investigate, not results.</p>
+    <p>The Living Seed’s specification includes a self-model whose prediction of itself is to settle to a fixed point. Organ 7 built and measured that mechanism: its prediction of its own correctness beats its base rate and settles. We do not claim that it is, or will produce, consciousness. We do not claim that its self-improvement is open-ended: on this data, every attempt at self-improvement that we sealed either fell on unseen cases or did not carry into the future. Both are kept as questions the instruments exist to investigate, not results.</p>
   </article>
 </section>
 
@@ -770,6 +806,10 @@ node tools/order.mjs             # proves the seal came first, on the code it pi
   <details><summary>Can I use my own data?</summary><p>Yes, in the code: a substrate is any set of datasets in the seed-library shape (rows, features, labels, train and held-out cases). This page uses the four built-in domains so the results can be checked against the committed record.</p></details>
   <details><summary>Why is the demo maker key public?</summary><p>So that anyone can reproduce the seal byte for byte. Ed25519 signatures are deterministic. A real maker keeps a real key secret and offline. “Make your own genome” shows that: your browser makes a fresh key that never leaves the tab.</p></details>
   <details><summary>Does it work offline?</summary><p>Yes. After the first visit a service worker keeps this page’s files, and germination itself never uses the network.</p></details>
+  <details><summary>Does it need a GPU, or the cloud?</summary><p>No. Everything on this page runs in your browser on an ordinary processor. The language models it was compared against in organ 2 ran on this project’s own laptop processor too, with no cloud: the 14B took a median 22.6 s per answer, and the organ 1.2 µs.</p></details>
+  <details><summary>Is it alive, or conscious?</summary><p>Neither is claimed. “Living” names a life cycle it really has: it carries a genome, grows from it, reproduces, defends itself, remembers and audits itself. Each of those was measured. Its self-model predicts its own correctness and settles (organ 7); whether such a thing could ever amount to awareness is held as an open question, not an answer.</p></details>
+  <details><summary>What did not work?</summary><p>Every sealed failure is kept on this page with its reason. 23 predictions failed and one property was over-claimed (organ 11’s K2). The largest lesson: self-improvement that looked real on recent data did not hold in the months that followed, three times. What held was the organism’s honesty about itself.</p></details>
+  <details><summary>How do I try it on my own devices?</summary><p>Box 19 links two of your own devices directly, phone and laptop, and both sign a receipt the project can check. For your own data, start with the roll-out steps under “For your business”: one question at one site, run beside what you do now.</p></details>
 </section>
 </main>
 
@@ -1784,8 +1824,12 @@ async function boot() {
   $('genome').value = g.text;
   await organ2; await organ3; await organ4; await organ8; await organ9; await organ10; await organ11; await night1;
   renderContest(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8(); render9(); render10(); render11(); render12();
-  const st = await states, label = { measured: ['proven · sealed and measured', 'live'], sealed: ['sealed · being measured', ''], built: ['built · being sealed', ''] };
-  for (const k of [2, 3]) { const [t, c] = label[st[k]] || label.built; $('organ' + k + '-state').textContent = t; if (c) $('organ' + k + '-state').classList.add(c); }
+  const st = await states;
+  for (const [k, ver] of [[2, S.ver2], [3, S.ver3]]) {   // the state chip says what the verdict says: never "proven" over a failure
+    const el = $('organ' + k + '-state'), held = ver ? ver.verdicts.filter((v) => v.pass).length : 0, all = ver ? ver.verdicts.length : 0;
+    el.textContent = st[k] === 'measured' && ver ? 'measured · ' + held + ' of ' + all + ' sealed rules held' + (held < all ? ', failures kept' : '') : st[k] === 'sealed' ? 'sealed · being measured' : 'built · being sealed';
+    if (st[k] === 'measured' && ver) el.classList.add('live');
+  }
   $('boot').innerHTML = 'Ready. Your browser sealed the origin genome itself — ' + (g.text === S.rec.genome.text ? '<span class="ok-t">byte-identical to the one CI committed</span>' : '<span class="bad-t">it differs from the one CI committed</span>') + ' — and holds the four domains’ data. Nothing more will be fetched.';
   await bootBody();
   for (const id of ['grow', 'rerun']) $(id).disabled = false;

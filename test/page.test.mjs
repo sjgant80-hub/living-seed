@@ -118,6 +118,13 @@ test('the header’s tally is the sum of every committed verdict, failures inclu
   assert.equal(tally.tests, String(tests));
   assert.equal(tally.failed, String(vs.filter((v) => !v.pass && v.kind === 'prediction').length));
   assert.equal(tally.red, String(vs.filter((v) => !v.pass && v.kind !== 'prediction').length));
+  const paper = Object.fromEntries([...html.matchAll(/data-paper="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  assert.deepEqual(paper, { held: tally.held, failed: tally.failed }, 'the white paper says the same');
+  assert.ok(html.includes('all twelve organs, ' + tally.held + ' sealed rules held'), 'and so does the description search engines read');
+  // each row of the paper's organ table says what that organ's own verdicts say
+  const cell = Object.fromEntries([...html.matchAll(/data-held="([0-9]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  const of = (k) => { const v = JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts; return v.filter((x) => x.pass).length + ' of ' + v.length; };
+  for (const [n, ks] of Object.entries({ 1: ['1'], 2: ['2'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'] })) assert.equal(cell[n], ks.map(of).join(' · '), 'organ ' + n + ' in the paper');
 });
 
 test('organ 9’s section prints the numbers its two records hold', () => {
@@ -205,6 +212,38 @@ test('organ 12’s section prints night 1 as its record holds it', () => {
   assert.ok(sec.includes('<span id="n1-oct">' + shop.from.toFixed(3) + ' → ' + shop.to.toFixed(3) + '</span>'), 'night 1 on October');
   assert.ok(sec.includes('<span id="n1-final">' + r.before.finalAuc.toFixed(3) + ' → ' + r.after.finalAuc.toFixed(3) + '</span>'), 'night 1 on November–December');
   assert.ok(r.after.finalAuc < r.before.finalAuc, 'it got worse — and the page says so');
+});
+
+test('organ 2’s result, in words, is the record’s', () => {
+  const words = html.slice(html.indexOf('<p class="answer" id="h2h-words">'), html.indexOf('</p>', html.indexOf('id="h2h-words"')));
+  const c = JSON.parse(read('data/organ-2/record.json')).contest, m = c.models, f3 = (x) => (Math.round(x * 1000) / 1000).toString();
+  const has = (s, what) => assert.ok(words.includes(s), what + ': ' + s);
+  has('from ' + c.organ.seedBytes + ' bytes of seed', 'the seed');
+  has('AUC <b>' + c.organ.auc + '</b>', 'the organ');
+  has('the 14B scored ' + f3(m['qwen2.5:14b · zero'].auc), '14B cold');
+  has('the 7B ' + f3(m['qwen2.5:7b · zero'].auc), '7B cold');
+  assert.ok(m['llama3.2:1b · zero'].unreadable === c.sample.cases && m['llama3.2:1b · few'].unreadable === c.sample.cases && m['llama3.2:1b · zero'].auc === 0.5, 'the 1B never answered readably');
+  has('any of its ' + c.sample.cases + ' cases', '1B unreadable');
+  has('the 14B reached <b>' + f3(m['qwen2.5:14b · few'].auc) + '</b>', '14B with examples');
+  has('lead over that is ' + f3(m['qwen2.5:14b · few'].organLead), 'the lead');
+  has('lower bound is −' + f3(-m['qwen2.5:14b · few'].organLeadLow95), 'its bound');
+  assert.ok(m['qwen2.5:14b · few'].organLeadLow95 < 0, 'a tie: the bound crosses zero');
+  has((Math.round(c.organ.timing.perAnswerUs * 10) / 10) + ' µs', 'the organ’s speed');
+  has((Math.round(m['qwen2.5:14b · zero'].medianMs / 100) / 10) + ' s', 'the 14B’s speed');
+  const v = JSON.parse(read('data/organ-2/verdict.json')).verdicts;
+  assert.equal(v.find((x) => x.id === 'B6').pass, false, 'B6 failed — and the words say so');
+  has('(B6) failed', 'B6');
+});
+
+test('the brochure and the questions print what the records hold', () => {
+  const r9 = JSON.parse(read('data/organ-9/record.json')), r3 = JSON.parse(read('data/organ-3/record.json')), b = JSON.parse(read('data/organ-10b/record.json')), c = JSON.parse(read('data/organ-2/record.json')).contest;
+  const re = b.shop.audited.events.find((e) => e.kind === 'reclaim');
+  assert.ok(html.includes('0 of ' + r9.organ9.flood.tried.toLocaleString('en-GB') + ' forgeries were admitted') && r9.organ9.flood.admitted === 0, 'forgeries');
+  assert.ok(html.includes('came down from ' + re.from.toFixed(3) + ' to ' + re.to.toFixed(3) + ' in November'), 'the claim that came down');
+  assert.ok(html.includes('the 14B took a median ' + (Math.round(c.models['qwen2.5:14b · zero'].medianMs / 100) / 10) + ' s per answer, and the organ ' + (Math.round(c.organ.timing.perAnswerUs * 10) / 10) + ' µs'), 'the speeds');
+  const vs = [...Object.entries(JSON.parse(read('data/organs.json'))).filter(([, s]) => s === 'measured').map(([k]) => (k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')), 'data/nights/1/verdict.json'].flatMap((f) => JSON.parse(read(f)).verdicts);
+  assert.ok(html.includes(vs.filter((v) => !v.pass && v.kind === 'prediction').length + ' predictions failed and one property was over-claimed'), 'what did not work');
+  assert.ok(html.includes('0 of ' + r3.input.attacksTried.toLocaleString('en-GB') + ' attacks got past the gate') && r3.input.breached === 0, 'organ 3’s attacks');
 });
 
 test('every commit the receipt links to exists in this repository’s history', () => {

@@ -23,6 +23,8 @@ if (isMain) {
   if (process.argv.includes('--write')) {
     let html = read('index.html');
     for (const [k, v] of Object.entries(t)) html = html.replace(new RegExp('(data-tally="' + k + '">)[^<]*(<)'), '$1' + v + '$2');
+    for (const k of ['held', 'failed']) html = html.replace(new RegExp('(data-paper="' + k + '">)[^<]*(<)'), '$1' + t[k] + '$2');   // the white paper's own totals
+    html = html.replace(/(all twelve organs, )[0-9]+ of [0-9]+( sealed rules held)/, '$1' + t.held + '$2');   // the meta description
     writeFileSync(new URL('index.html', ROOT), html);
     console.log('wrote the tally into index.html');
   }

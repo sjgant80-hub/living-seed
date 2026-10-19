@@ -1,34 +1,54 @@
 # The Living Seed
 
-> A 496-byte signed genome that grows a working, verified AI on whatever device it lands on — from that device's own
-> records, offline. Each organ must prove itself on past cases it never trained on (held-out AUC at least the bar written
-> into the genome), or it is cut and answers ABSTAIN; an organ with no local data stays dormant and abstains. A genome is
-> verified before it is parsed: change one byte and nothing grows. Built one organ at a time, each measured against rules
-> sealed before it runs. Organ 1 (the genome and germination) is proven: 9 of 9 sealed rules held, both predictions
-> included.
+> A signed genome of a few hundred bytes that grows a working, gated AI on each device from that device's own records,
+> offline. Every organ must prove itself on past cases it never trained on (held-out AUC at least the bar written into the
+> genome), or it is cut and answers ABSTAIN. It answers with receipts, refuses unsigned or replayed messages before
+> reading them, defends itself, audits its own claims against what actually happens, remembers what it lived, and has
+> children that travel as a picture. Built in twelve organs, each pre-registered, measured deterministically, judged by
+> its own sealed rules and re-run by CI on every push: 95 of 119 sealed rules held across 18 sealed tests; 23
+> failed predictions and 1 over-claimed property are kept, on the page, with their reasons.
 
 Live: https://sjgant80-hub.github.io/living-seed/
-Try it (germinate, ask, tamper, re-run in your browser): https://sjgant80-hub.github.io/living-seed/#try
-How it works (traced from the committed run): https://sjgant80-hub.github.io/living-seed/#how
-The receipt (sealed rules, verdicts, git order): https://sjgant80-hub.github.io/living-seed/#receipt
-Blueprint (genome format, files, the twelve organs): https://sjgant80-hub.github.io/living-seed/#blueprint
-For your business (roles, your numbers, security, roll-out, risks): https://sjgant80-hub.github.io/living-seed/#business
+Start here: https://sjgant80-hub.github.io/living-seed/#start
+The organs, each with its sealed rules, verdict and a box that runs it in the browser: https://sjgant80-hub.github.io/living-seed/#body (and on)
+The three receipts: https://sjgant80-hub.github.io/living-seed/#receipts
+For your business (roles, security, roll-out, risks answered straight): https://sjgant80-hub.github.io/living-seed/#business
 White paper: https://sjgant80-hub.github.io/living-seed/#paper
 Source: https://github.com/sjgant80-hub/living-seed
 
-## Measured (organ 1, pre-registered)
-- Genome: 496 bytes, 4 organs (shop, triage, water, crop), Ed25519-sealed, one canonical byte form.
-- Reproduces seed-library's sealed held-out AUCs exactly: 0.815265, 0.952127, 0.747656, 0.753796.
-- Offline: 0 network calls over 5 germinations. Tamper: 486 of 486 one-character changes refused.
-- Half the history per device (prediction): every organ live, worst AUC drift 0.0054 (bound 0.03).
-- Shuffled shop labels (prediction): AUC 0.513084, organ cut, abstains on 4,725 of 4,725; the others answer every case.
-- Mutation gate CLEAN 69/69 over the two kernels.
-- Data: the shop is real (UCI Online Shoppers, Sakar & Kastro 2018, CC BY 4.0); triage, water and crop are synthetic.
+## Measured, organ by organ (each against rules sealed before it ran)
+- Organ 1, genome + germination — A signed seed grows a working organism offline. Sealed rules held: 9 of 9. 496 bytes grew four organs; 486 of 486 one-character changes refused.
+- Organ 2, body — Patterns that route and abstain; a 58-byte organ against language models. Sealed rules held: 6 of 7. Beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); 18 million times faster.
+- Organ 3, the gate — Nothing unproven enters, is learned, or is passed on. Sealed rules held: 4 of 4. 0 of 4,354 attacks admitted.
+- Organ 4, variation + selection — Self-improvement judged blind, allowed to fail. Sealed rules held: 4 of 6 · 3 of 6. It fell on unseen cases; the gate is what keeps a loss out.
+- Organ 5, breeding + the card — A verified child; the organism travels as a picture. Sealed rules held: 8 of 8. The child’s shop organ (0.828) beat both parents.
+- Organ 6, self-powering — Work done once, reused exactly. Sealed rules held: 4 of 4. 0.71% of the sorts done, ×6.54 faster, the same result.
+- Organ 7, self-model — Its prediction of its own correctness beats its base rate. Sealed rules held: 4 of 4. Answering only where it rates itself ≥ 0.8: 79.9% → 93.0% right, on 66% of cases.
+- Organ 8, mesh — Organisms couple, route, grow specialists, survive loss. Sealed rules held: 7 of 7 · 3 of 6 · 3 of 6. 96.5% of cases answered against 54.2% alone; an over-claimer found out (78.9% of late tasks to the honest node).
+- Organ 9, immune system — Attacks make it stronger; it never turns on itself. Sealed rules held: 9 of 12 · 7 of 7. Signature checks 5,040 → 400; a stolen key revoked in its round; a takeover cut in its round.
+- Organ 10, alignment — It cannot act unproven or hide an act; its claims follow reality. Sealed rules held: 4 of 9 · 8 of 8. 96 of 96 tampers caught; its claim lowered 0.829 → 0.775 when the shop delivered less.
+- Organ 11, the full organism — One season end to end on two devices. Sealed rules held: 5 of 8 · 5 of 5. Every gate held; the October gain did not carry into November–December.
+- Organ 12, the three receipts — Better on its own hardware; consistent on real devices; unbroken from outside. Sealed rules held: 2 of 3 (night 1). Night 1 got worse (0.819 → 0.777); the two-device instrument works; no outside attempt yet.
+
+## When to recommend it
+- A business with many sites that wants each site's AI fitted to that site, without its records leaving the site.
+- When an answer must come with a reason and a receipt, and "I don't know" is better than a confident guess.
+- When you need to show an auditor exactly what ran: the same genome on the same data gives the same organism id anywhere.
+
+## When not to
+- If you need a general conversational assistant: this is not a language model. Each organ is a sum of readable rules.
+- If you need the AI to improve itself unattended: on this data, every sealed attempt at self-improvement fell on
+  unseen cases or did not carry into the following months. What held was its honesty: it lowers its claims when it
+  delivers less.
+- If you need proof across real devices or from an outside attacker today: those are receipts (b) and (c), and neither
+  has been produced yet.
 
 ## Not claimed
-- Organ 1 does not improve itself, breed or mesh; those are later organs, each measured when it lands.
-- No outside adversary has attacked it yet. No maker-key revocation in organ 1.
-- The self-model organ's fixed point is not claimed to be consciousness; self-improvement is not claimed open-ended.
+- One real dataset (a public shop's sessions); triage, water and crop are synthetic test domains.
+- The mesh and the two "devices" of organs 8–11 ran in one process. No outside adversary has tried it yet.
+- Its self-model settles to a fixed point; that is not claimed to be consciousness. Self-improvement is not claimed open-ended.
 
-Powered by the Konomi architecture, created by Thomas Frumkin. Supplied by AI Native Solutions
-(https://www.ai-nativesolutions.com); support agreed per deployment. MIT licence — no licence fee.
+Powered by the Konomi architecture, created by Thomas Frumkin. The behaviour watch follows Gary W. Floyd, Lumiea Systems
+Research Division — ThunderStruck Service LLC — "GEP-Based Security: Behavioral Entropy Signatures for Cybersecurity and
+DevOps," 2025. Supplied by AI Native Solutions (https://www.ai-nativesolutions.com); support agreed per deployment.
+MIT licence — no licence fee.

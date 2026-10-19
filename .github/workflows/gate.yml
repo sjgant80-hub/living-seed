@@ -58,5 +58,7 @@ jobs:
         run: node tools/measure-11b.mjs --check && node tools/judge-11b.mjs --check && node tools/order.mjs --organ 11b
       - name: receipt (a), every night — re-run and re-judged (failed predictions included), each sealed first
         run: for d in data/nights/*/; do n=$(basename "$d"); node tools/night.mjs run $n --check && node tools/night.mjs judge $n --check && node tools/order.mjs --organ night-$n || exit 1; done && node tools/tally.mjs
+      - name: the AI layer — JSON-LD, llms.txt, the README table and robots.txt are what the page gives
+        run: node tools/geo.mjs --check
       - name: receipt (b), the checker — on the instrument check two browser tabs made (one machine, not two devices)
         run: node tools/receipt-b.mjs data/receipts/instrument-check-two-tabs-one-machine.json

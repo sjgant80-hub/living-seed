@@ -15,4 +15,6 @@ git add "data/nights/$n/record.json"; git commit -q -m "night $n measured"
 node tools/order.mjs --organ "night-$n"; if (-not $?) { throw "night $n's order does not hold" }
 node tools/night.mjs judge $n --write
 node tools/tally.mjs --write        # the header counts every night too
-git add "data/nights/$n/verdict.json" index.html; git commit -q -m "night $n judged"; & $push
+node tools/geo.mjs --write          # and so do the JSON-LD, llms.txt and the README table
+node tools/csp.mjs                  # the JSON-LD is an inline script: re-pin the policy to it
+git add "data/nights/$n/verdict.json" index.html llms.txt README.md robots.txt sitemap.xml; git commit -q -m "night $n judged"; & $push

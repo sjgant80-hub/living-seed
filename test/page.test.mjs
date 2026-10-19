@@ -246,6 +246,21 @@ test('the brochure and the questions print what the records hold', () => {
   assert.ok(html.includes('0 of ' + r3.input.attacksTried.toLocaleString('en-GB') + ' attacks got past the gate') && r3.input.breached === 0, 'organ 3’s attacks');
 });
 
+test('the structured data says what the page says: its FAQ is the visible FAQ, word for word', () => {
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const plain = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
+  const sec = html.slice(html.indexOf('<section id="faq"'), html.indexOf('</section>', html.indexOf('<section id="faq"')));
+  const visible = [...sec.matchAll(/<details><summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)].map((m) => [plain(m[1]), plain(m[2])]);
+  const schema = ld['@graph'].find((x) => x['@type'] === 'FAQPage').mainEntity.map((q) => [q.name, q.acceptedAnswer.text]);
+  assert.ok(visible.length >= 10);
+  assert.deepEqual(schema, visible);
+  const t = Object.fromEntries([...html.matchAll(/data-tally="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  assert.ok(ld['@graph'].find((x) => x['@type'] === 'SoftwareApplication').description.includes(t.held + ' sealed rules held'), 'and its count is the header’s');
+  const llms = read('llms.txt'), robots = read('robots.txt');
+  assert.ok(llms.includes(t.held + ' sealed rules held') && llms.includes('Organ 12, the three receipts'), 'llms.txt is current');
+  for (const bot of ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended']) assert.ok(robots.includes('User-agent: ' + bot), bot + ' let in by name');
+});
+
 test('every commit the receipt links to exists in this repository’s history', () => {
   const shas = [...new Set([...html.matchAll(/commit\/([0-9a-f]{40})/g)].map((m) => m[1]))];
   assert.equal(shas.length, 4);

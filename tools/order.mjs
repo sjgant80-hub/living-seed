@@ -41,6 +41,8 @@ export function order(prereg, sealPath = 'data/prereg.json', later = ['data/reco
 const ORGANS = {
   1: { seal: 'data/prereg.json', later: ['data/record.json'] },
   2: { seal: 'data/organ-2/prereg.json', later: ['data/organ-2/llm-answers.json', 'data/organ-2/record.json'] },
+  '2b': { seal: 'data/organ-2b/prereg.json', later: ['data/organ-2b/llm-answers.json', 'data/organ-2b/record.json'] },
+  '2c': { seal: 'data/organ-2c/prereg.json', later: ['data/organ-2c/record.json'] },
   3: { seal: 'data/organ-3/prereg.json', later: ['data/organ-3/record.json'] },
   4: { seal: 'data/organ-4/prereg.json', later: ['data/organ-4/record.json'] },
   '4b': { seal: 'data/organ-4b/prereg.json', later: ['data/organ-4b/record.json'] },

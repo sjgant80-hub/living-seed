@@ -2,7 +2,7 @@
 // tools/tally.mjs — the header's tally, from every committed verdict (each measured organ in data/organs.json, and every
 // night of receipt (a)), failures included. test/page.test.mjs checks the page against the same sums.
 //   node tools/tally.mjs [--write]   → prints the tally; --write puts it into index.html's data-tally spans
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, ROOT), 'utf8');
@@ -10,7 +10,7 @@ const read = (p) => readFileSync(new URL(p, ROOT), 'utf8');
 export function tally() {
   const organs = JSON.parse(read('data/organs.json'));
   const files = [...Object.entries(organs).filter(([, s]) => s === 'measured').map(([k]) => (k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')),
-    ...readdirSync(new URL('data/nights/', ROOT)).filter((d) => /^[0-9]+$/.test(d)).map((d) => 'data/nights/' + d + '/verdict.json')];
+    ...readdirSync(new URL('data/nights/', ROOT)).filter((d) => /^[0-9]+$/.test(d) && existsSync(new URL('data/nights/' + d + '/verdict.json', ROOT))).map((d) => 'data/nights/' + d + '/verdict.json')];   // a night sealed but not yet judged is not counted yet
   const vs = files.flatMap((f) => JSON.parse(read(f)).verdicts);
   return { held: vs.filter((v) => v.pass).length + ' of ' + vs.length, tests: String(files.length),
     failed: String(vs.filter((v) => !v.pass && v.kind === 'prediction').length), red: String(vs.filter((v) => !v.pass && v.kind !== 'prediction').length) };

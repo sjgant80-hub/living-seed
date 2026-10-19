@@ -4,7 +4,7 @@
 // and every number its words print is the number the committed record holds.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, rmSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, rmSync, readdirSync, existsSync } from 'node:fs';
 import { spawnSync, execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -110,7 +110,7 @@ test('every number the page’s words print is the number the committed record h
 
 test('the header’s tally is the sum of every committed verdict, failures included', () => {
   const organs = JSON.parse(read('data/organs.json'));
-  const nights = readdirSync(new URL('../data/nights/', import.meta.url)).filter((d) => /^[0-9]+$/.test(d)).map((d) => 'data/nights/' + d + '/verdict.json');   // receipt (a), night by night
+  const nights = readdirSync(new URL('../data/nights/', import.meta.url)).filter((d) => /^[0-9]+$/.test(d) && existsSync(new URL('../data/nights/' + d + '/verdict.json', import.meta.url))).map((d) => 'data/nights/' + d + '/verdict.json');   // receipt (a), night by night (judged nights)
   const vs = [...Object.entries(organs).filter(([, s]) => s === 'measured').map(([k]) => (k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')), ...nights].flatMap((f) => JSON.parse(read(f)).verdicts);
   const tests = Object.values(organs).filter((s) => s === 'measured').length + nights.length;
   const tally = Object.fromEntries([...html.matchAll(/data-tally="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
@@ -233,6 +233,8 @@ test('organ 2’s result, in words, is the record’s', () => {
   const v = JSON.parse(read('data/organ-2/verdict.json')).verdicts;
   assert.equal(v.find((x) => x.id === 'B6').pass, false, 'B6 failed — and the words say so');
   has('(B6) failed', 'B6');
+  const calls = JSON.parse(read('data/organ-2/llm-answers.json')).calls, longest = Math.max(...calls.map((x) => x.promptTokens));
+  assert.ok(longest < 4096 && html.includes('the longest, with 24 examples, was ' + longest.toLocaleString('en-GB') + ' tokens'), 'every prompt fitted the window');
 });
 
 test('the brochure and the questions print what the records hold', () => {

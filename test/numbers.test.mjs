@@ -24,6 +24,7 @@ const EXPLAINED = {
   '10.24432': 'the UCI dataset’s DOI (10.24432/C5F88Q), in the references',
   '143': 'Radiology volume 143, in the Hanley & McNeil reference',
   '2,400': 'the size of each synthetic domain (seed-library), 720 of them held out',
+  '4,096': 'the context window tools/ask-llm.mjs gave each model (num_ctx)',
 };
 
 function recordValues() {

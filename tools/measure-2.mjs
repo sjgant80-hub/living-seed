@@ -22,7 +22,7 @@ const CSV = read('data/online_shoppers_intention.csv');
 const DATA = Object.fromEntries(DOMAIN_IDS.map((d) => [d, loadDomain(d, { shopperCsv: CSV })]));
 
 /** The 2.5th percentile of AUC(a) − AUC(b) over paired bootstrap resamples of the same cases (seeded). */
-function pairedLow(a, b, y, n = 2000, seed = 99) {
+export function pairedLow(a, b, y, n = 2000, seed = 99) {
   const r = rng(seed), d = [];
   for (let k = 0; k < n; k++) {
     const idx = y.map(() => Math.floor(r() * y.length));

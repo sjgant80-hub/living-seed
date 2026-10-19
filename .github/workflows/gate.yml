@@ -44,6 +44,8 @@ jobs:
         run: node tools/measure-8c.mjs --check && node tools/judge-8c.mjs --check && node tools/order.mjs --organ 8c
       - name: organ 2 — the body and the head-to-head re-run and re-judged; the order proof refuses on exactly one file (organ 6’s opt-in hook in src/germinate.mjs), so the record is re-derived from every byte as sealed
         run: node tools/measure-2.mjs --check && node tools/judge-2.mjs --check && node tools/sealed-rerun.mjs --organ 2 && out=$(node tools/order.mjs --organ 2 || true) && echo "$out" && [ "$out" = "ORDER ✗ src/germinate.mjs changed between the seal and data/organ-2/llm-answers.json" ]
+      - name: organ 2c — the organ against PageValues alone, logistic regression and boosted trees, re-fitted, re-scored and re-judged, seal first
+        run: node tools/measure-2c.mjs --check && node tools/judge-2c.mjs --check && node tools/order.mjs --organ 2c
       - name: organ 9 — the immune system under three attacks, re-run and re-judged (its failed predictions included), seal first
         run: node tools/measure-9.mjs --check && node tools/judge-9.mjs --check && node tools/order.mjs --organ 9
       - name: organ 9b — the behaviour watch by channel, re-run and re-judged, seal first

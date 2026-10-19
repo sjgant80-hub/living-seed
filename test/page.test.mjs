@@ -125,7 +125,7 @@ test('the header’s tally is the sum of every committed verdict, failures inclu
   // each row of the paper's organ table says what that organ's own verdicts say
   const cell = Object.fromEntries([...html.matchAll(/data-held="([0-9]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   const of = (k) => { const v = JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts; return v.filter((x) => x.pass).length + ' of ' + v.length; };
-  for (const [n, ks] of Object.entries({ 1: ['1'], 2: ['2'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'] })) assert.equal(cell[n], ks.map(of).join(' · '), 'organ ' + n + ' in the paper');
+  for (const [n, ks] of Object.entries({ 1: ['1'], 2: ['2', '2c'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'] })) assert.equal(cell[n], ks.map(of).join(' · '), 'organ ' + n + ' in the paper');
   const nv = nightsOf().map((x) => JSON.parse(read('data/nights/' + x.n + '/verdict.json')).verdicts).flat();
   assert.equal(cell[12], nv.filter((x) => x.pass).length + ' of ' + nv.length + ' over ' + nightsOf().length + ' nights', 'organ 12 in the paper: every night');
 });
@@ -215,6 +215,22 @@ test('organ 12’s section prints night 1 as its record holds it', () => {
   assert.ok(sec.includes('<span id="n1-oct">' + shop.from.toFixed(3) + ' → ' + shop.to.toFixed(3) + '</span>'), 'night 1 on October');
   assert.ok(sec.includes('<span id="n1-final">' + r.before.finalAuc.toFixed(3) + ' → ' + r.after.finalAuc.toFixed(3) + '</span>'), 'night 1 on November–December');
   assert.ok(r.after.finalAuc < r.before.finalAuc, 'it got worse — and the page says so');
+});
+
+test('organ 2c prints what its record holds: the organ against three classical models, failure kept', () => {
+  const r = JSON.parse(read('data/organ-2c/record.json')), v = JSON.parse(read('data/organ-2c/verdict.json')).verdicts, m = r.models, f3 = (x) => x.toFixed(3);
+  const sec = html.slice(html.indexOf('<h3 id="classical">'), html.indexOf('</section>', html.indexOf('<h3 id="classical">')));
+  const has = (s, what) => assert.ok(sec.includes(s), what + ': ' + s);
+  has('<b>' + f3(m.boosted.auc) + '</b> against the organ’s <b>' + f3(r.organ.auc) + '</b>, from ' + m.boosted.numbers.toLocaleString('en-GB') + ' numbers against ' + r.organ.numbers, 'the closest');
+  has('Logistic regression scored ' + f3(m.logistic.auc) + ' and PageValues alone ' + f3(m.pageValues.auc), 'the other two');
+  has('(' + f3(m.pageValues.fitRowsAuc) + '–' + f3(m.boosted.fitRowsAuc) + ')', 'the months they were fitted to');
+  assert.ok(Object.values(m).every((x) => x.fitRowsAuc >= m.pageValues.fitRowsAuc && x.fitRowsAuc <= m.boosted.fitRowsAuc), 'that range spans all three');
+  assert.ok(Object.values(m).every((x) => !(x.organLeadLow95 > 0) && !(x.modelLeadLow95 > 0)), 'none beyond the noise, either way — as the words say');
+  has('only ' + r.organ.distinctScores + ' different values', 'the bands');
+  assert.equal(v.find((x) => x.id === 'D2').pass, false); has('(D2) failed', 'the failure, kept');
+  for (const [k, name] of [['pageValues', 'PageValues alone'], ['logistic', 'Logistic regression'], ['boosted', 'Boosted trees']]) has('<tr><td>' + name + '</td><td class="num">' + m[k].numbers.toLocaleString('en-GB') + '</td><td class="num">' + f3(m[k].fitRowsAuc) + '</td><td class="num"><b>' + f3(m[k].auc) + '</b></td>', name + ' row');
+  for (const s of ['boosted trees scored 0.824, the organ 0.815, PageValues alone 0.807 and logistic regression 0.801', 'boosted trees with 2,001 numbers scored 0.824, logistic regression 0.801 and PageValues alone 0.807']) assert.ok(html.includes(s), 'the brochure and the FAQ: ' + s);
+  assert.ok([m.boosted.auc, r.organ.auc, m.pageValues.auc, m.logistic.auc].map(f3).join() === '0.824,0.815,0.807,0.801' && m.boosted.numbers === 2001, 'and those words are the record’s');
 });
 
 test('receipt (a) says what every judged night says, and the nightly job keeps it so', () => {

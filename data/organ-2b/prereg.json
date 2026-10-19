@@ -1,0 +1,55 @@
+{
+ "kind": "living-seed.organ-2b.prereg",
+ "v": 1,
+ "organ": "organ 2, the head-to-head, settled — on 1,200 new sessions, does the 58-byte organ beat qwen2.5:14b shown 24 examples, or only tie it?",
+ "why": "Organ 2 measured the organ (AUC 0.8205) against qwen2.5:14b shown 24 past sessions (0.80645) on 300 held-out sessions: a lead of 0.014 whose 95% lower bound was −0.017 — a tie on that sample, and its B6 failed. The power needed to tell a lead that size from zero is roughly 1,600 sessions; this asks 1,200 more, new ones, so it may still not be enough. Two questions are sealed: does the organ beat the 14B (C2, which may fail), and is it at least not worse by more than 0.02 AUC (C3).",
+ "scenario": "1,200 held-out November–December sessions organ 2 never asked (400 that ended in a purchase, 800 that did not; tools/sample-2b.mjs, seeds 3026–3028). Everything else is organ 2’s, unchanged: the organ (the origin genome grown on the reference data), the 24 examples, the prompt, the reply parser, temperature 0, seed 7, a 4,096-token window, the paired bootstrap (2,000 resamples, seed 99). Only qwen2.5:14b with 24 examples is asked — the one condition organ 2 could not separate. Run on this machine’s processor, with no cloud.",
+ "rules": [
+  {
+   "id": "C1",
+   "kind": "property",
+   "claim": "all 1,200 new sessions are answered and none is in organ 2’s 300; every prompt fits the 4,096-token window; the model is the very one organ 2 asked (same digest)",
+   "seenBeforeSeal": "no new case has been asked"
+  },
+  {
+   "id": "C2",
+   "kind": "prediction",
+   "claim": "on the 1,200 new sessions the organ beats the 14B shown 24 examples: the 95% lower bound of its lead is above 0",
+   "seenBeforeSeal": "no — organ 2’s 300 gave a lead of 0.014, bound −0.017"
+  },
+  {
+   "id": "C3",
+   "kind": "prediction",
+   "claim": "on the 1,200 new sessions the organ is not worse than the 14B by more than 0.02 AUC: the 95% lower bound of its lead is above −0.02",
+   "seenBeforeSeal": "no"
+  },
+  {
+   "id": "C4",
+   "kind": "prediction",
+   "claim": "organ 2’s 300 were representative: on the new sessions the 14B scores within 0.03 of 0.80645 and the organ within 0.03 of 0.8205",
+   "seenBeforeSeal": "no"
+  }
+ ],
+ "disclosure": "Designed after organ 2’s verdict, knowing its numbers; organ 2’s verdict stands as it was. The 1,500 sessions of both samples together are reported too, but judged only on the 1,200 that no rule has seen. A failed prediction is kept.",
+ "judgedBy": "tools/judge-2b.mjs (pinned below)",
+ "files": {
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "data/organ-2/llm-answers.json": "410e551216f7736199a8c3cf9acbb64b4ed6bbcd1e8aee0d1638005e0b685238",
+  "tools/sample.mjs": "79487a28654c4ce51bb3260c79ee3ea2b3126eac0a0b05f5dd7374417e52b98a",
+  "tools/sample-2b.mjs": "832a61579f84f0ea9392eddf885365baf2b6e2caf4426d1e3b2f30600854a667",
+  "tools/ask-llm-2b.mjs": "0fd9d419f4ec134eba71c703337b9c8c6e4cbc4da252da9058f867ec218156bf",
+  "tools/measure-2b.mjs": "a322ba9a727f9793cefb9aa96537323b79ae9b200d892670c9a5ffa471918770",
+  "tools/measure-2.mjs": "3328050b14833ce9fc60aa2253aa823b458331f6ad00c0d4835f73c9a50197d9",
+  "tools/judge-2b.mjs": "c5c41a9209bf95ab68791f621ce45c02f18c181276f956263d233f79be89d2be",
+  "tools/seal-2b.mjs": "cf785b7a684d093b113827be38f81db156802626a563011ecab54143777340a6",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6"
+ }
+}

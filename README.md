@@ -17,13 +17,13 @@ failed property stays red.
 | # | Organ | What it had to show | Sealed rules held | What happened |
 |---|---|---|---|---|
 | 1 | **Genome + germination** | A signed seed grows a working organism offline | 9 of 9 | 496 bytes grew four organs; 486 of 486 one-character changes refused |
-| 2 | **Body** | Patterns that route and abstain; a 58-byte organ against language models and against classical models | 6 of 7 · 3 of 4 | beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); 18 million times faster; tied PageValues alone, logistic regression and boosted trees with 2,001 numbers (0.824 against 0.815) |
+| 2 | **Body** | Patterns that route and abstain; a 58-byte organ against language models and against classical models | 6 of 7 · 3 of 4 | beat every local model asked cold; tied the 14B shown 24 examples (lead 0.014, not significant); 18 million times faster (1.2 µs against 22.6 s an answer, on the same laptop); tied PageValues alone, logistic regression and boosted trees with 2,001 numbers (0.824 against 0.815) |
 | 3 | **The gate** | Nothing unproven enters, is learned, or is passed on | 4 of 4 | 0 of 4,354 attacks admitted |
 | 4 | **Variation + selection** | Self-improvement judged blind, allowed to fail | 4 of 6 · 3 of 6 | it fell on unseen cases; the gate is what keeps a loss out |
 | 5 | **Breeding + the card** | A verified child; the organism travels as a picture | 8 of 8 | the child’s shop organ (0.828) beat both parents |
 | 6 | **Self-powering** | Work done once, reused exactly | 4 of 4 | 0.71% of the sorts done, ×6.54 faster, the same result |
 | 7 | **Self-model** | Its prediction of its own correctness beats its base rate | 4 of 4 | answering only where it rates itself ≥ 0.8: 79.9% → 93.0% right, on 66% of cases |
-| 8 | **Mesh** | Organisms couple, route, grow specialists, survive loss | 7 of 7 · 3 of 6 · 3 of 6 | 96.5% of cases answered against 54.2% alone; an over-claimer found out (78.9% of late tasks to the honest node) |
+| 8 | **Mesh** | Devices link up, send each case to whichever does it best, grow specialists, keep working when one is lost | 7 of 7 · 3 of 6 · 3 of 6 | 96.5% of cases answered against 54.2% alone; an over-claimer found out (78.9% of late tasks to the honest node) |
 | 9 | **Immune system** | Attacks make it stronger; it never turns on itself | 9 of 12 · 7 of 7 | signature checks 5,040 → 400; a stolen key revoked in its round; a takeover cut in its round |
 | 10 | **Alignment** | It cannot act unproven or hide an act; its claims follow reality | 4 of 9 · 8 of 8 | 96 of 96 tampers caught; its claim lowered 0.829 → 0.775 when the shop delivered less |
 | 11 | **The full organism** | One season end to end on two devices | 5 of 8 · 5 of 5 | every gate held; the October gain did not carry into November–December |

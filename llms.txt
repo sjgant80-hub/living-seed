@@ -5,7 +5,7 @@
 > genome), or it is cut and answers ABSTAIN. It answers with receipts, refuses unsigned or replayed messages before
 > reading them, defends itself, audits its own claims against what actually happens, remembers what it lived, and has
 > children that travel as a picture. Built in twelve organs, each pre-registered, measured deterministically, judged by
-> its own sealed rules and re-run by CI on every push: 95 of 119 sealed rules held across 18 sealed tests; 23
+> its own sealed rules and re-run by CI on every push: 98 of 122 sealed rules held across 19 sealed tests; 23
 > failed predictions and 1 over-claimed property are kept, on the page, with their reasons.
 
 Live: https://sjgant80-hub.github.io/living-seed/

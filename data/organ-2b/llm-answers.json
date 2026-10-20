@@ -1,0 +1,9623 @@
+{
+ "kind": "living-seed.organ-2b.llm-answers",
+ "v": 1,
+ "features": [
+  "Administrative: number of account-management pages visited",
+  "Administrative_Duration: seconds spent on them",
+  "Informational: number of information pages visited",
+  "Informational_Duration: seconds spent on them",
+  "ProductRelated: number of product pages visited",
+  "ProductRelated_Duration: seconds spent on them",
+  "BounceRates: average bounce rate of the pages visited (0 to 1)",
+  "ExitRates: average exit rate of the pages visited (0 to 1)",
+  "PageValues: average value of the pages visited before a transaction",
+  "SpecialDay: closeness of the visit to a special day such as Valentine's Day (0 to 1)"
+ ],
+ "model": {
+  "name": "qwen2.5:14b",
+  "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+  "bytes": 8988124069
+ },
+ "calls": [
+  {
+   "row": 9149,
+   "prompt": "8d746edd9266532d",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 506138,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11284,
+   "prompt": "8594240c51064a96",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29374,
+   "promptTokens": 2474
+  },
+  {
+   "row": 11545,
+   "prompt": "5d04b239d344302a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30056,
+   "promptTokens": 2465
+  },
+  {
+   "row": 10016,
+   "prompt": "de6ed987bb68c5d3",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 24878,
+   "promptTokens": 2446
+  },
+  {
+   "row": 9475,
+   "prompt": "d160120e2228524d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34179,
+   "promptTokens": 2469
+  },
+  {
+   "row": 9010,
+   "prompt": "ce516c9cdceeaaf7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25517,
+   "promptTokens": 2436
+  },
+  {
+   "row": 10363,
+   "prompt": "6076e5592b84de5b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32331,
+   "promptTokens": 2469
+  },
+  {
+   "row": 9667,
+   "prompt": "47cb5f1e6a375fe4",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27177,
+   "promptTokens": 2445
+  },
+  {
+   "row": 9491,
+   "prompt": "8fb5b6ac00ef27d1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23595,
+   "promptTokens": 2445
+  },
+  {
+   "row": 8073,
+   "prompt": "c14eba3d27bb98d6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25950,
+   "promptTokens": 2464
+  },
+  {
+   "row": 12030,
+   "prompt": "23c73ac173ca1a90",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 26531,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9433,
+   "prompt": "14dd3ff50ab56a10",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25821,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11330,
+   "prompt": "a1880d5969e9598d",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23344,
+   "promptTokens": 2444
+  },
+  {
+   "row": 7952,
+   "prompt": "ed4acd392d0114bc",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 20523,
+   "promptTokens": 2437
+  },
+  {
+   "row": 10943,
+   "prompt": "d3fb801684c27eda",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 16476,
+   "promptTokens": 2431
+  },
+  {
+   "row": 10935,
+   "prompt": "0bc0d62094b31a74",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25188,
+   "promptTokens": 2465
+  },
+  {
+   "row": 10427,
+   "prompt": "dcaae8c3b00481c7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27495,
+   "promptTokens": 2463
+  },
+  {
+   "row": 11710,
+   "prompt": "4b943a6561130b35",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24373,
+   "promptTokens": 2439
+  },
+  {
+   "row": 8829,
+   "prompt": "6d42e2c643039c24",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18435,
+   "promptTokens": 2440
+  },
+  {
+   "row": 11329,
+   "prompt": "54223fd94cb1828e",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 21321,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11223,
+   "prompt": "0eb46eeccac8a12c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20719,
+   "promptTokens": 2449
+  },
+  {
+   "row": 11536,
+   "prompt": "4be26472f91eb284",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25606,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8144,
+   "prompt": "2933f5e135500f2d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25171,
+   "promptTokens": 2458
+  },
+  {
+   "row": 10680,
+   "prompt": "408d63b30bb89c72",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22192,
+   "promptTokens": 2438
+  },
+  {
+   "row": 6298,
+   "prompt": "6f84bd977a39b938",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28739,
+   "promptTokens": 2458
+  },
+  {
+   "row": 12126,
+   "prompt": "4ef9a36e121d57a1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22623,
+   "promptTokens": 2438
+  },
+  {
+   "row": 8107,
+   "prompt": "f408160639dc85ef",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21682,
+   "promptTokens": 2441
+  },
+  {
+   "row": 9789,
+   "prompt": "897f3c3efd752981",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24739,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11921,
+   "prompt": "40d7015ad5d9ec05",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22594,
+   "promptTokens": 2443
+  },
+  {
+   "row": 8282,
+   "prompt": "06edd632f4ba1fbb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30397,
+   "promptTokens": 2475
+  },
+  {
+   "row": 8702,
+   "prompt": "e530ec175d5f4a06",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 23818,
+   "promptTokens": 2437
+  },
+  {
+   "row": 8295,
+   "prompt": "4b921039166e5675",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 17451,
+   "promptTokens": 2438
+  },
+  {
+   "row": 12114,
+   "prompt": "e284de3f21216641",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25503,
+   "promptTokens": 2459
+  },
+  {
+   "row": 11579,
+   "prompt": "1118fd36b4caf483",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28323,
+   "promptTokens": 2460
+  },
+  {
+   "row": 9384,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20718,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8946,
+   "prompt": "8094873d7373dcd7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19212,
+   "promptTokens": 2453
+  },
+  {
+   "row": 10786,
+   "prompt": "79e969788833eaba",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 16687,
+   "promptTokens": 2435
+  },
+  {
+   "row": 12303,
+   "prompt": "ea6c42383e0bbdf0",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18496,
+   "promptTokens": 2435
+  },
+  {
+   "row": 10276,
+   "prompt": "cb273c18fef0c805",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 23916,
+   "promptTokens": 2454
+  },
+  {
+   "row": 12176,
+   "prompt": "72f3342f14b136c4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24817,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11679,
+   "prompt": "bf4ed61d6a567e87",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23764,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10225,
+   "prompt": "28cb10af9943f162",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29030,
+   "promptTokens": 2478
+  },
+  {
+   "row": 8225,
+   "prompt": "d40b1010073b3644",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 24394,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9528,
+   "prompt": "3418077d5b6d8297",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24500,
+   "promptTokens": 2458
+  },
+  {
+   "row": 10929,
+   "prompt": "01a87e046ba958bb",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19287,
+   "promptTokens": 2430
+  },
+  {
+   "row": 11376,
+   "prompt": "a965d9aa39c38d53",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 19860,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9442,
+   "prompt": "09dae3490e621b26",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 18522,
+   "promptTokens": 2443
+  },
+  {
+   "row": 8178,
+   "prompt": "7ce11bb9363d2f53",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 17585,
+   "promptTokens": 2439
+  },
+  {
+   "row": 12295,
+   "prompt": "a074662990e8d94d",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25261,
+   "promptTokens": 2457
+  },
+  {
+   "row": 6884,
+   "prompt": "b5a3d395062cca2a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21635,
+   "promptTokens": 2442
+  },
+  {
+   "row": 11217,
+   "prompt": "f7ea9c0b6546bfb3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21572,
+   "promptTokens": 2438
+  },
+  {
+   "row": 8856,
+   "prompt": "51e979f2a12bea0e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19642,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10091,
+   "prompt": "cd3c5f9ce493b098",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19313,
+   "promptTokens": 2453
+  },
+  {
+   "row": 10752,
+   "prompt": "5dd3fab52efcb746",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25880,
+   "promptTokens": 2464
+  },
+  {
+   "row": 12199,
+   "prompt": "af25842c31438d65",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23894,
+   "promptTokens": 2446
+  },
+  {
+   "row": 12181,
+   "prompt": "08ed7e8a39418cfd",
+   "reply": "15",
+   "p": 0.15,
+   "wallMs": 19936,
+   "promptTokens": 2428
+  },
+  {
+   "row": 10694,
+   "prompt": "2b950c363172ebb3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 19648,
+   "promptTokens": 2449
+  },
+  {
+   "row": 11159,
+   "prompt": "18475e1b2e57cbf2",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22726,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10846,
+   "prompt": "5467414aa32bc48d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24376,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10108,
+   "prompt": "f68b09b4c508ec4a",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22025,
+   "promptTokens": 2446
+  },
+  {
+   "row": 5980,
+   "prompt": "a2e0061cd58e2054",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 22461,
+   "promptTokens": 2441
+  },
+  {
+   "row": 8117,
+   "prompt": "50246f636bf70057",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26903,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9220,
+   "prompt": "33eaf830a29d0de2",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24583,
+   "promptTokens": 2441
+  },
+  {
+   "row": 9966,
+   "prompt": "5b0485275a1ad085",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23846,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11448,
+   "prompt": "b52a2d1619bc7902",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 22895,
+   "promptTokens": 2451
+  },
+  {
+   "row": 7378,
+   "prompt": "58c03c6fc5b70f74",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23741,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9833,
+   "prompt": "67bbd01175368e2a",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 24640,
+   "promptTokens": 2449
+  },
+  {
+   "row": 8586,
+   "prompt": "133f27c67e9e826d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25624,
+   "promptTokens": 2466
+  },
+  {
+   "row": 8950,
+   "prompt": "53321e31a99fbfed",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20386,
+   "promptTokens": 2429
+  },
+  {
+   "row": 8505,
+   "prompt": "a781abfb1f5ea49d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25937,
+   "promptTokens": 2460
+  },
+  {
+   "row": 11592,
+   "prompt": "b182f847edd5b497",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22244,
+   "promptTokens": 2437
+  },
+  {
+   "row": 10174,
+   "prompt": "054af4ec31953cf4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22320,
+   "promptTokens": 2445
+  },
+  {
+   "row": 11419,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20635,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9871,
+   "prompt": "ef55a96b06573d99",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19060,
+   "promptTokens": 2427
+  },
+  {
+   "row": 7625,
+   "prompt": "19b0252dab1e093b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30678,
+   "promptTokens": 2473
+  },
+  {
+   "row": 10723,
+   "prompt": "c54537dc7ac0205f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24665,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11955,
+   "prompt": "b07953ab37be3587",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22690,
+   "promptTokens": 2445
+  },
+  {
+   "row": 5673,
+   "prompt": "1fb1efb064b91422",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23359,
+   "promptTokens": 2431
+  },
+  {
+   "row": 11888,
+   "prompt": "3f7d7c477dcbcd6f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27898,
+   "promptTokens": 2468
+  },
+  {
+   "row": 8529,
+   "prompt": "6ae3849f60be5d3a",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 21937,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10252,
+   "prompt": "afbc5c28fa171751",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21710,
+   "promptTokens": 2436
+  },
+  {
+   "row": 10129,
+   "prompt": "c3b2bc4446593a26",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24682,
+   "promptTokens": 2447
+  },
+  {
+   "row": 6573,
+   "prompt": "368397d2eb179086",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22619,
+   "promptTokens": 2440
+  },
+  {
+   "row": 5823,
+   "prompt": "b752d21a51a48156",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23123,
+   "promptTokens": 2443
+  },
+  {
+   "row": 9865,
+   "prompt": "bcd261b468b0f65b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21228,
+   "promptTokens": 2431
+  },
+  {
+   "row": 10066,
+   "prompt": "848bfb83de1c5664",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29533,
+   "promptTokens": 2468
+  },
+  {
+   "row": 10482,
+   "prompt": "da731de96bc709d8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25336,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10165,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 15557,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9608,
+   "prompt": "20325e2db8adca81",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 19850,
+   "promptTokens": 2433
+  },
+  {
+   "row": 11277,
+   "prompt": "31cfc028a6180fba",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24360,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11156,
+   "prompt": "f2e794e7cae2300e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24796,
+   "promptTokens": 2446
+  },
+  {
+   "row": 8734,
+   "prompt": "132adcddebc48506",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25092,
+   "promptTokens": 2456
+  },
+  {
+   "row": 11549,
+   "prompt": "7fc1f6851d4813d5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29290,
+   "promptTokens": 2474
+  },
+  {
+   "row": 9884,
+   "prompt": "3d6d6d95bc17ef3a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25368,
+   "promptTokens": 2441
+  },
+  {
+   "row": 8034,
+   "prompt": "6c04edebcdcc65c3",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 20056,
+   "promptTokens": 2428
+  },
+  {
+   "row": 10121,
+   "prompt": "c1191781f036e242",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20812,
+   "promptTokens": 2445
+  },
+  {
+   "row": 10220,
+   "prompt": "b17fafdea44f9305",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 24817,
+   "promptTokens": 2456
+  },
+  {
+   "row": 10184,
+   "prompt": "666ec3f8d4b5789f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25483,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8436,
+   "prompt": "f786a2f9af776af3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24433,
+   "promptTokens": 2452
+  },
+  {
+   "row": 11370,
+   "prompt": "3b8643f9aa57d95c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24042,
+   "promptTokens": 2449
+  },
+  {
+   "row": 8726,
+   "prompt": "1c0c105c6fd6571d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24561,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11526,
+   "prompt": "831c348a624db6a8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30205,
+   "promptTokens": 2473
+  },
+  {
+   "row": 8975,
+   "prompt": "18cd22b5f99ef9b9",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 29086,
+   "promptTokens": 2477
+  },
+  {
+   "row": 8727,
+   "prompt": "5aef837c2a73a8e8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26525,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9948,
+   "prompt": "5f1222440badf420",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19599,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10503,
+   "prompt": "90f9a3b948e1ecb9",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 18142,
+   "promptTokens": 2440
+  },
+  {
+   "row": 11608,
+   "prompt": "3f734d0a63cff363",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23790,
+   "promptTokens": 2449
+  },
+  {
+   "row": 11256,
+   "prompt": "0db6e54aa440e7dd",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 33513,
+   "promptTokens": 2480
+  },
+  {
+   "row": 7727,
+   "prompt": "b12b20d2c4198484",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26765,
+   "promptTokens": 2461
+  },
+  {
+   "row": 6276,
+   "prompt": "1aff9841d6ff1a7c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23622,
+   "promptTokens": 2450
+  },
+  {
+   "row": 9917,
+   "prompt": "0b4dae133b453d94",
+   "reply": "15",
+   "p": 0.15,
+   "wallMs": 20902,
+   "promptTokens": 2426
+  },
+  {
+   "row": 10710,
+   "prompt": "3cad37bd4fec005b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20056,
+   "promptTokens": 2433
+  },
+  {
+   "row": 10855,
+   "prompt": "d36e3953320012be",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20810,
+   "promptTokens": 2454
+  },
+  {
+   "row": 7746,
+   "prompt": "dd60a04bebf96731",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27935,
+   "promptTokens": 2470
+  },
+  {
+   "row": 10919,
+   "prompt": "2e82260c41072366",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26869,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9017,
+   "prompt": "9fca75b968b5ad44",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26127,
+   "promptTokens": 2441
+  },
+  {
+   "row": 11776,
+   "prompt": "c53e3bf8ef608380",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25081,
+   "promptTokens": 2456
+  },
+  {
+   "row": 8286,
+   "prompt": "87eb132742215588",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26089,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10074,
+   "prompt": "6df3a659ea816eec",
+   "reply": "15",
+   "p": 0.15,
+   "wallMs": 16065,
+   "promptTokens": 2426
+  },
+  {
+   "row": 9339,
+   "prompt": "7198b085077925f1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23100,
+   "promptTokens": 2440
+  },
+  {
+   "row": 9136,
+   "prompt": "ef4fc00050b927ad",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 27436,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9378,
+   "prompt": "940f578a0be56d69",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29611,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9114,
+   "prompt": "e65c6bf6a8c263ce",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27967,
+   "promptTokens": 2464
+  },
+  {
+   "row": 6881,
+   "prompt": "01b317097fbb834c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26694,
+   "promptTokens": 2445
+  },
+  {
+   "row": 9629,
+   "prompt": "c336ef2b7155296c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25075,
+   "promptTokens": 2462
+  },
+  {
+   "row": 10931,
+   "prompt": "1a5ce63d46df7dad",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24073,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11639,
+   "prompt": "d56d79d53f16ff0b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25943,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9435,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20561,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10492,
+   "prompt": "363671aff3610e70",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22357,
+   "promptTokens": 2436
+  },
+  {
+   "row": 8452,
+   "prompt": "e754237a751a0357",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27604,
+   "promptTokens": 2466
+  },
+  {
+   "row": 9916,
+   "prompt": "c622983ed2965e13",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 21611,
+   "promptTokens": 2434
+  },
+  {
+   "row": 8925,
+   "prompt": "0c968aabfdd38b43",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29595,
+   "promptTokens": 2472
+  },
+  {
+   "row": 12092,
+   "prompt": "dcb23322f02276cb",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 27133,
+   "promptTokens": 2450
+  },
+  {
+   "row": 9038,
+   "prompt": "d8008a03853c83b4",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 17545,
+   "promptTokens": 2436
+  },
+  {
+   "row": 5557,
+   "prompt": "4bd3d6d1fa94baab",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 15952,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11094,
+   "prompt": "1ced8e5946d50d3d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 19818,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11403,
+   "prompt": "ecded5cd81caf25c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19253,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9288,
+   "prompt": "fc66e7544ea0562c",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 16712,
+   "promptTokens": 2431
+  },
+  {
+   "row": 10450,
+   "prompt": "4dd1e4563233d6bb",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25167,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10038,
+   "prompt": "71a117d81ef70b81",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24344,
+   "promptTokens": 2452
+  },
+  {
+   "row": 8862,
+   "prompt": "16e907e5549bfc7b",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 18342,
+   "promptTokens": 2439
+  },
+  {
+   "row": 9444,
+   "prompt": "0a5842e2ee53b0a7",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 18866,
+   "promptTokens": 2431
+  },
+  {
+   "row": 7874,
+   "prompt": "d6737236056cf406",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28968,
+   "promptTokens": 2468
+  },
+  {
+   "row": 12044,
+   "prompt": "52bdc576aaf71309",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21347,
+   "promptTokens": 2438
+  },
+  {
+   "row": 9581,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18511,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9330,
+   "prompt": "df753704699a679c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28857,
+   "promptTokens": 2468
+  },
+  {
+   "row": 8395,
+   "prompt": "a19f97de9eff63db",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23677,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9777,
+   "prompt": "101b7c721d19dfa7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24981,
+   "promptTokens": 2451
+  },
+  {
+   "row": 10214,
+   "prompt": "ccd7367b0ecefc50",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22723,
+   "promptTokens": 2440
+  },
+  {
+   "row": 8230,
+   "prompt": "fe8a3fb1959a43ac",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 31341,
+   "promptTokens": 2476
+  },
+  {
+   "row": 10483,
+   "prompt": "56db54a9d6323f02",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24453,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9398,
+   "prompt": "22a5732152192fd5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27844,
+   "promptTokens": 2455
+  },
+  {
+   "row": 8523,
+   "prompt": "be5f4f6168bf2c2d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26681,
+   "promptTokens": 2459
+  },
+  {
+   "row": 10003,
+   "prompt": "f569eeed93cc4b07",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24398,
+   "promptTokens": 2439
+  },
+  {
+   "row": 12290,
+   "prompt": "ce96c9b830718d15",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22849,
+   "promptTokens": 2435
+  },
+  {
+   "row": 6100,
+   "prompt": "9ba23ec6c0e12e1d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23226,
+   "promptTokens": 2442
+  },
+  {
+   "row": 7984,
+   "prompt": "63b1fd4488777b1a",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 23679,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10416,
+   "prompt": "f46e7e316b6c4c91",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23206,
+   "promptTokens": 2435
+  },
+  {
+   "row": 8448,
+   "prompt": "b148b9800ed870e1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19480,
+   "promptTokens": 2444
+  },
+  {
+   "row": 7410,
+   "prompt": "3c85bdfba18ebcdd",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27652,
+   "promptTokens": 2463
+  },
+  {
+   "row": 10535,
+   "prompt": "c65e9a5889997999",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23235,
+   "promptTokens": 2446
+  },
+  {
+   "row": 8779,
+   "prompt": "f00df83651eef635",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25535,
+   "promptTokens": 2461
+  },
+  {
+   "row": 6967,
+   "prompt": "0d397dc67d438800",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25253,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9366,
+   "prompt": "bf90f0ad0dac275f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26113,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10428,
+   "prompt": "6e536ec04996ec06",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21621,
+   "promptTokens": 2436
+  },
+  {
+   "row": 9018,
+   "prompt": "fa70bc8b28c4fa9d",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 32213,
+   "promptTokens": 2485
+  },
+  {
+   "row": 9043,
+   "prompt": "f438490219f94c7b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29381,
+   "promptTokens": 2477
+  },
+  {
+   "row": 9225,
+   "prompt": "2b3eec0cad5576ef",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21569,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10488,
+   "prompt": "e5393a6f9517c291",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25713,
+   "promptTokens": 2462
+  },
+  {
+   "row": 9160,
+   "prompt": "a187d4a8dfa4305d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29840,
+   "promptTokens": 2477
+  },
+  {
+   "row": 10262,
+   "prompt": "a8027a96146d104e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22511,
+   "promptTokens": 2439
+  },
+  {
+   "row": 11106,
+   "prompt": "c905fafeb7f2d52b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 21874,
+   "promptTokens": 2459
+  },
+  {
+   "row": 11830,
+   "prompt": "8f97a5395b308253",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31439,
+   "promptTokens": 2480
+  },
+  {
+   "row": 8620,
+   "prompt": "639794b84d7feb33",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24005,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11986,
+   "prompt": "706aa5bc78a82290",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30468,
+   "promptTokens": 2485
+  },
+  {
+   "row": 9949,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19394,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8976,
+   "prompt": "df8f91278e3f946e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28297,
+   "promptTokens": 2472
+  },
+  {
+   "row": 8915,
+   "prompt": "3c1cd57c2869e39e",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21602,
+   "promptTokens": 2432
+  },
+  {
+   "row": 8487,
+   "prompt": "618592e1b5b4e9f6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27474,
+   "promptTokens": 2463
+  },
+  {
+   "row": 9472,
+   "prompt": "e4fe5eb49759dcb4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23208,
+   "promptTokens": 2440
+  },
+  {
+   "row": 12221,
+   "prompt": "6a3e4313e0300f26",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 38440,
+   "promptTokens": 2479
+  },
+  {
+   "row": 9371,
+   "prompt": "1b9b12e583d7370f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33758,
+   "promptTokens": 2486
+  },
+  {
+   "row": 9239,
+   "prompt": "7d8952dd1213ecee",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25674,
+   "promptTokens": 2451
+  },
+  {
+   "row": 9062,
+   "prompt": "898a4779432e5bb3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23739,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9186,
+   "prompt": "596eaf588c31736b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22873,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9210,
+   "prompt": "8b91679e4887ecf1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25828,
+   "promptTokens": 2465
+  },
+  {
+   "row": 9283,
+   "prompt": "4e2f234cad00d7c8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26542,
+   "promptTokens": 2456
+  },
+  {
+   "row": 12259,
+   "prompt": "36a8cb5a52d73af6",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 22147,
+   "promptTokens": 2445
+  },
+  {
+   "row": 10187,
+   "prompt": "660504518e0b6e2f",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 28193,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11857,
+   "prompt": "1b570e1b8da57ce7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29705,
+   "promptTokens": 2475
+  },
+  {
+   "row": 11648,
+   "prompt": "3265c7b94ee981b8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22759,
+   "promptTokens": 2435
+  },
+  {
+   "row": 10578,
+   "prompt": "0dd6a5612a5f15ac",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23963,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10890,
+   "prompt": "e9ced90cacf9a4d3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 22144,
+   "promptTokens": 2461
+  },
+  {
+   "row": 8397,
+   "prompt": "df389511aaf95c50",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25877,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9696,
+   "prompt": "94f3a4527fe074c0",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 24301,
+   "promptTokens": 2451
+  },
+  {
+   "row": 9372,
+   "prompt": "43ff2a6cddc77a3e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26282,
+   "promptTokens": 2465
+  },
+  {
+   "row": 9976,
+   "prompt": "d4c84a5e638577a5",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 28855,
+   "promptTokens": 2471
+  },
+  {
+   "row": 9335,
+   "prompt": "f76e4c4111dab7d5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 22886,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11155,
+   "prompt": "d56b8bca5ba23dcb",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22168,
+   "promptTokens": 2436
+  },
+  {
+   "row": 10548,
+   "prompt": "362a98b84e7bfe41",
+   "reply": "52",
+   "p": 0.52,
+   "wallMs": 24960,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9479,
+   "prompt": "c2223a2b1f7705a6",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20055,
+   "promptTokens": 2426
+  },
+  {
+   "row": 12000,
+   "prompt": "0aba8b9469aa184c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24097,
+   "promptTokens": 2453
+  },
+  {
+   "row": 10374,
+   "prompt": "2bd6af160ad0b4c5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24055,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9057,
+   "prompt": "77a76e7410bb4dce",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25766,
+   "promptTokens": 2458
+  },
+  {
+   "row": 12210,
+   "prompt": "b3b3a03e7fe2d4e8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26285,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10835,
+   "prompt": "6e09a5957cf85eca",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31981,
+   "promptTokens": 2480
+  },
+  {
+   "row": 8961,
+   "prompt": "3ce144d9de6b3896",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24189,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11935,
+   "prompt": "dd09f7b5d1cc02bc",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18945,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11487,
+   "prompt": "2f6119bdf13ecc0e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19565,
+   "promptTokens": 2450
+  },
+  {
+   "row": 11453,
+   "prompt": "66719e43f5d60996",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19214,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8797,
+   "prompt": "6f120f209338a787",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 21586,
+   "promptTokens": 2429
+  },
+  {
+   "row": 10877,
+   "prompt": "12c8b47bf928496d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26024,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8909,
+   "prompt": "c75e0261c0b0049d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23811,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10281,
+   "prompt": "eecb9da7c2b063b4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27229,
+   "promptTokens": 2463
+  },
+  {
+   "row": 11378,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19701,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8768,
+   "prompt": "3a3684976b316229",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25346,
+   "promptTokens": 2451
+  },
+  {
+   "row": 7516,
+   "prompt": "3670d839d880bccc",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25786,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10960,
+   "prompt": "bf80e6e8ee57f1ff",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19152,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11303,
+   "prompt": "29c63a65c5e8a0f8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21281,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9226,
+   "prompt": "ac1d6480f61dc8b3",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 16891,
+   "promptTokens": 2431
+  },
+  {
+   "row": 12020,
+   "prompt": "d4a5bd1627c55d40",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 17688,
+   "promptTokens": 2435
+  },
+  {
+   "row": 6260,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 17460,
+   "promptTokens": 2427
+  },
+  {
+   "row": 12198,
+   "prompt": "861b4f4159c58a71",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 23886,
+   "promptTokens": 2432
+  },
+  {
+   "row": 9040,
+   "prompt": "1427f11912eb0934",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28798,
+   "promptTokens": 2469
+  },
+  {
+   "row": 9750,
+   "prompt": "7ac2b6c30034f53c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24054,
+   "promptTokens": 2451
+  },
+  {
+   "row": 7783,
+   "prompt": "eededd3fba6d97db",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21902,
+   "promptTokens": 2437
+  },
+  {
+   "row": 6289,
+   "prompt": "e6fb559127f69015",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24886,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9591,
+   "prompt": "a4b2f794e079e14c",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26163,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10513,
+   "prompt": "c2294b77c331d1b7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24696,
+   "promptTokens": 2455
+  },
+  {
+   "row": 7875,
+   "prompt": "d16d57609b43319b",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 26621,
+   "promptTokens": 2470
+  },
+  {
+   "row": 9562,
+   "prompt": "1f58e53644f43888",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25203,
+   "promptTokens": 2456
+  },
+  {
+   "row": 8405,
+   "prompt": "2e6c3a3de8a07eb7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23982,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8408,
+   "prompt": "82bdf21c9297a4b2",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 24904,
+   "promptTokens": 2445
+  },
+  {
+   "row": 9082,
+   "prompt": "39b58e5fbc1a9c1b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27517,
+   "promptTokens": 2466
+  },
+  {
+   "row": 12252,
+   "prompt": "a170e6dd0f0532d0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24970,
+   "promptTokens": 2460
+  },
+  {
+   "row": 10053,
+   "prompt": "fe14f360cc1f2c5a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24960,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11445,
+   "prompt": "9553975852c616fb",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24802,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10176,
+   "prompt": "3d839043abd0f329",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25348,
+   "promptTokens": 2458
+  },
+  {
+   "row": 11638,
+   "prompt": "654e2b021ff41e02",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25784,
+   "promptTokens": 2460
+  },
+  {
+   "row": 9161,
+   "prompt": "88848f65a356e3df",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26588,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9471,
+   "prompt": "c301d6238d737782",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20148,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9298,
+   "prompt": "5e82324adbb48b11",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29882,
+   "promptTokens": 2479
+  },
+  {
+   "row": 10635,
+   "prompt": "1bdfa5d4b1ca6258",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24910,
+   "promptTokens": 2456
+  },
+  {
+   "row": 8457,
+   "prompt": "6aeb20fccc0a159f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24098,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8898,
+   "prompt": "8895f076409552b6",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22371,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10414,
+   "prompt": "89f042de0c594f74",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27550,
+   "promptTokens": 2467
+  },
+  {
+   "row": 11570,
+   "prompt": "ab3ddc735b21ee42",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 23430,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9167,
+   "prompt": "9413306fc0e412bc",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 16577,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10637,
+   "prompt": "a66ad02163bb0a1a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22966,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9374,
+   "prompt": "bee4d567dff0e97f",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 25572,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9877,
+   "prompt": "10a80250fa963321",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 23345,
+   "promptTokens": 2452
+  },
+  {
+   "row": 9098,
+   "prompt": "38fb4b3d2d5b2f21",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21743,
+   "promptTokens": 2431
+  },
+  {
+   "row": 12265,
+   "prompt": "fa3beafaf6ab2371",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29968,
+   "promptTokens": 2474
+  },
+  {
+   "row": 10517,
+   "prompt": "bef3dcc689127400",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23113,
+   "promptTokens": 2449
+  },
+  {
+   "row": 8746,
+   "prompt": "a26ed66983527081",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25379,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9643,
+   "prompt": "f454e788a46261b3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27406,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11331,
+   "prompt": "083806bcf8c05305",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21193,
+   "promptTokens": 2435
+  },
+  {
+   "row": 11044,
+   "prompt": "9a8a0a725440c284",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 19924,
+   "promptTokens": 2456
+  },
+  {
+   "row": 11697,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 16527,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9511,
+   "prompt": "0f0ea36b5a015b1d",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 21363,
+   "promptTokens": 2433
+  },
+  {
+   "row": 10470,
+   "prompt": "f4beffa6e9da1765",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 21672,
+   "promptTokens": 2438
+  },
+  {
+   "row": 7361,
+   "prompt": "04573c0ef8dc74b5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28090,
+   "promptTokens": 2464
+  },
+  {
+   "row": 6894,
+   "prompt": "11e7aebadab9d621",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29063,
+   "promptTokens": 2461
+  },
+  {
+   "row": 9937,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19936,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9841,
+   "prompt": "58a8410be36c1ffb",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 22250,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11802,
+   "prompt": "29f4d8594cf00fd9",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 19048,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11519,
+   "prompt": "510dbf242b74120c",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 29664,
+   "promptTokens": 2475
+  },
+  {
+   "row": 7570,
+   "prompt": "5dc6c913202c213e",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 21519,
+   "promptTokens": 2431
+  },
+  {
+   "row": 7082,
+   "prompt": "2a5829f1e7e00588",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25823,
+   "promptTokens": 2458
+  },
+  {
+   "row": 11010,
+   "prompt": "780b7c05d229b2ee",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 22707,
+   "promptTokens": 2443
+  },
+  {
+   "row": 10950,
+   "prompt": "f13214c79baa4bf7",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 16382,
+   "promptTokens": 2428
+  },
+  {
+   "row": 10238,
+   "prompt": "d4dae49161143ece",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29435,
+   "promptTokens": 2468
+  },
+  {
+   "row": 11664,
+   "prompt": "accd21ebf2dc284e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26040,
+   "promptTokens": 2466
+  },
+  {
+   "row": 9636,
+   "prompt": "8f4927377a14ec6e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25003,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10000,
+   "prompt": "167fe2bd6a22d7c6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25712,
+   "promptTokens": 2458
+  },
+  {
+   "row": 11836,
+   "prompt": "9413306fc0e412bc",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21005,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9996,
+   "prompt": "bc9afe31b09bebba",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 17613,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10051,
+   "prompt": "0ec7592a94277040",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24751,
+   "promptTokens": 2457
+  },
+  {
+   "row": 10990,
+   "prompt": "0940ebb2444362d2",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24623,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9080,
+   "prompt": "60908c933ee24132",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25764,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9427,
+   "prompt": "6805a62a0e50c4e7",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19119,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8715,
+   "prompt": "b4026ab0a82d952d",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 18116,
+   "promptTokens": 2435
+  },
+  {
+   "row": 10169,
+   "prompt": "e8db9bc29e3120fe",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25766,
+   "promptTokens": 2459
+  },
+  {
+   "row": 9767,
+   "prompt": "38ea51faec097bca",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24789,
+   "promptTokens": 2450
+  },
+  {
+   "row": 8753,
+   "prompt": "056095ef3361b9f4",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 17658,
+   "promptTokens": 2431
+  },
+  {
+   "row": 9704,
+   "prompt": "b4d78d940cea3956",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28515,
+   "promptTokens": 2470
+  },
+  {
+   "row": 8173,
+   "prompt": "b00f58ef4bcb1fad",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28922,
+   "promptTokens": 2474
+  },
+  {
+   "row": 10232,
+   "prompt": "932be1b3b554fcd6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23460,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11899,
+   "prompt": "750559ed46fb5c35",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 21240,
+   "promptTokens": 2437
+  },
+  {
+   "row": 10817,
+   "prompt": "40ca69dc221839e2",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 29958,
+   "promptTokens": 2473
+  },
+  {
+   "row": 7556,
+   "prompt": "6ad4ec88b74be60a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29495,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8670,
+   "prompt": "ee28c6523a9200f5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24910,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10486,
+   "prompt": "aa4f8d0fee039a7d",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 20729,
+   "promptTokens": 2431
+  },
+  {
+   "row": 9939,
+   "prompt": "ff71efecc24c75dd",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34111,
+   "promptTokens": 2477
+  },
+  {
+   "row": 10248,
+   "prompt": "0a44ed1c91f512f6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23482,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10665,
+   "prompt": "2f5ce75aab7cd6f4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26568,
+   "promptTokens": 2456
+  },
+  {
+   "row": 9537,
+   "prompt": "98611ce6f1a5eca7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25043,
+   "promptTokens": 2459
+  },
+  {
+   "row": 11845,
+   "prompt": "9ecab56e3aa5787a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27376,
+   "promptTokens": 2468
+  },
+  {
+   "row": 6730,
+   "prompt": "139a9916087a51ef",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25695,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9055,
+   "prompt": "eecb9f644912d6d7",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 24021,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11208,
+   "prompt": "bd8646be3a2045a9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25247,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8784,
+   "prompt": "b684061b0c78ed58",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 34944,
+   "promptTokens": 2481
+  },
+  {
+   "row": 9614,
+   "prompt": "2b9a6261051bad06",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22319,
+   "promptTokens": 2433
+  },
+  {
+   "row": 5755,
+   "prompt": "2a6066cb32d4c9b9",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30507,
+   "promptTokens": 2469
+  },
+  {
+   "row": 10845,
+   "prompt": "e0e7119dfef53d08",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21831,
+   "promptTokens": 2434
+  },
+  {
+   "row": 10611,
+   "prompt": "191c4aed163f6d52",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20549,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10231,
+   "prompt": "392794c283a6bf10",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 18684,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10724,
+   "prompt": "9903ada8c655c1be",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19322,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11521,
+   "prompt": "ef49cffd0bccec8a",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 19283,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11352,
+   "prompt": "58516101ba93e9cf",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19451,
+   "promptTokens": 2434
+  },
+  {
+   "row": 9959,
+   "prompt": "4a8106281367041d",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 3800918,
+   "promptTokens": 2485
+  },
+  {
+   "row": 8111,
+   "prompt": "bccd08656a0e2aea",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22210,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10577,
+   "prompt": "ad904d42aef343b9",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26597,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9197,
+   "prompt": "1bf1f33515381c1b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 39130,
+   "promptTokens": 2476
+  },
+  {
+   "row": 11301,
+   "prompt": "36a77ea01c612f34",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 36593,
+   "promptTokens": 2474
+  },
+  {
+   "row": 8830,
+   "prompt": "4be130dd7e30ba6c",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 30640,
+   "promptTokens": 2472
+  },
+  {
+   "row": 10863,
+   "prompt": "3e18656b5cd99abb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 3864288,
+   "promptTokens": 2475
+  },
+  {
+   "row": 9069,
+   "prompt": "654818757155ab15",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 2805273,
+   "promptTokens": 2481
+  },
+  {
+   "row": 5644,
+   "prompt": "25cdbb7fb05c73b9",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 20649,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10861,
+   "prompt": "e9f87bf7bce59dc3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 16412,
+   "promptTokens": 2443
+  },
+  {
+   "row": 11012,
+   "prompt": "5ea2cc7ad10a81c2",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18106,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8071,
+   "prompt": "6cf8a184f9024fd8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 20461,
+   "promptTokens": 2467
+  },
+  {
+   "row": 11929,
+   "prompt": "1a95b7113e35b174",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 20098,
+   "promptTokens": 2441
+  },
+  {
+   "row": 11775,
+   "prompt": "0a8b802f01ed012c",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 19985,
+   "promptTokens": 2440
+  },
+  {
+   "row": 10195,
+   "prompt": "8d79eb6f39e9af16",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 23642,
+   "promptTokens": 2471
+  },
+  {
+   "row": 8151,
+   "prompt": "410012fc92eab849",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 16452,
+   "promptTokens": 2448
+  },
+  {
+   "row": 8688,
+   "prompt": "1b4496828e02b4e3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18828,
+   "promptTokens": 2459
+  },
+  {
+   "row": 10491,
+   "prompt": "b24e083a26f8b1a2",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 18112,
+   "promptTokens": 2458
+  },
+  {
+   "row": 11320,
+   "prompt": "5630bbc7549be549",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 17022,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10412,
+   "prompt": "372f76d4664660ad",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 21484,
+   "promptTokens": 2475
+  },
+  {
+   "row": 8884,
+   "prompt": "d0e3caf80ea991b1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 16119,
+   "promptTokens": 2438
+  },
+  {
+   "row": 8087,
+   "prompt": "bfba14283e74449a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18325,
+   "promptTokens": 2452
+  },
+  {
+   "row": 9903,
+   "prompt": "657530f1b86f62d3",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 15984,
+   "promptTokens": 2446
+  },
+  {
+   "row": 7995,
+   "prompt": "0152374b048f1e39",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 14613,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10305,
+   "prompt": "a743f4315177bfe4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 15284,
+   "promptTokens": 2442
+  },
+  {
+   "row": 8519,
+   "prompt": "3e9359b443f73da6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 17518,
+   "promptTokens": 2455
+  },
+  {
+   "row": 6691,
+   "prompt": "8ef5c2e63de877f6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 16427,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11904,
+   "prompt": "8eb24f6a11efd3b7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 16900,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9633,
+   "prompt": "fcc0cd6d8abf92c6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 17667,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8845,
+   "prompt": "f8da55b9e5a59e0c",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 15702,
+   "promptTokens": 2431
+  },
+  {
+   "row": 10719,
+   "prompt": "8620263426c99d85",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 14424,
+   "promptTokens": 2454
+  },
+  {
+   "row": 5889,
+   "prompt": "5f3ff79d07d90426",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 21899,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9379,
+   "prompt": "f43319888b6ca0f8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20904,
+   "promptTokens": 2446
+  },
+  {
+   "row": 8011,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 16014,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9694,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 2206,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11818,
+   "prompt": "206f2c00235d6d88",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 19859,
+   "promptTokens": 2433
+  },
+  {
+   "row": 8238,
+   "prompt": "76bedfadf0b97757",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 32983,
+   "promptTokens": 2476
+  },
+  {
+   "row": 7532,
+   "prompt": "2d17bee316a242b9",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 49718,
+   "promptTokens": 2477
+  },
+  {
+   "row": 10322,
+   "prompt": "a5de2f6cfea34ed6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26211,
+   "promptTokens": 2436
+  },
+  {
+   "row": 12254,
+   "prompt": "d1fcfbe6f6186b4d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 17421,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11291,
+   "prompt": "3a73e9f2debc3fc6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23227,
+   "promptTokens": 2450
+  },
+  {
+   "row": 8420,
+   "prompt": "4e9a37606c15cebb",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23570,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11397,
+   "prompt": "3f2ad6105ffad0fc",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 17896,
+   "promptTokens": 2437
+  },
+  {
+   "row": 9463,
+   "prompt": "7aa5f0561f349aef",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20543,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9758,
+   "prompt": "2cbe91bcc270cbe1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19210,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9803,
+   "prompt": "23dc299090339a95",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24169,
+   "promptTokens": 2457
+  },
+  {
+   "row": 10246,
+   "prompt": "0c83672fa0b2580f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22928,
+   "promptTokens": 2450
+  },
+  {
+   "row": 8217,
+   "prompt": "f419727d22951a51",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25560,
+   "promptTokens": 2461
+  },
+  {
+   "row": 10173,
+   "prompt": "70a1305d5d81eb83",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26991,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11098,
+   "prompt": "ddd2629b07d85a67",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21594,
+   "promptTokens": 2441
+  },
+  {
+   "row": 10314,
+   "prompt": "2948ab2b4111065e",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23147,
+   "promptTokens": 2450
+  },
+  {
+   "row": 10541,
+   "prompt": "b51d192cb7b1adbe",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 17387,
+   "promptTokens": 2440
+  },
+  {
+   "row": 9627,
+   "prompt": "be6f4d27ba6b6985",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 21040,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10219,
+   "prompt": "ce9028cf1264e516",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26849,
+   "promptTokens": 2458
+  },
+  {
+   "row": 10697,
+   "prompt": "e84ecc2487bfbfb6",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20094,
+   "promptTokens": 2430
+  },
+  {
+   "row": 12059,
+   "prompt": "7fecc7dab61748c5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25425,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11912,
+   "prompt": "af3ccb4b10eb080e",
+   "reply": "72",
+   "p": 0.72,
+   "wallMs": 25960,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9450,
+   "prompt": "ae0f1bf6284ca401",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 18975,
+   "promptTokens": 2437
+  },
+  {
+   "row": 9879,
+   "prompt": "647d80adf19237f0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26709,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10237,
+   "prompt": "4d433c53490359ed",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23762,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9067,
+   "prompt": "1d636a95332349ee",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24122,
+   "promptTokens": 2446
+  },
+  {
+   "row": 10869,
+   "prompt": "4941e4f052b10e6b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25235,
+   "promptTokens": 2459
+  },
+  {
+   "row": 7149,
+   "prompt": "08d43a01f0780336",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23621,
+   "promptTokens": 2451
+  },
+  {
+   "row": 7244,
+   "prompt": "88e1b1331ffb39cc",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22916,
+   "promptTokens": 2435
+  },
+  {
+   "row": 9972,
+   "prompt": "ab9e2cac002782a4",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24557,
+   "promptTokens": 2444
+  },
+  {
+   "row": 6290,
+   "prompt": "c487fe392cea3622",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20693,
+   "promptTokens": 2436
+  },
+  {
+   "row": 8849,
+   "prompt": "5435bd27d9050f03",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23348,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10199,
+   "prompt": "401c09eb416b0088",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28738,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8934,
+   "prompt": "34a6a44603fe7577",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23248,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10792,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 15985,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10079,
+   "prompt": "bd2b10658e5b17b8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25485,
+   "promptTokens": 2458
+  },
+  {
+   "row": 10651,
+   "prompt": "060b885903d70ead",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27335,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11979,
+   "prompt": "b22c8e716badf59f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 22891,
+   "promptTokens": 2448
+  },
+  {
+   "row": 10203,
+   "prompt": "9d57930f35cc07f5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27165,
+   "promptTokens": 2465
+  },
+  {
+   "row": 10159,
+   "prompt": "87cc4587a7c42e18",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34417,
+   "promptTokens": 2475
+  },
+  {
+   "row": 10781,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19369,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8252,
+   "prompt": "4378bee2bd67446e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32067,
+   "promptTokens": 2474
+  },
+  {
+   "row": 8536,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24023,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10916,
+   "prompt": "35688ccbf09ff7c1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26586,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9451,
+   "prompt": "fc2b0f6ce8f6de0f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25835,
+   "promptTokens": 2438
+  },
+  {
+   "row": 12150,
+   "prompt": "f23a47c787b2f395",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24216,
+   "promptTokens": 2454
+  },
+  {
+   "row": 6736,
+   "prompt": "8b00ef67e695ad99",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23157,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11685,
+   "prompt": "7b13274e1f25c696",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24458,
+   "promptTokens": 2442
+  },
+  {
+   "row": 9195,
+   "prompt": "efd2ecc440c10280",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 38165,
+   "promptTokens": 2479
+  },
+  {
+   "row": 11004,
+   "prompt": "498c9d4502d7f25d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27956,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8241,
+   "prompt": "6287f625e698508e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25013,
+   "promptTokens": 2436
+  },
+  {
+   "row": 7989,
+   "prompt": "36db3fc52ca942ba",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30360,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9486,
+   "prompt": "55a9460d6409cce8",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 31255,
+   "promptTokens": 2475
+  },
+  {
+   "row": 8432,
+   "prompt": "9bca0aa1dee72149",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 30314,
+   "promptTokens": 2440
+  },
+  {
+   "row": 10297,
+   "prompt": "0d537d318033f018",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24404,
+   "promptTokens": 2442
+  },
+  {
+   "row": 10774,
+   "prompt": "abd096efda94fcfe",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 29699,
+   "promptTokens": 2470
+  },
+  {
+   "row": 11039,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26501,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10253,
+   "prompt": "9453336d5ac9989d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19221,
+   "promptTokens": 2438
+  },
+  {
+   "row": 8182,
+   "prompt": "88e042670f385743",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25347,
+   "promptTokens": 2463
+  },
+  {
+   "row": 8390,
+   "prompt": "c998955847e9eacc",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 36709,
+   "promptTokens": 2485
+  },
+  {
+   "row": 8382,
+   "prompt": "0d700e951e72c686",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25019,
+   "promptTokens": 2454
+  },
+  {
+   "row": 6782,
+   "prompt": "77adb87bc3fd2f64",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22020,
+   "promptTokens": 2438
+  },
+  {
+   "row": 9993,
+   "prompt": "9413306fc0e412bc",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 22443,
+   "promptTokens": 2427
+  },
+  {
+   "row": 12021,
+   "prompt": "a4f62bfda89cce1c",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22955,
+   "promptTokens": 2446
+  },
+  {
+   "row": 8010,
+   "prompt": "3870c98234a9191d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18115,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11257,
+   "prompt": "f294544a85ad0ca6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24637,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8641,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24013,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11911,
+   "prompt": "125e438f9a97e274",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20044,
+   "promptTokens": 2443
+  },
+  {
+   "row": 10034,
+   "prompt": "2b33c49085beb3f5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28417,
+   "promptTokens": 2470
+  },
+  {
+   "row": 10842,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24667,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9685,
+   "prompt": "8df121dc077e0a1f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 22340,
+   "promptTokens": 2445
+  },
+  {
+   "row": 10164,
+   "prompt": "5d07fa96659f945a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27397,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9852,
+   "prompt": "5edb5ce54cf7c178",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28340,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10059,
+   "prompt": "39b67aacbbc1e379",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25081,
+   "promptTokens": 2437
+  },
+  {
+   "row": 10323,
+   "prompt": "bc4f7169228bd574",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 26992,
+   "promptTokens": 2475
+  },
+  {
+   "row": 7936,
+   "prompt": "82382468be9c4cd0",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26411,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8014,
+   "prompt": "17f921a58eebc41c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29972,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10441,
+   "prompt": "e85ebdd60b5a4c46",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 17954,
+   "promptTokens": 2436
+  },
+  {
+   "row": 9843,
+   "prompt": "d9a38a7645fade72",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 22906,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9275,
+   "prompt": "0b938d5802315c11",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26872,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10398,
+   "prompt": "73d0445b65cb2ae5",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 25640,
+   "promptTokens": 2435
+  },
+  {
+   "row": 9904,
+   "prompt": "c24b557ff190edbe",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24767,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9559,
+   "prompt": "49eee93aaf3e026a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28208,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10280,
+   "prompt": "3ee6b16698cbb24a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33662,
+   "promptTokens": 2479
+  },
+  {
+   "row": 11193,
+   "prompt": "8ab5a7cd8d7a9ff1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25134,
+   "promptTokens": 2461
+  },
+  {
+   "row": 10188,
+   "prompt": "918cac72f6d21287",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26423,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9658,
+   "prompt": "155a74e89108409d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24308,
+   "promptTokens": 2432
+  },
+  {
+   "row": 11969,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18460,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11891,
+   "prompt": "478499369550878c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23056,
+   "promptTokens": 2436
+  },
+  {
+   "row": 7915,
+   "prompt": "988fe2ea2e57fdc5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29309,
+   "promptTokens": 2451
+  },
+  {
+   "row": 10659,
+   "prompt": "79115a10242e7a2b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22275,
+   "promptTokens": 2440
+  },
+  {
+   "row": 8550,
+   "prompt": "1ab4922224f9f10a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24591,
+   "promptTokens": 2452
+  },
+  {
+   "row": 6555,
+   "prompt": "c86808cc5ac771af",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29794,
+   "promptTokens": 2454
+  },
+  {
+   "row": 12096,
+   "prompt": "c1bdbb91b1719349",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 33757,
+   "promptTokens": 2472
+  },
+  {
+   "row": 9399,
+   "prompt": "d31cc416326551b1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24218,
+   "promptTokens": 2452
+  },
+  {
+   "row": 8467,
+   "prompt": "47a8d0678fa0f12d",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 20196,
+   "promptTokens": 2430
+  },
+  {
+   "row": 8625,
+   "prompt": "6c3756a25cef46a1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27901,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11925,
+   "prompt": "0d302a1552af9940",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21339,
+   "promptTokens": 2436
+  },
+  {
+   "row": 9889,
+   "prompt": "1d892aeabb4c7668",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19248,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8831,
+   "prompt": "81c9eff1ffa9f86d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26972,
+   "promptTokens": 2466
+  },
+  {
+   "row": 8446,
+   "prompt": "d7957c56bee52a28",
+   "reply": "58",
+   "p": 0.58,
+   "wallMs": 35796,
+   "promptTokens": 2467
+  },
+  {
+   "row": 11153,
+   "prompt": "8bf29df4acbbac6f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22396,
+   "promptTokens": 2440
+  },
+  {
+   "row": 11883,
+   "prompt": "e84bfe68fce6245c",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 22847,
+   "promptTokens": 2446
+  },
+  {
+   "row": 10389,
+   "prompt": "13536ef359320f08",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 17584,
+   "promptTokens": 2431
+  },
+  {
+   "row": 8790,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19786,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11616,
+   "prompt": "66805e980a1a94e8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38777,
+   "promptTokens": 2442
+  },
+  {
+   "row": 9151,
+   "prompt": "c305663b6ffbc606",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25122,
+   "promptTokens": 2450
+  },
+  {
+   "row": 10507,
+   "prompt": "7e23cc07825df799",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25783,
+   "promptTokens": 2448
+  },
+  {
+   "row": 8338,
+   "prompt": "00b320ddbf4c3534",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32914,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9190,
+   "prompt": "28df8f58d62ddd59",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26267,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8363,
+   "prompt": "cb85bc061865946e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20239,
+   "promptTokens": 2454
+  },
+  {
+   "row": 7970,
+   "prompt": "0a5aad57035fc814",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29067,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8064,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 25870,
+   "promptTokens": 2427
+  },
+  {
+   "row": 12074,
+   "prompt": "16528d42d5f323d7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27313,
+   "promptTokens": 2461
+  },
+  {
+   "row": 11992,
+   "prompt": "d9c99895fda07d25",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24018,
+   "promptTokens": 2446
+  },
+  {
+   "row": 12201,
+   "prompt": "6b7717d7998afc52",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30097,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9783,
+   "prompt": "aba040354b344cc3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28948,
+   "promptTokens": 2445
+  },
+  {
+   "row": 9786,
+   "prompt": "d527f045e5c26da3",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 22389,
+   "promptTokens": 2437
+  },
+  {
+   "row": 8763,
+   "prompt": "bca6ae5313958706",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25493,
+   "promptTokens": 2457
+  },
+  {
+   "row": 9922,
+   "prompt": "7dd2f8dd43eb755a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30192,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8084,
+   "prompt": "ca5b5e563b64878e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28416,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9569,
+   "prompt": "ac99cf96d58bead3",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18100,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10565,
+   "prompt": "2232745e815420b7",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 16545,
+   "promptTokens": 2434
+  },
+  {
+   "row": 5548,
+   "prompt": "eefe75b6edb330da",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27421,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11311,
+   "prompt": "f7b3f3d213787cbe",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35561,
+   "promptTokens": 2470
+  },
+  {
+   "row": 10996,
+   "prompt": "723d0d038fca23e5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20453,
+   "promptTokens": 2431
+  },
+  {
+   "row": 10040,
+   "prompt": "30ec6af80ca4b4b1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23887,
+   "promptTokens": 2445
+  },
+  {
+   "row": 8229,
+   "prompt": "c5a698ac8d2a9fa3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33917,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8615,
+   "prompt": "4bc71bd4aa57b687",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27106,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11195,
+   "prompt": "bd410d71c6dcc206",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 20720,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9046,
+   "prompt": "9413306fc0e412bc",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 17002,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11177,
+   "prompt": "cd4f2a30b3eed824",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21985,
+   "promptTokens": 2436
+  },
+  {
+   "row": 9474,
+   "prompt": "7cf2adf40f875be1",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25477,
+   "promptTokens": 2443
+  },
+  {
+   "row": 8501,
+   "prompt": "939317ca588ceedb",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 18848,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11452,
+   "prompt": "39cfe5a8905b2fed",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24534,
+   "promptTokens": 2452
+  },
+  {
+   "row": 9303,
+   "prompt": "04c0621ca102c533",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29165,
+   "promptTokens": 2455
+  },
+  {
+   "row": 6877,
+   "prompt": "b63e989d76d3df64",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34440,
+   "promptTokens": 2466
+  },
+  {
+   "row": 11401,
+   "prompt": "636875564a1a15c4",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24538,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10081,
+   "prompt": "94aed7fc58062e15",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24862,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11129,
+   "prompt": "6a4eaef57f4b8aee",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31861,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9401,
+   "prompt": "c405a1ec57df6e9b",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24389,
+   "promptTokens": 2437
+  },
+  {
+   "row": 8873,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 17510,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9246,
+   "prompt": "3afc6b4dbe40867e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18395,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11355,
+   "prompt": "4fe32af49943b296",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20854,
+   "promptTokens": 2433
+  },
+  {
+   "row": 11165,
+   "prompt": "9474d376f67312d9",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32102,
+   "promptTokens": 2452
+  },
+  {
+   "row": 6224,
+   "prompt": "eda981af24c2bdfe",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23279,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9638,
+   "prompt": "5e48ae979e236039",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20020,
+   "promptTokens": 2449
+  },
+  {
+   "row": 5463,
+   "prompt": "d184c821a311bd8d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25275,
+   "promptTokens": 2436
+  },
+  {
+   "row": 10562,
+   "prompt": "68761adf5282fc88",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34082,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11746,
+   "prompt": "6af282eb7b45231a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22999,
+   "promptTokens": 2443
+  },
+  {
+   "row": 8814,
+   "prompt": "c085c9ea398ee971",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28783,
+   "promptTokens": 2456
+  },
+  {
+   "row": 9564,
+   "prompt": "9f719aed04c1001e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37713,
+   "promptTokens": 2472
+  },
+  {
+   "row": 9234,
+   "prompt": "156487a1d6dc6562",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25431,
+   "promptTokens": 2446
+  },
+  {
+   "row": 10699,
+   "prompt": "1f40b6abb98d9c0a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25492,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8968,
+   "prompt": "dc87c920f3904046",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25377,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9383,
+   "prompt": "12c68bc3a1f1318b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33608,
+   "promptTokens": 2468
+  },
+  {
+   "row": 12177,
+   "prompt": "8481a7dd4344b24e",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19831,
+   "promptTokens": 2428
+  },
+  {
+   "row": 9180,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18673,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10397,
+   "prompt": "5b4921ec5460832a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28266,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8386,
+   "prompt": "de77b41bf1f5f85c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25616,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11576,
+   "prompt": "c93e133523a9469e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24815,
+   "promptTokens": 2458
+  },
+  {
+   "row": 7174,
+   "prompt": "3d8431a0d7c282f9",
+   "reply": "72",
+   "p": 0.72,
+   "wallMs": 31997,
+   "promptTokens": 2467
+  },
+  {
+   "row": 9525,
+   "prompt": "b69649b1e928d97e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31980,
+   "promptTokens": 2452
+  },
+  {
+   "row": 8097,
+   "prompt": "6924b721250d3fae",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 21357,
+   "promptTokens": 2435
+  },
+  {
+   "row": 10805,
+   "prompt": "2b814743439b2be7",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25296,
+   "promptTokens": 2448
+  },
+  {
+   "row": 8290,
+   "prompt": "04eadd71b6130365",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31490,
+   "promptTokens": 2451
+  },
+  {
+   "row": 9004,
+   "prompt": "baadb02b961479e2",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26456,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10229,
+   "prompt": "5bb701babffc29d8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18946,
+   "promptTokens": 2443
+  },
+  {
+   "row": 10151,
+   "prompt": "31904fc41cdb69ee",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25736,
+   "promptTokens": 2436
+  },
+  {
+   "row": 11460,
+   "prompt": "c80b3d13ef5bb338",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33029,
+   "promptTokens": 2460
+  },
+  {
+   "row": 10360,
+   "prompt": "9208cd03e18d0bbf",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29051,
+   "promptTokens": 2475
+  },
+  {
+   "row": 8859,
+   "prompt": "fe19eef069fafde6",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24250,
+   "promptTokens": 2438
+  },
+  {
+   "row": 5625,
+   "prompt": "b215f3de61b9dfbc",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25175,
+   "promptTokens": 2448
+  },
+  {
+   "row": 7175,
+   "prompt": "b9bf8703dae7a656",
+   "reply": "52",
+   "p": 0.52,
+   "wallMs": 28276,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9700,
+   "prompt": "b210f5bc5be4af39",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19078,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11154,
+   "prompt": "87f934d5fbcabe6e",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 25186,
+   "promptTokens": 2428
+  },
+  {
+   "row": 10957,
+   "prompt": "6e8b58c09897fd5d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27489,
+   "promptTokens": 2444
+  },
+  {
+   "row": 12123,
+   "prompt": "83ebe86a998450fc",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 19798,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9262,
+   "prompt": "387a0b46d37357a6",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23755,
+   "promptTokens": 2450
+  },
+  {
+   "row": 9102,
+   "prompt": "eb5c6114c6ec7c20",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37073,
+   "promptTokens": 2485
+  },
+  {
+   "row": 11385,
+   "prompt": "2e73b3e70db48ae3",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 28965,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9277,
+   "prompt": "0ccc49daeb16169a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26078,
+   "promptTokens": 2465
+  },
+  {
+   "row": 9992,
+   "prompt": "d24fe78c744ddba0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31055,
+   "promptTokens": 2459
+  },
+  {
+   "row": 9106,
+   "prompt": "a7c9d16a4dcee55c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34073,
+   "promptTokens": 2474
+  },
+  {
+   "row": 11882,
+   "prompt": "33ab5f5ae55cf847",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20851,
+   "promptTokens": 2434
+  },
+  {
+   "row": 8595,
+   "prompt": "9d2fc65b784edca2",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21068,
+   "promptTokens": 2441
+  },
+  {
+   "row": 8113,
+   "prompt": "44eaf5eef5590026",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 28531,
+   "promptTokens": 2439
+  },
+  {
+   "row": 9200,
+   "prompt": "2bdaf71f10cfd8c4",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24814,
+   "promptTokens": 2429
+  },
+  {
+   "row": 11931,
+   "prompt": "56c2dcd2b02b17ba",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26003,
+   "promptTokens": 2460
+  },
+  {
+   "row": 10813,
+   "prompt": "ff7b79a9f5a0af86",
+   "reply": "15",
+   "p": 0.15,
+   "wallMs": 22623,
+   "promptTokens": 2425
+  },
+  {
+   "row": 10385,
+   "prompt": "5291a10757284210",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34519,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9422,
+   "prompt": "d5d0ab90cf213e2b",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20204,
+   "promptTokens": 2428
+  },
+  {
+   "row": 7982,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20597,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9332,
+   "prompt": "30b8e04c21a0225c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 36198,
+   "promptTokens": 2467
+  },
+  {
+   "row": 8680,
+   "prompt": "07a04cfd4459d710",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26708,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9096,
+   "prompt": "c65510d1572a338b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22034,
+   "promptTokens": 2441
+  },
+  {
+   "row": 8251,
+   "prompt": "01a4c840ae524549",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24765,
+   "promptTokens": 2445
+  },
+  {
+   "row": 9130,
+   "prompt": "f584e84b19c0e3dd",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33094,
+   "promptTokens": 2459
+  },
+  {
+   "row": 11375,
+   "prompt": "5ddc85480f1a93eb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26315,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8629,
+   "prompt": "c5a0d321f1b3f22e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28562,
+   "promptTokens": 2466
+  },
+  {
+   "row": 9835,
+   "prompt": "1ecfabc5dd973eb1",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 28808,
+   "promptTokens": 2434
+  },
+  {
+   "row": 10354,
+   "prompt": "53c70754bd12723b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27216,
+   "promptTokens": 2455
+  },
+  {
+   "row": 8900,
+   "prompt": "d1f3aa83bc34b254",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28295,
+   "promptTokens": 2466
+  },
+  {
+   "row": 11364,
+   "prompt": "7b6c568a5f1baec0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37171,
+   "promptTokens": 2471
+  },
+  {
+   "row": 11179,
+   "prompt": "214d1c79ee7717af",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25942,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9601,
+   "prompt": "1e23ba8febb79a33",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26304,
+   "promptTokens": 2463
+  },
+  {
+   "row": 10716,
+   "prompt": "c05114e58f6b54d7",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26552,
+   "promptTokens": 2434
+  },
+  {
+   "row": 9176,
+   "prompt": "0d64a94724ec8d3f",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21170,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8539,
+   "prompt": "77f885af999fd59f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23956,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9168,
+   "prompt": "02b5a77ba3243f2e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32459,
+   "promptTokens": 2462
+  },
+  {
+   "row": 10122,
+   "prompt": "15f4c3d50baae738",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 43686,
+   "promptTokens": 2474
+  },
+  {
+   "row": 8698,
+   "prompt": "271bea65a49400a0",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 31822,
+   "promptTokens": 2443
+  },
+  {
+   "row": 8355,
+   "prompt": "ce066362b7130d40",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 23086,
+   "promptTokens": 2456
+  },
+  {
+   "row": 5882,
+   "prompt": "dbbfa2050fd776e7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23926,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9625,
+   "prompt": "bf1bc307b29062e8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28614,
+   "promptTokens": 2449
+  },
+  {
+   "row": 8214,
+   "prompt": "d6570a6a04fad503",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 32076,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9749,
+   "prompt": "d78e55b2527f84ea",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35208,
+   "promptTokens": 2465
+  },
+  {
+   "row": 12139,
+   "prompt": "2d4dcd2bb3dea431",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28886,
+   "promptTokens": 2475
+  },
+  {
+   "row": 11714,
+   "prompt": "5a1c3da8f8c16486",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29466,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8840,
+   "prompt": "32f108fbe3f027cb",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39753,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8325,
+   "prompt": "e9fcadca6f8f34c0",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25818,
+   "promptTokens": 2436
+  },
+  {
+   "row": 8897,
+   "prompt": "bba8b37d23182cbd",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24409,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9956,
+   "prompt": "9f6e45ab24fe8863",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 32375,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9413,
+   "prompt": "1001c8f5e1e2e705",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41131,
+   "promptTokens": 2465
+  },
+  {
+   "row": 9155,
+   "prompt": "9254c7529d179827",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27545,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10764,
+   "prompt": "81c4cca54f3e4883",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 22270,
+   "promptTokens": 2442
+  },
+  {
+   "row": 12035,
+   "prompt": "3ba4844f62ee92a8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28141,
+   "promptTokens": 2434
+  },
+  {
+   "row": 11930,
+   "prompt": "0528a9861b2e1f84",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 37970,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8026,
+   "prompt": "e807e060bf216cd4",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 30906,
+   "promptTokens": 2460
+  },
+  {
+   "row": 8801,
+   "prompt": "e8a51b61e833fb5a",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19550,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10907,
+   "prompt": "cb5b4add664bf1c1",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24874,
+   "promptTokens": 2437
+  },
+  {
+   "row": 11124,
+   "prompt": "2eb8c47b4a906151",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 42584,
+   "promptTokens": 2467
+  },
+  {
+   "row": 9637,
+   "prompt": "6018e108a5a4f8fe",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 28579,
+   "promptTokens": 2441
+  },
+  {
+   "row": 9644,
+   "prompt": "698fc9a8ab1349bb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24260,
+   "promptTokens": 2451
+  },
+  {
+   "row": 10191,
+   "prompt": "3ef5ff42177d1686",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28026,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11515,
+   "prompt": "3b0887d4b16932e0",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30297,
+   "promptTokens": 2448
+  },
+  {
+   "row": 10664,
+   "prompt": "1ed51345ec0f4aa0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35029,
+   "promptTokens": 2458
+  },
+  {
+   "row": 11259,
+   "prompt": "cdc98aae97dcdbe3",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18446,
+   "promptTokens": 2428
+  },
+  {
+   "row": 11367,
+   "prompt": "c6235f4b739bfc16",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27506,
+   "promptTokens": 2461
+  },
+  {
+   "row": 10527,
+   "prompt": "ecbcf99d8e69968a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38240,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9510,
+   "prompt": "65bb3dcda7ed837a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33713,
+   "promptTokens": 2454
+  },
+  {
+   "row": 7720,
+   "prompt": "0df57fa5edfe36f2",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 22665,
+   "promptTokens": 2441
+  },
+  {
+   "row": 10668,
+   "prompt": "7afe6842baec0ce7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32994,
+   "promptTokens": 2477
+  },
+  {
+   "row": 11618,
+   "prompt": "9ef0860b8de8c0ee",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38958,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8692,
+   "prompt": "34b704449b04fa20",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34288,
+   "promptTokens": 2467
+  },
+  {
+   "row": 12297,
+   "prompt": "e98cc05eed68df51",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 23606,
+   "promptTokens": 2448
+  },
+  {
+   "row": 6076,
+   "prompt": "33d5b607d9216f6e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29487,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8329,
+   "prompt": "7d68f4e3997dc364",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 37212,
+   "promptTokens": 2441
+  },
+  {
+   "row": 11796,
+   "prompt": "ed20b5b4fcad7fbb",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 28094,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11532,
+   "prompt": "3c73116db19ebfbd",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30603,
+   "promptTokens": 2474
+  },
+  {
+   "row": 12272,
+   "prompt": "a76bd90dc157b0e3",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 40876,
+   "promptTokens": 2474
+  },
+  {
+   "row": 7705,
+   "prompt": "372d1a4eea43249e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32737,
+   "promptTokens": 2447
+  },
+  {
+   "row": 10233,
+   "prompt": "af781ed006341381",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24197,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9107,
+   "prompt": "ea19969a8dd6c67f",
+   "reply": "58",
+   "p": 0.58,
+   "wallMs": 25884,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10736,
+   "prompt": "7e3ccb08aae65b69",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 31087,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10930,
+   "prompt": "5862bb8b86b1960e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40150,
+   "promptTokens": 2475
+  },
+  {
+   "row": 9764,
+   "prompt": "1533a7896896efba",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 28900,
+   "promptTokens": 2476
+  },
+  {
+   "row": 9305,
+   "prompt": "cae02396fd66d545",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 29767,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11292,
+   "prompt": "9e117b7c75861e3e",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 30874,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10138,
+   "prompt": "af7f045280e97682",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 25149,
+   "promptTokens": 2430
+  },
+  {
+   "row": 7469,
+   "prompt": "361ee5afa2e32fa5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24645,
+   "promptTokens": 2450
+  },
+  {
+   "row": 7640,
+   "prompt": "218aae5bedaca867",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 25329,
+   "promptTokens": 2447
+  },
+  {
+   "row": 7872,
+   "prompt": "9f9a64864d9f4860",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40192,
+   "promptTokens": 2458
+  },
+  {
+   "row": 11855,
+   "prompt": "01d620359836eb2f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35946,
+   "promptTokens": 2479
+  },
+  {
+   "row": 8654,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 20562,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9104,
+   "prompt": "f3a584d5758cbc99",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34314,
+   "promptTokens": 2465
+  },
+  {
+   "row": 10559,
+   "prompt": "d4b1007ecf12cf72",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 46035,
+   "promptTokens": 2446
+  },
+  {
+   "row": 12135,
+   "prompt": "503345f34dfdd513",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 20639,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10443,
+   "prompt": "26f51a9407dd2c4a",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 18570,
+   "promptTokens": 2432
+  },
+  {
+   "row": 9929,
+   "prompt": "6a90c23d192ff633",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24499,
+   "promptTokens": 2432
+  },
+  {
+   "row": 10072,
+   "prompt": "254f1e330ab0989d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 43989,
+   "promptTokens": 2464
+  },
+  {
+   "row": 5509,
+   "prompt": "3fed9ec04dba01fc",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 40814,
+   "promptTokens": 2479
+  },
+  {
+   "row": 12069,
+   "prompt": "c1a11ad8f83b210f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28724,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9506,
+   "prompt": "6b31ec4b92642aac",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 37128,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11128,
+   "prompt": "3d8dbf472a1d9a1c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33877,
+   "promptTokens": 2467
+  },
+  {
+   "row": 12314,
+   "prompt": "20567d58176903c6",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25086,
+   "promptTokens": 2453
+  },
+  {
+   "row": 11188,
+   "prompt": "d43b18fd475a982c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31764,
+   "promptTokens": 2450
+  },
+  {
+   "row": 9481,
+   "prompt": "7985efcce2bb3fa0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 50822,
+   "promptTokens": 2469
+  },
+  {
+   "row": 7600,
+   "prompt": "5f1222440badf420",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 25933,
+   "promptTokens": 2427
+  },
+  {
+   "row": 6567,
+   "prompt": "f41960aef6e96360",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 30323,
+   "promptTokens": 2473
+  },
+  {
+   "row": 8371,
+   "prompt": "ce92339d6ff8b2e5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37526,
+   "promptTokens": 2471
+  },
+  {
+   "row": 10537,
+   "prompt": "bd0d1c632b489f69",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21744,
+   "promptTokens": 2429
+  },
+  {
+   "row": 11966,
+   "prompt": "137e26d7a900398d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27780,
+   "promptTokens": 2465
+  },
+  {
+   "row": 8015,
+   "prompt": "c61fcceafe0d1b53",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29549,
+   "promptTokens": 2451
+  },
+  {
+   "row": 11499,
+   "prompt": "325c637722996c19",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28178,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11848,
+   "prompt": "b0a14b8df3ee44d9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25752,
+   "promptTokens": 2459
+  },
+  {
+   "row": 11434,
+   "prompt": "7992f96367b6de52",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31193,
+   "promptTokens": 2461
+  },
+  {
+   "row": 11780,
+   "prompt": "365d45a6b2f56070",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30500,
+   "promptTokens": 2457
+  },
+  {
+   "row": 6247,
+   "prompt": "d71d0d7b525be829",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27888,
+   "promptTokens": 2467
+  },
+  {
+   "row": 8826,
+   "prompt": "b66b1ce0ebc32c87",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 31525,
+   "promptTokens": 2461
+  },
+  {
+   "row": 8246,
+   "prompt": "eb61cd199c83e428",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31541,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8196,
+   "prompt": "0befbd164ebf2b96",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19833,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11967,
+   "prompt": "a6c3ca596aca5fa6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24176,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10765,
+   "prompt": "9cc2b29b1c2b2c6b",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 29910,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10504,
+   "prompt": "874224045c79efa5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23974,
+   "promptTokens": 2440
+  },
+  {
+   "row": 10303,
+   "prompt": "774f1cfcd60311e0",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 26998,
+   "promptTokens": 2464
+  },
+  {
+   "row": 6815,
+   "prompt": "67e8f63b224a5ddb",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 27835,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10610,
+   "prompt": "5223f4f04dce32ec",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29407,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10475,
+   "prompt": "c9ca818fbd2b350d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24393,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11083,
+   "prompt": "3a0b4ebdf12a3789",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35004,
+   "promptTokens": 2454
+  },
+  {
+   "row": 7136,
+   "prompt": "dc59a46eef7b3314",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 34204,
+   "promptTokens": 2435
+  },
+  {
+   "row": 8965,
+   "prompt": "5a8485c7cea214f7",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 29608,
+   "promptTokens": 2477
+  },
+  {
+   "row": 12289,
+   "prompt": "5c705947e9f6c92c",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 23763,
+   "promptTokens": 2436
+  },
+  {
+   "row": 12173,
+   "prompt": "80d847bcf597e4b4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26288,
+   "promptTokens": 2451
+  },
+  {
+   "row": 9720,
+   "prompt": "42dc9418089b917b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 38688,
+   "promptTokens": 2475
+  },
+  {
+   "row": 8262,
+   "prompt": "ed1f59b24e0b8383",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30007,
+   "promptTokens": 2467
+  },
+  {
+   "row": 11757,
+   "prompt": "e0651406256de682",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24971,
+   "promptTokens": 2434
+  },
+  {
+   "row": 11147,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 22155,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9494,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 5212,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10791,
+   "prompt": "20ea21b48e4483d0",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24689,
+   "promptTokens": 2437
+  },
+  {
+   "row": 10715,
+   "prompt": "8e47313afa844443",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24960,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11626,
+   "prompt": "fcef808bcbac65a2",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24448,
+   "promptTokens": 2438
+  },
+  {
+   "row": 8722,
+   "prompt": "eb5d71bb4a65c727",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25673,
+   "promptTokens": 2453
+  },
+  {
+   "row": 9791,
+   "prompt": "cb8fafa40f7c435f",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 26845,
+   "promptTokens": 2433
+  },
+  {
+   "row": 11961,
+   "prompt": "dacc5dfd4c31ae5a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30403,
+   "promptTokens": 2474
+  },
+  {
+   "row": 9387,
+   "prompt": "b20e44374ec59f85",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25939,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8201,
+   "prompt": "6764f7402ad360de",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24831,
+   "promptTokens": 2444
+  },
+  {
+   "row": 8003,
+   "prompt": "a5d4f29677f96e09",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29186,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10487,
+   "prompt": "34bffe74478afae3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24754,
+   "promptTokens": 2452
+  },
+  {
+   "row": 12025,
+   "prompt": "3499109eb3cb373d",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 27707,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8055,
+   "prompt": "afbe14ae2bfd0d05",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 26189,
+   "promptTokens": 2434
+  },
+  {
+   "row": 12032,
+   "prompt": "4ea843d62c4d50fe",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27136,
+   "promptTokens": 2445
+  },
+  {
+   "row": 11672,
+   "prompt": "bab2b0c3d398f661",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 23141,
+   "promptTokens": 2446
+  },
+  {
+   "row": 10616,
+   "prompt": "41aefabf3875ca27",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29794,
+   "promptTokens": 2462
+  },
+  {
+   "row": 11008,
+   "prompt": "b147caabfab81aab",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32474,
+   "promptTokens": 2456
+  },
+  {
+   "row": 12082,
+   "prompt": "a504e8149e3a77de",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25074,
+   "promptTokens": 2455
+  },
+  {
+   "row": 9192,
+   "prompt": "c925f3d9cf7c0d6d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28297,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9594,
+   "prompt": "52ceb5a83f9822fc",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37815,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9616,
+   "prompt": "414e16c1756e2a6f",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 27782,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8294,
+   "prompt": "7fa8908048ad9256",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19552,
+   "promptTokens": 2426
+  },
+  {
+   "row": 8774,
+   "prompt": "bf41184e3d7cb606",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 26473,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8678,
+   "prompt": "79122e39f6ea551d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34801,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8306,
+   "prompt": "45b78ddaabcfc091",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26408,
+   "promptTokens": 2460
+  },
+  {
+   "row": 12186,
+   "prompt": "274ec66914a4d925",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30074,
+   "promptTokens": 2451
+  },
+  {
+   "row": 12191,
+   "prompt": "cb26d2b08acbf1c5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 42041,
+   "promptTokens": 2473
+  },
+  {
+   "row": 9420,
+   "prompt": "a3091a04d40b0e3d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26489,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9960,
+   "prompt": "a9ed270d66b38f5f",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 19632,
+   "promptTokens": 2448
+  },
+  {
+   "row": 12174,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18037,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8662,
+   "prompt": "d8e3eb72ec71650e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31304,
+   "promptTokens": 2448
+  },
+  {
+   "row": 10126,
+   "prompt": "9a8b7e74c8e5ed0a",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23409,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10352,
+   "prompt": "64c7be6edb820a97",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27012,
+   "promptTokens": 2463
+  },
+  {
+   "row": 8739,
+   "prompt": "f2fff04ad26cf816",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32745,
+   "promptTokens": 2458
+  },
+  {
+   "row": 12298,
+   "prompt": "936f23cc543ea82a",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 31231,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9817,
+   "prompt": "fe199574a26a3b15",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19111,
+   "promptTokens": 2443
+  },
+  {
+   "row": 9286,
+   "prompt": "f04c4703a2b8f509",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 19682,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9324,
+   "prompt": "7a22b65243a3dde9",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35475,
+   "promptTokens": 2472
+  },
+  {
+   "row": 10600,
+   "prompt": "85d44896e225df70",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 30797,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11678,
+   "prompt": "054a7e6c9c84bca2",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 18917,
+   "promptTokens": 2441
+  },
+  {
+   "row": 8871,
+   "prompt": "61017b0fc1b99ab4",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 22138,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11203,
+   "prompt": "d0155943730c7b0e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 21544,
+   "promptTokens": 2451
+  },
+  {
+   "row": 8028,
+   "prompt": "3e850c14e6f14ae3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32358,
+   "promptTokens": 2455
+  },
+  {
+   "row": 7950,
+   "prompt": "9ac957e2e5f0b7e8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30816,
+   "promptTokens": 2440
+  },
+  {
+   "row": 9785,
+   "prompt": "fbf58b4d4dbd72d7",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 22199,
+   "promptTokens": 2442
+  },
+  {
+   "row": 11305,
+   "prompt": "52626a02c065bfbb",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24248,
+   "promptTokens": 2453
+  },
+  {
+   "row": 9963,
+   "prompt": "caebb190df6970eb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31901,
+   "promptTokens": 2465
+  },
+  {
+   "row": 11601,
+   "prompt": "59fcab55cd194f60",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37661,
+   "promptTokens": 2465
+  },
+  {
+   "row": 11060,
+   "prompt": "34178d33458b870f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24657,
+   "promptTokens": 2454
+  },
+  {
+   "row": 7558,
+   "prompt": "f7b1fedea8cba929",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24117,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11323,
+   "prompt": "200850e2db49f52a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29102,
+   "promptTokens": 2441
+  },
+  {
+   "row": 10819,
+   "prompt": "a51972505a3968e4",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33602,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11668,
+   "prompt": "d6c65a160506209d",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 19533,
+   "promptTokens": 2447
+  },
+  {
+   "row": 12200,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 15756,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10285,
+   "prompt": "e042d9040e828544",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25733,
+   "promptTokens": 2451
+  },
+  {
+   "row": 9699,
+   "prompt": "31e9689716c6c8d6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29232,
+   "promptTokens": 2438
+  },
+  {
+   "row": 8263,
+   "prompt": "99a355c751e7889e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25696,
+   "promptTokens": 2440
+  },
+  {
+   "row": 9540,
+   "prompt": "b7f0deba07f25a06",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29517,
+   "promptTokens": 2467
+  },
+  {
+   "row": 12104,
+   "prompt": "920bceb8d7e84531",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 24739,
+   "promptTokens": 2441
+  },
+  {
+   "row": 12168,
+   "prompt": "76ee1dd5a06fe3ed",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 29978,
+   "promptTokens": 2441
+  },
+  {
+   "row": 10343,
+   "prompt": "91f16baeb10e11c1",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 26822,
+   "promptTokens": 2450
+  },
+  {
+   "row": 10378,
+   "prompt": "9846d0c8d7a348bf",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 25558,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11341,
+   "prompt": "c68435c38c1c9a16",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29905,
+   "promptTokens": 2446
+  },
+  {
+   "row": 10115,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21760,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10515,
+   "prompt": "8d8fbf7b8c388f51",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25380,
+   "promptTokens": 2456
+  },
+  {
+   "row": 10347,
+   "prompt": "0d1f3ff0af2a4e15",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25719,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11048,
+   "prompt": "f0475c30d5fa6a1b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25143,
+   "promptTokens": 2434
+  },
+  {
+   "row": 9702,
+   "prompt": "a10f8a1a3ca892c8",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 26380,
+   "promptTokens": 2430
+  },
+  {
+   "row": 9676,
+   "prompt": "6322fee1b7e14762",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25532,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11249,
+   "prompt": "375679a11108c3e6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27298,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8958,
+   "prompt": "9edd17f7677b7467",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31601,
+   "promptTokens": 2454
+  },
+  {
+   "row": 7297,
+   "prompt": "61f4152332aecbc1",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 26534,
+   "promptTokens": 2443
+  },
+  {
+   "row": 12095,
+   "prompt": "fa05eb5dcba52dde",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31149,
+   "promptTokens": 2475
+  },
+  {
+   "row": 8024,
+   "prompt": "5c117e36d6099ad2",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24338,
+   "promptTokens": 2440
+  },
+  {
+   "row": 12109,
+   "prompt": "e87ed4d21c768668",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31249,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10620,
+   "prompt": "0fcfe9c33eacf216",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27470,
+   "promptTokens": 2460
+  },
+  {
+   "row": 8209,
+   "prompt": "c3d85ebc1a8ba599",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25135,
+   "promptTokens": 2443
+  },
+  {
+   "row": 9802,
+   "prompt": "d642cdaa65875059",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34700,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10495,
+   "prompt": "6fe9f746b54c2423",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28505,
+   "promptTokens": 2467
+  },
+  {
+   "row": 8794,
+   "prompt": "6e194879f9efaae0",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 27485,
+   "promptTokens": 2458
+  },
+  {
+   "row": 7442,
+   "prompt": "87bd71c71fbbed51",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30535,
+   "promptTokens": 2450
+  },
+  {
+   "row": 8047,
+   "prompt": "fd46ff4c315b9bf0",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 22042,
+   "promptTokens": 2429
+  },
+  {
+   "row": 10424,
+   "prompt": "999b2bca079b2fd0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25153,
+   "promptTokens": 2455
+  },
+  {
+   "row": 8824,
+   "prompt": "f033774b4b2198c9",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32736,
+   "promptTokens": 2468
+  },
+  {
+   "row": 10221,
+   "prompt": "7a6ef0fbf1830fe3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 56470,
+   "promptTokens": 2469
+  },
+  {
+   "row": 8632,
+   "prompt": "9d7211de510bddc8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34340,
+   "promptTokens": 2481
+  },
+  {
+   "row": 8895,
+   "prompt": "d0e8c7a389b6a471",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 42164,
+   "promptTokens": 2470
+  },
+  {
+   "row": 11178,
+   "prompt": "c5d3349fa272264c",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 33373,
+   "promptTokens": 2434
+  },
+  {
+   "row": 9734,
+   "prompt": "904abe1993888b0c",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 20673,
+   "promptTokens": 2443
+  },
+  {
+   "row": 10320,
+   "prompt": "a992b8450cb6b52a",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19392,
+   "promptTokens": 2434
+  },
+  {
+   "row": 10365,
+   "prompt": "d1c1d099c05ee96e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 47915,
+   "promptTokens": 2477
+  },
+  {
+   "row": 8184,
+   "prompt": "1ef7de247de3f29f",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 38450,
+   "promptTokens": 2449
+  },
+  {
+   "row": 6751,
+   "prompt": "54db47650bc455f5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26755,
+   "promptTokens": 2457
+  },
+  {
+   "row": 10832,
+   "prompt": "8df1b2c591e86d58",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26184,
+   "promptTokens": 2442
+  },
+  {
+   "row": 8811,
+   "prompt": "2e9b2d2093bcd129",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32941,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11412,
+   "prompt": "cb7a78b85a68c9bf",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 44755,
+   "promptTokens": 2453
+  },
+  {
+   "row": 9026,
+   "prompt": "d0812fdb6b8c4502",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25517,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11451,
+   "prompt": "7fc116955ac622a1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34462,
+   "promptTokens": 2453
+  },
+  {
+   "row": 11443,
+   "prompt": "55f8b2e0d72e2dc5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41107,
+   "promptTokens": 2453
+  },
+  {
+   "row": 11541,
+   "prompt": "0e3b02e5c1dbd082",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27501,
+   "promptTokens": 2462
+  },
+  {
+   "row": 8967,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24993,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10605,
+   "prompt": "e5a802d7bf05deab",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26990,
+   "promptTokens": 2436
+  },
+  {
+   "row": 11905,
+   "prompt": "e9ef1cf4a81173f5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 42343,
+   "promptTokens": 2456
+  },
+  {
+   "row": 11306,
+   "prompt": "8fe0af80cc07e6fc",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27779,
+   "promptTokens": 2434
+  },
+  {
+   "row": 8188,
+   "prompt": "83acd0892014d876",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 30474,
+   "promptTokens": 2474
+  },
+  {
+   "row": 11406,
+   "prompt": "cdb723f48f7630a3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40838,
+   "promptTokens": 2477
+  },
+  {
+   "row": 10514,
+   "prompt": "7e903468c017ce7e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40635,
+   "promptTokens": 2449
+  },
+  {
+   "row": 11174,
+   "prompt": "5cbee66c085053fb",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25672,
+   "promptTokens": 2434
+  },
+  {
+   "row": 12043,
+   "prompt": "69f8a8c9a6419904",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26365,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8557,
+   "prompt": "c5571141b9a62377",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40977,
+   "promptTokens": 2475
+  },
+  {
+   "row": 10650,
+   "prompt": "3ebf202a1259cc4f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41393,
+   "promptTokens": 2453
+  },
+  {
+   "row": 9097,
+   "prompt": "35ddafecde90e421",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 24230,
+   "promptTokens": 2463
+  },
+  {
+   "row": 10037,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 17336,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10988,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 2844,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8544,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 2806,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11335,
+   "prompt": "1ce3db8fc0da7f62",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35541,
+   "promptTokens": 2463
+  },
+  {
+   "row": 10821,
+   "prompt": "b98d752611850010",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 48122,
+   "promptTokens": 2472
+  },
+  {
+   "row": 8221,
+   "prompt": "9413306fc0e412bc",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21843,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10172,
+   "prompt": "56f4ca39e8fb056d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30764,
+   "promptTokens": 2469
+  },
+  {
+   "row": 12050,
+   "prompt": "762bee6b7b98d3f9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41172,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9179,
+   "prompt": "53d1ebbc9e99722c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 45105,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9714,
+   "prompt": "90c8a18533df7517",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 26727,
+   "promptTokens": 2456
+  },
+  {
+   "row": 11245,
+   "prompt": "a1189321f2fc94f4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32088,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11386,
+   "prompt": "1fef2bc8585ae1e5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41026,
+   "promptTokens": 2444
+  },
+  {
+   "row": 8377,
+   "prompt": "eacc9ffb0551d383",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 31130,
+   "promptTokens": 2459
+  },
+  {
+   "row": 12023,
+   "prompt": "3cce4923d16713bb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28034,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11597,
+   "prompt": "93c8e6250f3e3bd3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35839,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8401,
+   "prompt": "c31cee16345d9d2d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44803,
+   "promptTokens": 2451
+  },
+  {
+   "row": 8963,
+   "prompt": "4b3c05d4f5351539",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 18713,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10853,
+   "prompt": "9e16806b3c70afd6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 20362,
+   "promptTokens": 2448
+  },
+  {
+   "row": 7842,
+   "prompt": "021836735bd1501f",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 29904,
+   "promptTokens": 2448
+  },
+  {
+   "row": 6433,
+   "prompt": "bcf94edbf0dc8bb2",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 38050,
+   "promptTokens": 2448
+  },
+  {
+   "row": 8573,
+   "prompt": "b9e7d176f3fc1338",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34982,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11058,
+   "prompt": "cf809d7d924f064d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31416,
+   "promptTokens": 2479
+  },
+  {
+   "row": 8556,
+   "prompt": "1e947fd51146c992",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31303,
+   "promptTokens": 2453
+  },
+  {
+   "row": 10812,
+   "prompt": "08a62ef769fd5bd7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 42402,
+   "promptTokens": 2455
+  },
+  {
+   "row": 8076,
+   "prompt": "435e0a49e3e2aa2b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29103,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10010,
+   "prompt": "8559b1f2bb8451d3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25049,
+   "promptTokens": 2461
+  },
+  {
+   "row": 10097,
+   "prompt": "f72466ccfafb3df0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31474,
+   "promptTokens": 2456
+  },
+  {
+   "row": 11820,
+   "prompt": "1bfcc775c22aaa92",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 40389,
+   "promptTokens": 2444
+  },
+  {
+   "row": 8088,
+   "prompt": "26113fbe92e1dfaa",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31012,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8243,
+   "prompt": "a422c3193d882cd4",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30446,
+   "promptTokens": 2442
+  },
+  {
+   "row": 5663,
+   "prompt": "b752b6aeaea8c7c2",
+   "reply": "52",
+   "p": 0.52,
+   "wallMs": 41328,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9465,
+   "prompt": "103f2e688d2be6e6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32786,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9968,
+   "prompt": "f6497386eff2128e",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 27402,
+   "promptTokens": 2451
+  },
+  {
+   "row": 10926,
+   "prompt": "bc54922bea2d7fca",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 35856,
+   "promptTokens": 2451
+  },
+  {
+   "row": 8547,
+   "prompt": "f7daf3d8747e9bfa",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 48045,
+   "promptTokens": 2469
+  },
+  {
+   "row": 8154,
+   "prompt": "7b7375c130d32f7e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26220,
+   "promptTokens": 2438
+  },
+  {
+   "row": 12204,
+   "prompt": "6523dd1ad4ea01ab",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32414,
+   "promptTokens": 2465
+  },
+  {
+   "row": 9049,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 32907,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11676,
+   "prompt": "d8295dc3e474d49d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41533,
+   "promptTokens": 2446
+  },
+  {
+   "row": 12129,
+   "prompt": "d1040ddad28eaffb",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 36432,
+   "promptTokens": 2480
+  },
+  {
+   "row": 9906,
+   "prompt": "9e36db18e5142a5d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28807,
+   "promptTokens": 2444
+  },
+  {
+   "row": 12153,
+   "prompt": "2a64fd444bdc3c15",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 32118,
+   "promptTokens": 2448
+  },
+  {
+   "row": 8441,
+   "prompt": "fbb598154dacb0f8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 36704,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8394,
+   "prompt": "f631a25684dea24e",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 22098,
+   "promptTokens": 2435
+  },
+  {
+   "row": 10698,
+   "prompt": "469430dfc4abb6b9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 18879,
+   "promptTokens": 2439
+  },
+  {
+   "row": 8259,
+   "prompt": "656bdbe477460524",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19008,
+   "promptTokens": 2429
+  },
+  {
+   "row": 8581,
+   "prompt": "2b3fbef3fcf2208d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35114,
+   "promptTokens": 2450
+  },
+  {
+   "row": 8481,
+   "prompt": "5ee9d00023463726",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41790,
+   "promptTokens": 2445
+  },
+  {
+   "row": 9747,
+   "prompt": "7d69a289d1639c1a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29107,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10223,
+   "prompt": "4c3a1f111fe53052",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 26225,
+   "promptTokens": 2457
+  },
+  {
+   "row": 9573,
+   "prompt": "7c9a94f3ef9836ed",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30240,
+   "promptTokens": 2440
+  },
+  {
+   "row": 10201,
+   "prompt": "6ae6d7a2ff111198",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 43440,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11489,
+   "prompt": "5ec75658f995ea93",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24058,
+   "promptTokens": 2440
+  },
+  {
+   "row": 9650,
+   "prompt": "1d300aa5a93b2c69",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21794,
+   "promptTokens": 2453
+  },
+  {
+   "row": 9367,
+   "prompt": "21f4cbbebe2adc2b",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 27033,
+   "promptTokens": 2439
+  },
+  {
+   "row": 8986,
+   "prompt": "cb4dd943526907e0",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 36455,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10963,
+   "prompt": "5f1222440badf420",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 29333,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9654,
+   "prompt": "f6f4aaa358e1921a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35543,
+   "promptTokens": 2474
+  },
+  {
+   "row": 9666,
+   "prompt": "cbd6246e20a155b6",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 29540,
+   "promptTokens": 2433
+  },
+  {
+   "row": 7103,
+   "prompt": "752097ae7107b9ea",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 48790,
+   "promptTokens": 2468
+  },
+  {
+   "row": 8138,
+   "prompt": "cc245604f4d10338",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27372,
+   "promptTokens": 2457
+  },
+  {
+   "row": 9309,
+   "prompt": "093c0fd9d8c89b46",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23375,
+   "promptTokens": 2439
+  },
+  {
+   "row": 9189,
+   "prompt": "7b0d2b9fa94aa1ea",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 23459,
+   "promptTokens": 2428
+  },
+  {
+   "row": 8780,
+   "prompt": "81df47c70325b4df",
+   "reply": "15",
+   "p": 0.15,
+   "wallMs": 38867,
+   "promptTokens": 2438
+  },
+  {
+   "row": 7227,
+   "prompt": "f22ad5323c9b1d4d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 45238,
+   "promptTokens": 2484
+  },
+  {
+   "row": 8494,
+   "prompt": "3a7adc2aa60c4fff",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24046,
+   "promptTokens": 2437
+  },
+  {
+   "row": 9940,
+   "prompt": "78534dabaa0dee69",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29490,
+   "promptTokens": 2439
+  },
+  {
+   "row": 6004,
+   "prompt": "063d21431f73a54d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 42110,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8274,
+   "prompt": "ca35e0b7f107db19",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 39733,
+   "promptTokens": 2462
+  },
+  {
+   "row": 11017,
+   "prompt": "975979f887d1a604",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 28664,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9698,
+   "prompt": "d583acc6ce3e1964",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37650,
+   "promptTokens": 2451
+  },
+  {
+   "row": 10820,
+   "prompt": "e8482d46f648a790",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 36927,
+   "promptTokens": 2441
+  },
+  {
+   "row": 10316,
+   "prompt": "f9cc73ef3f7b6748",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 21518,
+   "promptTokens": 2453
+  },
+  {
+   "row": 7415,
+   "prompt": "d8e4f6665746e86f",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 27398,
+   "promptTokens": 2440
+  },
+  {
+   "row": 10885,
+   "prompt": "d31250b9399b6c39",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 52445,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11001,
+   "prompt": "093b3bcf0dbfbd32",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41698,
+   "promptTokens": 2473
+  },
+  {
+   "row": 11832,
+   "prompt": "147ae95bd632bc45",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39051,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8618,
+   "prompt": "b86ec2d81ee527ef",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 36518,
+   "promptTokens": 2475
+  },
+  {
+   "row": 6664,
+   "prompt": "1d3d2ddbde93004b",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 27780,
+   "promptTokens": 2437
+  },
+  {
+   "row": 11030,
+   "prompt": "f3c16b6ecd7d025c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39276,
+   "promptTokens": 2447
+  },
+  {
+   "row": 12022,
+   "prompt": "b52636042ba7e7e7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24261,
+   "promptTokens": 2447
+  },
+  {
+   "row": 10618,
+   "prompt": "90062e1ca9983c09",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21442,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10717,
+   "prompt": "8b8bd56103702047",
+   "reply": "58",
+   "p": 0.58,
+   "wallMs": 43039,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8907,
+   "prompt": "7a875744590f9da3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41549,
+   "promptTokens": 2467
+  },
+  {
+   "row": 9241,
+   "prompt": "f74e6a2e7baac710",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25538,
+   "promptTokens": 2446
+  },
+  {
+   "row": 9845,
+   "prompt": "fd2a57810fb420e1",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 39666,
+   "promptTokens": 2478
+  },
+  {
+   "row": 11379,
+   "prompt": "97097c078c07a3c7",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 43023,
+   "promptTokens": 2449
+  },
+  {
+   "row": 10098,
+   "prompt": "570891b2d621c85b",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 33500,
+   "promptTokens": 2436
+  },
+  {
+   "row": 9724,
+   "prompt": "d229a5a3d26791c1",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 18655,
+   "promptTokens": 2438
+  },
+  {
+   "row": 8468,
+   "prompt": "5060b56f62e4142f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27671,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8823,
+   "prompt": "882cffdf89cc4ebc",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 31162,
+   "promptTokens": 2431
+  },
+  {
+   "row": 9231,
+   "prompt": "2fbc9fec27644275",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39010,
+   "promptTokens": 2437
+  },
+  {
+   "row": 11860,
+   "prompt": "d2cd6451f2695316",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 37068,
+   "promptTokens": 2459
+  },
+  {
+   "row": 9174,
+   "prompt": "174d6a3c0889e5b7",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 32341,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11677,
+   "prompt": "3a9a890092c899cf",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38253,
+   "promptTokens": 2441
+  },
+  {
+   "row": 11586,
+   "prompt": "703d770a40dc00f0",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35979,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8562,
+   "prompt": "cc23f400af9f62d7",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 24888,
+   "promptTokens": 2445
+  },
+  {
+   "row": 9244,
+   "prompt": "063a5c562dacd5c3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29860,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9183,
+   "prompt": "b882d1fc62184fc3",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 34616,
+   "promptTokens": 2446
+  },
+  {
+   "row": 6919,
+   "prompt": "84854756003266ad",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41192,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8944,
+   "prompt": "fd9122a2119334df",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25328,
+   "promptTokens": 2440
+  },
+  {
+   "row": 11161,
+   "prompt": "b3d9ce1d4305a682",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 27678,
+   "promptTokens": 2449
+  },
+  {
+   "row": 12056,
+   "prompt": "2735eb22d28a9a72",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 35822,
+   "promptTokens": 2444
+  },
+  {
+   "row": 12282,
+   "prompt": "8bb7d8449953914a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40156,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10288,
+   "prompt": "7293cf43e4978dd6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 39525,
+   "promptTokens": 2470
+  },
+  {
+   "row": 9823,
+   "prompt": "0dffa5b98ffa2ecb",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24547,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10557,
+   "prompt": "c3fda8df43d16a51",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 25478,
+   "promptTokens": 2440
+  },
+  {
+   "row": 8172,
+   "prompt": "535a181458e67920",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 47578,
+   "promptTokens": 2465
+  },
+  {
+   "row": 9300,
+   "prompt": "3b98d0536b60c49a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 39805,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11861,
+   "prompt": "f3d7003ffb356e1d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33402,
+   "promptTokens": 2470
+  },
+  {
+   "row": 12024,
+   "prompt": "788c772017aa3cb6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 36185,
+   "promptTokens": 2440
+  },
+  {
+   "row": 10638,
+   "prompt": "86c601f3e45d0550",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 45938,
+   "promptTokens": 2477
+  },
+  {
+   "row": 11760,
+   "prompt": "6290f7d9720adfbe",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 22644,
+   "promptTokens": 2430
+  },
+  {
+   "row": 8204,
+   "prompt": "70d065c506db32c5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35399,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9971,
+   "prompt": "7f3b0b3ef99fd9d8",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 50194,
+   "promptTokens": 2486
+  },
+  {
+   "row": 11947,
+   "prompt": "eba4f579321f764b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25227,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10366,
+   "prompt": "fecd1ce174e1c446",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25659,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11432,
+   "prompt": "a1a802f0548251be",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 39645,
+   "promptTokens": 2450
+  },
+  {
+   "row": 11038,
+   "prompt": "6ef58f2de9421d68",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44513,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10099,
+   "prompt": "3c94c11d956a6e93",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25827,
+   "promptTokens": 2445
+  },
+  {
+   "row": 10007,
+   "prompt": "acfd401798d97ba6",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 27957,
+   "promptTokens": 2430
+  },
+  {
+   "row": 11792,
+   "prompt": "67c11fdc1f620e0c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32110,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11858,
+   "prompt": "deccc25c7329578d",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 35667,
+   "promptTokens": 2478
+  },
+  {
+   "row": 10509,
+   "prompt": "f0c2a9846e34dbbf",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32371,
+   "promptTokens": 2469
+  },
+  {
+   "row": 11149,
+   "prompt": "2139b641ccd2f88a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 36190,
+   "promptTokens": 2445
+  },
+  {
+   "row": 11458,
+   "prompt": "68c30b63f0d3615b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 43531,
+   "promptTokens": 2457
+  },
+  {
+   "row": 9414,
+   "prompt": "67b1262d49ee3fab",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25671,
+   "promptTokens": 2436
+  },
+  {
+   "row": 6285,
+   "prompt": "f4760fd4c38c1106",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26961,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11310,
+   "prompt": "23fdd8d05730d52f",
+   "reply": "58",
+   "p": 0.58,
+   "wallMs": 33104,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9185,
+   "prompt": "d4a9d5e42a6fa6f5",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 39512,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11232,
+   "prompt": "209ede2478f61949",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32441,
+   "promptTokens": 2466
+  },
+  {
+   "row": 6067,
+   "prompt": "22e5485a004b2042",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26255,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8700,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26525,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8213,
+   "prompt": "96d64a19aef913be",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 31493,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10834,
+   "prompt": "b57e947d7285fc35",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 31483,
+   "promptTokens": 2454
+  },
+  {
+   "row": 12122,
+   "prompt": "db36cfb2c0c18241",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32661,
+   "promptTokens": 2469
+  },
+  {
+   "row": 8636,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 30184,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8532,
+   "prompt": "9b83ce9735909e6f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34111,
+   "promptTokens": 2437
+  },
+  {
+   "row": 8904,
+   "prompt": "6ed0e5d7b9ab9869",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26574,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11290,
+   "prompt": "1c620e9ad0e14d19",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25982,
+   "promptTokens": 2447
+  },
+  {
+   "row": 10367,
+   "prompt": "094ea0f693934c16",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 38276,
+   "promptTokens": 2456
+  },
+  {
+   "row": 9336,
+   "prompt": "b60d3bc0ef46604a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 45713,
+   "promptTokens": 2480
+  },
+  {
+   "row": 10573,
+   "prompt": "4e047aed31dd9318",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 25447,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9607,
+   "prompt": "0a4cb287ac1852f0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35825,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9436,
+   "prompt": "9db94568728b70dd",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 45658,
+   "promptTokens": 2461
+  },
+  {
+   "row": 9154,
+   "prompt": "4dd243c69a56708b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31844,
+   "promptTokens": 2445
+  },
+  {
+   "row": 8021,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24609,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11183,
+   "prompt": "d03cd6fe271d4274",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32481,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9951,
+   "prompt": "1a6e592b9bbc2925",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37584,
+   "promptTokens": 2456
+  },
+  {
+   "row": 8413,
+   "prompt": "7117b8c32c8056dc",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 25184,
+   "promptTokens": 2432
+  },
+  {
+   "row": 9310,
+   "prompt": "aa931a910e70e8c1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34583,
+   "promptTokens": 2439
+  },
+  {
+   "row": 11037,
+   "prompt": "bc6824e01d72ab13",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31547,
+   "promptTokens": 2453
+  },
+  {
+   "row": 10402,
+   "prompt": "13d81770bca22acc",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27156,
+   "promptTokens": 2456
+  },
+  {
+   "row": 8142,
+   "prompt": "f74185b6c0064e08",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30342,
+   "promptTokens": 2457
+  },
+  {
+   "row": 12305,
+   "prompt": "62a47d216606c84f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32702,
+   "promptTokens": 2444
+  },
+  {
+   "row": 7366,
+   "prompt": "32f128c12622e608",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44312,
+   "promptTokens": 2467
+  },
+  {
+   "row": 11264,
+   "prompt": "4eb90f77db26fe98",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25449,
+   "promptTokens": 2450
+  },
+  {
+   "row": 8623,
+   "prompt": "29c9dbb9b304b81a",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34773,
+   "promptTokens": 2467
+  },
+  {
+   "row": 8599,
+   "prompt": "97438325232d2f27",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 33499,
+   "promptTokens": 2430
+  },
+  {
+   "row": 10875,
+   "prompt": "c80d91bef8d0f622",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40897,
+   "promptTokens": 2467
+  },
+  {
+   "row": 9722,
+   "prompt": "81fc5b4992147a12",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24307,
+   "promptTokens": 2443
+  },
+  {
+   "row": 10545,
+   "prompt": "ce3dcbcc6af6f04f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 36842,
+   "promptTokens": 2467
+  },
+  {
+   "row": 5656,
+   "prompt": "166d2bd23c638abe",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 58233,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11953,
+   "prompt": "c6cc7a559abf6aa2",
+   "reply": "15",
+   "p": 0.15,
+   "wallMs": 30282,
+   "promptTokens": 2426
+  },
+  {
+   "row": 10245,
+   "prompt": "7ba2f3d817f53eea",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32170,
+   "promptTokens": 2469
+  },
+  {
+   "row": 10784,
+   "prompt": "6da98ca376b51086",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 32737,
+   "promptTokens": 2437
+  },
+  {
+   "row": 8738,
+   "prompt": "cf3c2f9a21cf7eca",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 47107,
+   "promptTokens": 2459
+  },
+  {
+   "row": 11916,
+   "prompt": "6e87b1d6070f76a5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29250,
+   "promptTokens": 2450
+  },
+  {
+   "row": 9620,
+   "prompt": "44c4712b3920ad4d",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26147,
+   "promptTokens": 2429
+  },
+  {
+   "row": 12067,
+   "prompt": "d3b5f9f32d1a7ec2",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 43265,
+   "promptTokens": 2458
+  },
+  {
+   "row": 11646,
+   "prompt": "cf7d2b1d9cac3f27",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35197,
+   "promptTokens": 2463
+  },
+  {
+   "row": 12040,
+   "prompt": "245d850f3ab60f0b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 21984,
+   "promptTokens": 2434
+  },
+  {
+   "row": 8429,
+   "prompt": "f6918cc0a9d6f286",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40462,
+   "promptTokens": 2469
+  },
+  {
+   "row": 8435,
+   "prompt": "7fabdccf965d4a8d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 55603,
+   "promptTokens": 2477
+  },
+  {
+   "row": 8736,
+   "prompt": "f7b76846f70e8838",
+   "reply": "58",
+   "p": 0.58,
+   "wallMs": 34492,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8601,
+   "prompt": "5bd8a7b4f224e82c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28490,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11470,
+   "prompt": "f8c09f118886f411",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 43332,
+   "promptTokens": 2460
+  },
+  {
+   "row": 11794,
+   "prompt": "030a3c4590565058",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26180,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11741,
+   "prompt": "fdfdb73c3e3892ee",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27614,
+   "promptTokens": 2457
+  },
+  {
+   "row": 10728,
+   "prompt": "18fc02c96d576578",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 40417,
+   "promptTokens": 2448
+  },
+  {
+   "row": 12103,
+   "prompt": "e485d05c26778788",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 58346,
+   "promptTokens": 2469
+  },
+  {
+   "row": 8993,
+   "prompt": "442e0be1c7d82873",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 176245,
+   "promptTokens": 2467
+  },
+  {
+   "row": 8979,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 622678,
+   "promptTokens": 2427
+  },
+  {
+   "row": 7841,
+   "prompt": "8c8d3f51687704e1",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 112021,
+   "promptTokens": 2440
+  },
+  {
+   "row": 10282,
+   "prompt": "d2f0a33ca65238ee",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 183550,
+   "promptTokens": 2447
+  },
+  {
+   "row": 10908,
+   "prompt": "ba94c9a2eb09b83c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 616501,
+   "promptTokens": 2478
+  },
+  {
+   "row": 9184,
+   "prompt": "6b4e2af01b1b5ab1",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 122190,
+   "promptTokens": 2446
+  },
+  {
+   "row": 10241,
+   "prompt": "c3d68b5b5d0f5391",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 189767,
+   "promptTokens": 2467
+  },
+  {
+   "row": 8168,
+   "prompt": "b605951a3d4b8e08",
+   "reply": "72",
+   "p": 0.72,
+   "wallMs": 645904,
+   "promptTokens": 2467
+  },
+  {
+   "row": 10025,
+   "prompt": "0e22991a291c4c8e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 145659,
+   "promptTokens": 2463
+  },
+  {
+   "row": 11224,
+   "prompt": "006f4878eb1100eb",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 198087,
+   "promptTokens": 2448
+  },
+  {
+   "row": 12263,
+   "prompt": "47aab27f1ea0a7af",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 593017,
+   "promptTokens": 2439
+  },
+  {
+   "row": 9787,
+   "prompt": "73add25b53f3d2d4",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 122231,
+   "promptTokens": 2429
+  },
+  {
+   "row": 11351,
+   "prompt": "0487ca4eeefb0c42",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 48006,
+   "promptTokens": 2455
+  },
+  {
+   "row": 8619,
+   "prompt": "b080c2127db074f6",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44922,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9065,
+   "prompt": "773b69dfa9ceb46f",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 36147,
+   "promptTokens": 2428
+  },
+  {
+   "row": 12202,
+   "prompt": "4ccdf28e969c6eb6",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 39116,
+   "promptTokens": 2443
+  },
+  {
+   "row": 10602,
+   "prompt": "d4585575a297e461",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39565,
+   "promptTokens": 2445
+  },
+  {
+   "row": 11255,
+   "prompt": "8977f91404f4fe33",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 58118,
+   "promptTokens": 2474
+  },
+  {
+   "row": 12019,
+   "prompt": "fda70334b5ad70b5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41599,
+   "promptTokens": 2457
+  },
+  {
+   "row": 9078,
+   "prompt": "1bd55ede57c2a790",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 49987,
+   "promptTokens": 2475
+  },
+  {
+   "row": 6269,
+   "prompt": "7164d0c89bdf1ea1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34729,
+   "promptTokens": 2467
+  },
+  {
+   "row": 12178,
+   "prompt": "00d7adb0470d6aca",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 58822,
+   "promptTokens": 2485
+  },
+  {
+   "row": 7939,
+   "prompt": "a804ac951d1a8732",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37901,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8866,
+   "prompt": "348c79d8468bbdfd",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30575,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11442,
+   "prompt": "fae8c02fc0de5788",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44596,
+   "promptTokens": 2460
+  },
+  {
+   "row": 9207,
+   "prompt": "aa4ca7aa09e01661",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41515,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10593,
+   "prompt": "43229812fbbdeb3f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31365,
+   "promptTokens": 2459
+  },
+  {
+   "row": 11377,
+   "prompt": "9c674a688b1a97b5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 36557,
+   "promptTokens": 2450
+  },
+  {
+   "row": 11206,
+   "prompt": "9fb17a8e31769534",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 46907,
+   "promptTokens": 2455
+  },
+  {
+   "row": 11116,
+   "prompt": "10709a4a60808c0d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32195,
+   "promptTokens": 2463
+  },
+  {
+   "row": 12257,
+   "prompt": "07050442ef1e17b3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34250,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9683,
+   "prompt": "a6c36010a3d377de",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 56768,
+   "promptTokens": 2466
+  },
+  {
+   "row": 6486,
+   "prompt": "5693fcd5e407446d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31061,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11253,
+   "prompt": "95439bb98b86e3db",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35503,
+   "promptTokens": 2456
+  },
+  {
+   "row": 10399,
+   "prompt": "7441c84a0d367188",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 48396,
+   "promptTokens": 2459
+  },
+  {
+   "row": 8317,
+   "prompt": "88d7151297f44b86",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35223,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8272,
+   "prompt": "bb9684f55a882700",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 35407,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10278,
+   "prompt": "c42df4426be795b3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39574,
+   "promptTokens": 2450
+  },
+  {
+   "row": 9227,
+   "prompt": "80d43d85b0102930",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 28723,
+   "promptTokens": 2429
+  },
+  {
+   "row": 8495,
+   "prompt": "02fe6c88dfdffe77",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 22751,
+   "promptTokens": 2445
+  },
+  {
+   "row": 8609,
+   "prompt": "94683d2ffdfa5bb1",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 31700,
+   "promptTokens": 2451
+  },
+  {
+   "row": 10207,
+   "prompt": "3e9d88fc9faee182",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41789,
+   "promptTokens": 2447
+  },
+  {
+   "row": 10240,
+   "prompt": "b7b94c9062f9331e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27911,
+   "promptTokens": 2448
+  },
+  {
+   "row": 10632,
+   "prompt": "874ff421f9cafcab",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 29037,
+   "promptTokens": 2446
+  },
+  {
+   "row": 9134,
+   "prompt": "ef137fb02975ab82",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 39212,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9834,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 29879,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8357,
+   "prompt": "81fe2c19642531ec",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28677,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10335,
+   "prompt": "8f4570dde891c512",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31967,
+   "promptTokens": 2450
+  },
+  {
+   "row": 10910,
+   "prompt": "e728fbc3c7b94f08",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 42708,
+   "promptTokens": 2463
+  },
+  {
+   "row": 11077,
+   "prompt": "3dd4cb877113c06f",
+   "reply": "58",
+   "p": 0.58,
+   "wallMs": 36833,
+   "promptTokens": 2474
+  },
+  {
+   "row": 10373,
+   "prompt": "3ff5df41dd3a4a8d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34272,
+   "promptTokens": 2445
+  },
+  {
+   "row": 8129,
+   "prompt": "db68fb9747339c91",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44700,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9216,
+   "prompt": "222e279eb059ff86",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32460,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8762,
+   "prompt": "85ec2d16346b45e7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34315,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10304,
+   "prompt": "957d1dd56d3f9cac",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 45933,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8502,
+   "prompt": "4a887242fc98a255",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 28485,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8771,
+   "prompt": "ca8526b619f31755",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 22726,
+   "promptTokens": 2434
+  },
+  {
+   "row": 9794,
+   "prompt": "8f761dff3cc4c141",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 26642,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9492,
+   "prompt": "8a9561ca8dd11bfe",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 43838,
+   "promptTokens": 2457
+  },
+  {
+   "row": 10076,
+   "prompt": "8503f9349283d870",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38769,
+   "promptTokens": 2459
+  },
+  {
+   "row": 10364,
+   "prompt": "d9845dae74b5bf38",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35251,
+   "promptTokens": 2465
+  },
+  {
+   "row": 12170,
+   "prompt": "733cb60cecd80a54",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 45117,
+   "promptTokens": 2466
+  },
+  {
+   "row": 8561,
+   "prompt": "ccbd8a3e0f339f05",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 32201,
+   "promptTokens": 2441
+  },
+  {
+   "row": 11753,
+   "prompt": "66894e9d7d2ac77c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33548,
+   "promptTokens": 2464
+  },
+  {
+   "row": 10583,
+   "prompt": "401531ba9919a43b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44688,
+   "promptTokens": 2465
+  },
+  {
+   "row": 7476,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 27847,
+   "promptTokens": 2427
+  },
+  {
+   "row": 10689,
+   "prompt": "753261ab6607fc86",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26595,
+   "promptTokens": 2458
+  },
+  {
+   "row": 6441,
+   "prompt": "6962eb176f344ed5",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 29950,
+   "promptTokens": 2447
+  },
+  {
+   "row": 11209,
+   "prompt": "d4961365883e668a",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 32609,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8998,
+   "prompt": "e1198001b712a22d",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 31439,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11893,
+   "prompt": "b048351443777f05",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 30614,
+   "promptTokens": 2462
+  },
+  {
+   "row": 9022,
+   "prompt": "1a0ccddc28f1fb96",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 48671,
+   "promptTokens": 2485
+  },
+  {
+   "row": 8837,
+   "prompt": "d6097fd75d6173e4",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 37392,
+   "promptTokens": 2446
+  },
+  {
+   "row": 8582,
+   "prompt": "c6a119ddea1c1930",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28463,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9194,
+   "prompt": "e999bed752c1a35a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28795,
+   "promptTokens": 2444
+  },
+  {
+   "row": 7470,
+   "prompt": "a0fbe586c3adba16",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 29364,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11336,
+   "prompt": "1371d0597a9e7422",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35499,
+   "promptTokens": 2439
+  },
+  {
+   "row": 8926,
+   "prompt": "630467c7486769f1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24953,
+   "promptTokens": 2444
+  },
+  {
+   "row": 8292,
+   "prompt": "79c66ee8f2870656",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 23825,
+   "promptTokens": 2450
+  },
+  {
+   "row": 7000,
+   "prompt": "4a5366a9fb6d205f",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 24596,
+   "promptTokens": 2429
+  },
+  {
+   "row": 12294,
+   "prompt": "d587bb4a7a126661",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34940,
+   "promptTokens": 2450
+  },
+  {
+   "row": 10553,
+   "prompt": "9e0d3f53681cd310",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30394,
+   "promptTokens": 2453
+  },
+  {
+   "row": 10761,
+   "prompt": "2567a142b07dfd2d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34133,
+   "promptTokens": 2450
+  },
+  {
+   "row": 6717,
+   "prompt": "5b16956ddd3564b2",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38047,
+   "promptTokens": 2453
+  },
+  {
+   "row": 11590,
+   "prompt": "28031839d25d2efb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31466,
+   "promptTokens": 2458
+  },
+  {
+   "row": 10648,
+   "prompt": "4196de9e813b1dd4",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27983,
+   "promptTokens": 2461
+  },
+  {
+   "row": 8941,
+   "prompt": "f9441a185273ee8e",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 30550,
+   "promptTokens": 2437
+  },
+  {
+   "row": 10998,
+   "prompt": "af2212ca566bbb4a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 40276,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10319,
+   "prompt": "9e103b69c1a2fece",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 32623,
+   "promptTokens": 2449
+  },
+  {
+   "row": 9674,
+   "prompt": "1309ec8c30a39436",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26304,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8858,
+   "prompt": "af7d8d56e0dcb92c",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39967,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11061,
+   "prompt": "27d37d996b64a860",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 40635,
+   "promptTokens": 2430
+  },
+  {
+   "row": 8118,
+   "prompt": "bd23d40921bb2df2",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32324,
+   "promptTokens": 2457
+  },
+  {
+   "row": 9957,
+   "prompt": "03353da0ff574f6d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32889,
+   "promptTokens": 2460
+  },
+  {
+   "row": 11769,
+   "prompt": "cd1cad38738483a5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 50888,
+   "promptTokens": 2473
+  },
+  {
+   "row": 8132,
+   "prompt": "e5bfa9a2f9f85e23",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25979,
+   "promptTokens": 2435
+  },
+  {
+   "row": 8313,
+   "prompt": "2cae0e16311b634d",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35315,
+   "promptTokens": 2446
+  },
+  {
+   "row": 9642,
+   "prompt": "3863d5fadd29d167",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 62336,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8985,
+   "prompt": "9ec3be4e669513ec",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 45557,
+   "promptTokens": 2443
+  },
+  {
+   "row": 11011,
+   "prompt": "fbd11e50247ce3a9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 65518,
+   "promptTokens": 2454
+  },
+  {
+   "row": 7327,
+   "prompt": "a550ee68c9bb76c1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 48159,
+   "promptTokens": 2451
+  },
+  {
+   "row": 8333,
+   "prompt": "a564ce8d378fa2f3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 55329,
+   "promptTokens": 2450
+  },
+  {
+   "row": 11172,
+   "prompt": "06d2a0773abcd689",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 51541,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9692,
+   "prompt": "cafba66d9d4fdd7d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33994,
+   "promptTokens": 2464
+  },
+  {
+   "row": 9792,
+   "prompt": "ca677a4c4fd4a3ba",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 38547,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9312,
+   "prompt": "d7980df104f637e5",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 36005,
+   "promptTokens": 2448
+  },
+  {
+   "row": 5542,
+   "prompt": "2a8aee31a0ddc250",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30963,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10806,
+   "prompt": "0dcb48583e8e00fd",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29427,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10767,
+   "prompt": "6da97c57ec8d4c64",
+   "reply": "65",
+   "p": 0.65,
+   "wallMs": 41191,
+   "promptTokens": 2448
+  },
+  {
+   "row": 9267,
+   "prompt": "ded17f4b5760ba55",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35971,
+   "promptTokens": 2440
+  },
+  {
+   "row": 9358,
+   "prompt": "db12721ff724c474",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 24642,
+   "promptTokens": 2429
+  },
+  {
+   "row": 9748,
+   "prompt": "178b9a30f57919a6",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 40905,
+   "promptTokens": 2456
+  },
+  {
+   "row": 8838,
+   "prompt": "379613ef32a4bea5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44873,
+   "promptTokens": 2445
+  },
+  {
+   "row": 8190,
+   "prompt": "53ca8da42205b2c8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35430,
+   "promptTokens": 2474
+  },
+  {
+   "row": 12107,
+   "prompt": "c0d40c42cacc7f16",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34660,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9315,
+   "prompt": "b419618bd39209dc",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38072,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9954,
+   "prompt": "e85d3fe2be1f703f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 24403,
+   "promptTokens": 2448
+  },
+  {
+   "row": 10502,
+   "prompt": "27d07d201a2a0847",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27523,
+   "promptTokens": 2439
+  },
+  {
+   "row": 8054,
+   "prompt": "6a8600646aeae040",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 42282,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8038,
+   "prompt": "f861d27d498be322",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40013,
+   "promptTokens": 2455
+  },
+  {
+   "row": 12007,
+   "prompt": "6e31f49db8d29d1e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 23995,
+   "promptTokens": 2438
+  },
+  {
+   "row": 9706,
+   "prompt": "51af07e0d1382563",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28385,
+   "promptTokens": 2450
+  },
+  {
+   "row": 8931,
+   "prompt": "0a9e9e356acc20cc",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 32254,
+   "promptTokens": 2454
+  },
+  {
+   "row": 8730,
+   "prompt": "6bd00c2a9d92b67b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38934,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10133,
+   "prompt": "3fa06408a2798f62",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 44861,
+   "promptTokens": 2473
+  },
+  {
+   "row": 9064,
+   "prompt": "55302d5aaf3354d1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31657,
+   "promptTokens": 2446
+  },
+  {
+   "row": 8244,
+   "prompt": "65e485856315eb36",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 45704,
+   "promptTokens": 2448
+  },
+  {
+   "row": 10036,
+   "prompt": "d671d5577dd4a3eb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 40925,
+   "promptTokens": 2474
+  },
+  {
+   "row": 11974,
+   "prompt": "41788355bf316359",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30225,
+   "promptTokens": 2439
+  },
+  {
+   "row": 11198,
+   "prompt": "334a7afc6680ab3b",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 50420,
+   "promptTokens": 2470
+  },
+  {
+   "row": 8396,
+   "prompt": "d0fdfe556bc3aeb7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29761,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9152,
+   "prompt": "53546fe6241d9433",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33550,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9410,
+   "prompt": "a67ceb54cdc37022",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 35651,
+   "promptTokens": 2430
+  },
+  {
+   "row": 9808,
+   "prompt": "450410c62af06666",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31764,
+   "promptTokens": 2442
+  },
+  {
+   "row": 10594,
+   "prompt": "763bcddc8270b979",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29049,
+   "promptTokens": 2454
+  },
+  {
+   "row": 11079,
+   "prompt": "9413306fc0e412bc",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 26338,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8713,
+   "prompt": "231d65c2591de894",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 35646,
+   "promptTokens": 2436
+  },
+  {
+   "row": 8181,
+   "prompt": "d52f9c925e9e6ef2",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 25727,
+   "promptTokens": 2444
+  },
+  {
+   "row": 7494,
+   "prompt": "a3b5c02739b01cb5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37324,
+   "promptTokens": 2464
+  },
+  {
+   "row": 8308,
+   "prompt": "91755a155b0fee0c",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 51448,
+   "promptTokens": 2477
+  },
+  {
+   "row": 8616,
+   "prompt": "2492bd310551b34a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26426,
+   "promptTokens": 2445
+  },
+  {
+   "row": 10182,
+   "prompt": "36c00c211c5aaed2",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24721,
+   "promptTokens": 2447
+  },
+  {
+   "row": 12055,
+   "prompt": "407cc92a303c0a6a",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 28123,
+   "promptTokens": 2434
+  },
+  {
+   "row": 10333,
+   "prompt": "1b2b07182b1e91ba",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 40828,
+   "promptTokens": 2444
+  },
+  {
+   "row": 10150,
+   "prompt": "a3c283a959a5545e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33496,
+   "promptTokens": 2439
+  },
+  {
+   "row": 8466,
+   "prompt": "aa192ad7e3dcd8ef",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29480,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8977,
+   "prompt": "96129c0996cfa87d",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41046,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9133,
+   "prompt": "acd56360bfe296d6",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 39350,
+   "promptTokens": 2435
+  },
+  {
+   "row": 10519,
+   "prompt": "47c8fc65ff990098",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30228,
+   "promptTokens": 2462
+  },
+  {
+   "row": 10015,
+   "prompt": "5c002149019a4c69",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 32326,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11778,
+   "prompt": "61d43e0ea48d5328",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 47105,
+   "promptTokens": 2461
+  },
+  {
+   "row": 11718,
+   "prompt": "71c3fef956d9cba7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33690,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11250,
+   "prompt": "06a66007ad3645a1",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29364,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8720,
+   "prompt": "94c4f03b0193c196",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 41854,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10446,
+   "prompt": "1b7e9c264194a4d3",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35117,
+   "promptTokens": 2441
+  },
+  {
+   "row": 10251,
+   "prompt": "c73d1400b4f20fc3",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 34963,
+   "promptTokens": 2472
+  },
+  {
+   "row": 5533,
+   "prompt": "9b3829868628e48b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35356,
+   "promptTokens": 2429
+  },
+  {
+   "row": 10949,
+   "prompt": "b58c9d66418ff938",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 39989,
+   "promptTokens": 2458
+  },
+  {
+   "row": 7478,
+   "prompt": "66649e97aa117b20",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 25560,
+   "promptTokens": 2437
+  },
+  {
+   "row": 9036,
+   "prompt": "c39898efa711a5d9",
+   "reply": "52",
+   "p": 0.52,
+   "wallMs": 36021,
+   "promptTokens": 2450
+  },
+  {
+   "row": 11517,
+   "prompt": "d217b5f836250210",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 42603,
+   "promptTokens": 2457
+  },
+  {
+   "row": 10948,
+   "prompt": "beb9e5b9c1ebdfb7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26316,
+   "promptTokens": 2452
+  },
+  {
+   "row": 10501,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 22765,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9270,
+   "prompt": "9659f9a5b30755a0",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 30369,
+   "promptTokens": 2450
+  },
+  {
+   "row": 12190,
+   "prompt": "9efa42c46af8dcdc",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 58692,
+   "promptTokens": 2471
+  },
+  {
+   "row": 8120,
+   "prompt": "b92c00ad516d6848",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37437,
+   "promptTokens": 2480
+  },
+  {
+   "row": 9087,
+   "prompt": "8910d598acbb857b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 36398,
+   "promptTokens": 2448
+  },
+  {
+   "row": 10135,
+   "prompt": "0f371ed1dab16400",
+   "reply": "72",
+   "p": 0.72,
+   "wallMs": 41359,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11139,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 21597,
+   "promptTokens": 2427
+  },
+  {
+   "row": 11803,
+   "prompt": "acb6911dafe9a9aa",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27536,
+   "promptTokens": 2441
+  },
+  {
+   "row": 10386,
+   "prompt": "7bd09eeef3fb3895",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 40013,
+   "promptTokens": 2442
+  },
+  {
+   "row": 8364,
+   "prompt": "25f928500180686a",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31356,
+   "promptTokens": 2444
+  },
+  {
+   "row": 9873,
+   "prompt": "ddc9120b36cdcc51",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 37856,
+   "promptTokens": 2477
+  },
+  {
+   "row": 9819,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 33750,
+   "promptTokens": 2427
+  },
+  {
+   "row": 9584,
+   "prompt": "392b66b7c68def50",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41434,
+   "promptTokens": 2474
+  },
+  {
+   "row": 8458,
+   "prompt": "3fc9a0d9322737cf",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27905,
+   "promptTokens": 2465
+  },
+  {
+   "row": 10336,
+   "prompt": "a86273c3d5ea8bf6",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 28572,
+   "promptTokens": 2435
+  },
+  {
+   "row": 9653,
+   "prompt": "1bd57240c46a27a9",
+   "reply": "52",
+   "p": 0.52,
+   "wallMs": 46658,
+   "promptTokens": 2456
+  },
+  {
+   "row": 8050,
+   "prompt": "76cdf9d8382ba976",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 39802,
+   "promptTokens": 2477
+  },
+  {
+   "row": 10722,
+   "prompt": "e56712b4f9911f82",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 31265,
+   "promptTokens": 2454
+  },
+  {
+   "row": 6949,
+   "prompt": "cccd778d683fd340",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 46035,
+   "promptTokens": 2451
+  },
+  {
+   "row": 11027,
+   "prompt": "8abf57f05c31be92",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 128497,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11809,
+   "prompt": "a74ebf5a44e49665",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 108696,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11316,
+   "prompt": "f2ed79aa50485d29",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 101444,
+   "promptTokens": 2475
+  },
+  {
+   "row": 9718,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 133492,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8411,
+   "prompt": "0b4dae133b453d94",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 104804,
+   "promptTokens": 2426
+  },
+  {
+   "row": 9727,
+   "prompt": "d45b7da376e6ab9b",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 155603,
+   "promptTokens": 2465
+  },
+  {
+   "row": 9610,
+   "prompt": "2a6d200a66351853",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 873876,
+   "promptTokens": 2447
+  },
+  {
+   "row": 9612,
+   "prompt": "223b786f721c9ec8",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 625051,
+   "promptTokens": 2436
+  },
+  {
+   "row": 9812,
+   "prompt": "9d9326fec47f9ad8",
+   "reply": "30",
+   "p": 0.3,
+   "wallMs": 19051,
+   "promptTokens": 2437
+  },
+  {
+   "row": 10057,
+   "prompt": "32a80f8c90bbbaf9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29535,
+   "promptTokens": 2456
+  },
+  {
+   "row": 9268,
+   "prompt": "835ece276e4bfbd1",
+   "reply": "72",
+   "p": 0.72,
+   "wallMs": 39474,
+   "promptTokens": 2455
+  },
+  {
+   "row": 10629,
+   "prompt": "9cbedf0654be8b1e",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 38264,
+   "promptTokens": 2449
+  },
+  {
+   "row": 7443,
+   "prompt": "5b3d1e6c808440b7",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 31817,
+   "promptTokens": 2463
+  },
+  {
+   "row": 12152,
+   "prompt": "48e4270f05515f70",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 35374,
+   "promptTokens": 2455
+  },
+  {
+   "row": 6522,
+   "prompt": "a99dd015e69f5413",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 44071,
+   "promptTokens": 2447
+  },
+  {
+   "row": 8169,
+   "prompt": "60e0e700444f8d43",
+   "reply": "10",
+   "p": 0.1,
+   "wallMs": 27069,
+   "promptTokens": 2428
+  },
+  {
+   "row": 10667,
+   "prompt": "186739452b7045a7",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20775,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11413,
+   "prompt": "6b14ed895c8b0481",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27591,
+   "promptTokens": 2454
+  },
+  {
+   "row": 9994,
+   "prompt": "a005e0236cdc1c9b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 44172,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9081,
+   "prompt": "0d4877da181e4d71",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 30807,
+   "promptTokens": 2446
+  },
+  {
+   "row": 11293,
+   "prompt": "b8c7db96ecfd7946",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 27576,
+   "promptTokens": 2459
+  },
+  {
+   "row": 10175,
+   "prompt": "514b60a7cd39cef9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 34175,
+   "promptTokens": 2455
+  },
+  {
+   "row": 8751,
+   "prompt": "7ff6c86a21d92434",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 49754,
+   "promptTokens": 2437
+  },
+  {
+   "row": 12240,
+   "prompt": "71b4ca0db5d33270",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 36591,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10944,
+   "prompt": "4307229d5f3b8cd8",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 126023,
+   "promptTokens": 2468
+  },
+  {
+   "row": 9093,
+   "prompt": "e984d0e639f36186",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 23460,
+   "promptTokens": 2431
+  },
+  {
+   "row": 9793,
+   "prompt": "dfc39a82fd5f154f",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 39867,
+   "promptTokens": 2457
+  },
+  {
+   "row": 8297,
+   "prompt": "0b3bc4b4215af2d8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 43286,
+   "promptTokens": 2453
+  },
+  {
+   "row": 9341,
+   "prompt": "4d730780fd29960e",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 28307,
+   "promptTokens": 2461
+  },
+  {
+   "row": 10551,
+   "prompt": "d4224584ad2fee74",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27025,
+   "promptTokens": 2445
+  },
+  {
+   "row": 11730,
+   "prompt": "29971a23b1f2d849",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 37480,
+   "promptTokens": 2448
+  },
+  {
+   "row": 11972,
+   "prompt": "73003c214bb5466f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32101,
+   "promptTokens": 2432
+  },
+  {
+   "row": 7237,
+   "prompt": "115bd9847f59e727",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 21547,
+   "promptTokens": 2436
+  },
+  {
+   "row": 11023,
+   "prompt": "dfe92870b09c5bbb",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26719,
+   "promptTokens": 2453
+  },
+  {
+   "row": 8954,
+   "prompt": "820c94833576e1f5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32982,
+   "promptTokens": 2448
+  },
+  {
+   "row": 8461,
+   "prompt": "f92fa59a3badde51",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 40538,
+   "promptTokens": 2449
+  },
+  {
+   "row": 11107,
+   "prompt": "066d4d9bd06952b5",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26761,
+   "promptTokens": 2448
+  },
+  {
+   "row": 8889,
+   "prompt": "8d69128bc0cdc4ed",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27735,
+   "promptTokens": 2457
+  },
+  {
+   "row": 11659,
+   "prompt": "be1e1cbd6f035bac",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35022,
+   "promptTokens": 2449
+  },
+  {
+   "row": 7129,
+   "prompt": "b1243f96e6d912c0",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41727,
+   "promptTokens": 2465
+  },
+  {
+   "row": 10920,
+   "prompt": "4c00681afedc0fc2",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26053,
+   "promptTokens": 2452
+  },
+  {
+   "row": 11089,
+   "prompt": "8a2a21e7ed099a0f",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 32520,
+   "promptTokens": 2465
+  },
+  {
+   "row": 11353,
+   "prompt": "9a1993b4f00df0f9",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 35264,
+   "promptTokens": 2429
+  },
+  {
+   "row": 11422,
+   "prompt": "5a1a9ee895843745",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 33656,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8992,
+   "prompt": "051bfa4d8ddc8f38",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 19550,
+   "promptTokens": 2427
+  },
+  {
+   "row": 8063,
+   "prompt": "0f97aefe3dfce707",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 20635,
+   "promptTokens": 2444
+  },
+  {
+   "row": 6042,
+   "prompt": "3e22f3066a982c86",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 26097,
+   "promptTokens": 2444
+  },
+  {
+   "row": 11815,
+   "prompt": "565eccf27ecc03b1",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 42775,
+   "promptTokens": 2438
+  },
+  {
+   "row": 12143,
+   "prompt": "f03d16aef9f12b86",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29720,
+   "promptTokens": 2466
+  },
+  {
+   "row": 8515,
+   "prompt": "29c4010fa8b400b5",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27911,
+   "promptTokens": 2458
+  },
+  {
+   "row": 9123,
+   "prompt": "78fff6a6c3ec18a4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 35533,
+   "promptTokens": 2447
+  },
+  {
+   "row": 12052,
+   "prompt": "44f3fe92488e3694",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 33404,
+   "promptTokens": 2443
+  },
+  {
+   "row": 7354,
+   "prompt": "fdd70f15b7943f51",
+   "reply": "55",
+   "p": 0.55,
+   "wallMs": 24778,
+   "promptTokens": 2447
+  },
+  {
+   "row": 7819,
+   "prompt": "fb0bcd78a38ff20c",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 36369,
+   "promptTokens": 2469
+  },
+  {
+   "row": 8608,
+   "prompt": "76fc292f9c42d158",
+   "reply": "85",
+   "p": 0.85,
+   "wallMs": 55671,
+   "promptTokens": 2478
+  },
+  {
+   "row": 12110,
+   "prompt": "5cd48be0fef003f9",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 27916,
+   "promptTokens": 2460
+  },
+  {
+   "row": 9520,
+   "prompt": "e74d689dd968edee",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 29869,
+   "promptTokens": 2453
+  },
+  {
+   "row": 10780,
+   "prompt": "d00db2f446084493",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41124,
+   "promptTokens": 2456
+  },
+  {
+   "row": 9203,
+   "prompt": "40153cb7a8ca328b",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 28148,
+   "promptTokens": 2448
+  },
+  {
+   "row": 6501,
+   "prompt": "f6d2b2d01d6b2bf8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 19738,
+   "promptTokens": 2437
+  },
+  {
+   "row": 11833,
+   "prompt": "87331f019f4a4ce1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 41321,
+   "promptTokens": 2464
+  },
+  {
+   "row": 11362,
+   "prompt": "cd3807779142ca1a",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 33421,
+   "promptTokens": 2425
+  },
+  {
+   "row": 10127,
+   "prompt": "22ca7ce181167bbb",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 27579,
+   "promptTokens": 2457
+  },
+  {
+   "row": 10941,
+   "prompt": "1f981cd6229ef159",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29202,
+   "promptTokens": 2466
+  },
+  {
+   "row": 8622,
+   "prompt": "0b024af9fcc9c999",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 30199,
+   "promptTokens": 2438
+  },
+  {
+   "row": 10558,
+   "prompt": "bf2e581d94907bc4",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 49014,
+   "promptTokens": 2474
+  },
+  {
+   "row": 9148,
+   "prompt": "ef6e0c3121ab118b",
+   "reply": "20",
+   "p": 0.2,
+   "wallMs": 23903,
+   "promptTokens": 2439
+  },
+  {
+   "row": 10328,
+   "prompt": "4083aff54aa8aedb",
+   "reply": "35",
+   "p": 0.35,
+   "wallMs": 24316,
+   "promptTokens": 2454
+  },
+  {
+   "row": 10043,
+   "prompt": "93b8b9c5d61d74a8",
+   "reply": "45",
+   "p": 0.45,
+   "wallMs": 26536,
+   "promptTokens": 2438
+  },
+  {
+   "row": 11447,
+   "prompt": "3658e0c29fa19aba",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 49583,
+   "promptTokens": 2471
+  },
+  {
+   "row": 8533,
+   "prompt": "2bb204e61709c0c1",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 26382,
+   "promptTokens": 2458
+  },
+  {
+   "row": 8681,
+   "prompt": "d2ee4c3120540e3f",
+   "reply": "75",
+   "p": 0.75,
+   "wallMs": 29931,
+   "promptTokens": 2464
+  },
+  {
+   "row": 7815,
+   "prompt": "355693875a442484",
+   "reply": "25",
+   "p": 0.25,
+   "wallMs": 29931,
+   "promptTokens": 2430
+  }
+ ]
+}

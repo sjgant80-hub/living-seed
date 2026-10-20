@@ -1,0 +1,40 @@
+{
+ "kind": "living-seed.organ-2b.record",
+ "v": 1,
+ "model": {
+  "name": "qwen2.5:14b",
+  "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+  "bytes": 8988124069
+ },
+ "margin": 0.02,
+ "sample": {
+  "cases": 1200,
+  "sha": "b1ac278b8dcd8ae8",
+  "overlapWithOrgan2": 0,
+  "answered": 1200
+ },
+ "window": {
+  "longestPrompt": 2486,
+  "numCtx": 4096
+ },
+ "digestSameAsOrgan2": true,
+ "fresh": {
+  "cases": 1200,
+  "purchases": 400,
+  "organ": 0.827853,
+  "model": 0.79938,
+  "lead": 0.028473,
+  "leadLow95": 0.00974,
+  "unreadable": 0
+ },
+ "together": {
+  "cases": 1500,
+  "purchases": 500,
+  "organ": 0.825863,
+  "model": 0.800804,
+  "lead": 0.025059,
+  "leadLow95": 0.009118,
+  "unreadable": 0
+ },
+ "medianMs": 27216
+}

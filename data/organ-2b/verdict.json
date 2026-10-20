@@ -1,0 +1,36 @@
+{
+ "kind": "living-seed.organ-2b.verdict",
+ "v": 1,
+ "prereg": "05509ef260353276",
+ "record": "562feebf721cdbfc",
+ "verdicts": [
+  {
+   "id": "C1",
+   "kind": "property",
+   "claim": "all 1,200 new sessions are answered and none is in organ 2’s 300; every prompt fits the 4,096-token window; the model is the very one organ 2 asked (same digest)",
+   "pass": true,
+   "saw": "1200 of 1200 new sessions answered, 0 shared with organ 2’s sample; longest prompt 2486 tokens of a 4096 window; the same model as organ 2: true"
+  },
+  {
+   "id": "C2",
+   "kind": "prediction",
+   "claim": "on the 1,200 new sessions the organ beats the 14B shown 24 examples: the 95% lower bound of its lead is above 0",
+   "pass": true,
+   "saw": "on the 1,200 new sessions: the organ AUC 0.827853, the 14B with 24 examples 0.79938; the organ’s lead 0.028473, its 95% lower bound 0.00974"
+  },
+  {
+   "id": "C3",
+   "kind": "prediction",
+   "claim": "on the 1,200 new sessions the organ is not worse than the 14B by more than 0.02 AUC: the 95% lower bound of its lead is above −0.02",
+   "pass": true,
+   "saw": "the organ is worse than the 14B by at most 0 AUC at 95% (bound 0.00974 against −0.02)"
+  },
+  {
+   "id": "C4",
+   "kind": "prediction",
+   "claim": "organ 2’s 300 were representative: on the new sessions the 14B scores within 0.03 of 0.80645 and the organ within 0.03 of 0.8205",
+   "pass": true,
+   "saw": "the 14B 0.79938 (0.80645 on organ 2’s 300), the organ 0.827853 (0.8205)"
+  }
+ ]
+}

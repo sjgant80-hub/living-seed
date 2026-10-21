@@ -84,7 +84,9 @@ ${rows.join('\n')}
 
 Powered by the Konomi architecture, created by Thomas Frumkin. The behaviour watch follows Gary W. Floyd, Lumiea Systems
 Research Division — ThunderStruck Service LLC — "GEP-Based Security: Behavioral Entropy Signatures for Cybersecurity and
-DevOps," 2025. Supplied by AI Native Solutions (https://www.ai-nativesolutions.com); support agreed per deployment.
+DevOps," 2025; the gate draws on his "From GEP Stabilization to Dual-Map Ethical Reasoning," Derivation v0.2, and the
+nights on his "Dream State Architecture: GEP-Guided Memory Consolidation and Entropy Regulation in Artificial
+Consciousness Systems," 2025. Supplied by AI Native Solutions (https://www.ai-nativesolutions.com); support agreed per deployment.
 MIT licence — no licence fee.
 `;
 }

@@ -62,7 +62,11 @@ re-run proves the record follows from the sealed bytes).
 
 The behaviour watch (organ 9) follows Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC —
 "GEP-Based Security: Behavioral Entropy Signatures for Cybersecurity and DevOps," 2025 (open defensive prior art,
-CC BY 4.0). The rebound cost law follows break-it (sjgant80-hub/break-it).
+CC BY 4.0). The gate draws on Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — "From GEP Stabilization to Dual-Map
+Ethical Reasoning," Derivation v0.2 (a stable system can stabilize a wrong reference, so every organ is judged on cases
+it never grew on), and the nights on his "Dream State Architecture: GEP-Guided Memory Consolidation and Entropy
+Regulation in Artificial Consciousness Systems," 2025 (a night's work stays inert until a wake review judges it).
+The rebound cost law follows break-it (sjgant80-hub/break-it).
 
 Powered by the Konomi architecture, created by Thomas Frumkin. Supplied by AI Native Solutions
 (https://www.ai-nativesolutions.com); support agreed per deployment. MIT licence — no licence fee.

@@ -1,0 +1,52 @@
+{
+ "kind": "living-seed.night.prereg",
+ "v": 1,
+ "night": 4,
+ "seed": 104,
+ "z": 2,
+ "evolve": {
+  "generations": 30,
+  "children": 8,
+  "folds": 3
+ },
+ "method": "time-folds",
+ "slices": [
+  "Aug",
+  "Sep",
+  "Oct"
+ ],
+ "rules": [
+  {
+   "id": "N1",
+   "kind": "property",
+   "claim": "the night starts from the champion night 3 left"
+  },
+  {
+   "id": "N2",
+   "kind": "property",
+   "claim": "the champion moves only to a child the time-fold gate adopted (the shop candidate beating it on August, September and October, each on its own, by the margin and 2 standard errors)"
+  },
+  {
+   "id": "N3",
+   "kind": "prediction",
+   "claim": "the champion after tonight scores no lower on November–December (never used to choose) than the champion before it"
+  }
+ ],
+ "files": {
+  "src/organism.mjs": "4ce0505594b83d958707fd1fa52d285383ba5ddcc260e3566d48c79013eb4f33",
+  "src/align.mjs": "43c4b1962a5d20f67e9c95ec9e5c012c6e92105b74f109f7d469f1cdeb5c7c4d",
+  "src/evolve.mjs": "0eb098f9f59b7c89d526f61b87921bc603226684a9f6959302d6c8a94e427eb4",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/body.mjs": "faa6d9b4b601fe343198d73d82836f67f7df0c2744d3e53dc929fcd5be3bfe0e",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/record.json": "73b63601bef7d045e19609ecdbd8b82a91d15633a6fc1df84552e16234232b1e",
+  "tools/night.mjs": "1f26327b543ca4263928db945353ad4a365e9147d61cd6599640c68f2151b2b4",
+  "tools/measure-11.mjs": "4903b6fb989293f7c7f254935ad1f8f1f57ea47b0757ddfdad37f9737d22012e",
+  "tools/measure-10.mjs": "80a332edb7fe3d023ced3fbbd76b89bd0138bd057dd98be9d6456f68c9381ae7",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "data/nights/3/record.json": "832b7fc388b8db8ee30753d6fd98daa935f15eb95573d35013fa9ad0055c479f"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "kind": "living-seed.night.record",
+ "v": 1,
+ "night": 5,
+ "seed": 105,
+ "z": 2,
+ "method": "time-folds",
+ "origin": "89880089fc1fef3a",
+ "previous": "2e638385476c5d41",
+ "before": {
+  "id": "2e638385476c5d41",
+  "finalAuc": 0.7770693075373575,
+  "right": 1869,
+  "answered": 2358
+ },
+ "organs": [
+  {
+   "domain": "shopper",
+   "adopted": false,
+   "from": 0.84015,
+   "slices": [
+    {
+     "cases": 213,
+     "mine": 0.81199,
+     "candidate": 0.847772,
+     "bar": 0.09047064476327171
+    },
+    {
+     "cases": 216,
+     "mine": 0.789439,
+     "candidate": 0.797334,
+     "bar": 0.09061886145956254
+    },
+    {
+     "cases": 283,
+     "mine": 0.889502,
+     "candidate": 0.897186,
+     "bar": 0.0559266941919459
+    }
+   ],
+   "why": "the candidate did not beat it on every slice"
+  },
+  {
+   "domain": "triage",
+   "adopted": false,
+   "from": 0.947629,
+   "candidate": 0.922741,
+   "why": "no candidate beat it on cases the evolver never saw"
+  },
+  {
+   "domain": "water",
+   "adopted": false,
+   "from": 0.76028,
+   "candidate": 0.790732,
+   "why": "no candidate beat it on cases the evolver never saw"
+  },
+  {
+   "domain": "crop",
+   "adopted": false,
+   "from": 0.758133,
+   "candidate": 0.758133,
+   "why": "no candidate beat it on cases the evolver never saw"
+  }
+ ],
+ "adopted": false,
+ "child": "4d447672651046fc",
+ "after": {
+  "id": "2e638385476c5d41",
+  "finalAuc": 0.7770693075373575,
+  "right": 1869,
+  "answered": 2358,
+  "genome": "◊ life.v1 origin\nparents 89880089fc1fef3a\ngate auc=0.6\norgan ◊ seed.v1 shopper 21 f:4c1f622e621723edd42d 0750ef61ffda\norgan ◊ seed.v1 triage 21 f:76f9e00a9c8875945326 2255c18623fd\norgan ◊ seed.v1 water 21 f:56d8bc142b8ab1895026 f0099472fc6c\norgan ◊ seed.v1 crop 21 f:3be3cf42188ed3c65026 0e9421b7a3cb\nby 8b18d1b1c850eb52f048e9697ab094e49eddf70b07cf910ef2422e6b05151592\nsig 4e54e2ba4458ff41f54b9353eeab49f97cd516c1a3de628375399f43ca39361cca613a8a9c5acbb7458d11906ce4b40932d4aa724f8b1fe1a1ec827c48a86502"
+ }
+}

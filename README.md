@@ -27,7 +27,7 @@ failed property stays red.
 | 9 | **Immune system** | Attacks make it stronger; it never turns on itself | 9 of 12 · 7 of 7 | signature checks 5,040 → 400; a stolen key revoked in its round; a takeover cut in its round |
 | 10 | **Alignment** | It cannot act unproven or hide an act; its claims follow reality | 4 of 9 · 8 of 8 | 96 of 96 tampers caught; its claim lowered 0.829 → 0.775 when the shop delivered less |
 | 11 | **The full organism** | One season end to end on two devices | 5 of 8 · 5 of 5 | every gate held; the October gain did not carry into November–December |
-| 12 | **The three receipts** | Better on its own hardware; consistent on real devices; unbroken from outside | 14 of 15 over 5 nights | 5 nights: November–December 0.819 → 0.777 (origin → now), 1 adopted a change; the two-device instrument works; no outside attempt yet |
+| 12 | **The three receipts** | Better on its own hardware; consistent on real devices; unbroken from outside | 17 of 18 over 6 nights | 6 nights: November–December 0.819 → 0.777 (origin → now), 1 adopted a change; the two-device instrument works; no outside attempt yet |
 <!-- /geo:organs -->
 
 Data: the shop domain is real (UCI Online Shoppers Purchasing Intention, Sakar & Kastro 2018, CC BY 4.0, 12,330

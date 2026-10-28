@@ -1,0 +1,65 @@
+{
+ "kind": "living-seed.organ-13b.prereg",
+ "v": 1,
+ "organ": "organ 13b — organ 13 at its exact scope: every bit at both doors, the files the system loads read as code, and a fingerprint made to travel to a browser tab",
+ "design": "Three of organ 13’s threads, each closed at the scope its words claim. Organ 13 changed the lowest bit of every byte of an ask and its answer; here every bit of every byte is changed, at the organ’s door and at the keeper’s. Organ 13’s scan of the files the system loads named four fragments of text as modules; here only import and export statements are read, with comments skipped. Organ 13’s fingerprint failed to travel to a tab (S7, kept) because three domains are drawn with Math.log and Math.cos, which two engines may round differently in the last digit, and each receipt names its case exactly. Here the fingerprint is taken in two parts: the receipts of the first 100 held-out shop sessions (real data, read from a file, the same bits in every engine), and, for the first 25 held-out cases of each synthetic domain, what each answer says — its label, score, threshold and the rules that fired.",
+ "rules": [
+  {
+   "id": "B1",
+   "kind": "prediction",
+   "claim": "every one-bit change — all eight bits of every byte — to an ask is refused at the organ’s door, and every one to its answer at the keeper’s door; afterwards the genuine answer is verified and credited once",
+   "seenBeforeSeal": "in kind — organ 13 changed the lowest bit of every byte of these two messages (445 + 354 changes) and every one was refused"
+  },
+  {
+   "id": "B2",
+   "kind": "property",
+   "claim": "read as code — import and export statements only, comments skipped — the files the system loads are exactly the ones organ 13 followed, all inside the repository: no module from outside it, and no dynamic import",
+   "seenBeforeSeal": "yes — organ 13 followed the same files; its list of outside names held only four fragments of text"
+  },
+  {
+   "id": "B3",
+   "kind": "prediction",
+   "claim": "a fingerprint made to travel: in a browser tab, the same genome, data and phrase grow the same organism and roster; the receipts of the first 100 held-out shop sessions are byte for byte the record’s; on the first 25 held-out cases of each synthetic domain every answer says the same as the record’s — label, score, threshold and the rules that fired; every answer verified; one digest, equal to this record’s, in under 10 seconds",
+   "seenBeforeSeal": "partly — in organ 13’s tab the first 25 shop sessions matched Node’s exactly and 9 of the 75 synthetic cases differed in their last digits; what those answers said was not compared, and shop sessions 26–100 were not looked at"
+  }
+ ],
+ "disclosure": "Built before this seal: tools/organ-13b.mjs (the travelling fingerprint, shared with the page) and these tools. The measurement was run once in smoke mode (3 changes per door) to check that it runs end to end; its numbers were not read. Whether Node 22 on GitHub’s runner draws the synthetic domains to the same last digits as Node 25, where this record is made, is not known before CI runs; this record is built to hold nothing that depends on those digits, so it should reproduce either way. Scope as organ 13: one process, signed messages in memory, a public phrase, three synthetic domains and the real shop. A failed prediction is kept.",
+ "judgedBy": "tools/judge-13b.mjs (pinned below)",
+ "files": {
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/organ-13/record.json": "cb673f729c3fb1a0acc3e863c27b005262148f9e7c5c7798248254964dd9bced",
+  "data/organ-13/tab.json": "119480b2e7b09cfce63614bd27e43f048d0f669d4ce79da33a1813f560c9c1ae",
+  "data/organ-13/verdict.json": "80ad972a01c135fcadfc967d83b7b23937a45a2d683f708be4f27d2061645194",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/system.mjs": "5096bed896f36a0de5cbcd42be311545c0a0cd2b0e6d21024c67641c90aa62ea",
+  "tools/judge-13b.mjs": "98ce48cffa337d42d0b4603cbb0fec2786947149071cc078769d1673ebd18497",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "tools/measure-13b.mjs": "3d4ac31c5d4f3bd571366c65d18904bd0d219a6e9c7b533894f23b6a8580ce11",
+  "tools/organ-13.mjs": "0e21bedc5971383b26ab8e819afcc9bd1ca4384961e5e37a76cab3ad3abedc61",
+  "tools/organ-13b.mjs": "13f5febec159db2dae75caa0e69864d871a11f342077b1cbd90f72fc66d378c8",
+  "tools/seal-13b.mjs": "20ca1395a3d0d0f3a2aec742af39c17080806fc4d2b22081ef8540005e63e09f",
+  "vendor/fall-kit-core/antibody.mjs": "cb507411787cc6bb07891acd24c5d9ee8de85b762706205154fe9ac1d6dd1514",
+  "vendor/fall-kit-core/identity.mjs": "429caa25bf0e104f6a664224d81fd8215d2f6c79aad3323a8acb476f85a3856e",
+  "vendor/fall-kit-core/node.mjs": "c7f0931348846b002a06678acac44bffeb41929ee50856278662b5d8bcfbe283",
+  "vendor/fall-kit-core/roster.mjs": "1e2af608378f1b93fe5b50215ce46b395739474766071b61e67dbc43ef0919e1",
+  "vendor/fall-kit-core/seed.mjs": "5e9d2dc94ecbeb0987fc190f64d2e2ce2a42d4c93e54865e9b4b6e60ee120ad0",
+  "vendor/fall-kit-core/vendor/immune/exchange.mjs": "e5b026b4f4c3115b1b796f05ee7c20afb3b4b5769a469f0f8adfa2f08a1955bd",
+  "vendor/fall-kit-core/vendor/immune/subscribe.mjs": "4e7f347bb58e909430ec87f3ec10fb1c9fcaa46e75fec1115ef03ae128c55c6a",
+  "vendor/fall-kit-core/vendor/ledger/contrib.mjs": "b275501705812dd6caf61833da69bd45070095d22a5b9fc700d4371927a6ffc3",
+  "vendor/fall-kit-core/vendor/light/codec.mjs": "4f018272a05989fe8fbd0f675e0460b35365710a174a88dbf628165ef21f431d",
+  "vendor/fall-kit-core/vendor/light/packet.mjs": "d565bdabdbfc063bf952d1e20cdb14c5564041667c60a560a56f930aff6e5245",
+  "vendor/fall-kit-core/vendor/light/sha256.mjs": "cf60afffd36df071b277da214ed61a7b3f4923e443bfadb06656bb7da4756bc1",
+  "vendor/fall-kit-core/vendor/light/vault.mjs": "827cc46f9782911a7a67a44733bdebb4bd3f3f35de8287afd9b4b064b3f7d0ad",
+  "vendor/fall-kit-core/vendor/memory/cam.mjs": "f28483c3993ccb1b2e5a1bfc2a23e245b3ad3f90d4a8f75aca918226e3d2c1d7",
+  "vendor/fall-kit-core/vendor/memory/fall-remember.mjs": "6f7d81915d66b91bb488bf98f5be98f63122fad618c12b9062821211bdd31f80",
+  "vendor/fall-kit-core/vendor/sync/crdt.mjs": "992f47d8b805a2af0e8694e2d72066f6e42407cddc8f54acb47ce81cf9ac2b77",
+  "vendor/fall-kit-core/vendor/wallet/wallet.mjs": "9a01dcb6134cdf724e1717b757fca7843544137e0c6051510a1d15682c6166f6",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233"
+ }
+}

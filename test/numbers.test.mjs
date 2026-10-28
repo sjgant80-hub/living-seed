@@ -25,6 +25,7 @@ const EXPLAINED = {
   '143': 'Radiology volume 143, in the Hanley & McNeil reference',
   '2,400': 'the size of each synthetic domain (seed-library), 720 of them held out',
   '4,096': 'the context window tools/ask-llm.mjs gave each model (num_ctx)',
+  '6,392': 'the single-bit changes organ 13’s two messages allow, 8 × (445 + 354) — tested in organ 13’s section test',
 };
 
 function recordValues() {

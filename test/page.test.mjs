@@ -214,7 +214,8 @@ test('organ 11’s section prints the numbers its two records hold', () => {
 test('organ 13’s section prints the numbers its record holds', () => {
   const sec = html.slice(html.indexOf('<section id="system"'), html.indexOf('</section>', html.indexOf('<section id="system"')));
   const r = JSON.parse(read('data/organ-13/record.json')), gb = (x) => x.toLocaleString('en-GB');
-  const v = Object.fromEntries([...sec.matchAll(/data-13="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  const v13 = Object.fromEntries([...sec.matchAll(/data-13="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  const { bits, resolved, travel, ...v } = v13;
   const all = Object.values(r.asked), held = all.reduce((a, x) => a + x.held, 0), verified = all.reduce((a, x) => a + (x.outcomes.verified || 0), 0);
   const kept = (t, bad) => t.positions - (t.reasons[bad] || 0);
   assert.deepEqual(v, {
@@ -224,8 +225,16 @@ test('organ 13’s section prints the numbers its record holds', () => {
     liar: (r.lies.liar.outcomes.failed || 0) + ' of ' + r.lies.liar.told, stale: (r.lies.stale.outcomes.failed || 0) + ' of ' + r.lies.stale.told, child: String(r.bred.shopAuc.child),
   });
   assert.ok(sec.includes('(' + r.bred.shopAuc.origin + ' and ' + r.bred.shopAuc.evolved + ')'), 'the parents’ shop organs');
-  assert.ok(sec.includes('followed all ' + r.offline.imports.files + ','), 'the files the system loads');
+  assert.ok(sec.includes('followed all ' + r.offline.imports.files + ' and found no network module') && r.offline.imports.network.length === 0, 'the files the system loads');
   assert.ok(sec.includes(r.tamper.ask.bits + ' + ' + r.tamper.answer.bits + ' changes, out of the ' + gb(8 * (r.tamper.ask.bits + r.tamper.answer.bits))), 'the bits tried, of all');
+  const b = JSON.parse(read('data/organ-13b/record.json')), c = JSON.parse(read('data/organ-13c/record.json')), bt = JSON.parse(read('data/organ-13b/tab.json'));
+  assert.equal(v13.bits, gb(b.doors.ask.bits) + ' + ' + gb(b.doors.answer.bits));
+  assert.ok(b.doors.ask.outcomes.refused === b.doors.ask.bits && b.doors.answer.outcomes.refused === b.doors.answer.bits, 'every bit refused, as the page says');
+  assert.equal(v13.resolved, String(c.loader.resolutions));
+  assert.ok(c.loader.outside.length === 0 && c.loader.files === r.offline.imports.files, 'nothing outside, the same files');
+  assert.ok(sec.includes('it read ' + b.imports.outside.length + ' strings on export lines'), 'the scan’s false names, counted');
+  assert.equal(v13.travel, bt.seconds.toFixed(1));
+  assert.ok(sec.includes('first ' + b.travel.shopCases + ' real shop sessions') && sec.includes('for ' + b.travel.others.asked + ' synthetic cases'), 'what the travelling fingerprint takes');
   assert.ok(sec.includes('the first ' + r.portable.cases + ' held-out cases'), 'what the tab asks');
 });
 
@@ -309,7 +318,8 @@ test('the brochure and the questions print what the records hold', () => {
   assert.ok(html.includes('came down from ' + re.from.toFixed(3) + ' to ' + re.to.toFixed(3) + ' in November'), 'the claim that came down');
   assert.ok(html.includes('the 14B took a median ' + (Math.round(c.models['qwen2.5:14b · zero'].medianMs / 100) / 10) + ' s per answer, and the organ ' + (Math.round(c.organ.timing.perAnswerUs * 10) / 10) + ' µs'), 'the speeds');
   const vs = [...Object.entries(JSON.parse(read('data/organs.json'))).filter(([, s]) => s === 'measured').map(([k]) => (k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')), ...nightsOf().map((x) => 'data/nights/' + x.n + '/verdict.json')].flatMap((f) => JSON.parse(read(f)).verdicts);
-  assert.ok(html.includes(vs.filter((v) => !v.pass && v.kind === 'prediction').length + '</span> predictions failed and one property was over-claimed'), 'what did not work, every night counted');
+  const red = vs.filter((v) => !v.pass && v.kind !== 'prediction').length;
+  assert.ok(html.includes(vs.filter((v) => !v.pass && v.kind === 'prediction').length + '</span> predictions failed and ' + ['no', 'one', 'two', 'three', 'four'][red] + (red === 1 ? ' property is' : ' properties are') + ' red'), 'what did not work, every night counted');
   assert.equal(tallyOf().failed, String(vs.filter((v) => !v.pass && v.kind === 'prediction').length));
   assert.ok(html.includes('0 of ' + r3.input.attacksTried.toLocaleString('en-GB') + ' attacks got past the gate') && r3.input.breached === 0, 'organ 3’s attacks');
 });

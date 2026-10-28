@@ -54,7 +54,7 @@ export function nightWords(ns = nights()) {
 }
 
 /** the white paper's organ table: which measured verdicts each row counts */
-export const PAPER = { 1: ['1'], 2: ['2', '2b', '2c'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'], 13: ['13'] };
+export const PAPER = { 1: ['1'], 2: ['2', '2b', '2c'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'], 13: ['13', '13b', '13c'] };
 const verdictOf = (k) => JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts;
 export function paperCells(organs = JSON.parse(read('data/organs.json'))) {
   return Object.fromEntries(Object.entries(PAPER).map(([n, ks]) => [n, ks.filter((k) => organs[k] === 'measured').map((k) => { const v = verdictOf(k); return v.filter((x) => x.pass).length + ' of ' + v.length; }).join(' · ')]));

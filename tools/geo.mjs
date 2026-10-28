@@ -51,7 +51,7 @@ export function llms(html, t) {
 > reading them, defends itself, audits its own claims against what actually happens, remembers what it lived, and has
 > children that travel as a picture. Built in thirteen organs, each pre-registered, measured deterministically, judged by
 > its own sealed rules and re-run by CI on every push: ${t.held} sealed rules held across ${t.tests} sealed tests; ${t.failed}
-> failed predictions and ${t.red} over-claimed property are kept, on the page, with their reasons.
+> failed predictions and ${t.red} red properties are kept, on the page, with their reasons.
 
 Live: ${SITE}
 Start here: ${SITE}#start

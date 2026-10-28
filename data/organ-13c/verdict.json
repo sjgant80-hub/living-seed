@@ -1,0 +1,15 @@
+{
+ "kind": "living-seed.organ-13c.verdict",
+ "v": 1,
+ "prereg": "bedd1f4d3f516f6b",
+ "record": "722ba045296d0ec6",
+ "verdicts": [
+  {
+   "id": "L1",
+   "kind": "prediction",
+   "claim": "Node’s own loader, loading src/system.mjs, resolves exactly the files organ 13 followed, every one inside this repository, and nothing else: no built-in module, and none from outside the repository — so nothing that could reach a network is even loaded",
+   "pass": true,
+   "saw": "Node’s loader resolved 42 imports to 23 files of this repository (the same files organ 13 followed: true); anything else: nothing"
+  }
+ ]
+}

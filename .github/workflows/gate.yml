@@ -63,6 +63,10 @@ jobs:
         run: node tools/measure-11b.mjs --check && node tools/judge-11b.mjs --check && node tools/order.mjs --organ 11b
       - name: organ 13 — the seed grows the whole system, re-run (all 6,885 held cases through signed messages) and re-judged against the tab’s committed fact (S7 failed, kept), seal first
         run: node tools/measure-13.mjs --check && node tools/judge-13.mjs --check && node tools/order.mjs --organ 13
+      - name: organ 13b — every bit at both doors and the fingerprint made to travel, re-run and re-judged against the tab’s fact; its verdict is RED on B2 as sealed (our own scan’s pattern was wrong, said on the page) — CI checks that exact verdict reproduces, and fails on any drift
+        run: node tools/measure-13b.mjs --check && out=$(node tools/judge-13b.mjs --check || true) && echo "$out" && ! echo "$out" | grep -q 'VERDICT DRIFT' && echo "$out" | grep -q '^RED · B2 failed as sealed' && node tools/order.mjs --organ 13b
+      - name: organ 13c — what the system loads, asked of Node’s own loader, re-run and re-judged, seal first
+        run: node tools/measure-13c.mjs --check && node tools/judge-13c.mjs --check && node tools/order.mjs --organ 13c
       - name: receipt (a), every night — re-run and re-judged (failed predictions included), each sealed first; the page says what every judged night says
         run: last=$(ls data/nights | grep -E "^[0-9]+$" | sort -n | tail -1); for n in $(ls data/nights | grep -E "^[0-9]+$" | sort -n); do if [ ! -f data/nights/$n/record.json ] && [ "$n" = "$last" ]; then echo "night $n sealed, waiting for its run"; continue; fi; node tools/night.mjs run $n --check && node tools/night.mjs judge $n --check && node tools/order.mjs --organ night-$n || exit 1; done && node tools/tally.mjs --check
       - name: the AI layer — JSON-LD, llms.txt, the README table and robots.txt are what the page gives

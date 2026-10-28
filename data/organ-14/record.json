@@ -1,0 +1,63 @@
+{
+ "kind": "living-seed.organ-14.record",
+ "v": 1,
+ "phrase": "the owner of this device, growing its system",
+ "organism": "c11de7054e9bb8ea",
+ "live": [
+  "shopper",
+  "triage",
+  "water",
+  "crop"
+ ],
+ "totalCases": 6885,
+ "perOrgan": {
+  "shopper": {
+   "held": 4725,
+   "rules": 6
+  },
+  "triage": {
+   "held": 720,
+   "rules": 4
+  },
+  "water": {
+   "held": 720,
+   "rules": 3
+  },
+  "crop": {
+   "held": 720,
+   "rules": 5
+  }
+ },
+ "substrates": {
+  "f64": {
+   "cases": 6885,
+   "sameScore": 6885,
+   "sameLabel": 6885,
+   "labelDiffs": 0
+  },
+  "int": {
+   "cases": 6885,
+   "sameScore": 6885,
+   "sameLabel": 6885,
+   "labelDiffs": 0
+  },
+  "wasm": {
+   "cases": 6885,
+   "sameScore": 6885,
+   "sameLabel": 6885,
+   "labelDiffs": 0
+  },
+  "f32": {
+   "cases": 6885,
+   "sameScore": 6885,
+   "sameLabel": 6885,
+   "labelDiffs": 0,
+   "diffs": [],
+   "allWithinOneStep": true
+  }
+ },
+ "wasm": {
+  "bytes": 127,
+  "valid": true
+ }
+}

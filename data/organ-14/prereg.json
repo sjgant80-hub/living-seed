@@ -1,0 +1,64 @@
+{
+ "kind": "living-seed.organ-14.prereg",
+ "v": 1,
+ "organ": "organ 14 — the compute layer is swappable: the organism is structure, not weights locked to one engine, so the same organ, scored by four different substrates, gives the same answer (within what each substrate can represent)",
+ "design": "Organ 1’s origin genome is grown on the reference device. Each of its live organs is scored on every held-out case by four substrates (src/substrate.mjs): JavaScript doubles (the reference, exactly germinate.mjs’s answer), exact integers in millionths, a WebAssembly module assembled by hand here (no build tool), and single precision (a stand-in for a GPU or an analog part). The answer is the organ’s structure applied to the case; only the arithmetic engine changes.",
+ "rules": [
+  {
+   "id": "V1",
+   "kind": "property",
+   "claim": "the doubles substrate is exactly the organism’s own answer: on every held-out case of every live organ, its score and label equal what germinate.mjs gives",
+   "seenBeforeSeal": "yes — a unit test checks f64 equals germinate on toy organs"
+  },
+  {
+   "id": "V2",
+   "kind": "property",
+   "claim": "two more engines agree byte for byte: exact integers in millionths and a hand-assembled WebAssembly module (a valid, self-contained module) give the organism’s own score and label on every one of those cases — the same structure, three different engines",
+   "seenBeforeSeal": "in kind — a unit test on toy organs"
+  },
+  {
+   "id": "V3",
+   "kind": "prediction",
+   "claim": "single precision agrees too, bar a counted few: it gives the reference label on all but at most 1% of the cases, and every disagreement sits within one single-precision step of the line, where single precision cannot tell the score from the threshold",
+   "seenBeforeSeal": "no — never run on the real organs; the smoke run read a few cases per organ, its numbers not kept"
+  }
+ ],
+ "disclosure": "Before this seal src/substrate.mjs was built, unit-tested (7 tests) and mutation-gated (30 of 30 mutants killed), and the WebAssembly module validated. The measurement was smoke-run on a few cases per organ to check it runs; its numbers were not read. Three of the four domains are seed-library’s synthetic data; the shop is real (UCI). A single-precision substrate stands in for a GPU or a future analog part — it is the same structure at lower numeric precision, not a different model. A failed prediction is kept.",
+ "judgedBy": "tools/judge-14.mjs (pinned below)",
+ "files": {
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/record.json": "73b63601bef7d045e19609ecdbd8b82a91d15633a6fc1df84552e16234232b1e",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/substrate.mjs": "9da060a9273569cf42f1be2008cf2d13c57238a24ddbd0746b56c699e37e861c",
+  "src/system.mjs": "5096bed896f36a0de5cbcd42be311545c0a0cd2b0e6d21024c67641c90aa62ea",
+  "test/substrate.test.mjs": "5a18c1d13ba46e03b3c896cbf7ae3e02fcf70eba62685633883bc6f13310a06b",
+  "tools/judge-14.mjs": "7c66905456145c6ba341974bca91ef813af78c4f7774839ca5fee06dbcc8f7fa",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "tools/measure-14.mjs": "10b211c0c096138bb388f66774678d489a28f74efa9d4e0e3241ea6e254cfad5",
+  "tools/organ-13.mjs": "0e21bedc5971383b26ab8e819afcc9bd1ca4384961e5e37a76cab3ad3abedc61",
+  "tools/seal-14.mjs": "c53f12acf0ebe34a88a372356a9d2476220af23832fa4f10b0b3e2b5ecb74d1f",
+  "vendor/fall-kit-core/antibody.mjs": "cb507411787cc6bb07891acd24c5d9ee8de85b762706205154fe9ac1d6dd1514",
+  "vendor/fall-kit-core/identity.mjs": "429caa25bf0e104f6a664224d81fd8215d2f6c79aad3323a8acb476f85a3856e",
+  "vendor/fall-kit-core/node.mjs": "c7f0931348846b002a06678acac44bffeb41929ee50856278662b5d8bcfbe283",
+  "vendor/fall-kit-core/roster.mjs": "1e2af608378f1b93fe5b50215ce46b395739474766071b61e67dbc43ef0919e1",
+  "vendor/fall-kit-core/seed.mjs": "5e9d2dc94ecbeb0987fc190f64d2e2ce2a42d4c93e54865e9b4b6e60ee120ad0",
+  "vendor/fall-kit-core/vendor/immune/exchange.mjs": "e5b026b4f4c3115b1b796f05ee7c20afb3b4b5769a469f0f8adfa2f08a1955bd",
+  "vendor/fall-kit-core/vendor/immune/subscribe.mjs": "4e7f347bb58e909430ec87f3ec10fb1c9fcaa46e75fec1115ef03ae128c55c6a",
+  "vendor/fall-kit-core/vendor/ledger/contrib.mjs": "b275501705812dd6caf61833da69bd45070095d22a5b9fc700d4371927a6ffc3",
+  "vendor/fall-kit-core/vendor/light/codec.mjs": "4f018272a05989fe8fbd0f675e0460b35365710a174a88dbf628165ef21f431d",
+  "vendor/fall-kit-core/vendor/light/packet.mjs": "d565bdabdbfc063bf952d1e20cdb14c5564041667c60a560a56f930aff6e5245",
+  "vendor/fall-kit-core/vendor/light/sha256.mjs": "cf60afffd36df071b277da214ed61a7b3f4923e443bfadb06656bb7da4756bc1",
+  "vendor/fall-kit-core/vendor/light/vault.mjs": "827cc46f9782911a7a67a44733bdebb4bd3f3f35de8287afd9b4b064b3f7d0ad",
+  "vendor/fall-kit-core/vendor/memory/cam.mjs": "f28483c3993ccb1b2e5a1bfc2a23e245b3ad3f90d4a8f75aca918226e3d2c1d7",
+  "vendor/fall-kit-core/vendor/memory/fall-remember.mjs": "6f7d81915d66b91bb488bf98f5be98f63122fad618c12b9062821211bdd31f80",
+  "vendor/fall-kit-core/vendor/sync/crdt.mjs": "992f47d8b805a2af0e8694e2d72066f6e42407cddc8f54acb47ce81cf9ac2b77",
+  "vendor/fall-kit-core/vendor/wallet/wallet.mjs": "9a01dcb6134cdf724e1717b757fca7843544137e0c6051510a1d15682c6166f6",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233"
+ }
+}

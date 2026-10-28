@@ -8,7 +8,7 @@ offline. Every organ must prove itself on past cases it never trained on, or it 
 with receipts, refuses unsigned or replayed messages before reading them, defends itself, audits its own claims against
 what actually happens, remembers what it lived, and has children that travel as a picture.
 
-It was built in twelve organs. Each was pre-registered (the rules, the predictions, what had been seen, and the hash of
+It was built in thirteen organs. Each was pre-registered (the rules, the predictions, what had been seen, and the hash of
 every file that would measure, committed first), measured deterministically, judged by its own sealed rules, and proven
 from git to have been sealed first. CI re-runs and re-judges every one on every push. A failed prediction is kept; a
 failed property stays red.
@@ -28,6 +28,7 @@ failed property stays red.
 | 10 | **Alignment** | It cannot act unproven or hide an act; its claims follow reality | 4 of 9 · 8 of 8 | 96 of 96 tampers caught; its claim lowered 0.829 → 0.775 when the shop delivered less |
 | 11 | **The full organism** | One season end to end on two devices | 5 of 8 · 5 of 5 | every gate held; the October gain did not carry into November–December |
 | 12 | **The three receipts** | Better on its own hardware; consistent on real devices; unbroken from outside | 29 of 34 over 10 nights | 10 nights: November–December 0.819 → 0.777 (origin → now), 1 adopted a change; the two-device instrument works; no outside attempt yet |
+| 13 | **The whole system** | One seed grows the organism and the system it lives in | 6 of 7 | 6,885 of 6,885 answers verified through signed messages, adding no error; every tamper refused; a liar with a real key caught 100 of 100; a tab grew the same organism and keys but not the same receipts |
 <!-- /geo:organs -->
 
 Data: the shop domain is real (UCI Online Shoppers Purchasing Intention, Sakar & Kastro 2018, CC BY 4.0, 12,330

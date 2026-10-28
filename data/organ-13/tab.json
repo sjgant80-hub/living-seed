@@ -1,0 +1,29 @@
+{
+ "kind": "living-seed.organ-13.tab",
+ "v": 1,
+ "note": "What a browser tab reported when box 20 was pressed on the live page (sealed claim S7). Anyone can press it and compare.",
+ "where": "https://sjgant80-hub.github.io/living-seed/",
+ "page": "dfec648",
+ "ranAt": "2026-10-28",
+ "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.29.0 Chrome/152.0.7977.167 Safari/537.36 MSIX",
+ "seconds": 4.421,
+ "touched": 0,
+ "fingerprint": {
+  "organism": "c11de7054e9bb8ea",
+  "roster": "41fa50ad8745eba18edd2e4b41b68ef8b2253b1cb0febd0d513ec50a268765d8",
+  "answers": "371cf3d806561c9ce494a2e644e3f7dcf1fce75ad65801620e5fbe2f68417258",
+  "asked": 100,
+  "verified": 100,
+  "digest": "1200433ebacb513b3a18e2eef730165a9137a8460651c387442c599abaa3d78b"
+ },
+ "diagnosed": {
+  "when": "after the run, not part of the sealed instrument",
+  "how": "the first 25 held-out cases of each domain, generated in the tab and in Node (v25.7.0, where the record was made), compared value by value",
+  "shopCasesDiffering": 0,
+  "shopCases": 25,
+  "syntheticCasesDiffering": 9,
+  "syntheticCases": 75,
+  "why": "seed-library generates its three synthetic domains with a Box-Muller draw (Math.log, Math.cos); the two engines differ in the last digit of 9 of the 75 cases (e.g. a heart rate 115.16573503154576 in Node, 115.16573503154578 in the tab). The real shop data uses no such step and matched exactly. The organism and the roster are the same, so no rule moved; each receipt names its case exactly, so 9 receipts differ.",
+  "sameInLocalTab": "the same fingerprint at http://localhost:8884/ before the push"
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "kind": "living-seed.organ-13.verdict",
+ "v": 1,
+ "prereg": "85cc1bb5fbb8d5e9",
+ "record": "cb673f729c3fb1a0",
+ "tab": "119480b2e7b09cfc",
+ "verdicts": [
+  {
+   "id": "S1",
+   "kind": "property",
+   "claim": "one genome grows the whole system, offline: organ 1’s origin genome (at most 2,048 bytes), on the reference device with its owner’s phrase, grows the organism and the system it lives in — a node of the shared foundation for each live organ (all four) and a keeper, the keys worked out from the phrase, a roster the founder signs, every node pinning every other from it — and growing it and asking it every held-out case touch the network 0 times (fetch, XMLHttpRequest, WebSocket, sockets, datagrams and name lookups trapped); no file it loads names a network module",
+   "pass": true,
+   "saw": "a 496-byte genome (organ 1’s: true) grew organism c11de7054e9bb8ea and 5 nodes (keeper, shopper, triage, water, crop); the founder’s roster names 5; every node pins every other: true; network touched 0 times; 23 files loaded, network modules named: none"
+  },
+  {
+   "id": "S2",
+   "kind": "property",
+   "claim": "the system adds no error: the keeper asks every held-out case of every organ as a signed packet; every answer comes back and the keeper verifies each by running the organ again; each equals the organism’s own answer; the AUC of the answers that crossed, to six places, is each organ’s held-out AUC; and the keeper’s ledger credits every one",
+   "pass": true,
+   "saw": "shopper: 4725 verified of 4725, 4725 the organism’s own answer, AUC 0.815265 (held 0.815265); triage: 720 verified of 720, 720 the organism’s own answer, AUC 0.952127 (held 0.952127); water: 720 verified of 720, 720 the organism’s own answer, AUC 0.747656 (held 0.747656); crop: 720 verified of 720, 720 the organism’s own answer, AUC 0.753796 (held 0.753796); the keeper’s ledger credits 6885 of 6885"
+  },
+  {
+   "id": "S3",
+   "kind": "property",
+   "claim": "it grows only what is verified: on the noisy-shop device the shop organ is cut and grows no node (keeper, triage, water, crop; a roster of 4; the keeper cannot ask the shop); on the no-water device the water organ is dormant and grows no node; a genome changed in one character grows nothing at all — no keys, no nodes",
+   "pass": true,
+   "saw": "noisy shop: cut shopper, nodes keeper, triage, water, crop, asking the shop refused: no pinned peer holds skill shopper; no water: dormant water, nodes keeper, shopper, triage, crop, asking water refused: no pinned peer holds skill water; a changed genome: the genome was refused: signature, grew nothing"
+  },
+  {
+   "id": "S4",
+   "kind": "prediction",
+   "claim": "one door at every scale: every one-character change to the genome (every position) grows nothing; every one-character change to the signed roster is refused when it is read; every one-bit change to an ask is refused at the organ’s door, and every one-bit change to its answer at the keeper’s door; afterwards the genuine answer is verified and credited once; the same ask and the same answer sent again are refused",
+   "pass": true,
+   "saw": "genome, 486 one-character changes: 10 not a genome, 467 signature, 9 not signed; roster, 4521: 654 not JSON, 24 not a fall-kit.roster.v1 roster, 71 the roster is not the founder’s, 5 a roster names 1–256 cards, 3764 the founder did not sign this roster, 3 a roster is signed; ask, 445 one-bit changes at the organ’s door: 445 refused; answer, 354 at the keeper’s door: 354 refused; then the genuine answer: verified (credited 1); replayed ask refused, replayed answer refused"
+  },
+  {
+   "id": "S5",
+   "kind": "prediction",
+   "claim": "the keeper cannot be lied to: a node holding the triage organ’s own key that answers in its place, every label flipped and every receipt sealed again so that it holds, is caught on 100 of 100 asks; a node holding the child’s shop key that answers honestly but from the parent organism (a stale organ) is caught on 100 of 100; neither is credited",
+   "pass": true,
+   "saw": "the liar with the triage organ’s key: 100 failed of 100, credited 0; the stale organ with the child’s shop key: 100 failed of 100, credited 0"
+  },
+  {
+   "id": "S6",
+   "kind": "property",
+   "claim": "it breeds: organ 5’s child (origin × evolved), bred again here byte for byte, grows its own system on the reference device — its genome names both parents; a keeper and four organ nodes, every node pinning every other; 100 held-out cases per organ asked through its mesh, all verified; its organism is neither parent’s; its shop organ’s held-out AUC is at least both parents’",
+   "pass": true,
+   "saw": "child 29880e8b58024060 (organ 5’s: true) names 89880089fc1fef3a + 86519725eec1dec8; its system: keeper, shopper, triage, water, crop, every node pins every other: true; through its mesh shopper 100 verified, triage 100 verified, water 100 verified, crop 100 verified; organism f8bd2df2d651b4bb (parents c11de7054e9bb8ea, 25a6f7670a24f22c); shop AUC child 0.827767, origin 0.815265, evolved 0.802782; same node keys as the parent’s system: true"
+  },
+  {
+   "id": "S7",
+   "kind": "prediction",
+   "claim": "it runs the same in a browser tab: given the same genome, data and phrase, a tab grows the same system — the same organism, the same signed roster and the same receipts for the first 25 held-out cases of each organ asked through its mesh: one fingerprint, equal to this record’s — in under 10 seconds (Node on GitHub’s Linux runner re-runs this record byte for byte in CI; the tab is the third kind of machine)",
+   "pass": false,
+   "saw": "in Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.29.0 Chrome/152.0.7977.167 Safari/537.36 MSIX: fingerprint 1200433ebacb513b (this record: b3193403e4e2fbcb), organism c11de7054e9bb8ea, 100/100 asks verified through its mesh, grown and asked in 4.421 s"
+  }
+ ]
+}

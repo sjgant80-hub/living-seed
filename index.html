@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-adAiuuDgHKjvQ53HKwvEQreCGtVEiCrdJF4LqE++RgM=' 'sha256-QftAzHXU+FTBZC/U5kvCG4Yz3Bou3mE0uR1ZrgyNVUk='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-adAiuuDgHKjvQ53HKwvEQreCGtVEiCrdJF4LqE++RgM=' 'sha256-1sG4xDH88ZkqHXPmzUyjk9MAvOTBx7reRhIgrWIy/uY='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: all twelve organs, 129 of 158 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
@@ -145,6 +145,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:v
       <li><a href="#align">Organ 10 · alignment</a></li>
       <li><a href="#season">Organ 11 · the organism</a></li>
       <li><a href="#receipts">Organ 12 · receipts</a></li>
+      <li><a href="#system">Organ 13 · the system</a></li>
       <li><a href="#blueprint">Blueprint</a></li>
       <li><a href="#business">For your business</a></li>
       <li><a href="#paper">White paper</a></li>
@@ -577,8 +578,43 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
   <div id="r12" role="status" aria-live="polite"></div>
 </section>
 
+<section id="system" aria-labelledby="sys-h">
+  <h2 id="sys-h"><span class="n">15</span>Organ 13 · The seed grows the whole system</h2>
+  <p class="lede">Until now the seed grew an organism: a set of gated organs that answer or abstain. In organ 13 the same <span data-13="bytes">496</span>-byte genome grows the whole working system around it too. Each live organ becomes its own node, with its own keys. A keeper node asks them, and checks every answer by running the organ again. A roster signed by the owner says who belongs. Three things go in: the genome, the device’s own records and the owner’s phrase. Nothing is fetched.</p>
+  <ol class="steps">
+    <li><b>Grow.</b> The genome grows its four organs on the device’s own records, and each must clear its gate on cases it never grew on (organ 1). An organ that does not clear it grows no node.</li>
+    <li><b>Key.</b> The owner’s phrase works out every key: one for each organ’s node, one for the keeper and one for the founder. The same phrase gives the same keys every time, so nothing secret has to be stored or sent.</li>
+    <li><b>Roster.</b> The founder signs a roster of every node’s card, and each node trusts exactly the nodes on it.</li>
+    <li><b>Ask.</b> The keeper sends a case as a signed message. The organ’s node answers with a receipt: which organism, which organ, which case and what it said, sealed.</li>
+    <li><b>Check.</b> The keeper runs the organ again on the case it asked, and keeps the answer only if the receipt is the one it gets itself. Every kept answer is credited in the keeper’s ledger.</li>
+  </ol>
+  <div class="grid two">
+    <div class="panel"><h4>What was measured</h4><ul class="small">
+      <li><b>It adds no error.</b> The keeper asked all <b data-13="asked">6,885</b> held-out cases through signed messages, with every way out of the process trapped. <b data-13="verified">6,885</b> came back verified, each one the organism’s own answer, and the network was touched <b data-13="net">0</b> times. The AUC of the answers that crossed equals each organ’s held AUC to six places (the shop: <b data-13="shop">0.815265</b>).</li>
+      <li><b>It grows only what is verified.</b> With the shop’s labels shuffled, the shop organ is cut, grows no node and cannot be asked. With no water records, the water organ waits. A genome changed in one character grows nothing at all: no keys and no nodes.</li>
+      <li><b>One door at every scale.</b> Every change was refused: <b data-13="genome">486 of 486</b> one-character changes to the genome, <b data-13="roster">4,521 of 4,521</b> to the signed roster, and <b data-13="ask">445 of 445</b> and <b data-13="answer">354 of 354</b> one-bit changes to a message at the organ’s door and at the keeper’s. The genuine answer still went through afterwards, and the same message sent twice was refused.</li>
+      <li><b>It cannot be lied to with a real key.</b> A node holding the triage organ’s own key flipped every answer and sealed its receipts again so they would hold. It was caught <b data-13="liar">100 of 100</b> times. A stale organ answering for the child from the parent was caught <b data-13="stale">100 of 100</b> times. Neither was credited.</li>
+      <li><b>It breeds.</b> Organ 5’s child, bred again here byte for byte, grows its own system and names both parents. Its shop organ (<b data-13="child">0.827767</b>) beats both of them (0.815265 and 0.802782).</li>
+    </ul></div>
+    <div class="panel"><h4>What it is not, said straight</h4><ul class="small">
+      <li>Everything here runs in one process. The nodes send each other the same signed messages a wire would carry, but in memory. It is not yet a network of devices; box 19 is how two real devices link.</li>
+      <li>The keys come from the owner’s phrase and each node’s role, not from the genome, so two systems grown with one phrase share keys role for role. What keeps one generation from answering for another is the receipt, which names the organism. That is how the stale organ was caught.</li>
+      <li id="sys-bits"><b>A rule worded wider than we measured.</b> The sealed rule says every one-bit change to a message is refused. The run changed one bit in every byte, the lowest: 445 + 354 changes, out of the 6,392 single-bit changes those two messages allow. Every one was refused, but the other seven bits of each byte were not tried in the sealed run.</li>
+      <li>The scan of the files the system loads followed all 23, and none names a network module. Its list of outside names also caught four fragments of text inside the foundation’s node, each containing the word “from” and a quotation mark. None of them is a module.</li>
+      <li>The phrase here is public so that anyone can reproduce the record. A real owner keeps theirs secret. Three of the four domains are seed-library’s synthetic data; the shop is real (UCI).</li>
+    </ul></div>
+  </div>
+  <div class="panel" style="margin-top:14px">
+    <h3>20 · Grow the whole system here</h3>
+    <p class="dim">Your browser grows the same system from the same genome, the same records and the same public phrase. It then asks the first 25 held-out cases of each organ through its own signed messages, with the network trapped. It prints the system’s fingerprint, one digest of the organism, the signed roster and every receipt. That digest must equal the one in CI’s record. It takes a few seconds.</p>
+    <div class="row"><button id="sys-go" type="button" class="primary" disabled>Grow the system</button></div>
+    <div id="sys-out" role="status" aria-live="polite"></div>
+  </div>
+  <div id="r13" role="status" aria-live="polite"></div>
+</section>
+
 <section id="blueprint" aria-labelledby="bp-h">
-  <h2 id="bp-h"><span class="n">15</span>Blueprint</h2>
+  <h2 id="bp-h"><span class="n">16</span>Blueprint</h2>
   <h3>The genome, line by line</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Example</th><th>What it means</th></tr></thead>
@@ -647,7 +683,7 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
 </section>
 
 <section id="business" aria-labelledby="biz-h">
-  <h2 id="biz-h"><span class="n">16</span>For your business</h2>
+  <h2 id="biz-h"><span class="n">17</span>For your business</h2>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
@@ -762,7 +798,7 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
 </section>
 
 <section id="paper" aria-labelledby="paper-h">
-  <h2 id="paper-h"><span class="n">17</span>White paper</h2>
+  <h2 id="paper-h"><span class="n">18</span>White paper</h2>
   <article class="paper">
     <p class="dim">The Living Seed: a signed seed that grows a gated, self-auditing AI on each device’s own data — built organ by organ, every organ measured against rules sealed before it ran, and every failure kept.</p>
     <h3>Abstract</h3>
@@ -840,7 +876,7 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
-  <h2 id="faq-h"><span class="n">18</span>Questions</h2>
+  <h2 id="faq-h"><span class="n">19</span>Questions</h2>
   <details><summary>What is the Living Seed?</summary><p>A small signed text file, a genome, that each device grows into its own working AI from its own records, offline. Every part must prove itself on past cases it never trained on, or it says “I don’t know”. It answers with receipts, defends itself, audits its own claims against what actually happens, remembers what it lived, and has children that travel as a picture.</p></details>
   <details><summary>Does any data leave the device?</summary><p>No. Growing and answering make no network call (measured: 0 calls over 5 germinations), and this page’s security policy lets it connect only to its own site. The one exception is yours to choose: box 19 links two of your own devices directly, and only the signed messages it shows travel between them.</p></details>
   <details><summary>What happens if it is tampered with?</summary><p>It is refused before any of it is read. In the sealed run, 486 of 486 one-character changes to the genome were refused. The same holds for a card whose picture does not match its seed, a message whose signature does not verify, a ledger with one act changed, and a memory changed after it was written.</p></details>
@@ -880,6 +916,8 @@ import * as M from './src/mesh.mjs';
 import * as I from './src/immune.mjs';
 import * as AL from './src/align.mjs';
 import * as OR from './src/organism.mjs';
+import { grow as growSystem, fingerprint } from './src/system.mjs';
+import { PHRASE as PHRASE13, POLICY as POLICY13, clock as clock13, tabCases } from './tools/organ-13.mjs';
 import { operatingPoint } from './src/germinate.mjs';
 import { decodeSeed, fit as ribosomeFit, auc as ribosomeAuc } from './vendor/seed-library/seedlib.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
@@ -1770,6 +1808,31 @@ async function rbFinish() {
   $('rb-json').value = JSON.stringify(receipt); $('rb-json-box').hidden = false;
   note('receipt (b)', 'two devices linked directly: ' + (RB.core.consistent ? 'consistent' : 'NOT consistent') + ', both signed', 'you ran it');
 }
+// ── organ 13: the seed grows the whole system, here; the fingerprint must be CI's ──
+async function systemGo() {
+  $('sys-go').disabled = true;
+  const out = $('sys-out');
+  out.innerHTML = '<div class="status">Growing the system and asking it, every message signed…</div>';
+  await new Promise((ok) => setTimeout(ok, 20));
+  try {
+    const rec = S.rec13 || await get('data/organ-13/record.json'), cases = tabCases(S.data), t0 = performance.now();
+    const { value: f, touched } = await offline(async () => {
+      const s = await growSystem(S.origin, { name: 'reference', data: S.data }, PHRASE13, { policy: POLICY13, clock: clock13, cases });
+      if (!s.ok) throw new Error(s.why);
+      return fingerprint(s, cases);
+    });
+    const seconds = Math.round(performance.now() - t0) / 1000, p = rec.portable;
+    const same = ['organism', 'roster', 'answers', 'digest', 'asked', 'verified'].every((k) => f[k] === p[k]);
+    window.__organ13 = { browser: navigator.userAgent, where: location.origin + location.pathname, seconds, touched, fingerprint: f };
+    out.innerHTML = '<div class="status ' + (same && !touched ? 'ok' : 'bad') + '">' + (same ? '<span class="ok-t">✓ the same system CI grew</span>' : '<span class="bad-t">✗ a different system from the one in CI’s record</span>') + ' · fingerprint <code>' + esc(f.digest.slice(0, 16)) + '</code> (CI’s: <code>' + esc(p.digest.slice(0, 16)) + '</code>) · organism <code>' + esc(f.organism) + '</code> · ' + n(f.verified) + ' of ' + n(f.asked) + ' answers verified by the keeper · grown and asked in ' + seconds.toFixed(2) + ' s · network touched ' + touched + ' times</div>';
+    note('the whole system', 'grew it here: ' + (same ? 'the same fingerprint as CI' : 'a different fingerprint'), 'you ran it');
+  } catch (e) { out.innerHTML = '<div class="status bad">It did not run: ' + esc(e.message) + '</div>'; }
+  $('sys-go').disabled = false;
+}
+function render13() {
+  if (!S.rec13) return;
+  $('r13').innerHTML = '<details><summary>Organ 13 — the seed grows the whole system: sealed rules and verdict</summary>' + rulesTable(S.pre13, S.ver13) + '</details>';
+}
 function render12() {
   if (!S.nights || !S.nights.length) return;
   $('r12').innerHTML = S.nights.map((x, i) => '<details><summary>Receipt (a), night ' + (i + 1) + ' — sealed rules and verdict</summary>' + rulesTable(x[0], x[1]) + '</details>').join('');
@@ -1815,6 +1878,7 @@ async function bootBody() {
   for (const id of ['smear-go', 'smear-real']) $(id).disabled = false;
   $('al-go').disabled = !S.rec10b;
   $('o-go').disabled = !S.rec11;
+  $('sys-go').disabled = false;
   if (typeof RTCPeerConnection === 'function') for (const id of ['rb-start', 'rb-join']) $(id).disabled = false; else rbSay('This browser cannot link devices directly (no WebRTC).');
   setTimeout(renderPsi, 50);
   DOMAIN_IDS.forEach((d, i) => setTimeout(() => { selfModelOf(d); if (S.organism && $('ask-domain').value === d) ask(); }, 400 + i * 300));
@@ -1851,6 +1915,8 @@ async function boot() {
   const nightsP = Promise.all(Array.from({ length: judgedNights }, (_, i) => Promise.all(['prereg', 'verdict'].map((f) => get('data/nights/' + (i + 1) + '/' + f + '.json'))))).then((x) => { S.nights = x; }).catch(() => {});
   const organ11 = Promise.all([recordOf(11), recordOf('11b')]).then(([a, b]) => { if (a) [S.rec11, S.pre11, S.ver11] = a; if (b) [S.rec11b, S.pre11b, S.ver11b] = b; });
   $('o-go').disabled = true;
+  const organ13 = recordOf(13).then((x) => { if (x) [S.rec13, S.pre13, S.ver13] = x; });
+  $('sys-go').disabled = true;
   for (const id of ['card-make', 'card-damage', 'breed-go', 'breed-trade']) $(id).disabled = true;
   $('evo-go').disabled = true;
   for (const id of GATE_BUTTONS) $(id).disabled = true;
@@ -1874,8 +1940,8 @@ async function boot() {
   const g = await seal({ name: 'origin', parents: [], gate: { auc: 0.6 }, organs: S.seeds }, S.maker);
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
-  await organ2; await organ3; await organ4; await organ8; await organ9; await organ10; await organ11; await nightsP;
-  renderContest(); render2c(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8(); render9(); render10(); render11(); render12();
+  await organ2; await organ3; await organ4; await organ8; await organ9; await organ10; await organ11; await organ13; await nightsP;
+  renderContest(); render2c(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8(); render9(); render10(); render11(); render12(); render13();
   const st = await states;
   for (const [k, ver] of [[2, S.ver2], [3, S.ver3]]) {   // the state chip says what the verdict says: never "proven" over a failure
     const el = $('organ' + k + '-state'), held = ver ? ver.verdicts.filter((v) => v.pass).length : 0, all = ver ? ver.verdicts.length : 0;
@@ -1926,6 +1992,7 @@ $('smear-go').addEventListener('click', () => smearGo(false));
 $('smear-real').addEventListener('click', () => smearGo(true));
 $('al-go').addEventListener('click', alignGo);
 $('o-go').addEventListener('click', organismGo);
+$('sys-go').addEventListener('click', systemGo);
 $('rb-start').addEventListener('click', rbStart);
 $('rb-join').addEventListener('click', rbJoin);
 $('rb-connect').addEventListener('click', rbConnect);

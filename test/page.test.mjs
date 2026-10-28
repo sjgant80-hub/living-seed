@@ -211,6 +211,24 @@ test('organ 11’s section prints the numbers its two records hold', () => {
   assert.ok(r.spread.organs.every((o) => o.state === 'live'), 'every organ live on B');
 });
 
+test('organ 13’s section prints the numbers its record holds', () => {
+  const sec = html.slice(html.indexOf('<section id="system"'), html.indexOf('</section>', html.indexOf('<section id="system"')));
+  const r = JSON.parse(read('data/organ-13/record.json')), gb = (x) => x.toLocaleString('en-GB');
+  const v = Object.fromEntries([...sec.matchAll(/data-13="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  const all = Object.values(r.asked), held = all.reduce((a, x) => a + x.held, 0), verified = all.reduce((a, x) => a + (x.outcomes.verified || 0), 0);
+  const kept = (t, bad) => t.positions - (t.reasons[bad] || 0);
+  assert.deepEqual(v, {
+    bytes: String(r.genome.bytes), asked: gb(held), verified: gb(verified), net: String(r.offline.networkTouched), shop: String(r.asked.shopper.auc),
+    genome: gb(kept(r.tamper.genome, 'GREW')) + ' of ' + gb(r.tamper.genome.positions), roster: gb(kept(r.tamper.roster, 'READ')) + ' of ' + gb(r.tamper.roster.positions),
+    ask: (r.tamper.ask.outcomes.refused || 0) + ' of ' + r.tamper.ask.bits, answer: (r.tamper.answer.outcomes.refused || 0) + ' of ' + r.tamper.answer.bits,
+    liar: (r.lies.liar.outcomes.failed || 0) + ' of ' + r.lies.liar.told, stale: (r.lies.stale.outcomes.failed || 0) + ' of ' + r.lies.stale.told, child: String(r.bred.shopAuc.child),
+  });
+  assert.ok(sec.includes('(' + r.bred.shopAuc.origin + ' and ' + r.bred.shopAuc.evolved + ')'), 'the parents’ shop organs');
+  assert.ok(sec.includes('followed all ' + r.offline.imports.files + ','), 'the files the system loads');
+  assert.ok(sec.includes(r.tamper.ask.bits + ' + ' + r.tamper.answer.bits + ' changes, out of the ' + gb(8 * (r.tamper.ask.bits + r.tamper.answer.bits))), 'the bits tried, of all');
+  assert.ok(sec.includes('the first ' + r.portable.cases + ' held-out cases'), 'what the tab asks');
+});
+
 test('organ 12’s section prints night 1 as its record holds it', () => {
   const sec = html.slice(html.indexOf('<section id="receipts"'), html.indexOf('</section>', html.indexOf('<section id="receipts"')));
   const r = JSON.parse(read('data/nights/1/record.json')), shop = r.organs.find((o) => o.domain === 'shopper');

@@ -1,0 +1,30 @@
+{
+ "kind": "living-seed.organ-13b.verdict",
+ "v": 1,
+ "prereg": "81cd24dcfbf1f255",
+ "record": "9a99da72c2479a2a",
+ "tab": "5b0e2e66598fdcc3",
+ "verdicts": [
+  {
+   "id": "B1",
+   "kind": "prediction",
+   "claim": "every one-bit change — all eight bits of every byte — to an ask is refused at the organ’s door, and every one to its answer at the keeper’s door; afterwards the genuine answer is verified and credited once",
+   "pass": true,
+   "saw": "the ask, 445 bytes: 3560 one-bit changes at the organ’s door, 3560 refused; its answer, 354 bytes: 2832 at the keeper’s door, 2832 refused; then the genuine answer verified, credited 1"
+  },
+  {
+   "id": "B2",
+   "kind": "property",
+   "claim": "read as code — import and export statements only, comments skipped — the files the system loads are exactly the ones organ 13 followed, all inside the repository: no module from outside it, and no dynamic import",
+   "pass": false,
+   "saw": "23 files, the same as organ 13 followed: true; modules from outside the repository: *, 0, 302e020100300506032b657004220420, >, IMMUNE-EXCHANGE/bundle/v1\\u0000, LIGHT/packet/v1\\u0000, SHA-256, Z, [, a log is a list of linked entries, a roster is signed by a planted seed\\, birth, boolean, both must be contribution ledgers of this schema, cap-cert, card, fall-kit.node.v1, fall-kit.roster.v1, fall-kit.seed.v1, fault, founder, genesis, germinate needs a loaded dataset, kcc.contrib.v1, keeper, living-seed.organism, malformed, mesh-share, node:, not a , not a LIGHT vault, not a contribution ledger, not a contribution ledger with a genesis, not a document, not an organism, not an unsigned packet, not bytes, null, number, object, on, pkcs8, seed-library.v1/konomi/thomas-frumkin, sender, shared, shopper, sign, silent, size, string, |, ◊ life.v1, ◊ seed.v1; dynamic imports: 0"
+  },
+  {
+   "id": "B3",
+   "kind": "prediction",
+   "claim": "a fingerprint made to travel: in a browser tab, the same genome, data and phrase grow the same organism and roster; the receipts of the first 100 held-out shop sessions are byte for byte the record’s; on the first 25 held-out cases of each synthetic domain every answer says the same as the record’s — label, score, threshold and the rules that fired; every answer verified; one digest, equal to this record’s, in under 10 seconds",
+   "pass": true,
+   "saw": "in Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.29.0 Chrome/152.0.7977.167 Safari/537.36 MSIX: travelling fingerprint 42fe4f76237eb874 (this record: 42fe4f76237eb874); organism the same, roster the same, the shop’s receipts the same (100/100 verified here), what the other organs said the same (75/75 verified here); in 3.137 s"
+  }
+ ]
+}

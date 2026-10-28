@@ -3,6 +3,7 @@
 // logic, booleans, ±1) and its tests must kill every mutant, or the survivor is reviewed and written down with a reason.
 //   genome.mjs    — the genome: seal, verify before parse, one byte form (step 1)
 //   germinate.mjs — Γ: grow each organ on the device's own data, gate it, answer or abstain (step 1)
+//   system.mjs    — the seed grows the whole system: each live organ a node of the shared foundation, a keeper, a roster (organ 13)
 // The vendored ribosome (seed-library), the keys and the data loaders are gated in their own repositories.
 import { runMutations } from './.witness/witness.mjs';
 import { fileURLToPath } from 'node:url';
@@ -48,6 +49,7 @@ export const PAIRS = [
   ['src/align.mjs', ['test/align.test.mjs']],
   ['src/organism.mjs', ['test/organism.test.mjs']],
   ['src/baseline.mjs', ['test/baseline.test.mjs']],
+  ['src/system.mjs', ['test/system.test.mjs']],
 ];
 // imported (by the tests) it only lends hiddenSpans and PAIRS; run directly, it is the gate
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) main();

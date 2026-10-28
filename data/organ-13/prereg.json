@@ -1,0 +1,92 @@
+{
+ "kind": "living-seed.organ-13.prereg",
+ "v": 1,
+ "organ": "organ 13 — the seed grows the whole system: one genome, one device’s data and its owner’s phrase grow the organism and the system it lives in (a node per live organ, a keeper, keys, a signed roster), gated, breedable and portable",
+ "design": "Organ 1’s origin genome is sealed again (the same bytes) and grown on the reference device with a public phrase, on the estate’s shared foundation (vendor/fall-kit-core, copied unchanged): each live organ becomes a node whose one skill is the organ’s answer with a receipt; a keeper node asks them, and checks every answer by running the organ again on the case it asked; the owner’s keys are worked out from the phrase and the founder signs a roster from which every node pins every other. The keeper asks every held-out case through signed packets, with the network trapped. Then: two devices where an organ cannot be proved; every one-character and one-bit change at the genome, the roster and both doors; a liar and a stale organ holding real keys; organ 5’s child, bred again, growing its own system; and a fingerprint of the system that a browser tab must reproduce.",
+ "rules": [
+  {
+   "id": "S1",
+   "kind": "property",
+   "claim": "one genome grows the whole system, offline: organ 1’s origin genome (at most 2,048 bytes), on the reference device with its owner’s phrase, grows the organism and the system it lives in — a node of the shared foundation for each live organ (all four) and a keeper, the keys worked out from the phrase, a roster the founder signs, every node pinning every other from it — and growing it and asking it every held-out case touch the network 0 times (fetch, XMLHttpRequest, WebSocket, sockets, datagrams and name lookups trapped); no file it loads names a network module",
+   "seenBeforeSeal": "yes, once — a timing probe grew this system before the seal (its network not trapped)"
+  },
+  {
+   "id": "S2",
+   "kind": "property",
+   "claim": "the system adds no error: the keeper asks every held-out case of every organ as a signed packet; every answer comes back and the keeper verifies each by running the organ again; each equals the organism’s own answer; the AUC of the answers that crossed, to six places, is each organ’s held-out AUC; and the keeper’s ledger credits every one",
+   "seenBeforeSeal": "partly — the probe asked 400 cases per organ, all verified, and the AUC of the organism’s direct answers matched each held AUC"
+  },
+  {
+   "id": "S3",
+   "kind": "property",
+   "claim": "it grows only what is verified: on the noisy-shop device the shop organ is cut and grows no node (keeper, triage, water, crop; a roster of 4; the keeper cannot ask the shop); on the no-water device the water organ is dormant and grows no node; a genome changed in one character grows nothing at all — no keys, no nodes",
+   "seenBeforeSeal": "in kind — organ 5 (C5) for the organism; unit tests for the system"
+  },
+  {
+   "id": "S4",
+   "kind": "prediction",
+   "claim": "one door at every scale: every one-character change to the genome (every position) grows nothing; every one-character change to the signed roster is refused when it is read; every one-bit change to an ask is refused at the organ’s door, and every one-bit change to its answer at the keeper’s door; afterwards the genuine answer is verified and credited once; the same ask and the same answer sent again are refused",
+   "seenBeforeSeal": "in kind — organ 1 refused every change to the genome, and the foundation’s own batteries refused forged packets; never on this system’s roster or packets"
+  },
+  {
+   "id": "S5",
+   "kind": "prediction",
+   "claim": "the keeper cannot be lied to: a node holding the triage organ’s own key that answers in its place, every label flipped and every receipt sealed again so that it holds, is caught on 100 of 100 asks; a node holding the child’s shop key that answers honestly but from the parent organism (a stale organ) is caught on 100 of 100; neither is credited",
+   "seenBeforeSeal": "in kind — a unit test caught one lie on a toy"
+  },
+  {
+   "id": "S6",
+   "kind": "property",
+   "claim": "it breeds: organ 5’s child (origin × evolved), bred again here byte for byte, grows its own system on the reference device — its genome names both parents; a keeper and four organ nodes, every node pinning every other; 100 held-out cases per organ asked through its mesh, all verified; its organism is neither parent’s; its shop organ’s held-out AUC is at least both parents’",
+   "seenBeforeSeal": "in kind — organ 5 measured the child’s organism and its shop AUC (0.827767, against 0.815265 and 0.802782)"
+  },
+  {
+   "id": "S7",
+   "kind": "prediction",
+   "claim": "it runs the same in a browser tab: given the same genome, data and phrase, a tab grows the same system — the same organism, the same signed roster and the same receipts for the first 25 held-out cases of each organ asked through its mesh: one fingerprint, equal to this record’s — in under 10 seconds (Node on GitHub’s Linux runner re-runs this record byte for byte in CI; the tab is the third kind of machine)",
+   "seenBeforeSeal": "no — never run in a tab"
+  }
+ ],
+ "disclosure": "Before this seal: src/system.mjs was built, unit-tested (7 tests) and mutation-gated (24 of 24 mutants killed) on a toy organism and a two-organ genome, and fuzzed — 0 of 37,905 garbage calls threw, after one fix (a case that refers to itself, or holds what JSON cannot write, is now an abstention, not a throw). A timing probe grew this exact system once on the reference device and asked 400 held-out cases per organ through it: all 1,600 verified, about 21 ms per round trip; the AUC of the organism’s direct answers equalled each held AUC to six places. This measurement was run once in smoke mode (3 cases per step) to check that it runs end to end; its numbers were not read. So S1, S2, S3 and S6 are properties, and S4, S5 and S7 are predictions. Scope: everything here runs in one process. The nodes exchange the same signed packets a wire would carry, in memory; this is not a network of devices. Three of the four domains are seed-library’s synthetic data; the shop is real (UCI Online Shoppers). The node keys come from the owner’s phrase and each node’s role, not from the genome, so two systems grown with one phrase share keys role for role; what keeps one generation from answering for another is the receipt, which names the organism (S5). The phrase here is public so that anyone can reproduce the record; a real owner keeps theirs secret. The liar and the stale organ answer in the organ’s place from the start (a node taken over); one that joins late with the key alone is refused at the door as a replay (unit-tested, not claimed here). The tab’s fingerprint is what the browser reported; anyone can press the button on the page and compare. A failed prediction is kept.",
+ "judgedBy": "tools/judge-13.mjs (pinned below)",
+ "files": {
+  "data/online_shoppers_intention.csv": "d8e130ba51532985f93281a73ce299e6ce150cb915769a7962a11e595eadd6a1",
+  "data/organ-4b/record.json": "523690408e16cbd1af23d5d520badd44bcbe3bd21245ef52630de6d763e3bb6a",
+  "data/organ-5/record.json": "eccd5eb4228483312a3e46f0a41ca787e22a0b3ad84c8a67cee423ee4c221ce9",
+  "data/record.json": "73b63601bef7d045e19609ecdbd8b82a91d15633a6fc1df84552e16234232b1e",
+  "data/seed-library-run.json": "6b06249bbf62329017cdd3ffbaf5d04762cee375180fa08cfae2d0855e6d1f31",
+  "src/breed.mjs": "5f53746eacc0ad74e5679d19eb961522a29c5a44cc18bc10c02815c000179316",
+  "src/genome.mjs": "45feb26823b80647b2b50a8ea395ad3b7abbae1f3cf0a9b793a14d1d41b6bb25",
+  "src/germinate.mjs": "9ea0b23879a211c87c7a6fa2ad2ea7a7b49c6743631382d62d6e919c8ae1c520",
+  "src/system.mjs": "5096bed896f36a0de5cbcd42be311545c0a0cd2b0e6d21024c67641c90aa62ea",
+  "test/system.test.mjs": "0129d4efa3147e9ae9f6d0c981a2f2d7c1a6a59cbf0e6c4af1faab299068baaa",
+  "tools/judge-13.mjs": "cb24e5d10a869fcdd6a929a8f91229b5503fbc86bc8685c9ad4d33102066d893",
+  "tools/judge.mjs": "e417e3fa4f1a1a678421b4b8ca013dca58d47a1034d471441ffc2337cb0053b6",
+  "tools/measure-13.mjs": "65261451df9a9e9c5fbb5c253d323550e5521e96eb519d60ab7edff7e591d775",
+  "tools/organ-13.mjs": "0e21bedc5971383b26ab8e819afcc9bd1ca4384961e5e37a76cab3ad3abedc61",
+  "tools/seal-13.mjs": "cb83b87271fa81a5e342971703f8db3c85dd11ee9a5af639dea694c7669a02df",
+  "vendor/fall-kit-core/FALL-KIT-CORE.json": "11d828cff176b31c1700a4fc5128c9c3134746520030c8600c61fe4ee80cdc4c",
+  "vendor/fall-kit-core/NOTICE": "6b0eb73c6cfbffcb05029202ea85cd93696e74b2d0faf95785dd409a5ee03817",
+  "vendor/fall-kit-core/antibody.mjs": "cb507411787cc6bb07891acd24c5d9ee8de85b762706205154fe9ac1d6dd1514",
+  "vendor/fall-kit-core/identity.mjs": "429caa25bf0e104f6a664224d81fd8215d2f6c79aad3323a8acb476f85a3856e",
+  "vendor/fall-kit-core/node.mjs": "c7f0931348846b002a06678acac44bffeb41929ee50856278662b5d8bcfbe283",
+  "vendor/fall-kit-core/roster.mjs": "1e2af608378f1b93fe5b50215ce46b395739474766071b61e67dbc43ef0919e1",
+  "vendor/fall-kit-core/seed.mjs": "5e9d2dc94ecbeb0987fc190f64d2e2ce2a42d4c93e54865e9b4b6e60ee120ad0",
+  "vendor/fall-kit-core/vendor/immune/exchange.mjs": "e5b026b4f4c3115b1b796f05ee7c20afb3b4b5769a469f0f8adfa2f08a1955bd",
+  "vendor/fall-kit-core/vendor/immune/subscribe.mjs": "4e7f347bb58e909430ec87f3ec10fb1c9fcaa46e75fec1115ef03ae128c55c6a",
+  "vendor/fall-kit-core/vendor/ledger/contrib.mjs": "b275501705812dd6caf61833da69bd45070095d22a5b9fc700d4371927a6ffc3",
+  "vendor/fall-kit-core/vendor/light/codec.mjs": "4f018272a05989fe8fbd0f675e0460b35365710a174a88dbf628165ef21f431d",
+  "vendor/fall-kit-core/vendor/light/packet.mjs": "d565bdabdbfc063bf952d1e20cdb14c5564041667c60a560a56f930aff6e5245",
+  "vendor/fall-kit-core/vendor/light/sha256.mjs": "cf60afffd36df071b277da214ed61a7b3f4923e443bfadb06656bb7da4756bc1",
+  "vendor/fall-kit-core/vendor/light/vault.mjs": "827cc46f9782911a7a67a44733bdebb4bd3f3f35de8287afd9b4b064b3f7d0ad",
+  "vendor/fall-kit-core/vendor/memory/cam.mjs": "f28483c3993ccb1b2e5a1bfc2a23e245b3ad3f90d4a8f75aca918226e3d2c1d7",
+  "vendor/fall-kit-core/vendor/memory/fall-remember.mjs": "6f7d81915d66b91bb488bf98f5be98f63122fad618c12b9062821211bdd31f80",
+  "vendor/fall-kit-core/vendor/sync/crdt.mjs": "992f47d8b805a2af0e8694e2d72066f6e42407cddc8f54acb47ce81cf9ac2b77",
+  "vendor/fall-kit-core/vendor/wallet/wallet.mjs": "9a01dcb6134cdf724e1717b757fca7843544137e0c6051510a1d15682c6166f6",
+  "vendor/keys/canon.mjs": "6ebe4f961ff0a2ce8693de89193921c8b5372c4e08d4941361212dd4cba29d21",
+  "vendor/keys/keys.mjs": "636969fdaaac7eab1868c6670cc7a85da1c22d65498f25e8a2ce5ad3487113e0",
+  "vendor/seed-library/domains.mjs": "a51c66547194e5c997490e23615011c3a45dec23b7ff06adde9002a770c459e2",
+  "vendor/seed-library/seedlib.mjs": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+  "vendor/seed-library/sha256.mjs": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233"
+ }
+}

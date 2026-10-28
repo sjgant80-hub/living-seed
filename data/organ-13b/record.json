@@ -1,0 +1,123 @@
+{
+ "kind": "living-seed.organ-13b.record",
+ "v": 1,
+ "doors": {
+  "askBytes": 445,
+  "ask": {
+   "bits": 3560,
+   "outcomes": {
+    "refused": 3560
+   }
+  },
+  "answerBytes": 354,
+  "answer": {
+   "bits": 2832,
+   "outcomes": {
+    "refused": 2832
+   }
+  },
+  "genuineAfter": "verified",
+  "credited": 1
+ },
+ "imports": {
+  "files": 23,
+  "list": [
+   "src/genome.mjs",
+   "src/germinate.mjs",
+   "src/system.mjs",
+   "vendor/fall-kit-core/antibody.mjs",
+   "vendor/fall-kit-core/identity.mjs",
+   "vendor/fall-kit-core/node.mjs",
+   "vendor/fall-kit-core/roster.mjs",
+   "vendor/fall-kit-core/seed.mjs",
+   "vendor/fall-kit-core/vendor/immune/exchange.mjs",
+   "vendor/fall-kit-core/vendor/immune/subscribe.mjs",
+   "vendor/fall-kit-core/vendor/ledger/contrib.mjs",
+   "vendor/fall-kit-core/vendor/light/codec.mjs",
+   "vendor/fall-kit-core/vendor/light/packet.mjs",
+   "vendor/fall-kit-core/vendor/light/sha256.mjs",
+   "vendor/fall-kit-core/vendor/light/vault.mjs",
+   "vendor/fall-kit-core/vendor/memory/cam.mjs",
+   "vendor/fall-kit-core/vendor/memory/fall-remember.mjs",
+   "vendor/fall-kit-core/vendor/sync/crdt.mjs",
+   "vendor/fall-kit-core/vendor/wallet/wallet.mjs",
+   "vendor/keys/canon.mjs",
+   "vendor/keys/keys.mjs",
+   "vendor/seed-library/seedlib.mjs",
+   "vendor/seed-library/sha256.mjs"
+  ],
+  "sameFilesAsOrgan13": true,
+  "outside": [
+   "*",
+   "0",
+   "302e020100300506032b657004220420",
+   ">",
+   "IMMUNE-EXCHANGE/bundle/v1\\u0000",
+   "LIGHT/packet/v1\\u0000",
+   "SHA-256",
+   "Z",
+   "[",
+   "a log is a list of linked entries",
+   "a roster is signed by a planted seed\\",
+   "birth",
+   "boolean",
+   "both must be contribution ledgers of this schema",
+   "cap-cert",
+   "card",
+   "fall-kit.node.v1",
+   "fall-kit.roster.v1",
+   "fall-kit.seed.v1",
+   "fault",
+   "founder",
+   "genesis",
+   "germinate needs a loaded dataset",
+   "kcc.contrib.v1",
+   "keeper",
+   "living-seed.organism",
+   "malformed",
+   "mesh-share",
+   "node:",
+   "not a ",
+   "not a LIGHT vault",
+   "not a contribution ledger",
+   "not a contribution ledger with a genesis",
+   "not a document",
+   "not an organism",
+   "not an unsigned packet",
+   "not bytes",
+   "null",
+   "number",
+   "object",
+   "on",
+   "pkcs8",
+   "seed-library.v1/konomi/thomas-frumkin",
+   "sender",
+   "shared",
+   "shopper",
+   "sign",
+   "silent",
+   "size",
+   "string",
+   "|",
+   "◊ life.v1",
+   "◊ seed.v1"
+  ],
+  "dynamic": 0
+ },
+ "travel": {
+  "shopCases": 100,
+  "organism": "c11de7054e9bb8ea",
+  "roster": "41fa50ad8745eba18edd2e4b41b68ef8b2253b1cb0febd0d513ec50a268765d8",
+  "shop": {
+   "asked": 100,
+   "verified": 100,
+   "digest": "4d4a10920709fbb1aed817efbc043a9df93b2fe1d23cf8b8beaebfe042095764"
+  },
+  "others": {
+   "asked": 75,
+   "verified": 75,
+   "digest": "e6270244540644a8a3bd1cd2e359e4c751848fca1f0ea50d0cccf75bdd359089"
+  },
+  "digest": "42fe4f76237eb874617e1a9f05522aae5615800c9621c01cce9a62480a0173ee"
+ }
+}

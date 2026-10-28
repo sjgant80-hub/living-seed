@@ -1,0 +1,35 @@
+{
+ "kind": "living-seed.organ-13c.record",
+ "v": 1,
+ "loader": {
+  "files": 23,
+  "list": [
+   "src/genome.mjs",
+   "src/germinate.mjs",
+   "src/system.mjs",
+   "vendor/fall-kit-core/antibody.mjs",
+   "vendor/fall-kit-core/identity.mjs",
+   "vendor/fall-kit-core/node.mjs",
+   "vendor/fall-kit-core/roster.mjs",
+   "vendor/fall-kit-core/seed.mjs",
+   "vendor/fall-kit-core/vendor/immune/exchange.mjs",
+   "vendor/fall-kit-core/vendor/immune/subscribe.mjs",
+   "vendor/fall-kit-core/vendor/ledger/contrib.mjs",
+   "vendor/fall-kit-core/vendor/light/codec.mjs",
+   "vendor/fall-kit-core/vendor/light/packet.mjs",
+   "vendor/fall-kit-core/vendor/light/sha256.mjs",
+   "vendor/fall-kit-core/vendor/light/vault.mjs",
+   "vendor/fall-kit-core/vendor/memory/cam.mjs",
+   "vendor/fall-kit-core/vendor/memory/fall-remember.mjs",
+   "vendor/fall-kit-core/vendor/sync/crdt.mjs",
+   "vendor/fall-kit-core/vendor/wallet/wallet.mjs",
+   "vendor/keys/canon.mjs",
+   "vendor/keys/keys.mjs",
+   "vendor/seed-library/seedlib.mjs",
+   "vendor/seed-library/sha256.mjs"
+  ],
+  "outside": [],
+  "resolutions": 42,
+  "sameFilesAsOrgan13": true
+ }
+}

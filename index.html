@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-yzlz066RLte+AVmd9dS9iruBXrlw2puwHHjk+iHNvgo=' 'sha256-nD4OOIm4Ir31/wtGGOdWWzg0SUNlXmhZ4/NrZtS5FLM='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-yzlz066RLte+AVmd9dS9iruBXrlw2puwHHjk+iHNvgo=' 'sha256-qBRKCWR17IKmNU4yyvRnI+1FOufxN5gnnj3LTMTyO9c='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: all thirteen organs, 135 of 165 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
@@ -608,8 +608,9 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
   <div class="panel" style="margin-top:14px">
     <h3>20 · Grow the whole system here</h3>
     <p class="dim">Your browser grows the same system from the same genome, the same records and the same public phrase. It then asks the first 25 held-out cases of each organ through its own signed messages, with the network trapped. It prints the system’s fingerprint, one digest of the organism, the signed roster and every receipt. That digest must equal the one in CI’s record. It takes a few seconds.</p>
-    <div class="row"><button id="sys-go" type="button" class="primary" disabled>Grow the system</button></div>
+    <div class="row"><button id="sys-go" type="button" class="primary" disabled>Grow the system</button><button id="sys-travel" type="button" disabled>Take the travelling fingerprint (13b)</button></div>
     <div id="sys-out" role="status" aria-live="polite"></div>
+    <p class="dim small">The second button is organ 13b’s fix. It grows the same system and takes a fingerprint made to travel: the receipts of the first 100 real shop sessions, which every engine reads to the same bits, and what each answer to 25 cases of every synthetic domain says (label, score, threshold and the rules that fired), not the last digits of the case.</p>
   </div>
   <div id="r13" role="status" aria-live="polite"></div>
 </section>
@@ -921,6 +922,7 @@ import * as AL from './src/align.mjs';
 import * as OR from './src/organism.mjs';
 import { grow as growSystem, fingerprint } from './src/system.mjs';
 import { PHRASE as PHRASE13, POLICY as POLICY13, clock as clock13, tabCases } from './tools/organ-13.mjs';
+import { travelCases, travel } from './tools/organ-13b.mjs';
 import { operatingPoint } from './src/germinate.mjs';
 import { decodeSeed, fit as ribosomeFit, auc as ribosomeAuc } from './vendor/seed-library/seedlib.mjs';
 import { DOMAIN_IDS, loadDomain } from './vendor/seed-library/domains.mjs';
@@ -1833,6 +1835,27 @@ async function systemGo() {
   } catch (e) { out.innerHTML = '<div class="status bad">It did not run: ' + esc(e.message) + '</div>'; }
   $('sys-go').disabled = false;
 }
+async function systemTravel() {
+  $('sys-travel').disabled = true;
+  const out = $('sys-out');
+  out.innerHTML = '<div class="status">Growing the system and taking the travelling fingerprint…</div>';
+  await new Promise((ok) => setTimeout(ok, 20));
+  try {
+    const rec = S.rec13b || await get('data/organ-13b/record.json'), cases = travelCases(S.data), t0 = performance.now();
+    const { value: f, touched } = await offline(async () => {
+      const s = await growSystem(S.origin, { name: 'reference', data: S.data }, PHRASE13, { policy: POLICY13, clock: clock13, cases });
+      if (!s.ok) throw new Error(s.why);
+      return travel(s, cases);
+    });
+    const seconds = Math.round(performance.now() - t0) / 1000, p = rec.travel, eq = (k) => JSON.stringify(f[k]) === JSON.stringify(p[k]);
+    const same = ['organism', 'roster', 'shop', 'others', 'digest'].every(eq);
+    const part = (k, what) => (eq(k) ? '<span class="ok-t">✓ ' + what + '</span>' : '<span class="bad-t">✗ ' + what + '</span>');
+    window.__organ13b = { browser: navigator.userAgent, where: location.origin + location.pathname, seconds, touched, travel: f };
+    out.innerHTML = '<div class="status ' + (same && !touched ? 'ok' : 'bad') + '">' + (same ? '<span class="ok-t">✓ the travelling fingerprint is CI’s</span>' : '<span class="bad-t">✗ not CI’s travelling fingerprint</span>') + ': ' + part('organism', 'the same organism') + ', ' + part('roster', 'the same keys and roster') + ', ' + part('shop', 'the same shop receipts (' + n(f.shop.verified) + ' of ' + n(f.shop.asked) + ' verified)') + ', ' + part('others', 'the same answers on the synthetic cases (' + n(f.others.verified) + ' of ' + n(f.others.asked) + ' verified)') + ' · digest <code>' + esc(f.digest.slice(0, 16)) + '</code> (CI’s: <code>' + esc(p.digest.slice(0, 16)) + '</code>) · ' + seconds.toFixed(2) + ' s · network touched ' + touched + ' times</div>';
+    note('the whole system', 'took the travelling fingerprint here: ' + (same ? 'the same as CI' : 'different from CI'), 'you ran it');
+  } catch (e) { out.innerHTML = '<div class="status bad">It did not run: ' + esc(e.message) + '</div>'; }
+  $('sys-travel').disabled = false;
+}
 function render13() {
   if (!S.rec13) return;
   $('r13').innerHTML = '<details><summary>Organ 13 — the seed grows the whole system: sealed rules and verdict</summary>' + rulesTable(S.pre13, S.ver13) + '</details>';
@@ -1883,6 +1906,7 @@ async function bootBody() {
   $('al-go').disabled = !S.rec10b;
   $('o-go').disabled = !S.rec11;
   $('sys-go').disabled = false;
+  $('sys-travel').disabled = false;
   if (typeof RTCPeerConnection === 'function') for (const id of ['rb-start', 'rb-join']) $(id).disabled = false; else rbSay('This browser cannot link devices directly (no WebRTC).');
   setTimeout(renderPsi, 50);
   DOMAIN_IDS.forEach((d, i) => setTimeout(() => { selfModelOf(d); if (S.organism && $('ask-domain').value === d) ask(); }, 400 + i * 300));
@@ -1921,6 +1945,7 @@ async function boot() {
   $('o-go').disabled = true;
   const organ13 = recordOf(13).then((x) => { if (x) [S.rec13, S.pre13, S.ver13] = x; });
   $('sys-go').disabled = true;
+  $('sys-travel').disabled = true;
   for (const id of ['card-make', 'card-damage', 'breed-go', 'breed-trade']) $(id).disabled = true;
   $('evo-go').disabled = true;
   for (const id of GATE_BUTTONS) $(id).disabled = true;
@@ -1997,6 +2022,7 @@ $('smear-real').addEventListener('click', () => smearGo(true));
 $('al-go').addEventListener('click', alignGo);
 $('o-go').addEventListener('click', organismGo);
 $('sys-go').addEventListener('click', systemGo);
+$('sys-travel').addEventListener('click', systemTravel);
 $('rb-start').addEventListener('click', rbStart);
 $('rb-join').addEventListener('click', rbJoin);
 $('rb-connect').addEventListener('click', rbConnect);

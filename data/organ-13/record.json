@@ -1,0 +1,308 @@
+{
+ "kind": "living-seed.organ-13.record",
+ "v": 1,
+ "phrase": "the owner of this device, growing its system",
+ "policy": {
+  "makerPpm": 100000,
+  "lineagePpm": 0,
+  "earlyUntil": 40,
+  "earlyNum": 3,
+  "earlyDen": 2
+ },
+ "genome": {
+  "id": "89880089fc1fef3a",
+  "bytes": 496,
+  "organs": 4,
+  "sameAsOrgan1": true
+ },
+ "system": {
+  "organism": "c11de7054e9bb8ea",
+  "organismBytes": 2485,
+  "plan": {
+   "ok": true,
+   "live": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ],
+   "cut": [],
+   "dormant": []
+  },
+  "nodes": [
+   "keeper",
+   "shopper",
+   "triage",
+   "water",
+   "crop"
+  ],
+  "roster": {
+   "members": 5,
+   "bytes": 4521,
+   "digest": "41fa50ad8745eba18edd2e4b41b68ef8b2253b1cb0febd0d513ec50a268765d8"
+  },
+  "everyPinsEvery": true,
+  "cardsBytes": 4267,
+  "credited": 6885
+ },
+ "offline": {
+  "networkTouched": 0,
+  "touched": {},
+  "imports": {
+   "files": 23,
+   "list": [
+    "src/genome.mjs",
+    "src/germinate.mjs",
+    "src/system.mjs",
+    "vendor/fall-kit-core/antibody.mjs",
+    "vendor/fall-kit-core/identity.mjs",
+    "vendor/fall-kit-core/node.mjs",
+    "vendor/fall-kit-core/roster.mjs",
+    "vendor/fall-kit-core/seed.mjs",
+    "vendor/fall-kit-core/vendor/immune/exchange.mjs",
+    "vendor/fall-kit-core/vendor/immune/subscribe.mjs",
+    "vendor/fall-kit-core/vendor/ledger/contrib.mjs",
+    "vendor/fall-kit-core/vendor/light/codec.mjs",
+    "vendor/fall-kit-core/vendor/light/packet.mjs",
+    "vendor/fall-kit-core/vendor/light/sha256.mjs",
+    "vendor/fall-kit-core/vendor/light/vault.mjs",
+    "vendor/fall-kit-core/vendor/memory/cam.mjs",
+    "vendor/fall-kit-core/vendor/memory/fall-remember.mjs",
+    "vendor/fall-kit-core/vendor/sync/crdt.mjs",
+    "vendor/fall-kit-core/vendor/wallet/wallet.mjs",
+    "vendor/keys/canon.mjs",
+    "vendor/keys/keys.mjs",
+    "vendor/seed-library/seedlib.mjs",
+    "vendor/seed-library/sha256.mjs"
+   ],
+   "outside": [
+    " + match.name + ",
+    " + peer.name + ",
+    " + peer.name, { kind: ",
+    ", peer: p.id });\n  }\n\n  // ── notes: what this node saw itself, and what it takes from others only after its own re-check ──\n  function keep(key) {\n    st.noted.add(key);\n    if (st.noted.size > MAX_NOTED) st.noted.delete(st.noted.values().next().value);\n  }\n  function note(n, key) {\n    st.notes.push(n);\n    if (st.notes.length > MAX_NOTES) st.notes.shift();\n    keep(key);\n  }\n  const check = async (skill, answer) => { try { return (await (typeof checks[skill] === "
+   ],
+   "network": []
+  }
+ },
+ "asked": {
+  "shopper": {
+   "held": 4725,
+   "outcomes": {
+    "verified": 4725
+   },
+   "sameAsOrganism": 4725,
+   "auc": 0.815265,
+   "heldAuc": 0.815265
+  },
+  "triage": {
+   "held": 720,
+   "outcomes": {
+    "verified": 720
+   },
+   "sameAsOrganism": 720,
+   "auc": 0.952127,
+   "heldAuc": 0.952127
+  },
+  "water": {
+   "held": 720,
+   "outcomes": {
+    "verified": 720
+   },
+   "sameAsOrganism": 720,
+   "auc": 0.747656,
+   "heldAuc": 0.747656
+  },
+  "crop": {
+   "held": 720,
+   "outcomes": {
+    "verified": 720
+   },
+   "sameAsOrganism": 720,
+   "auc": 0.753796,
+   "heldAuc": 0.753796
+  }
+ },
+ "hostile": {
+  "noisy": {
+   "plan": {
+    "ok": true,
+    "live": [
+     "triage",
+     "water",
+     "crop"
+    ],
+    "cut": [
+     "shopper"
+    ],
+    "dormant": []
+   },
+   "nodes": [
+    "keeper",
+    "triage",
+    "water",
+    "crop"
+   ],
+   "roster": {
+    "members": 4,
+    "bytes": 3663,
+    "digest": "65eca8bdcadb86349686df43725553c4859d07dad8a3fe4dc4078bcbe59ec73c"
+   },
+   "everyPinsEvery": true,
+   "ask": "refused: no pinned peer holds skill shopper"
+  },
+  "dry": {
+   "plan": {
+    "ok": true,
+    "live": [
+     "shopper",
+     "triage",
+     "crop"
+    ],
+    "cut": [],
+    "dormant": [
+     "water"
+    ]
+   },
+   "nodes": [
+    "keeper",
+    "shopper",
+    "triage",
+    "crop"
+   ],
+   "roster": {
+    "members": 4,
+    "bytes": 3667,
+    "digest": "0670d92eb0e681da86a6387edb7680cc3ef7e7bed6629f89e12c3708f89bff6e"
+   },
+   "everyPinsEvery": true,
+   "ask": "refused: no pinned peer holds skill water"
+  }
+ },
+ "refusedGenome": {
+  "ok": false,
+  "why": "the genome was refused: signature",
+  "grew": []
+ },
+ "tamper": {
+  "genome": {
+   "positions": 486,
+   "reasons": {
+    "not a genome": 10,
+    "signature": 467,
+    "not signed": 9
+   }
+  },
+  "roster": {
+   "positions": 4521,
+   "reasons": {
+    "not JSON": 654,
+    "not a fall-kit.roster.v1 roster": 24,
+    "the roster is not the founder’s": 71,
+    "a roster names 1–256 cards": 5,
+    "the founder did not sign this roster": 3764,
+    "a roster is signed": 3
+   }
+  },
+  "ask": {
+   "bits": 445,
+   "outcomes": {
+    "refused": 445
+   }
+  },
+  "answer": {
+   "bits": 354,
+   "outcomes": {
+    "refused": 354
+   }
+  },
+  "genuineAfter": "verified",
+  "credited": 1,
+  "replayAsk": "refused",
+  "replayAnswer": "refused"
+ },
+ "lies": {
+  "liar": {
+   "told": 100,
+   "outcomes": {
+    "failed": 100
+   },
+   "credited": 0
+  },
+  "stale": {
+   "told": 100,
+   "outcomes": {
+    "failed": 100
+   },
+   "credited": 0
+  }
+ },
+ "bred": {
+  "child": "29880e8b58024060",
+  "sameChildAsOrgan5": true,
+  "parents": [
+   "89880089fc1fef3a",
+   "86519725eec1dec8"
+  ],
+  "origin": "89880089fc1fef3a",
+  "evolved": "86519725eec1dec8",
+  "organism": "f8bd2df2d651b4bb",
+  "parentOrganisms": [
+   "c11de7054e9bb8ea",
+   "25a6f7670a24f22c"
+  ],
+  "plan": {
+   "ok": true,
+   "live": [
+    "shopper",
+    "triage",
+    "water",
+    "crop"
+   ],
+   "cut": [],
+   "dormant": []
+  },
+  "nodes": [
+   "keeper",
+   "shopper",
+   "triage",
+   "water",
+   "crop"
+  ],
+  "roster": {
+   "members": 5,
+   "bytes": 4521,
+   "digest": "41fa50ad8745eba18edd2e4b41b68ef8b2253b1cb0febd0d513ec50a268765d8"
+  },
+  "everyPinsEvery": true,
+  "asked": {
+   "shopper": {
+    "verified": 100
+   },
+   "triage": {
+    "verified": 100
+   },
+   "water": {
+    "verified": 100
+   },
+   "crop": {
+    "verified": 100
+   }
+  },
+  "shopAuc": {
+   "child": 0.827767,
+   "origin": 0.815265,
+   "evolved": 0.802782
+  },
+  "sameKeys": true
+ },
+ "portable": {
+  "cases": 25,
+  "organism": "c11de7054e9bb8ea",
+  "roster": "41fa50ad8745eba18edd2e4b41b68ef8b2253b1cb0febd0d513ec50a268765d8",
+  "answers": "30fcaebf187f29b38990426651fd221f20cafd28d276f9dd7f6efd0692067bab",
+  "asked": 100,
+  "verified": 100,
+  "digest": "b3193403e4e2fbcbfa0e2adb5beedb132d43da8408308f92b94d032d58aedce4",
+  "sameRosterAsFirst": true
+ }
+}

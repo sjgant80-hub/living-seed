@@ -1,0 +1,165 @@
+{
+ "kind": "living-seed.organ-15.record",
+ "v": 1,
+ "nights": 10,
+ "origin": 0.81949,
+ "naive": {
+  "rule": "organ 11: October alone, the fixed margin (z = 0)",
+  "perNight": [
+   {
+    "night": 1,
+    "adopted": true,
+    "before": 0.81949,
+    "after": 0.777069,
+    "id": "354085f1b841bc69"
+   },
+   {
+    "night": 2,
+    "adopted": true,
+    "before": 0.777069,
+    "after": 0.777069,
+    "id": "e84174ccaeb98ade"
+   },
+   {
+    "night": 3,
+    "adopted": false,
+    "before": 0.777069,
+    "after": 0.777069,
+    "id": "e84174ccaeb98ade"
+   },
+   {
+    "night": 4,
+    "adopted": false,
+    "before": 0.777069,
+    "after": 0.777069,
+    "id": "e84174ccaeb98ade"
+   },
+   {
+    "night": 5,
+    "adopted": true,
+    "before": 0.777069,
+    "after": 0.789186,
+    "id": "e67e26de14bfeb7a"
+   },
+   {
+    "night": 6,
+    "adopted": true,
+    "before": 0.789186,
+    "after": 0.789186,
+    "id": "10b0376953138aca"
+   },
+   {
+    "night": 7,
+    "adopted": false,
+    "before": 0.789186,
+    "after": 0.789186,
+    "id": "10b0376953138aca"
+   },
+   {
+    "night": 8,
+    "adopted": false,
+    "before": 0.789186,
+    "after": 0.789186,
+    "id": "10b0376953138aca"
+   },
+   {
+    "night": 9,
+    "adopted": false,
+    "before": 0.789186,
+    "after": 0.789186,
+    "id": "10b0376953138aca"
+   },
+   {
+    "night": 10,
+    "adopted": true,
+    "before": 0.789186,
+    "after": 0.789186,
+    "id": "9e0980155e919e03"
+   }
+  ],
+  "adoptions": 5,
+  "harmful": 1,
+  "finalAuc": 0.789186,
+  "startAuc": 0.81949
+ },
+ "homeostatic": {
+  "rule": "the nights: past twice the noise (z = 2), and from night 2 on each of Aug, Sep, Oct",
+  "perNight": [
+   {
+    "night": 1,
+    "adopted": true,
+    "before": 0.8194899889599,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 2,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 3,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 4,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 5,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 6,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 7,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 8,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 9,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   },
+   {
+    "night": 10,
+    "adopted": false,
+    "before": 0.7770693075373575,
+    "after": 0.7770693075373575,
+    "id": "2e638385476c5d41"
+   }
+  ],
+  "chained": true,
+  "adoptions": 1,
+  "harmful": 1,
+  "finalAuc": 0.7770693075373575,
+  "startAuc": 0.8194899889599
+ }
+}

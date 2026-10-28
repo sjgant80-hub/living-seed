@@ -25,7 +25,7 @@ export function scriptHashes(html) {
 export function policy(hashes) {
   return [
     "default-src 'self'",
-    "script-src 'self' " + hashes.map((h) => "'sha256-" + h + "'").join(' '),
+    "script-src 'self' 'wasm-unsafe-eval' " + hashes.map((h) => "'sha256-" + h + "'").join(' '),
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data:",
     "font-src 'self'",

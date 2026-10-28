@@ -54,7 +54,7 @@ export function nightWords(ns = nights()) {
 }
 
 /** the white paper's organ table: which measured verdicts each row counts */
-export const PAPER = { 1: ['1'], 2: ['2', '2b', '2c'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'], 13: ['13', '13b', '13c'] };
+export const PAPER = { 1: ['1'], 2: ['2', '2b', '2c'], 3: ['3'], 4: ['4', '4b'], 5: ['5'], 6: ['6'], 7: ['7'], 8: ['8', '8b', '8c'], 9: ['9', '9b'], 10: ['10', '10b'], 11: ['11', '11b'], 13: ['13', '13b', '13c'], 14: ['14'] };
 const verdictOf = (k) => JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts;
 export function paperCells(organs = JSON.parse(read('data/organs.json'))) {
   return Object.fromEntries(Object.entries(PAPER).map(([n, ks]) => [n, ks.filter((k) => organs[k] === 'measured').map((k) => { const v = verdictOf(k); return v.filter((x) => x.pass).length + ' of ' + v.length; }).join(' · ')]));
@@ -77,7 +77,7 @@ export function words2b(r = null, v = null) {
 export function render(html, t = tally(), w = nightWords()) {
   for (const [k, v] of Object.entries(t)) html = html.replace(new RegExp('(data-tally="' + k + '">)[^<]*(<)', 'g'), '$1' + v + '$2');
   for (const k of ['held', 'failed']) html = html.replace(new RegExp('(data-paper="' + k + '">)[^<]*(<)', 'g'), '$1' + t[k] + '$2');   // the white paper's own totals
-  html = html.replace(/(all thirteen organs, )[0-9]+ of [0-9]+( sealed rules held)/, '$1' + t.held + '$2');   // the meta description
+  html = html.replace(/(all fourteen organs, )[0-9]+ of [0-9]+( sealed rules held)/, '$1' + t.held + '$2');   // the meta description
   for (const [k, v] of Object.entries(w)) if (k !== 'block') html = html.replace(new RegExp('(data-nights="' + k + '">)[^<]*(<)', 'g'), '$1' + v + '$2');
   for (const [n, v] of Object.entries(paperCells())) html = html.replace(new RegExp('(data-held="' + n + '">)[^<]*(<)'), '$1' + v + '$2');
   html = html.replace(/(data-held="12">)[^<]*(<)/, '$1' + w.held + '$2');

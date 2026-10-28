@@ -121,11 +121,11 @@ test('the header’s tally is the sum of every committed verdict, failures inclu
   assert.equal(tally.red, String(vs.filter((v) => !v.pass && v.kind !== 'prediction').length));
   const paper = Object.fromEntries([...html.matchAll(/data-paper="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   assert.deepEqual(paper, { held: tally.held, failed: tally.failed }, 'the white paper says the same');
-  assert.ok(html.includes('all thirteen organs, ' + tally.held + ' sealed rules held'), 'and so does the description search engines read');
+  assert.ok(html.includes('all fourteen organs, ' + tally.held + ' sealed rules held'), 'and so does the description search engines read');
   // each row of the paper's organ table says what that organ's own verdicts say
   const cell = Object.fromEntries([...html.matchAll(/data-held="([0-9]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   const of = (k) => { const v = JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts; return v.filter((x) => x.pass).length + ' of ' + v.length; };
-  assert.deepEqual(Object.keys(PAPER).map(Number), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13]);
+  assert.deepEqual(Object.keys(PAPER).map(Number), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14]);
   assert.deepEqual(Object.values(PAPER).flat().sort(), Object.keys(organs).sort(), 'every sealed organ is counted in exactly one row');
   for (const [n, ks] of Object.entries(PAPER)) assert.equal(cell[n], ks.filter((k) => organs[k] === 'measured').map(of).join(' · '), 'organ ' + n + ' in the paper');
   const nv = nightsOf().map((x) => JSON.parse(read('data/nights/' + x.n + '/verdict.json')).verdicts).flat();
@@ -209,6 +209,17 @@ test('organ 11’s section prints the numbers its two records hold', () => {
   has('AUC <b>' + f3(r.liveOn.child.auc) + '</b> against its parent’s <b>' + f3(r.liveOn.parent.auc) + '</b>', 'A’s November–December');
   has(f3(r.spread.child.auc) + ' against ' + f3(r.spread.origin.auc) + ' at B', 'B’s November–December');
   assert.ok(r.spread.organs.every((o) => o.state === 'live'), 'every organ live on B');
+});
+
+test('organ 14’s section prints the numbers its record holds', () => {
+  const sec = html.slice(html.indexOf('<section id="substrate"'), html.indexOf('</section>', html.indexOf('<section id="substrate"')));
+  const r = JSON.parse(read('data/organ-14/record.json')), gb = (x) => x.toLocaleString('en-GB');
+  const v = Object.fromEntries([...sec.matchAll(/data-14="([a-z0-9]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  assert.equal(v.organs, String(r.live.length));
+  assert.equal(v.cases, gb(r.totalCases));
+  assert.equal(v.wasm, String(r.wasm.bytes));
+  assert.equal(v.f32, gb(r.substrates.f32.sameLabel) + ' of ' + gb(r.substrates.f32.cases));
+  assert.ok(r.substrates.int.sameScore === r.totalCases && r.substrates.wasm.sameScore === r.totalCases && r.wasm.valid === true, 'the record backs the three-engine claim');
 });
 
 test('organ 13’s section prints the numbers its record holds', () => {

@@ -20,7 +20,8 @@ test('the page pins exactly its own inline scripts, nothing else may run, and it
     assert.deepEqual(pinned, scriptHashes(html), p);
     const own = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map((m) => createHash('sha256').update(m[1]).digest('base64'));
     assert.deepEqual(pinned, own, p);
-    assert.deepEqual(scripts.filter((s) => !s.startsWith("'sha256-")), ["'self'"], p + ': no other script source');
+    assert.deepEqual(scripts.filter((s) => !s.startsWith("'sha256-")), ["'self'", "'wasm-unsafe-eval'"], p + ': only the page itself and WebAssembly — no other script source');
+    assert.ok(!scripts.includes("'unsafe-eval'") && !scripts.includes("'unsafe-inline'"), p + ': wasm-unsafe-eval permits WebAssembly only, never eval() or inline script');
     assert.deepEqual(directive(csp, 'connect-src'), ["'self'"], p + ': it can send nothing anywhere else');
     assert.deepEqual(directive(csp, 'object-src'), ["'none'"], p);
     assert.deepEqual(directive(csp, 'base-uri'), ["'self'"], p);

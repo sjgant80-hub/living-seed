@@ -69,6 +69,8 @@ jobs:
         run: node tools/measure-13c.mjs --check && node tools/judge-13c.mjs --check && node tools/order.mjs --organ 13c
       - name: organ 14 — the compute layer is swappable; the organism scored by four substrates, re-run and re-judged, seal first
         run: node tools/measure-14.mjs --check && node tools/judge-14.mjs --check && node tools/order.mjs --organ 14
+      - name: organ 15 — nature’s rule for staying steady against greedy adoption; greedy’s ten nights bred again and re-judged (H3, H4 failed, kept), seal first
+        run: node tools/measure-15.mjs --check && node tools/judge-15.mjs --check && node tools/order.mjs --organ 15
       - name: receipt (a), every night — re-run and re-judged (failed predictions included), each sealed first; the page says what every judged night says
         run: last=$(ls data/nights | grep -E "^[0-9]+$" | sort -n | tail -1); for n in $(ls data/nights | grep -E "^[0-9]+$" | sort -n); do if [ ! -f data/nights/$n/record.json ] && [ "$n" = "$last" ]; then echo "night $n sealed, waiting for its run"; continue; fi; node tools/night.mjs run $n --check && node tools/night.mjs judge $n --check && node tools/order.mjs --organ night-$n || exit 1; done && node tools/tally.mjs --check
       - name: the AI layer — JSON-LD, llms.txt, the README table and robots.txt are what the page gives

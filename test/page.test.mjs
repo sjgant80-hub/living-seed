@@ -121,11 +121,11 @@ test('the header’s tally is the sum of every committed verdict, failures inclu
   assert.equal(tally.red, String(vs.filter((v) => !v.pass && v.kind !== 'prediction').length));
   const paper = Object.fromEntries([...html.matchAll(/data-paper="([a-z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   assert.deepEqual(paper, { held: tally.held, failed: tally.failed }, 'the white paper says the same');
-  assert.ok(html.includes('all fourteen organs, ' + tally.held + ' sealed rules held'), 'and so does the description search engines read');
+  assert.ok(html.includes('all fifteen organs, ' + tally.held + ' sealed rules held'), 'and so does the description search engines read');
   // each row of the paper's organ table says what that organ's own verdicts say
   const cell = Object.fromEntries([...html.matchAll(/data-held="([0-9]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
   const of = (k) => { const v = JSON.parse(read(k === '1' ? 'data/verdict.json' : 'data/organ-' + k + '/verdict.json')).verdicts; return v.filter((x) => x.pass).length + ' of ' + v.length; };
-  assert.deepEqual(Object.keys(PAPER).map(Number), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14]);
+  assert.deepEqual(Object.keys(PAPER).map(Number), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15]);
   assert.deepEqual(Object.values(PAPER).flat().sort(), Object.keys(organs).sort(), 'every sealed organ is counted in exactly one row');
   for (const [n, ks] of Object.entries(PAPER)) assert.equal(cell[n], ks.filter((k) => organs[k] === 'measured').map(of).join(' · '), 'organ ' + n + ' in the paper');
   const nv = nightsOf().map((x) => JSON.parse(read('data/nights/' + x.n + '/verdict.json')).verdicts).flat();
@@ -220,6 +220,21 @@ test('organ 14’s section prints the numbers its record holds', () => {
   assert.equal(v.wasm, String(r.wasm.bytes));
   assert.equal(v.f32, gb(r.substrates.f32.sameLabel) + ' of ' + gb(r.substrates.f32.cases));
   assert.ok(r.substrates.int.sameScore === r.totalCases && r.substrates.wasm.sameScore === r.totalCases && r.wasm.valid === true, 'the record backs the three-engine claim');
+});
+
+test('organ 15’s section prints the numbers its record holds, and names each failed rule as failed', () => {
+  const sec = html.slice(html.indexOf('<section id="homeostasis"'), html.indexOf('</section>', html.indexOf('<section id="homeostasis"')));
+  const r = JSON.parse(read('data/organ-15/record.json')), f3 = (x) => x.toFixed(3);
+  const v = Object.fromEntries([...sec.matchAll(/data-15="([a-zA-Z]+)">([^<]+)</g)].map((m) => [m[1], m[2]]));
+  assert.deepEqual(v, {
+    naiveAdopt: String(r.naive.adoptions), homeAdopt: String(r.homeostatic.adoptions), origin: f3(r.origin), naiveFinal: f3(r.naive.finalAuc), homeFinal: f3(r.homeostatic.finalAuc),
+    naiveHarm: r.naive.harmful + ' of ' + r.naive.adoptions, homeHarm: r.homeostatic.harmful + ' of ' + r.homeostatic.adoptions,
+  });
+  for (const x of JSON.parse(read('data/organ-15/verdict.json')).verdicts) assert.match(sec, x.pass ? new RegExp('\\(' + x.id + ' held\\)') : new RegExp('\\(' + x.id + ',[^)]*failed and is kept\\)'), x.id);
+  assert.ok(r.origin > r.naive.finalAuc && r.origin > r.homeostatic.finalAuc, 'the record backs “neither beat doing nothing”');
+  const n1 = (l) => l.perNight[0];
+  assert.ok(n1(r.naive).adopted && n1(r.homeostatic).adopted && f3(n1(r.naive).after) === '0.777' && f3(n1(r.homeostatic).after) === '0.777', 'and “on night 1 both fell to 0.777”');
+  assert.ok(r.homeostatic.perNight.slice(1).every((p) => !p.adopted) && r.naive.perNight[4].adopted && f3(r.naive.perNight[4].after) === '0.789', 'and “the dead band refused every later change; greedy climbed back on night 5”');
 });
 
 test('organ 13’s section prints the numbers its record holds', () => {

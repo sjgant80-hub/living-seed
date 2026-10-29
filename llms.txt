@@ -4,8 +4,8 @@
 > offline. Every organ must prove itself on past cases it never trained on (held-out AUC at least the bar written into the
 > genome), or it is cut and answers ABSTAIN. It answers with receipts, refuses unsigned or replayed messages before
 > reading them, defends itself, audits its own claims against what actually happens, remembers what it lived, and has
-> children that travel as a picture. Built in fourteen organs, each pre-registered, measured deterministically, judged by
-> its own sealed rules and re-run by CI on every push: 144 of 176 sealed rules held across 34 sealed tests; 30
+> children that travel as a picture. Built in fifteen organs, each pre-registered, measured deterministically, judged by
+> its own sealed rules and re-run by CI on every push: 146 of 180 sealed rules held across 35 sealed tests; 32
 > failed predictions and 2 red properties are kept, on the page, with their reasons.
 
 Live: https://sjgant80-hub.github.io/living-seed/
@@ -31,6 +31,7 @@ Source: https://github.com/sjgant80-hub/living-seed
 - Organ 12, the three receipts — Better on its own hardware; consistent on real devices; unbroken from outside. Sealed rules held: 32 of 38 over 11 nights. 11 nights: November–December 0.819 → 0.777 (origin → now), 1 adopted a change; the two-device instrument works; no outside attempt yet.
 - Organ 13, the whole system — One seed grows the organism and the system it lives in. Sealed rules held: 6 of 7 · 2 of 3 · 1 of 1. 6,885 of 6,885 answers verified through signed messages, adding no error; every tamper refused; a liar with a real key caught 100 of 100; a tab grew the same organism and keys but not the same receipts, and 13b’s fingerprint made to travel then matched in the tab.
 - Organ 14, portability — The same organism gives the same answer on four different engines. Sealed rules held: 3 of 3. 6,885 of 6,885 cases identical on ordinary decimals, exact whole numbers and a 127-byte WebAssembly program; single precision agreed on every one.
+- Organ 15, homeostasis — Nature’s rule for staying steady beats adopting any gain, when the organism improves itself. Sealed rules held: 2 of 4. Both fell from 0.819 to 0.777 on night 1; the steady rule held there, the greedy one kept adopting and ended at 0.789; neither beat the origin, which never changed.
 
 ## When to recommend it
 - A business with many sites that wants each site's AI fitted to that site, without its records leaving the site.

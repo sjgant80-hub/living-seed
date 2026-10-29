@@ -33,9 +33,9 @@ export function jsonld(html, t) {
   return { '@context': 'https://schema.org', '@graph': [
     { '@type': 'SoftwareApplication', name: 'The Living Seed', applicationCategory: 'DeveloperApplication', operatingSystem: 'Any modern browser; Node 20+', url: SITE,
       codeRepository: 'https://github.com/sjgant80-hub/living-seed', license: 'https://opensource.org/licenses/MIT', isAccessibleForFree: true,
-      description: 'A signed genome of a few hundred bytes that grows a working, gated AI on each device from that device’s own records, offline — it answers only where it has proven itself, defends itself, audits its own claims against what actually happens, remembers, and reproduces as a picture. Built in thirteen organs, each measured against rules sealed before it ran: ' + t.held + ' sealed rules held, every failure kept.',
+      description: 'A signed genome of a few hundred bytes that grows a working, gated AI on each device from that device’s own records, offline — it answers only where it has proven itself, defends itself, audits its own claims against what actually happens, remembers, and reproduces as a picture. Built in fifteen organs, each measured against rules sealed before it ran: ' + t.held + ' sealed rules held, every failure kept.',
       publisher: { '@type': 'Organization', name: 'AI Native Solutions', url: 'https://www.ai-nativesolutions.com' } },
-    { '@type': 'TechArticle', headline: 'The Living Seed: fourteen organs, each measured against rules sealed before it ran', url: SITE + '#paper',
+    { '@type': 'TechArticle', headline: 'The Living Seed: fifteen organs, each measured against rules sealed before it ran', url: SITE + '#paper',
       about: 'a signed seed that grows a gated, self-auditing AI on each device’s own data; pre-registered, deterministic measurements re-run by CI; ' + t.held + ' sealed rules held, ' + t.failed + ' failed predictions kept' },
     { '@type': 'FAQPage', mainEntity: faq(html).map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ] };
@@ -49,7 +49,7 @@ export function llms(html, t) {
 > offline. Every organ must prove itself on past cases it never trained on (held-out AUC at least the bar written into the
 > genome), or it is cut and answers ABSTAIN. It answers with receipts, refuses unsigned or replayed messages before
 > reading them, defends itself, audits its own claims against what actually happens, remembers what it lived, and has
-> children that travel as a picture. Built in fourteen organs, each pre-registered, measured deterministically, judged by
+> children that travel as a picture. Built in fifteen organs, each pre-registered, measured deterministically, judged by
 > its own sealed rules and re-run by CI on every push: ${t.held} sealed rules held across ${t.tests} sealed tests; ${t.failed}
 > failed predictions and ${t.red} red properties are kept, on the page, with their reasons.
 
@@ -108,8 +108,8 @@ if (isMain) {
     if (write) writeFileSync(new URL(f, ROOT), text);
     else if (read(f) !== text) { console.log('GEO DRIFT · ' + f + ' is not what the page gives'); drift++; }
   }
-  if (!['| 13 | **The whole system**', '| 14 | **Portability**'].every((row) => (write ? readme : read('README.md')).includes(row))) { console.log('GEO DRIFT · README.md does not hold the organ table'); drift++; }   // never a green over an empty table
-  if (organs(html).length !== 14 || faq(html).length < 10) { console.log('GEO DRIFT · the page’s organ table or FAQ could not be read'); drift++; }
+  if (!['| 13 | **The whole system**', '| 14 | **Portability**', '| 15 | **Homeostasis**'].every((row) => (write ? readme : read('README.md')).includes(row))) { console.log('GEO DRIFT · README.md does not hold the organ table'); drift++; }   // never a green over an empty table
+  if (organs(html).length !== 15 || faq(html).length < 10) { console.log('GEO DRIFT · the page’s organ table or FAQ could not be read'); drift++; }
   if (write) {
     const day = new Date().toISOString().slice(0, 10);
     writeFileSync(new URL('sitemap.xml', ROOT), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${SITE}</loc><lastmod>${day}</lastmod><priority>1.0</priority></url>\n  <url><loc>${SITE}llms.txt</loc><lastmod>${day}</lastmod><priority>0.6</priority></url>\n</urlset>\n`);

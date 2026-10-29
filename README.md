@@ -8,7 +8,7 @@ offline. Every organ must prove itself on past cases it never trained on, or it 
 with receipts, refuses unsigned or replayed messages before reading them, defends itself, audits its own claims against
 what actually happens, remembers what it lived, and has children that travel as a picture.
 
-It was built in fourteen organs. Each was pre-registered (the rules, the predictions, what had been seen, and the hash of
+It was built in fifteen organs. Each was pre-registered (the rules, the predictions, what had been seen, and the hash of
 every file that would measure, committed first), measured deterministically, judged by its own sealed rules, and proven
 from git to have been sealed first. CI re-runs and re-judges every one on every push. A failed prediction is kept; a
 failed property stays red.
@@ -30,6 +30,7 @@ failed property stays red.
 | 12 | **The three receipts** | Better on its own hardware; consistent on real devices; unbroken from outside | 32 of 38 over 11 nights | 11 nights: November–December 0.819 → 0.777 (origin → now), 1 adopted a change; the two-device instrument works; no outside attempt yet |
 | 13 | **The whole system** | One seed grows the organism and the system it lives in | 6 of 7 · 2 of 3 · 1 of 1 | 6,885 of 6,885 answers verified through signed messages, adding no error; every tamper refused; a liar with a real key caught 100 of 100; a tab grew the same organism and keys but not the same receipts, and 13b’s fingerprint made to travel then matched in the tab |
 | 14 | **Portability** | The same organism gives the same answer on four different engines | 3 of 3 | 6,885 of 6,885 cases identical on ordinary decimals, exact whole numbers and a 127-byte WebAssembly program; single precision agreed on every one |
+| 15 | **Homeostasis** | Nature’s rule for staying steady beats adopting any gain, when the organism improves itself | 2 of 4 | both fell from 0.819 to 0.777 on night 1; the steady rule held there, the greedy one kept adopting and ended at 0.789; neither beat the origin, which never changed |
 <!-- /geo:organs -->
 
 Data: the shop domain is real (UCI Online Shoppers Purchasing Intention, Sakar & Kastro 2018, CC BY 4.0, 12,330

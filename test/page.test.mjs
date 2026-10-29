@@ -232,6 +232,10 @@ test('organ 15’s section prints the numbers its record holds, and names each f
   });
   for (const x of JSON.parse(read('data/organ-15/verdict.json')).verdicts) assert.match(sec, x.pass ? new RegExp('\\(' + x.id + ' held\\)') : new RegExp('\\(' + x.id + ',[^)]*failed and is kept\\)'), x.id);
   assert.ok(r.origin > r.naive.finalAuc && r.origin > r.homeostatic.finalAuc, 'the record backs “neither beat doing nothing”');
+  assert.ok(sec.includes('a gap of ' + f3(r.naive.finalAuc - r.homeostatic.finalAuc) + ' on one stretch'), 'the gap it says is untested is the record’s');
+  const margin = /export const MARGIN = ([0-9.]+);/.exec(read('src/evolve.mjs'))[1];
+  assert.ok(sec.includes('by more than ' + margin + '. Nature’s rule asks more') && /z: 0\b/.test(read('tools/measure-15.mjs')), 'greedy’s margin is the gate’s own (src/evolve.mjs), and greedy ran with no noise term');
+  assert.ok(sec.includes('twice the noise') && JSON.parse(read('data/nights/1/prereg.json')).z === 2, 'and nature’s rule is two standard errors, as every night sealed it');
   const n1 = (l) => l.perNight[0];
   assert.ok(n1(r.naive).adopted && n1(r.homeostatic).adopted && f3(n1(r.naive).after) === '0.777' && f3(n1(r.homeostatic).after) === '0.777', 'and “on night 1 both fell to 0.777”');
   assert.ok(r.homeostatic.perNight.slice(1).every((p) => !p.adopted) && r.naive.perNight[4].adopted && f3(r.naive.perNight[4].after) === '0.789', 'and “the dead band refused every later change; greedy climbed back on night 5”');

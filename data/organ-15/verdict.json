@@ -1,0 +1,36 @@
+{
+ "kind": "living-seed.organ-15.verdict",
+ "v": 1,
+ "prereg": "1aca8c8b513ecd4d",
+ "record": "d0adcc5923c30c8d",
+ "verdicts": [
+  {
+   "id": "H1",
+   "kind": "property",
+   "claim": "the homeostatic lineage is exactly the ten committed nights, each starting from the champion the night before left; the naive lineage runs the same ten nights on the same seeds",
+   "pass": true,
+   "saw": "the homeostatic lineage is the 10 committed nights, chained unbroken: true; the naive lineage ran 10 nights on the same seeds"
+  },
+  {
+   "id": "H2",
+   "kind": "prediction",
+   "claim": "the naive rule adopts more often than the homeostatic rule over the ten nights",
+   "pass": true,
+   "saw": "adoptions over the ten nights: naive 5, homeostatic 1"
+  },
+  {
+   "id": "H3",
+   "kind": "prediction",
+   "claim": "after the ten nights the homeostatic lineage scores at least as well on November–December as the naive lineage",
+   "pass": false,
+   "saw": "November–December after ten nights: homeostatic 0.7770693075373575, naive 0.789186 (both began at 0.81949)"
+  },
+  {
+   "id": "H4",
+   "kind": "prediction",
+   "claim": "the naive rule makes more harmful adoptions — adoptions after which November–December fell — than the homeostatic rule",
+   "pass": false,
+   "saw": "adoptions that lowered November–December: naive 1 of 5, homeostatic 1 of 1"
+  }
+ ]
+}

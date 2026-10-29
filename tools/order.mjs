@@ -62,6 +62,7 @@ const ORGANS = {
   '13b': { seal: 'data/organ-13b/prereg.json', later: ['data/organ-13b/record.json', 'data/organ-13b/tab.json'] },
   '13c': { seal: 'data/organ-13c/prereg.json', later: ['data/organ-13c/record.json'] },
   14: { seal: 'data/organ-14/prereg.json', later: ['data/organ-14/record.json'] },
+  15: { seal: 'data/organ-15/prereg.json', later: ['data/organ-15/record.json'] },
 };
 
 const isMain = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('tools/order.mjs');

@@ -1,0 +1,37 @@
+{
+ "kind": "living-seed.night.verdict",
+ "v": 1,
+ "night": 12,
+ "prereg": "6b05cb69f0e72800",
+ "record": "1f3d3c9913f58ab8",
+ "verdicts": [
+  {
+   "id": "N1",
+   "kind": "property",
+   "claim": "the night starts from the champion night 11 left",
+   "pass": true,
+   "saw": "started from 2e638385476c5d41 (night 11 left 2e638385476c5d41)"
+  },
+  {
+   "id": "N2",
+   "kind": "property",
+   "claim": "the champion moves only to a child the time-fold gate adopted (the shop candidate beating it on August, September and October, each on its own, by the margin and 2 standard errors)",
+   "pass": true,
+   "saw": "the gate adopted nothing — shopper (by month: Aug 0.81199 vs 0.81199, Sep 0.789439 vs 0.789439, Oct 0.889502 vs 0.889502), triage best 0.913777 vs 0.947629, water best 0.715278 vs 0.76028, crop best 0.758386 vs 0.758133; the champion stays 2e638385476c5d41"
+  },
+  {
+   "id": "N3",
+   "kind": "prediction",
+   "claim": "the champion after tonight scores no lower on November–December (never used to choose) than the champion before it",
+   "pass": true,
+   "saw": "November–December: before 0.7770693075373575, after 0.7770693075373575"
+  },
+  {
+   "id": "N4",
+   "kind": "prediction",
+   "claim": "over the week, the champion improved: after night 12 it scores higher on November–December than the origin genome did before night 1",
+   "pass": false,
+   "saw": "the origin before night 1: 0.8194899889599; the champion after night 12: 0.7770693075373575"
+  }
+ ]
+}

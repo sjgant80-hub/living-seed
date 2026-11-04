@@ -6,12 +6,27 @@ the pre-registration, measurement, judge and order tools, and the live page are 
 Powered by the Konomi architecture, created by THOMAS FRUMKIN. The konomi-family tag and the idea of a compressed genome
 grown on a device's own data are his.
 
+Draws on, credited in full:
+  - Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — "GEP-Based Security: Behavioral Entropy
+    Signatures for Cybersecurity and DevOps," 2025 (open defensive prior art, CC BY 4.0): organ 9's watch on behaviour.
+  - Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — "From GEP Stabilization to Dual-Map Ethical
+    Reasoning," Derivation v0.2 (open defensive prior art): the gate, and organ 15's lesson that a stable system can
+    stabilize a wrong reference.
+  - Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — "Dream State Architecture: GEP-Guided Memory
+    Consolidation and Entropy Regulation in Artificial Consciousness Systems," 2025 (open defensive prior art).
+
 Vendored, byte-identical to their sources, and credited:
   - vendor/seed-library/seedlib.mjs, sha256.mjs, domains.mjs — the seed-library ribosome, seed format and domains
     (sjgant80-hub/seed-library @ b7a93f864bd3cbd075d935e44b2aefbaba733aac); its grow -> fit -> grade-on-held-out protocol,
     seeded RNG, split and AUC are the pattern of fall-spore and pattern-organs (sjgant80-hub).
   - vendor/keys/keys.mjs, canon.mjs — Ed25519 through WebCrypto (sjgant80-hub/sovereign-enterprise @ 21f838b, src/).
-  - .witness/witness.mjs — the witness mutation gate, as vendored in sovereign-enterprise @ 21f838b (sjgant80-hub/witness).
+  - .witness/witness.mjs — the witness mutation gate, as vendored in sovereign-enterprise @ 21f838b (sjgant80-hub/witness),
+    kept byte for byte as organ 1's seal pinned it. CI judges every kernel with witness v0.6 itself, cloned at its tag
+    (commit f04fe3047e3d49b98c67713befd5b77182afa0d4).
+  - vendor/fall-kit-core/ — the estate's shared foundation (sjgant80-hub/fall-kit @ 9244d6128c7be0094c9d800acac0a9ee70ecdd97,
+    core/), copied verbatim; organ 13 grows its system on it.
+  - vendor/sovereign-enterprise/data/basis.json — the sourced figures the brochure's cost case reads, each with its source
+    (sjgant80-hub/sovereign-enterprise @ 003e44795bc0ef90c92b7ee6a53160f51be1be79, data/basis.json), byte for byte.
   - tools/csp.mjs is adapted from sovereign-enterprise's tools/csp.mjs, with connect-src closed to 'self'.
 
 Data:

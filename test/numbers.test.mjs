@@ -1,12 +1,18 @@
 // numbers.test.mjs — every number the page's static text prints is a number some committed record holds, at the precision
 // printed (a percentage counted as a fraction too) — or it is listed below with the reason it is not. A new figure written
 // into the page that no record backs fails here until it is backed or explained. (The header and paper tallies are left
-// out: test/page.test.mjs sums them from every verdict.)
+// out: test/page.test.mjs sums them from every verdict.) So are the words tools/tally.mjs writes from the judged nights
+// and verdicts (the paper's "held" cells, the data-nights spans, the nights block), but only where they say exactly what
+// tally.mjs computes from the committed records: a sum such as "47 of 58 over 16 nights" is held by every night's verdict
+// together, not by any one file, so whether it passed used to depend on the sum happening to appear in some record.
+// It did not on night 15 ("44 of 54"), and both of that night's later commits went red. A hand-typed number in those
+// places is still read and still has to be backed.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { nightWords, paperCells } from '../tools/tally.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 /** numbers the page may print that no record holds as a value — each with its reason */
@@ -28,6 +34,14 @@ const EXPLAINED = {
   '6,392': 'the single-bit changes organ 13’s two messages allow, 8 × (445 + 354) — tested in organ 13’s section test',
 };
 
+/** the words tools/tally.mjs generates, dropped where (and only where) they are exactly what it computes from the records */
+export function generatedLeftOut(body, w = nightWords(), cells = { ...paperCells(), 12: w.held }) {
+  return body
+    .replace(/(data-held="([0-9]+)">)([^<]*)(<)/g, (all, a, n, v, b) => (v === cells[n] ? a + b : all))
+    .replace(/(data-nights="([a-z]+)">)([^<]*)(<)/g, (all, a, k, v, b) => (k !== 'block' && v === w[k] ? a + b : all))
+    .replace(/(<!-- nights -->)([\s\S]*?)(<!-- \/nights -->)/, (all, a, v, b) => (v === w.block ? a + b : all));
+}
+
 function recordValues() {
   const vals = new Set(), files = [];
   const walk = (x) => { if (typeof x === 'number') vals.add(x); else if (Array.isArray(x)) x.forEach(walk); else if (x && typeof x === 'object') Object.values(x).forEach(walk);
@@ -40,7 +54,7 @@ function recordValues() {
 
 test('every number the page prints is held by a committed record, or explained', () => {
   const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
-  const text = html.slice(html.indexOf('<body>'), html.indexOf('<script type="module">'))
+  const text = generatedLeftOut(html.slice(html.indexOf('<body>'), html.indexOf('<script type="module">')))
     .replace(/<span data-(tally|paper)="[a-z]+">[^<]*<\/span>/g, ' ').replace(/<pre>[\s\S]*?<\/pre>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&');
   const V = recordValues();
   assert.ok(V.length > 1000, 'the records were read');
@@ -54,4 +68,17 @@ test('every number the page prints is held by a committed record, or explained',
   }
   assert.deepEqual([...unbacked], [], 'printed, but held by no record and not explained');
   for (const k of Object.keys(EXPLAINED)) assert.ok(text.includes(k), 'an explanation for a number the page no longer prints: ' + k);
+});
+
+test('the generated words are left out only where they are exactly what tools/tally.mjs computes from the records', () => {
+  const w = nightWords(), cells = paperCells();
+  for (const [cell, kept] of [
+    ['<td class="num" data-held="12">' + w.held + '</td>', '<td class="num" data-held="12"></td>'],
+    ['<td class="num" data-held="1">' + cells[1] + '</td>', '<td class="num" data-held="1"></td>'],
+    ['<span data-nights="what">' + w.what + '</span>', '<span data-nights="what"></span>'],
+    ['<!-- nights -->' + w.block + '<!-- /nights -->', '<!-- nights --><!-- /nights -->'],
+  ]) assert.equal(generatedLeftOut(cell), kept);
+  for (const typed of ['<td class="num" data-held="12">99 of 999 over 16 nights</td>', '<td class="num" data-held="1">' + cells[1] + ' · 1 of 1</td>',
+    '<span data-nights="what">' + w.what + ', 1,234 more</span>', '<span data-nights="block">' + w.held + '</span>', '<!-- nights -->' + w.block + '<p>9,999</p><!-- /nights -->'])
+    assert.equal(generatedLeftOut(typed), typed, 'a number typed in where tally.mjs writes is still read: ' + typed.slice(0, 60));
 });

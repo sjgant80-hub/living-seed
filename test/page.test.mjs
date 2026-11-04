@@ -12,12 +12,15 @@ import { germinate } from '../src/germinate.mjs';
 import { DOMAIN_IDS, loadDomain } from '../vendor/seed-library/domains.mjs';
 import { rng } from '../vendor/seed-library/seedlib.mjs';
 import { tally as tallyOf, nights as nightsOf, nightWords, render as renderTally, PAPER, words2b } from '../tools/tally.mjs';
+import * as CCK from '../src/costcase.mjs';
 
 const read = (p) => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
 const html = read('index.html');
 const scripts = [...html.matchAll(/<script type="module">([\s\S]*?)<\/script>/g)].map((m) => m[1]);
 const script = scripts[0];
 const record = JSON.parse(read('data/record.json'));
+const J1 = record, J2 = JSON.parse(read('data/organ-2/record.json')), J2b = JSON.parse(read('data/organ-2b/llm-answers.json'));
+const BASISK = JSON.parse(read('vendor/sovereign-enterprise/data/basis.json'));
 
 test('the page has one module script, and it parses', () => {
   assert.equal(scripts.length, 1);
@@ -373,4 +376,46 @@ test('every commit the receipt links to exists in this repository’s history', 
   const shas = [...new Set([...html.matchAll(/commit\/([0-9a-f]{40})/g)].map((m) => m[1]))];
   assert.equal(shas.length, 4);
   for (const s of shas) execFileSync('git', ['cat-file', '-e', s + '^{commit}'], { cwd: new URL('..', import.meta.url) });
+});
+
+// The blueprint names every kernel, what holds it and its gate, straight from the mutation gate's own list: a kernel added
+// to witness-all.mjs and left off the page, or listed with tests that are not the ones that gate it, fails here.
+test('the blueprint lists every kernel the mutation gate judges, with the tests that judge it', async () => {
+  const { PAIRS } = await import('../witness-all.mjs');
+  const sec = html.slice(html.indexOf('<table id="files">'), html.indexOf('</table>', html.indexOf('<table id="files">')));
+  const rows = [...sec.matchAll(/<tr><td><code>([^<]+)<\/code><\/td><td>[\s\S]*?<\/td><td>([\s\S]*?)<\/td><\/tr>/g)].map((m) => [m[1], m[2]]);
+  for (const [src, tests] of PAIRS) {
+    const row = rows.find(([f]) => f === src);
+    assert.ok(row, src + ' is in the blueprint');
+    assert.deepEqual([...row[1].matchAll(/<code>(test\/[^<]+)<\/code>/g)].map((m) => m[1]), tests, src + ': the tests that gate it');
+    assert.ok(row[1].includes('class="chip live">witness'), src + ': and its gate');
+  }
+  assert.equal(rows.filter(([, t]) => t.includes('>witness<')).length, PAIRS.length, 'and nothing it does not judge is shown as judged');
+});
+
+// The cost case prints no figure of its own: the page fills it from the kernel, the sourced basis and the receipts, and
+// carries no price of ours anywhere.
+test('the cost case runs the gated kernel on the sourced basis and the receipts, and the page carries no price of ours', () => {
+  assert.match(script, /import \* as CC from '\.\/src\/costcase\.mjs';/);
+  assert.match(script, /get\('vendor\/sovereign-enterprise\/data\/basis\.json'\), get\('data\/organ-2b\/llm-answers\.json'\)/);
+  assert.match(script, /CC\.measured\(answers2b, S\.rec2, S\.rec\)/);
+  assert.match(script, /CC\.seedCase\(basis, m, input\)/);
+  // the share field is a percentage and the kernel takes a fraction: its refusal must be said in the field's unit
+  assert.match(script, /share: num\('c-share', NaN\) \/ 100/);
+  assert.match(script, /r\.why\.replace\('taken off: 0 to 1', 'taken off: 0 to 100%'\)/);
+  assert.equal(CCK.seedCase(BASISK, CCK.measured(J2b, J2, J1), { share: 1.5 }).why, 'the share of the work taken off: 0 to 1', 'the words the page rewrites are the kernel’s');
+  const sec = html.slice(html.indexOf('<h3 id="cost">'), html.indexOf('<h3>What it costs you to run</h3>'));
+  for (const id of ['c-sites', 'c-rec', 'c-hours', 'c-share', 'c-years', 'c-tin', 'c-tout', 'c-mb', 'c-upd', 'c-gbp', 'c-recp', 'c-out', 'c-src']) assert.ok(sec.includes('id="' + id + '"'), id);
+  assert.ok(!/£\s?\d/.test(sec.replace(/<[^>]+>/g, ' ')), 'no money figure typed into the section');
+  const body = html.slice(html.indexOf('<body>'), html.indexOf('<script type="module">')).replace(/<[^>]+>/g, ' ');
+  for (const re of [/£\s?\d/, /\$\s?\d/, /\bper (seat|user|node|month)\b/i, /\/mo\b/, /pricing/i, /priceCurrency|"@type":\s*"Offer"/]) assert.ok(!re.test(body) && !re.test(html.slice(0, html.indexOf('<body>'))), 'no price of ours: ' + re);
+});
+
+// Who supplies it and on what terms, as a buyer's procurement team asks — and the credits every product carries.
+test('the page names the supplier, the terms and the exit, and carries its credits', () => {
+  const biz = html.slice(html.indexOf('<section id="business"'), html.indexOf('</section>', html.indexOf('<section id="business"')));
+  assert.ok(biz.includes('<a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>'), 'the supplier, linked');
+  for (const w of ['support, the service levels, the warranty and the liability are agreed per deployment', 'keeps running without us', 'MIT']) assert.ok(biz.includes(w), w);
+  assert.ok(html.includes('Powered by the Konomi architecture, created by Thomas Frumkin.'), 'the Konomi credit');
+  assert.ok(html.includes('Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — “'), 'Gary W. Floyd, in full, with his paper');
 });

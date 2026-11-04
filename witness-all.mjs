@@ -4,9 +4,9 @@
 //   genome.mjs    — the genome: seal, verify before parse, one byte form (step 1)
 //   germinate.mjs — Γ: grow each organ on the device's own data, gate it, answer or abstain (step 1)
 //   system.mjs    — the seed grows the whole system: each live organ a node of the shared foundation, a keeper, a roster (organ 13)
+//   costcase.mjs  — the brochure’s cost case: every external figure from the sourced basis, every measured one from the receipts
 // The vendored ribosome (seed-library), the keys and the data loaders are gated in their own repositories.
-import { runMutations } from './.witness/witness.mjs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -51,15 +51,24 @@ export const PAIRS = [
   ['src/baseline.mjs', ['test/baseline.test.mjs']],
   ['src/system.mjs', ['test/system.test.mjs']],
   ['src/substrate.mjs', ['test/substrate.test.mjs']],
+  ['src/costcase.mjs', ['test/costcase.test.mjs']],
 ];
-// imported (by the tests) it only lends hiddenSpans and PAIRS; run directly, it is the gate
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) main();
+/** Which witness judges. CI hands over the pinned release: WITNESS = witness.mjs of sjgant80-hub/witness cloned at tag
+ *  v0.6 (gate.yml checks the commit). Without it, the copy organ 1's seal pinned (.witness/witness.mjs) judges — the two
+ *  find the same operator sites in every kernel here; v0.6 adds a supervised per-mutant bound and refuses an exemption
+ *  that carries no reason. */
+export const witnessPath = (env = process.env) => (env.WITNESS ? resolve(env.WITNESS) : join(HERE, '.witness', 'witness.mjs'));
 
-function main() {
+// imported (by the tests) it only lends hiddenSpans, PAIRS and witnessPath; run directly, it is the gate
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) await main();
+
+async function main() {
 const only = process.argv.slice(2);
 // a name that matches no kernel judges nothing — and nothing judged must never print CLEAN
 const unknown = only.filter((o) => !PAIRS.some(([src]) => src === o));
 if (unknown.length) { console.log(`WITNESS NOT RUN — no kernel named ${unknown.join(', ')} (name it as its path, e.g. src/oversight.mjs)`); process.exit(1); }
+const { runMutations } = await import(pathToFileURL(witnessPath()).href);
+console.log('judged by ' + (process.env.WITNESS ? 'the pinned witness, ' + witnessPath() : 'the sealed copy, .witness/witness.mjs'));
 let allClean = true; const rows = [];
 for (const [src, tests] of PAIRS) {
   if (only.length && !only.includes(src)) continue;

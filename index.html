@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-koACHIoNqs1ZOtdxim4Wobk/Nq4VjSaMhJlirioT3fk=' 'sha256-rxboI3fCbJc/kE0hWy/3cxGzaqgJrQdXPYB39FPQvNw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-koACHIoNqs1ZOtdxim4Wobk/Nq4VjSaMhJlirioT3fk=' 'sha256-pB1KSgYEFUti0eHBuG5CgjjmA1V3r/WN4LyJXNcpXFs='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Living Seed</title>
 <meta name="description" content="A 496-byte signed genome that grows a working, verified AI on whatever device it lands on, from that device's own data and offline. Each organ must prove itself on cases it never saw or it is cut and abstains; change one byte of the genome and nothing grows. Built organ by organ, each measured against rules sealed before it ran: all fifteen organs, 161 of 200 sealed rules held, every failed prediction kept (organ 1: 9 of 9)." />
@@ -717,27 +717,36 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
     <li>Only now is the genome parsed — strictly — and written back out. It must come back byte-identical, so every genome has exactly one form and one id.</li>
   </ol>
   <h3>The files</h3>
-  <div class="tw"><table>
-    <thead><tr><th>File</th><th>Role</th></tr></thead>
+  <p>Every kernel, what it does, the tests that hold it, and its gate. <span class="chip live">witness</span> means CI breaks that kernel line by line on every push, and the push goes red if its tests miss a single break.</p>
+  <div class="tw"><table id="files">
+    <thead><tr><th>File</th><th>Role</th><th>Its tests · its gate</th></tr></thead>
     <tbody>
-      <tr><td><code>src/genome.mjs</code></td><td>Organ 1 · the genome: format, seal, open (verify before parse).</td></tr>
-      <tr><td><code>src/germinate.mjs</code></td><td>Organ 1 · germination Γ: grows each organ on the device’s data, applies the gate, answers or abstains.</td></tr>
-      <tr><td><code>src/body.mjs</code></td><td>Organ 2 · the body: patterns that route and abstain far from their data, the exact-fact cube, the tamper-evident memory, the model slot that only proposes.</td></tr>
-      <tr><td><code>src/gate.mjs</code></td><td>Organ 3 · the gate: messages checked on raw bytes before a field is read; lessons grown here before they are trusted; children carry only proven organs.</td></tr>
-      <tr><td><code>src/evolve.mjs</code></td><td>Organ 4 · variation and selection, judged blind on held-out folds.</td></tr>
-      <tr><td><code>src/card.mjs · src/breed.mjs</code></td><td>Organ 5 · the genome in a picture, and breeding two genomes into a verified child.</td></tr>
-      <tr><td><code>src/recycle.mjs</code></td><td>Organ 6 · the pool: work done once, reused exactly.</td></tr>
-      <tr><td><code>src/psi.mjs</code></td><td>Organ 7 · the self-model: its own correctness, predicted and climbed to a fixed point.</td></tr>
-      <tr><td><code>src/mesh.mjs</code></td><td>Organ 8 · the mesh: advertise, route, learn, grow specialists, survive loss.</td></tr>
-      <tr><td><code>src/immune.mjs</code></td><td>Organ 9 · the immune system: bounded memory, the rebound, proofs a key is in two hands, the watch on behaviour.</td></tr>
-      <tr><td><code>src/align.mjs</code></td><td>Organ 10 · alignment: licensed acts, the chained ledger, the self-audit at three scales.</td></tr>
-      <tr><td><code>src/organism.mjs</code></td><td>Organ 11 · the full organism: boot from a card, a signed memory that wakes only by living itself again, gated improvement, reproduction.</td></tr>
-      <tr><td><code>vendor/seed-library/</code></td><td>The universal ribosome and the domains, vendored unchanged from <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a> @ <code>b7a93f8</code>.</td></tr>
-      <tr><td><code>vendor/keys/</code></td><td>Ed25519 through WebCrypto — the same code in Node and the browser — from <code>sovereign-enterprise</code> @ <code>21f838b</code>.</td></tr>
-      <tr><td><code>witness-all.mjs</code></td><td>The mutation gate: every kernel above, mutated line by line; CI fails if a single mutant survives its tests.</td></tr>
-      <tr><td><code>tools/seal-N · measure-N · judge-N · order.mjs</code></td><td>Per organ: the pre-registration, the deterministic measurement, the judge with its rules written as code, and the order proof from git that the seal came first.</td></tr>
-      <tr><td><code>data/organ-N/ · prereg · record · verdict</code></td><td>Each organ’s seal, measurement and verdict — failures included. CI re-runs every one on every push.</td></tr>
-      <tr><td><code>index.html</code></td><td>This page. It imports the kernels above, so what you run here is the code the gate proves.</td></tr>
+      <tr><td><code>src/genome.mjs</code></td><td>Organ 1 · the genome: format, seal, open (verify before parse).</td><td><code>test/genome.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/germinate.mjs</code></td><td>Organ 1 · germination Γ: grows each organ on the device’s data, applies the gate, answers or abstains.</td><td><code>test/germinate.test.mjs</code> · <code>test/recycle.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/body.mjs</code></td><td>Organ 2 · the body: patterns that route and abstain far from their data, the exact-fact cube, the tamper-evident memory, the model slot that only proposes.</td><td><code>test/body.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/baseline.mjs</code></td><td>Organ 2c · the classical models an analyst fits first: PageValues alone, logistic regression, depth-2 boosted trees.</td><td><code>test/baseline.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/gate.mjs</code></td><td>Organ 3 · the gate: messages checked on raw bytes before a field is read; lessons grown here before they are trusted; children carry only proven organs.</td><td><code>test/gate.test.mjs</code> · <code>test/mesh.test.mjs</code> · <code>test/immune.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/evolve.mjs</code></td><td>Organ 4 · variation and selection, judged blind on held-out folds.</td><td><code>test/evolve.test.mjs</code> · <code>test/recycle.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/card.mjs</code></td><td>Organ 5 · the genome in the pixels of a picture, read back only if its face matches its seed.</td><td><code>test/card.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/breed.mjs</code></td><td>Organ 5 · breeding two genomes into a verified child that keeps only organs live on the breeder’s device.</td><td><code>test/breed.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/recycle.mjs</code></td><td>Organ 6 · the pool: work done once, reused exactly.</td><td><code>test/recycle.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/psi.mjs</code></td><td>Organ 7 · the self-model: its own correctness, predicted and climbed to a fixed point.</td><td><code>test/psi.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/mesh.mjs</code></td><td>Organ 8 · the mesh: advertise, route, learn, grow specialists, survive loss.</td><td><code>test/mesh.test.mjs</code> · <code>test/immune.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/immune.mjs</code></td><td>Organ 9 · the immune system: bounded memory, the rebound, proofs a key is in two hands, the watch on behaviour.</td><td><code>test/immune.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/align.mjs</code></td><td>Organ 10 · alignment: licensed acts, the chained ledger, the self-audit at three scales.</td><td><code>test/align.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/organism.mjs</code></td><td>Organ 11 · the full organism: boot from a card, a signed memory that wakes only by living itself again, gated improvement, reproduction.</td><td><code>test/organism.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/system.mjs</code></td><td>Organ 13 · the whole system grown from the seed: a node per live organ, a keeper that re-runs every answer, keys from the owner’s phrase, a signed roster.</td><td><code>test/system.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/substrate.mjs</code></td><td>Organ 14 · four engines for one organ: double, integer, 32-bit float and a hand-written WebAssembly module.</td><td><code>test/substrate.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>src/costcase.mjs</code></td><td>The cost case in <a href="#business">For your business</a>: every price from the sourced basis, every measured figure from this page’s receipts, your own numbers.</td><td><code>test/costcase.test.mjs</code> · <span class="chip live">witness</span></td></tr>
+      <tr><td><code>vendor/seed-library/</code></td><td>The universal ribosome and the domains, vendored unchanged from <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a> @ <code>b7a93f8</code>.</td><td>gated in seed-library; organ 1’s seal pins its bytes</td></tr>
+      <tr><td><code>vendor/keys/</code></td><td>Ed25519 through WebCrypto — the same code in Node and the browser — from <a href="https://github.com/sjgant80-hub/sovereign-enterprise">sovereign-enterprise</a> @ <code>21f838b</code>.</td><td>gated in sovereign-enterprise; organ 1’s seal pins its bytes</td></tr>
+      <tr><td><code>vendor/fall-kit-core/</code></td><td>The estate’s shared foundation (nodes, identity, roster, relay), copied verbatim from <a href="https://github.com/sjgant80-hub/fall-kit">fall-kit</a> @ <code>9244d61</code>; organ 13 grows its system on it.</td><td>gated in fall-kit; organ 13’s seal pins every file it loads</td></tr>
+      <tr><td><code>vendor/sovereign-enterprise/data/basis.json</code></td><td>The sourced figures the cost case reads (the wage, inflation, electricity, hosted-model prices, the exchange rate), each with its source, byte for byte as <a href="https://github.com/sjgant80-hub/sovereign-enterprise">sovereign-enterprise</a> @ <code>003e447</code> holds them.</td><td><code>test/costcase.test.mjs</code> pins its hash</td></tr>
+      <tr><td><code>witness-all.mjs</code></td><td>The mutation gate: every kernel above, mutated line by line; CI judges it with <a href="https://github.com/sjgant80-hub/witness">witness</a> v0.6, cloned at its tag, and fails if a single mutant survives its tests.</td><td><code>test/gates.test.mjs</code> · <code>test/scripts.test.mjs</code></td></tr>
+      <tr><td><code>tools/seal-N · measure-N · judge-N · order.mjs</code></td><td>Per organ: the pre-registration, the deterministic measurement, the judge with its rules written as code, and the order proof from git that the seal came first.</td><td>CI re-runs every <code>measure --check</code> and <code>judge --check</code>, and the order proof</td></tr>
+      <tr><td><code>tools/night.mjs · night-nightly.ps1 · tally.mjs</code></td><td>Receipt (a): one sealed night at a time on this project’s own laptop (seal, push the seal, run, judge, push the receipt), and the page’s counts written from every verdict and every night.</td><td><code>test/scripts.test.mjs</code> · <code>test/page.test.mjs</code> · CI re-runs every night and <code>tally --check</code></td></tr>
+      <tr><td><code>data/organ-N/ · data/nights/N/ · prereg · record · verdict</code></td><td>Each organ’s and each night’s seal, measurement and verdict — failures included.</td><td>CI re-derives and re-judges every one on every push</td></tr>
+      <tr><td><code>index.html</code></td><td>This page. It imports the kernels above, so what you run here is the code the gate proves.</td><td><code>test/page.test.mjs</code> · <code>test/numbers.test.mjs</code> · <code>test/csp.test.mjs</code></td></tr>
     </tbody>
   </table></div>
   <h3>The whole organism — fifteen organs, built in order</h3>
@@ -769,26 +778,34 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
   <p class="lede">Write the AI once. Sign it. Send the same few hundred bytes to every shop, clinic, plant or field device. Each one grows its own AI from its own records, checks it against its own past, and answers only where it has earned it. None of its records go anywhere.</p>
   <h3>What it does for each role</h3>
   <div class="grid three">
-    <div class="panel role"><h4>Chief executive</h4><p>One signed recipe rolls out to every site, and each site’s AI is fitted to that site — not an average of all of them. You can show a regulator, an auditor or a customer exactly what it does: every rule is printed, and every answer comes with the rules that fired.</p></div>
-    <div class="panel role"><h4>Finance</h4><p>No licence fee: the code is MIT. This tier runs on machines you already own, with no model hosting and no per-call charges. What you ship to each site is a few hundred bytes. We don’t print a saving we can’t source. Put your own figures in the calculator below.</p></div>
-    <div class="panel role"><h4>Operations</h4><p>A site’s board shows every organ <span class="chip live">live</span>, <span class="chip cut">cut</span> or <span class="chip dormant">dormant</span>, and why. An organ that has not earned its place says “I don’t know” instead of mis-routing work. Rolling out means copying one small file.</p></div>
-    <div class="panel role"><h4>Technology &amp; security</h4><p>Each genome’s signature (Ed25519) is checked before any of it is read, and devices can keep a list of the only makers they accept. In the sealed run, 486 of 486 one-character changes were refused. No data egress: 0 network calls while growing, and this page’s own security policy forbids connecting anywhere but its own site. Deterministic, so any audit can re-run it to the same fingerprint.</p></div>
-    <div class="panel role"><h4>Data &amp; analytics</h4><p>Each organ is a sum of up to six single-measurement thresholds: readable, editable, testable. Every organ is graded on held-out cases against a bar written into the signed genome. The pre-registration tooling here — seal, measure, judge, order — is yours to reuse for your own models.</p></div>
+    <div class="panel role"><h4>Chief executive (CEO)</h4><p>One signed recipe rolls out to every site, and each site’s AI is fitted to that site — not an average of all of them. You can show a regulator, an auditor or a customer exactly what it does: every rule is printed, and every answer comes with the rules that fired.</p></div>
+    <div class="panel role"><h4>Finance (CFO)</h4><p>No licence fee: the code is MIT. This tier runs on machines you already own, with no model hosting and no per-call charges. What you ship to each site is a few hundred bytes. <a href="#cost">The cost case</a> below sets it against today and against a hosted model on every record, at your own numbers, from sourced prices.</p></div>
+    <div class="panel role"><h4>Operations (COO)</h4><p>A site’s board shows every organ <span class="chip live">live</span>, <span class="chip cut">cut</span> or <span class="chip dormant">dormant</span>, and why. An organ that has not earned its place says “I don’t know” instead of mis-routing work. Rolling out means copying one small file.</p></div>
+    <div class="panel role"><h4>Technology &amp; security (CTO, CISO)</h4><p>Each genome’s signature (Ed25519) is checked before any of it is read, and devices can keep a list of the only makers they accept. In the sealed run, 486 of 486 one-character changes were refused. No data egress: 0 network calls while growing, and this page’s own security policy forbids connecting anywhere but its own site. Deterministic, so any audit can re-run it to the same fingerprint.</p></div>
+    <div class="panel role"><h4>Data &amp; analytics teams</h4><p>Each organ is a sum of up to six single-measurement thresholds: readable, editable, testable. Every organ is graded on held-out cases against a bar written into the signed genome. The pre-registration tooling here — seal, measure, judge, order — is yours to reuse for your own models.</p></div>
     <div class="panel role"><h4>The people using it</h4><p>An answer tells you what it decided, the score, the line it was judged against and the rules behind it. When it hasn’t earned the right to answer, it says so, so you know when to use your own judgement.</p></div>
   </div>
 
-  <h3>Your numbers</h3>
-  <p class="dim">The defaults are placeholders, not a claim about your business. Replace them with your own.</p>
+  <h3 id="cost">The cost case, at your numbers</h3>
+  <p>One decision your people make over and over at every site — will this visitor buy, which referral goes first — costed three ways. <b>Today</b>, your people make every call. <b>A hosted model</b>: every record is sent to a model in the cloud, with the same prompt organ 2b sent the 14B. <b>The Living Seed</b>: each site grows its own organism from its own records and answers on the machine it already has. A hosted model is given the same share of the work as the organism, so the two differ only in the bill and in where the records go.</p>
+  <p class="dim">Every price, the wage and inflation come from a sourced basis, each one listed with its source under the table. What a hosted model is sent, how long the organ takes to answer and the genome’s size come from this page’s own receipts. The sites, records, hours and share are yours: the defaults are placeholders, not a claim about your business. The share matters most, and no receipt here can tell you yours: running it beside your current process (step 5 of <a href="#rollout">the roll-out</a>) is how you measure it. The sum is <code>src/costcase.mjs</code>, tested and mutation-gated like every kernel here.</p>
   <div class="panel">
     <div class="fields">
-      <label>Sites or devices<input id="c-sites" type="number" min="1" value="40" /></label>
-      <label>Size of the model you ship to each today (MB)<input id="c-mb" type="number" min="0" step="any" value="50" /></label>
-      <label>Updates a year<input id="c-upd" type="number" min="0" value="12" /></label>
-      <label>Records each site sends off-site a month, to get answers<input id="c-rec" type="number" min="0" value="10000" /></label>
+      <label>Sites or devices<input id="c-sites" type="number" min="1" step="1" value="40" /></label>
+      <label>Records each site answers a month<input id="c-rec" type="number" min="0" step="1" value="10000" /></label>
+      <label>Hours a week your people spend on this decision, all sites together<input id="c-hours" type="number" min="0" max="168" step="any" value="20" /></label>
+      <label>Share of that work the answers take off (%)<input id="c-share" type="number" min="0" max="100" step="any" value="50" /></label>
+      <label>Years to count<input id="c-years" type="number" min="1" max="10" step="1" value="3" /></label>
+      <label>Tokens a hosted model is sent per record (measured: organ 2b)<input id="c-tin" type="number" min="0" step="1" /></label>
+      <label>Tokens it sends back per record (measured: organ 2b)<input id="c-tout" type="number" min="0" step="1" /></label>
+      <label>Size of the model you ship to each site today (MB)<input id="c-mb" type="number" min="0" step="any" value="50" /></label>
+      <label>Updates a year<input id="c-upd" type="number" min="0" step="1" value="12" /></label>
       <label>Your cost per GB shipped to sites (£, optional)<input id="c-gbp" type="number" min="0" step="any" placeholder="your figure" /></label>
       <label>Your cost per 1,000 records sent off-site (£, optional)<input id="c-recp" type="number" min="0" step="any" placeholder="your figure" /></label>
     </div>
     <div id="c-out" role="status" aria-live="polite"></div>
+    <h4>Where each figure comes from</h4>
+    <ul id="c-src"><li class="dim">Loading the sourced basis and the receipts…</li></ul>
   </div>
 
   <h3>What it costs you to run</h3>
@@ -800,7 +817,7 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
       <tr><td>Cloud and model hosting</td><td>None. It makes no network call to grow or to answer.</td></tr>
       <tr><td>Your team’s time</td><td>A pilot is one question at one site: choose it, make a maker key, seal a genome, germinate on the site’s records, run it beside your current process. The effort is your team’s, and the steps are below.</td></tr>
       <tr><td>Support</td><td>Agreed per deployment with <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Product pages carry no prices; ask for terms for your deployment.</td></tr>
-      <tr><td>Payback</td><td>Count what you stop paying for: the hosted AI calls or model shipping this replaces, and the records you no longer send away (the calculator above, with your own costs). Set that against your team’s pilot time and the support you agree. We don’t print a figure for you, because only your costs make it true.</td></tr>
+      <tr><td>Payback</td><td>Count what you stop paying for: the staff time its answers take off, the hosted calls or model shipping it replaces, and the records you no longer send away. <a href="#cost">The cost case</a> above works out all of it at your numbers. Set that against your team’s pilot time and the support you agree for your deployment.</td></tr>
     </tbody>
   </table></div>
 
@@ -818,7 +835,7 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
       <tr><td>Can you replay exactly what it did?</td><td>No</td><td>Rarely</td><td>Yes — every act chained, replayed byte for byte (<a href="#align">organ 10</a>)</td></tr>
       <tr><td>Can your sites work together without sharing records?</td><td>Records go to the provider</td><td>One model for every site</td><td>Each site grows its own; they share signed answers, lessons and proofs, never records (<a href="#mesh">organ 8</a>)</td></tr>
       <tr><td>If a site’s key is stolen?</td><td>—</td><td>—</td><td>Used beside its owner, it is revoked everywhere the moment it signs twice; taken over outright, its peers cut it off by behaviour (<a href="#immune">organ 9</a>)</td></tr>
-      <tr><td>Licence</td><td>Per seat or per call</td><td>Varies</td><td>MIT — no licence fee</td></tr>
+      <tr><td>Licence</td><td>A subscription, or a charge on every call</td><td>Varies</td><td>MIT — no licence fee</td></tr>
     </tbody>
   </table></div>
 
@@ -844,11 +861,11 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
       <tr><td>Outside testing</td><td>Not yet. Inside, every attack family in organ 3’s red team was refused and the mutation gate caught every fault. An outside adversary is the last of the three receipts and is not claimed until it happens.</td></tr>
       <tr><td>What it does not protect</td><td>The records on the device. It never sends them anywhere, but it does not encrypt or guard them where they sit: that stays your device security’s job (disk encryption, access control). Anyone who can run code on the device can read what the device can read. It also cannot make a bad question safe: it says how well an organ did on the past, not whether the question should be asked.</td></tr>
       <tr><td>When it is attacked</td><td>A tampered genome, card, message, ledger or memory is refused before it is read, and the refusal says why. In the mesh, a flood of forgeries costs the sender more than the receiver, a key used in two places is revoked by proof, and a peer taken over is cut off by how it behaves (<a href="#immune">organ 9</a>). Nothing is reported off the device, so alerts are yours to wire to your monitoring. Your incident process stays yours. A suspected flaw in the code itself is reported on the repository, and support for your deployment is agreed with AI Native Solutions.</td></tr>
-      <tr><td>Certifications and supply chain</td><td>The software holds no certification, and this page claims none; ask about supplier assurance for your deployment. It installs no third-party packages. Two modules from the same author are vendored as source in the repository (<code>vendor/</code>). The only cryptography is the platform’s own WebCrypto, so your software bill of materials is the repository itself.</td></tr>
+      <tr><td>Certifications and supply chain</td><td>The software holds no certification, and this page claims none; ask about supplier assurance for your deployment. It installs no third-party packages. Three sets of modules from the same author — seed-library’s ribosome, sovereign-enterprise’s Ed25519 keys and fall-kit’s shared core — are vendored as source in the repository (<code>vendor/</code>), each pinned by hash. The only cryptography is the platform’s own WebCrypto, so your software bill of materials is the repository itself.</td></tr>
     </tbody>
   </table></div>
 
-  <h3>Deployment and roll-out</h3>
+  <h3 id="rollout">Deployment and roll-out</h3>
   <ol class="steps">
     <li><b>Pick one question at one site</b> where you hold labelled history (a sale, a fault, a referral).</li>
     <li><b>Make your maker key</b>, the digital seal whoever writes a genome signs it with, and keep it offline. Never use this page’s demo key, which is derived from a public phrase so anyone can reproduce the seal.</li>
@@ -860,7 +877,19 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
   <p class="small"><b>Growing the whole system is the same step.</b> From the same genome, the site’s records and a phrase only the site’s owner knows, the site grows a node for each live organ with its own keys, a keeper that re-checks every answer before it is used or credited, and a roster the owner signs (<a href="#system">organ 13</a>). Nothing else is installed and nothing is fetched. Keep the phrase as you keep the maker key: every key of that site’s system is worked out from it.</p>
 
   <h3>Support and ownership</h3>
-  <p>Supplied by <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Support is agreed per deployment. You own everything that matters: the code is MIT, and the data, the keys and the genomes are yours and stay on your machines.</p>
+  <p>Supplied by <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. To start, or to ask about a deployment, contact them through their site. The support, the service levels, the warranty and the liability are agreed per deployment, in that deployment’s own agreement. You own everything that matters: the code is MIT, and the data, the keys and the genomes are yours and stay on your machines.</p>
+  <div class="tw"><table>
+    <thead><tr><th>What procurement asks</th><th>Straight answer</th></tr></thead>
+    <tbody>
+      <tr><td>Who supplies it?</td><td><a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>, contacted through its site. The terms of each deployment are in that deployment’s agreement.</td></tr>
+      <tr><td>What is the licence?</td><td>MIT, for all of it. Use, copy, change and run it, commercially too, keeping the copyright notice. No licence fee, no seat count, no usage meter, no licence server.</td></tr>
+      <tr><td>Who processes our data?</td><td>Nobody but you. The records stay on your machines to grow the organism and to answer, so for this tier there is no processor, no sub-processor and no international transfer to put in a contract.</td></tr>
+      <tr><td>What third-party code is inside?</td><td>None from outside this estate. Three sets of modules from the same author are vendored as source, each pinned by hash and credited in <a href="https://github.com/sjgant80-hub/living-seed/blob/main/NOTICE">NOTICE</a>, and one data file holds the cost case’s sourced figures; the cryptography is the platform’s own WebCrypto. The bill of materials is the repository itself.</td></tr>
+      <tr><td>Source-code escrow?</td><td>Not needed. The whole source, every test, every seal and every receipt is public in <a href="https://github.com/sjgant80-hub/living-seed">the repository</a>, and any copy you take is yours under MIT.</td></tr>
+      <tr><td>If we stop working with the supplier?</td><td>It keeps running without us. Nothing calls home, there is no account to close and no service to switch off: the code, every genome you sealed and every organism it grew stay on your machines and keep answering. Anyone who can run Node, or open this page from your own copy, can carry it on.</td></tr>
+      <tr><td>Evidence that it works?</td><td>The receipts on this page, each sealed before it ran and re-run by CI on every push, are from this project’s own runs on one real dataset and three synthetic ones. No customer deployment is on record here yet; a one-site pilot on your own records is how you get yours.</td></tr>
+    </tbody>
+  </table></div>
 
   <h3>Risks, answered straight</h3>
   <details><summary>Is it accurate enough?</summary><p>On the one real dataset — 12,330 online shop sessions — it ranks buyers above non-buyers with AUC 0.815 and is right 79.9% of the time on November–December sessions it never grew on. The three other domains here (field triage, drinking water, crop planting) are synthetic test domains, not real patients, samples or fields: 0.952, 0.748 and 0.754. So for clinics, water or farms there is no real-world receipt yet, and a pilot on your own records would be the first. Against the models an analyst would fit first on the same table, it ties all three on the holiday months: boosted trees with 2,001 numbers scored 0.824, logistic regression 0.801 and PageValues alone 0.807, and none is better than the organ beyond the noise (<a href="#classical">organ 2c</a>). Each organ is a small sum of rules, not a deep model; for some problems that is the ceiling.</p></details>
@@ -984,7 +1013,7 @@ node tools/night.mjs run 1 --check && node tools/night.mjs judge 1 --check</pre>
 </main>
 
 <footer>
-  <p><b>Credits.</b> Powered by the Konomi architecture, created by Thomas Frumkin. The seed format and the ribosome are <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a>’s, vendored unchanged. The Ed25519 keys module is from sovereign-enterprise. Every kernel is gated by <a href="https://github.com/sjgant80-hub/witness">witness</a>. Real data: Online Shoppers Purchasing Intention Dataset — C. Sakar and Y. Kastro, UCI Machine Learning Repository (2018), <a href="https://doi.org/10.24432/C5F88Q">DOI 10.24432/C5F88Q</a>, CC BY 4.0.</p>
+  <p><b>Credits.</b> Powered by the Konomi architecture, created by Thomas Frumkin. The seed format and the ribosome are <a href="https://github.com/sjgant80-hub/seed-library">seed-library</a>’s, vendored unchanged. The Ed25519 keys module and the cost case’s sourced figures are from sovereign-enterprise, and organ 13 grows on fall-kit’s shared core. Organ 9’s watch on behaviour, organ 15’s lesson that a steady rule holds a wrong point as firmly as a right one, and the nightly wake review draw on the work of Gary W. Floyd, Lumiea Systems Research Division — ThunderStruck Service LLC — “GEP-Based Security: Behavioral Entropy Signatures for Cybersecurity and DevOps,” 2025, and two more of his papers, cited in full in <a href="#paper">the white paper’s references</a>. Every kernel is gated by <a href="https://github.com/sjgant80-hub/witness">witness</a>. Real data: Online Shoppers Purchasing Intention Dataset — C. Sakar and Y. Kastro, UCI Machine Learning Repository (2018), <a href="https://doi.org/10.24432/C5F88Q">DOI 10.24432/C5F88Q</a>, CC BY 4.0.</p>
   <p>Supplied by <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a> · MIT licence — no licence fee · <a href="https://github.com/sjgant80-hub/living-seed">source</a> · <a href="llms.txt">llms.txt</a></p>
 </footer>
 </div>
@@ -1005,6 +1034,7 @@ import * as AL from './src/align.mjs';
 import * as OR from './src/organism.mjs';
 import { grow as growSystem, fingerprint } from './src/system.mjs';
 import { SUBSTRATES as SUBS14, prepare as prepareSub } from './src/substrate.mjs';
+import * as CC from './src/costcase.mjs';
 import { PHRASE as PHRASE13, POLICY as POLICY13, clock as clock13, tabCases } from './tools/organ-13.mjs';
 import { travelCases, travel } from './tools/organ-13b.mjs';
 import { operatingPoint } from './src/germinate.mjs';
@@ -1216,17 +1246,43 @@ function renderTrace() {
 }
 
 function renderCalc() {
-  const v = (id) => Math.max(0, Number($(id).value) || 0);
-  const sites = v('c-sites'), mb = v('c-mb'), upd = v('c-upd'), rec = v('c-rec'), gb = S.rec ? S.rec.genome.bytes : 496;
-  const now = sites * mb * upd, seed = sites * gb * upd;
-  const kb = seed / 1024, records = sites * rec * 12;
-  const gbp = $('c-gbp').value === '' ? null : v('c-gbp'), recp = $('c-recp').value === '' ? null : v('c-recp');
-  const money = (x) => '£' + n(Math.round(x));
-  const shipSaved = gbp === null ? null : (now / 1024 - seed / 1024 ** 3) * gbp, recSaved = recp === null ? null : (records / 1000) * recp;
-  $('c-out').innerHTML = '<div class="tw"><table><thead><tr><th></th><th>Today</th><th>With a genome</th><th>A year, at your costs</th></tr></thead><tbody>' +
-    '<tr><td>Shipped to sites a year</td><td class="num">' + n(Math.round(now)) + ' MB</td><td class="num">' + (kb < 1024 ? n(Math.round(kb * 10) / 10) + ' KB' : n(Math.round(kb / 1024 * 10) / 10) + ' MB') + '</td><td class="num">' + (shipSaved === null ? '<span class="dim">enter your cost per GB</span>' : money(shipSaved) + ' not spent') + '</td></tr>' +
-    '<tr><td>Records leaving sites a year</td><td class="num">' + n(Math.round(records)) + '</td><td class="num">0</td><td class="num">' + (recSaved === null ? '<span class="dim">enter your cost per 1,000</span>' : money(recSaved) + ' not spent') + '</td></tr>' +
-    '</tbody></table></div><p class="dim">Computed from your inputs only: ' + n(sites) + ' sites × the genome’s ' + n(gb) + ' bytes × ' + n(upd) + ' updates. Any money figure is your own costs multiplied out; it does not include your team’s time or the support you agree.</p>';
+  if (!S.cost) { $('c-out').innerHTML = '<p class="dim">' + (S.costWhy ? 'The cost case could not load (' + esc(S.costWhy) + '). Reload to try again.' : 'Loading the sourced basis and the receipts…') + '</p>'; return; }
+  const { basis, m } = S.cost, num = (id, dflt) => ($(id).value === '' ? dflt : Number($(id).value));
+  const opt = (id) => ($(id).value === '' ? null : Number($(id).value));
+  const input = { sites: num('c-sites', NaN), recordsPerMonth: num('c-rec', NaN), hoursPerWeek: num('c-hours', NaN), share: num('c-share', NaN) / 100, years: num('c-years', NaN),
+    tokensIn: num('c-tin', m.tokensIn), tokensOut: num('c-tout', m.tokensOut), modelMB: num('c-mb', NaN), updatesPerYear: num('c-upd', NaN), gbpPerGb: opt('c-gbp'), gbpPer1000: opt('c-recp') };
+  const r = CC.seedCase(basis, m, input);
+  // the kernel takes the share as a fraction; the field is a percentage, so its refusal is said in the field's own unit
+  if (!r.ok) { $('c-out').innerHTML = '<p class="status bad">Check the numbers: ' + esc(r.why.replace('taken off: 0 to 1', 'taken off: 0 to 100%')) + '.</p>'; return; }
+  const gbp = (x) => (x > 0 && x < 0.005 ? 'under £0.01' : '£' + (Math.abs(x) >= 100 ? n(Math.round(x)) : x.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })));
+  const vs = (x) => (x >= 0 ? gbp(x) + ' less' : gbp(-x) + ' more');
+  const L = r.lines, i = r.inputs, yrs = i.years + (i.years === 1 ? ' year' : ' years'), usd = (x) => '$' + x;
+  const row = (what, k, holds) => '<tr><td>' + what + '</td><td class="num">' + gbp(r.perYear[k]) + '</td><td class="num">' + gbp(r.over[k]) + '</td><td>' + holds + '</td></tr>';
+  const left = 'the staff time left, ' + gbp(L.staff - L.takenOff);
+  const sent = L.sentOff ? ', and your cost of sending them away, ' + gbp(L.sentOff) : '';
+  const bill = (b, cost) => left + ', and ' + n(r.records) + ' records × (' + n(i.tokensIn) + ' tokens in at ' + usd(b.inPerM) + ' + ' + n(i.tokensOut) + ' out at ' + usd(b.outPerM) + ' a million, at £' + basis.fxGbpPerUsd.value + ' a dollar) = ' + gbp(cost) + sent;
+  $('c-out').innerHTML = '<p class="answer"><b>With the Living Seed this decision costs you ' + gbp(r.perYear.seed) + ' a year</b> (the staff time it leaves, and the electricity of its answers), against ' + gbp(r.perYear.hostedFrontier) + ' with a hosted frontier model on every record — ' + vs(r.versus.hostedFrontier) + ' a year, ' + vs(r.versusOver.hostedFrontier) + ' over ' + yrs + '. Against the cheaper hosted model in the basis, ' + vs(r.versus.hostedOpen) + ' a year; against today, ' + vs(r.versus.today) + ' a year. All ' + n(r.records) + ' records a year are answered where they are, and none leaves its site.</p>'
+    + '<div class="tw"><table><thead><tr><th>Route</th><th>A year</th><th>Over ' + yrs + ', inflation each year</th><th>What the year holds</th></tr></thead><tbody>'
+    + row('Today: your people make every call', 'today', n(i.hoursPerWeek) + ' hours a week × 52 × ' + gbp(basis.wageMedianHourly.value) + ' an hour, the UK median wage, with on-costs left out')
+    + row('A hosted frontier model on every record (' + esc(basis.frontier.product) + ')', 'hostedFrontier', bill(basis.frontier, L.frontier))
+    + row('A hosted open model on every record (' + esc(basis.bedrockGptOss120b.product) + ')', 'hostedOpen', bill(basis.bedrockGptOss120b, L.open))
+    + row('The Living Seed, on each site’s own machine', 'seed', left + ', and the answers’ electricity: ' + n(r.records) + ' answers × ' + m.answerUs + ' µs each (organ 2, measured) × ' + basis.laptopExtraWatts.value + ' W = ' + r.kwh.toPrecision(2) + ' kWh at ' + basis.electricityPencePerKwh.value + 'p, ' + gbp(L.power))
+    + '</tbody></table></div>'
+    + '<div class="tw"><table><thead><tr><th>What travels, a year</th><th>Today</th><th>With a genome</th><th>At your cost</th></tr></thead><tbody>'
+    + '<tr><td>Shipped to sites</td><td class="num">' + n(Math.round(r.travel.shippedMB)) + ' MB</td><td class="num">' + (r.travel.seedBytes < 1024 ** 2 ? n(Math.round(r.travel.seedBytes / 1024 * 10) / 10) + ' KB' : n(Math.round(r.travel.seedBytes / 1024 ** 2 * 10) / 10) + ' MB') + '</td><td class="num">' + (r.travel.shipping === null ? '<span class="dim">enter your cost per GB</span>' : gbp(r.travel.shipping) + ' not spent') + '</td></tr>'
+    + '<tr><td>Records leaving sites</td><td class="num">' + n(r.travel.recordsLeaving) + ' with a hosted model</td><td class="num">0</td><td class="num">' + (L.sentOff ? gbp(L.sentOff) + ' not spent' : '<span class="dim">enter your cost per 1,000</span>') + '</td></tr>'
+    + '</tbody></table></div>'
+    + '<p class="dim">The same machines on both sides, so hardware cancels out. Not counted, on any side: your team’s pilot time and the support you agree for your deployment. Inflation is ' + (basis.cpi.value * 100).toFixed(1) + '% a year (ONS CPI) on every later year. How well a hosted model would answer your records is not measured here: organ 2 and 2b measured the organ against local language models of up to 14 billion parameters.</p>';
+}
+
+function renderCostSources() {
+  if (!S.cost) { if (S.costWhy) $('c-src').innerHTML = '<li class="bad-t">The basis or the receipts could not load: ' + esc(S.costWhy) + '.</li>'; return; }
+  const { basis, m } = S.cost, host = (u) => { try { return new URL(u).hostname; } catch { return u; } };
+  $('c-src').innerHTML = CC.sourcesOf(basis).map((x) => '<li><b>' + esc(x.what) + '</b> — <a href="' + esc(x.source) + '">' + esc(host(x.source)) + '</a>' + (basis[x.key].via ? ' <span class="dim">(' + esc(basis[x.key].via) + ')</span>' : '') + '</li>').join('')
+    + '<li><b>Tokens per record</b>: the median prompt of organ 2b’s ' + n(m.calls) + ' committed calls to the 14B shown 24 examples, ' + n(m.tokensIn) + ' tokens as its own tokenizer counted them, and its longest reply, ' + n(m.tokensOut) + ' characters, which bounds the tokens back (<a href="data/organ-2b/llm-answers.json">the calls</a>). Another model’s tokenizer counts a little differently.</li>'
+    + '<li><b>Time per answer</b>: ' + m.answerUs + ' µs, organ 2’s timing over ' + n(S.rec2.contest.organ.timing.answers) + ' answers on ' + esc(m.box) + ' — the chip whose power the basis lists (<a href="data/organ-2/record.json">the record</a>).</li>'
+    + '<li><b>The genome</b>: ' + n(m.genomeBytes) + ' bytes (<a href="data/record.json">organ 1’s record</a>).</li>'
+    + '<li>The basis is <a href="vendor/sovereign-enterprise/data/basis.json">vendor/sovereign-enterprise/data/basis.json</a>, byte for byte as <a href="https://github.com/sjgant80-hub/sovereign-enterprise">sovereign-enterprise</a> holds it: ' + esc(basis.currency) + '.</li>';
 }
 
 // ── organ 2: the body ─────────────────────────────────────────────────────────────────────────────────────
@@ -2076,7 +2132,10 @@ async function bootBody() {
 }
 
 async function boot() {
-  for (const id of ['c-sites', 'c-mb', 'c-upd', 'c-rec', 'c-gbp', 'c-recp']) $(id).addEventListener('input', renderCalc);
+  for (const id of ['c-sites', 'c-rec', 'c-hours', 'c-share', 'c-years', 'c-tin', 'c-tout', 'c-mb', 'c-upd', 'c-gbp', 'c-recp']) $(id).addEventListener('input', renderCalc);
+  // the cost case's sourced basis and organ 2b's committed calls, fetched before anything is grown
+  const costP = Promise.all([get('vendor/sovereign-enterprise/data/basis.json'), get('data/organ-2b/llm-answers.json')]);
+  costP.catch(() => {});
   for (const id of ['b-real', 'b-far', 'b-half']) $(id).disabled = true;
   // organ 2's record, if it is committed yet — fetched (and settled) before anything is grown, so the network trap
   // around germination never meets one of the page's own loads
@@ -2129,6 +2188,12 @@ async function boot() {
   S.origin = g.text; S.originId = g.id;
   $('genome').value = g.text;
   await organ2; await organ3; await organ4; await organ8; await organ9; await organ10; await organ11; await organ13; await organ14; await organ15; await nightsP;
+  try {
+    const [basis, answers2b] = await costP, m = CC.measured(answers2b, S.rec2, S.rec);
+    if (m.ok) S.cost = { basis, m }; else S.costWhy = m.why;
+    if (S.cost) { $('c-tin').value = m.tokensIn; $('c-tout').value = m.tokensOut; }
+  } catch (e) { S.costWhy = e.message; }
+  renderCalc(); renderCostSources();
   renderContest(); render2c(); renderGateRecord(); renderEvolve(); renderCards(); render67(); render8(); render9(); render10(); render11(); render12(); render13(); render14(); render15();
   const st = await states;
   for (const [k, ver] of [[2, S.ver2], [3, S.ver3]]) {   // the state chip says what the verdict says: never "proven" over a failure
